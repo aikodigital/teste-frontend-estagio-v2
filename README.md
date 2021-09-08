@@ -1,18 +1,9 @@
-# testefrontend
+![Screenshot_Aiko](https://user-images.githubusercontent.com/88014534/132572426-149a1211-6c0c-47d0-96bc-f093326c5bd2.jpg)
 
-> Teste de front end para a Aiko
 
-## Build Setup
+O serviço atende aos requisitos mínimos solicitados, apresentando os maquinários em suas última posição reportada e ao passar o mouse por cima do marcador um popup surge com informações básicas sobre ele e ao clicar neste você verá os 5 últimos estados do maquinário e sua respectiva data. Foi adotado para cada tipo de maquinário um marcador difente para fácil visualização.
 
-``` bash
-# install dependencies
-npm install
+Na imagem abaixo é possível ver as duas formas de apresentação dos resultados, sendo a inferior através do mouse hover e a superior através do clique para ver mais informações.
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![Screenshot2_Aiko](https://user-images.githubusercontent.com/88014534/132573362-fb3ca2a9-4112-46b5-86e9-76199266c80e.jpg)
