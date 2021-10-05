@@ -1,0 +1,65 @@
+select {
+    width: 190px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    background-image:url("../img/aikoTruck.jpg");
+}
+
+#equipLabel{
+  color:#ddd;
+}
+
+#title{
+  font-size:48px;
+  text-align: center;
+  color: whitesmoke;
+  opacity: 1;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#back{
+    margin-left: 85%;
+    color: #ccc;
+    width:100px;
+    height: 50px;
+}
+
+.trackIT{
+  background-color:#212529;
+  width:50%;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(15, 15, 15, 0.3) 10px 10px, rgba(15, 15, 15, 0.2) 15px 15px, rgba(15, 15, 15, 0.1) 20px 20px, rgba(15, 15, 15, 0.05) 25px 25px;
+  opacity: 0.9;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+table {
+    /* border-collapse: collapse; */
+    border: 1px solid black;
+    width: 100%;
+    background-color: #ddd;
+    font-family: 'Open Sans', sans-serif;
+}
+
+th, td {
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
