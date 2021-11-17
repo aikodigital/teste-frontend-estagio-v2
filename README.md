@@ -1,4 +1,4 @@
-# Teste Frontend estágio V2
+# Teste Frontend estágio V2 - Stanley Sampaio
 
 ![Aiko](img/aiko.png)
 
