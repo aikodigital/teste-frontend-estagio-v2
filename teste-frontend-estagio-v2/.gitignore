@@ -4,8 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.env
-
+REACT_APP_ACCESS_TOKEN_MAP_BOX.env
 # testing
 /coverage
 
