@@ -20,7 +20,7 @@ function MapComponent() {
         <span> Equipamento : {equipmentName(marker.equipmentId)} <br></br></span>
         <span> Modelo do equipamento : {equipmentModelId(marker.equipmentId)}  <br></br></span>
         <span> Id do equipamento : {marker.equipmentId} <br></br></span>
-        <span> Estado do equipamento : <br></br></span>
+        <span> Estado do equipamento : {equipmentState(marker.equipmentId)} <br></br></span>
         <span> Histórico de Estados do equipamento : <br></br></span>
       </Popup>
     </Marker>
@@ -66,5 +66,26 @@ function equipmentModelId(id: string) {
   }
   return modelo;
 }
+
+
+
+function equipmentState(id: string) {
+  var index = stateHistoryData.find((x) => x.equipmentId === id); 
+  var state = index?.states[index?.states.length-1].equipmentStateId; 
+  var atual;
+  if (state == "0808344c-454b-4c36-89e8-d7687e692d57"){
+    atual = "operando";
+  }else if (state == "baff9783-84e8-4e01-874b-6fd743b875ad"){
+    atual = "parado";
+  }else if (state == "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f"){
+    atual = "Manutenção";
+  }else {
+    atual = "desconhecido";
+  }
+   
+  
+  return atual;
+}
+
 
 export default MapComponent;
