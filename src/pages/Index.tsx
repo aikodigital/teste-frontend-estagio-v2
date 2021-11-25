@@ -5,10 +5,11 @@ function Index() {
   return (
 
     <div className="Index">
+      
+      <NavBarComponent />
+      
+      <MapComponent />
 
-       
-        <MapComponent />
-        
     </div>
   );
 }

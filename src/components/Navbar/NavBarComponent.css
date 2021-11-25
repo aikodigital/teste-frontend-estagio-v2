@@ -1,0 +1,19 @@
+.header {
+    background: transparent;
+    color: black;
+    width:auto;
+    height: 15px;
+    text-align: center;
+    font: bold 10px arial, sans-serif;
+    text-align: center;
+    box-sizing: content-box;
+    
+}
+
+.logo {
+    width: 30px;
+    height: 10px;
+    padding:5px 5px;
+    float: left;
+    
+}
