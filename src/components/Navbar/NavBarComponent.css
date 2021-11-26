@@ -1,13 +1,13 @@
 .header {
     background: transparent;
-    color: black;
+    color: rgb(36, 127, 211);
     width:auto;
     height: 15px;
     text-align: center;
-    font: bold 10px arial, sans-serif;
+    font:bold 12px arial;
     text-align: center;
     box-sizing: content-box;
-    
+   
 }
 
 .logo {

@@ -1,12 +1,12 @@
-import { LatLngExpression } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import './MapComponent.css';
 import locData from '../../data/equipmentPositionHistory.json';
 import eqData from '../../data/equipment.json';
 import stateHistoryData from '../../data/equipmentStateHistory.json';
 import stateData from '../../data/equipmentState.json';
+import modelData from '../../data/equipmentModel.json'
 
-import { render } from '@testing-library/react';
+
 
 function MapComponent() {
 
@@ -14,25 +14,23 @@ function MapComponent() {
 
     marker.positions = marker.positions.sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()))
 
-
     return (
       <Marker position={[marker.positions[0].lat, marker.positions[0].lon]} key={`marker_${marker.equipmentId}`}>
-
         <Popup className="pop">
-          <span> <b>Equipamento :</b> {equipmentName(marker.equipmentId)} <br></br></span>
-          <span> <b>Modelo do equipamento :</b> {equipmentModelId(marker.equipmentId)}  <br></br></span>
-          <span> <b>Id do equipamento :</b> {marker.equipmentId} <br></br></span>
-          <span> <b>Estado do equipamento :</b> {equipmentState(marker.equipmentId)} <br></br></span>
-          <span> <b>Histórico de Estados do equipamento</b>                       </span>
+          <span> <b>Equipamento :</b> {equipmentName(marker.equipmentId)}<hr></hr></span>
+          <span> <b>Modelo do equipamento :</b> {equipmentModelId(marker.equipmentId)}<hr></hr></span>
+          <span> <b>ID do equipamento :</b> {marker.equipmentId}<hr></hr></span>
+          <span> <b>Estado atual do equipamento :</b> {equipmentState(marker.equipmentId)}<hr></hr> <br></br></span>
+          <span> <b>Histórico de Estados do equipamento</b>                      </span>
           <button id="button" className="btn" onClick={() => showHistory(marker.equipmentId)}> Ver mais </button>
           <ul id={marker.equipmentId} className="hide">
             {getStateHistory(marker.equipmentId).map((item) => (
               <li key={`li_${item.equipmentStateId}_${item.date}`}>
-                {getStateName(item.equipmentStateId)} | {new Date(item.date).toDateString()}
+                {getStateName(item.equipmentStateId)} | {new Date(item.date).toDateString()}          
               </li>
             ))}
           </ul>
-
+          <hr></hr> 
         </Popup>
       </Marker>
     )
@@ -41,7 +39,7 @@ function MapComponent() {
   return (
 
 
-    <MapContainer center={[-19.264235, -45.947756]} zoom={10} scrollWheelZoom={true}>
+    <MapContainer center={[-19.264235, -45.947756]} zoom={8} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -61,17 +59,8 @@ function equipmentName(id: string) {
 }
 
 function equipmentModelId(id: string) {
-  var model;
   var index = eqData.filter(x => x.id === id)[0].equipmentModelId;
-  if (index === "a4b0c114-acd8-4151-9449-7d12ab9bf40f") {
-    model = 'Harvester';
-  } else if (index === "9c3d009e-0d42-4a6e-9036-193e9bca3199") {
-    model = 'Garra Traçadora';
-  } else if (index === "a3540227-2f0e-4362-9517-92f41dabbfdf") {
-    model = 'Caminhão de Carga';
-  } else {
-    model = 'desconhecido';
-  }
+  var model = modelData.filter(x => x.id === index)[0].name;
   return model;
 }
 
@@ -92,6 +81,7 @@ function getStateName(id: string) {
   return stateData.filter((state) => state.id === id)[0].name;
 }
 
+
 function showHistory(id: string) {
   let el = document.getElementById(id);
   if (el?.classList.contains("hide")) {
@@ -101,8 +91,10 @@ function showHistory(id: string) {
   }
   el?.classList.remove('show');
   el?.classList.add('hide');
+
   return undefined;
 }
+
 
 
 export default MapComponent;
