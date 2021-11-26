@@ -1,0 +1,58 @@
+.leaflet-container {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    
+}
+
+.pop {
+  color:#fff;
+  font-size:10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.2); 
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.hide {
+  display:none;
+  align-items: flex;
+  
+  
+}
+
+
+.show {
+  list-style-position: right;
+  display: inline-block;
+  vertical-align: top;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  white-space: nowrap;
+  width: 150px;
+  height: 100px;
+  font-size: 8px;
+  
+   
+}
+
+.btn {
+  background: #0066A2;
+  color: white;
+  border-style: outset;
+  border-color: #0066A2;
+  height: 25px;
+  width: 50px;
+  font: bold 8px arial, sans-serif;
+  text-shadow:none;
+  margin-left: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+
