@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.container{
+    padding: 20px;
+color: #fff;
+margin: 5px;
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+text-align: center;
+
+}
+
+img{
+    padding: 10px;
+    width: 100px;
+background: #fff;
+}
+
+.container input{
+padding: 10px;
+margin-top: 15px;
+border-radius: 6px;
+background: #fff;
+
+}
+.container button{
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
+}
+.container button:hover{
+    background: #fff;
+    color: #000;
+}
+main{
+    padding: 40px;
+    font-size: 15px;
+    color: #fff;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+main #map {
+     height: 400px; 
+     border: 10px solid #000;
+ }
+main h1{
+    margin-bottom: 15px;
+    text-align: center;
+}
+span{
+    color: #fff;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+ #map .leaflet-popup-content-wrapper{
+  
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+}
+#map .leaflet-popup-tip{
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+ .leaflet-container .leaflet-marker-pane img{
+   margin: 0;
+    background: none;
+}
+
+h3{
+    color: #fff;
+    font-size: 20px;
+}
+p{
+color:#fff;
+font-size: 15px;  
+font-weight: bold; 
+}
+
+footer{
+    padding: 20px;
+    text-align: center;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(0,0,0,1) 100%);
+    color: #fff;
+    font-weight: bold;
+}
