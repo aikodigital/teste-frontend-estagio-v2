@@ -1,4 +1,8 @@
 
+import React from 'react';
+
+import { useState, useEffect } from 'react';
+
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 import './App.css';
@@ -29,6 +33,22 @@ for (let i = 0; i < equipmentPositionHistory.length; i++) {
 
 }
 
+const [data, setData] = useState('')
+
+function handleFiltraEstados(e){
+
+  e.preventDefault()
+
+  setData(e.target.value)
+
+  const dataFiltrado = equipmentStateHistory.map(v => v.states)
+
+  const statesFiltrados = dataFiltrado.map(v => v.map(v => v.date.includes(data))) // FIXME FILTROS FALHANDO
+
+  console.log(statesFiltrados)
+
+}
+
   return (
 
     <MapContainer center={[-19.151801, -46.007759]} zoom={11} scrollWheelZoom={true}>
@@ -38,7 +58,12 @@ for (let i = 0; i < equipmentPositionHistory.length; i++) {
       />
       {dataEqpPositionHist.map(v => (
         <Marker key={v.lat} position={[v.lat, v.lon]}>
-          <Popup>Teste</Popup>
+          <Popup>
+            <button value={v.date} onClick={handleFiltraEstados}>Listar Estados:</button>
+            {data && (
+              <p>Opa</p>
+            )}
+          </Popup>
         </Marker>
       ))}
     </MapContainer>
