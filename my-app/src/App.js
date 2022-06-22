@@ -19,35 +19,46 @@ import equipmentState from './data/equipmentState.json'
 
 function App() {
 
-// Pega a última locaçização do eqipamento
+  // Pega a última locaçização do eqipamento
 
-const dataEqpPositionHist = []
+  const dataEqpPositionHist = equipmentPositionHistory.map(v => v.positions[v.positions.length - 1])
 
-const dataEqpPopup = []
+  const dataEqpIds = equipmentPositionHistory.map(e => e.equipmentId)
 
-for (let i = 0; i < equipmentPositionHistory.length; i++) {
+  const [date, setDate] = useState('')
 
-  let tamanho = equipmentPositionHistory[i].positions.length - 1
+  const [estadoEqp, setEstadoEqp] = useState([])
 
-  dataEqpPositionHist.push(equipmentPositionHistory[i].positions[tamanho])
+  const [show, setShow] = useState(false)
+
+  const [color, setColor] = useState('')
+
+  function handleShowHist(e) {
+
+      setDate(e.target.value)
+    
+      const idEquipmentSelected = date.split('_')[1]
+  
+      const estadoDoEquipamento = equipmentStateHistory.filter(e => e.equipmentId === idEquipmentSelected).map(v => v.states[v.states.length - 1])
+  
+      setEstadoEqp(equipmentState.filter(v => v.id == estadoDoEquipamento[0].equipmentStateId))
+
+      setShow(!show)
+  }
+
+  function handleShowHist2(e) {
+
+    setDate(e.target.value)
+  
+    const idEquipmentSelected = date.split('_')[1]
+
+    const estadoDoEquipamento = equipmentStateHistory.filter(e => e.equipmentId === idEquipmentSelected).map(v => v.states[v.states.length - 1])
+
+    setEstadoEqp(equipmentState.filter(v => v.id == estadoDoEquipamento[0].equipmentStateId))
 
 }
 
-const [data, setData] = useState('')
-
-function handleFiltraEstados(e){
-
-  e.preventDefault()
-
-  setData(e.target.value)
-
-  const dataFiltrado = equipmentStateHistory.map(v => v.states)
-
-  const statesFiltrados = dataFiltrado.map(v => v.map(v => v.date.includes(data))) // FIXME FILTROS FALHANDO
-
-  console.log(statesFiltrados)
-
-}
+  var increment = 0;
 
   return (
 
@@ -58,12 +69,29 @@ function handleFiltraEstados(e){
       />
       {dataEqpPositionHist.map(v => (
         <Marker key={v.lat} position={[v.lat, v.lon]}>
-          <Popup>
-            <button value={v.date} onClick={handleFiltraEstados}>Listar Estados:</button>
-            {data && (
-              <p>Opa</p>
-            )}
-          </Popup>
+
+          <div onMouseLeave={(e) => setShow(false)}>
+            <Popup>
+
+              <button value={v.date + '_' + dataEqpIds[increment]} onClick={handleShowHist} onMouseEnter={handleShowHist2}>Estado Atual</button>
+
+              {show && (
+                <>
+                  {estadoEqp.map(e => (
+                    <div >
+                      <p>Estado: {e.name}</p>
+                      <p>Data: {v.date}</p>
+                      <p>ID Equipamento: {date.split('_')[1]}</p>
+                    </div>
+                  ))}
+                </>
+              )}
+
+            </Popup>
+          </div>
+          <div style={{display: 'none'}}>
+            {increment++}
+          </div>
         </Marker>
       ))}
     </MapContainer>
