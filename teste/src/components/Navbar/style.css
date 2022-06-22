@@ -1,0 +1,13 @@
+.navbar{
+    background-color: #246cf1;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.logo{
+    width: 120px;
+    height: 50px;
+    padding: 5px 20px 5px 20px;
+}
