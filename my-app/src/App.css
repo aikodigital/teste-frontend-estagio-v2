@@ -1,0 +1,48 @@
+.container-bg {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1009%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M1512 560L0 560 L0 362.54Q24.96 315.5%2c 72 340.46Q121.79 270.25%2c 192 320.04Q248.16 304.2%2c 264 360.35Q269.64 294%2c 336 299.64Q390.4 234.04%2c 456 288.44Q538.53 250.97%2c 576 333.5Q621.47 306.97%2c 648 352.44Q658.75 291.19%2c 720 301.93Q764.97 274.9%2c 792 319.87Q888.69 296.56%2c 912 393.26Q964.37 325.63%2c 1032 377.99Q1024.24 298.23%2c 1104 290.47Q1138.82 253.29%2c 1176 288.1Q1239.38 279.49%2c 1248 342.87Q1278.7 301.57%2c 1320 332.27Q1337.01 277.28%2c 1392 294.3Q1475.99 258.29%2c 1512 342.28z' fill='rgba(5%2c 123%2c 171%2c 1)'%3e%3c/path%3e%3cpath d='M1488 560L0 560 L0 403.37Q80.51 411.88%2c 72 492.39Q121.88 422.27%2c 192 472.15Q187.86 396.01%2c 264 391.87Q306.4 362.27%2c 336 404.67Q430.78 379.45%2c 456 474.23Q467.02 365.25%2c 576 376.28Q628.91 357.19%2c 648 410.11Q699.14 389.25%2c 720 440.39Q735.35 383.74%2c 792 399.08Q820.15 355.23%2c 864 383.38Q957.62 357%2c 984 450.61Q1041.08 435.69%2c 1056 492.76Q1063.11 427.87%2c 1128 434.97Q1155.42 390.39%2c 1200 417.82Q1227.9 373.72%2c 1272 401.62Q1299.46 357.08%2c 1344 384.54Q1400.46 369%2c 1416 425.46Q1468.41 405.87%2c 1488 458.28z' fill='rgba(37%2c 59%2c 97%2c 1)'%3e%3c/path%3e%3cpath d='M1464 560L0 560 L0 579.17Q36.49 495.65%2c 120 532.14Q139.3 479.44%2c 192 498.75Q237.74 472.49%2c 264 518.22Q300.79 435.01%2c 384 471.81Q457.33 425.14%2c 504 498.48Q577.29 499.77%2c 576 573.06Q647.79 524.85%2c 696 596.63Q710.58 491.21%2c 816 505.79Q861.35 431.14%2c 936 476.5Q1023.64 444.14%2c 1056 531.78Q1107.57 511.35%2c 1128 562.92Q1171.64 534.56%2c 1200 578.2Q1217.81 476.01%2c 1320 493.82Q1364.85 466.66%2c 1392 511.51Q1443.89 491.4%2c 1464 543.29z' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1009'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+.container-map-tile{
+    padding: 2rem;
+}
+
+.leaflet-container {
+    width: 75vw;
+    height: 75vh;
+    border: 4px solid rgb(188, 188, 188);
+    border-radius: 4px;
+}
+
+button {
+    width: 6rem;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0.25rem;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.472);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.overflow-historico {
+    overflow: auto;
+    max-height: 12rem;
+}
+
+.txt-info{
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+.txt-desc{
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
