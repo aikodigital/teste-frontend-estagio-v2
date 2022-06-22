@@ -119,8 +119,7 @@ function App() {
   }
 
   var increment = 0;
-
-  var incrementDate = 0;
+  
   return (
     <div className='container-bg'>
       <div className='container-map-tile'>
