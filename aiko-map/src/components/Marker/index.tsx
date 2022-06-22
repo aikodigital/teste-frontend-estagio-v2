@@ -18,6 +18,18 @@ export default function  Marker({position,map}: IMarker) {
         marker.setPosition(position);
     }
     
+    const infowindow = new google.maps.InfoWindow({
+        content: "OLALAA",
+      });
+
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+          shouldFocus: false,
+        });
+      });
+      
     return null;
 }
 
