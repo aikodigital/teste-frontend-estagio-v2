@@ -7,7 +7,7 @@ interface IMap{
 }
 
 export default function  Map({center, zoom, children}:IMap) {
-
+    
     const ref = React.useRef<HTMLDivElement>(null);
 
     const [map,setMap] = useState<google.maps.Map | null>(null);

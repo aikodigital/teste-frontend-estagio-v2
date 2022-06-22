@@ -8,7 +8,7 @@ interface IMarker{
 export default function  Marker({position,map}: IMarker) {
 
     const [marker, setMarker] = useState<google.maps.Marker>();
-
+    
     useEffect(() => {
         setMarker(new google.maps.Marker({position: position}));
     },[]);
@@ -16,20 +16,21 @@ export default function  Marker({position,map}: IMarker) {
     if(marker){
         marker.setMap(map);
         marker.setPosition(position);
+        const infowindow = new google.maps.InfoWindow({
+            content: "OLALAA",
+          });
+    
+        marker.addListener("click", () => {
+            infowindow.open({
+              anchor: marker,
+              map,
+              shouldFocus: false,
+            });
+          });
     }
     
-    const infowindow = new google.maps.InfoWindow({
-        content: "OLALAA",
-      });
+    
 
-      marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
-          map,
-          shouldFocus: false,
-        });
-      });
-      
     return null;
 }
 
