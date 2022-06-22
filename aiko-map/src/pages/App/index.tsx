@@ -16,7 +16,7 @@ export default function App() {
   const posições =[{ lat: -25.363, lng: 131.844 },{ lat: -20.363, lng: 120.844 }];  
   
   return (
-    <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}>
+    <Wrapper apiKey={""} render={render}>
       
       <Map center={center} zoom={zoom}>
           {posições.map((posição) => 
