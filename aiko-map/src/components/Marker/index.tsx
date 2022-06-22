@@ -30,6 +30,7 @@ export default function  Marker({position,map}: IMarker) {
     }
     
     
+    
 
     return null;
 }
