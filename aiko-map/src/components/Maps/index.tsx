@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import {Content} from "./style";
 interface IMap{
     center: google.maps.LatLngLiteral,
     zoom: number,
-    children: React.ReactNode
+    children: React.ReactNode,
+    sidebarOp: boolean
 }
 
-export default function  Map({center, zoom, children}:IMap) {
+export default function  Map({center, zoom, children,sidebarOp}:IMap) {
     
     const ref = React.useRef<HTMLDivElement>(null);
 
@@ -24,13 +25,13 @@ export default function  Map({center, zoom, children}:IMap) {
     }     
 
     return (
-        <div ref={ref} id="map" style={style}>
+        <Content ref={ref} id="map" style={style} sidebarOp={sidebarOp}>
             {
             React.Children.map(children, (child: React.ReactElement) => 
                     React.cloneElement(child,{map})
                 )
             }
-        </div>
+        </Content>
     );
 }
 
