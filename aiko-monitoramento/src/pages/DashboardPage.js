@@ -21,15 +21,15 @@ const LogoBoxContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55%;
+  width: 53%;
 `
 const LogoImg = styled.img`
   width: 80%;
-  margin: 2%;
+  margin: 4%;
 `
 const LogoParagraph = styled.p`
   width: 80%;
-  font-size: 0.8vw;
+  font-size: 0.9vw;
   color: #2596be;
 `
 const VehiclesBox = styled.div`
@@ -58,7 +58,7 @@ const Dashboard = () => {
         <LogoBox>
           <LogoBoxContainer>
             <LogoImg src={Logo} alt="" />
-            <LogoParagraph>Soluções Tecnológicas</LogoParagraph>
+            <LogoParagraph>Solução Digital</LogoParagraph>
           </LogoBoxContainer>
         </LogoBox>
         <VehiclesBox>Vehicle Cards</VehiclesBox>
