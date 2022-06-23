@@ -30,7 +30,7 @@ export type EquipStateHistoryType = {
 export type EquipmentsType = {
   id: string;
   name: string;
-  model: EquipModelType | undefined;
-  positionHistory: EquipPositionHistoryType["positions"] | undefined;
-  stateHistory: EquipStateHistoryType | undefined;
+  model: EquipModelType;
+  positionHistory: EquipPositionHistoryType["positions"];
+  stateHistory: EquipStateHistoryType;
 };

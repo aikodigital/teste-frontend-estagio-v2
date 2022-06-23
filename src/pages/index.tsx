@@ -15,12 +15,9 @@ const Home: NextPage = () => {
       ) : (
         <div className={styles.cardGrid}>
           {equipments.map((equipment) => {
-            return (
-              <EquipmentCard
-                key={equipment.id}
-                color={equipment.stateHistory![2].state?.color}
-              />
-            );
+            if (equipment) {
+              return <EquipmentCard key={equipment.id} equipment={equipment} />;
+            }
           })}
         </div>
       )}
