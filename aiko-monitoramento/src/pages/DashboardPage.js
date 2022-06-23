@@ -1,16 +1,13 @@
 import React from 'react'
-import styled from "styled-components"
 
-const MainContainer = styled.div`
-  /* background-color: green; */
-  width: 100vw;
-  height: 100vh;
-`
+import { MainContainer, VehicleContainer, MapContainer, SettingsContainer } from "./styled-DashboardPage"
 
 const Dashboard = () => {
   return (
     <MainContainer>
-      <div>teste</div>
+      <VehicleContainer>Seleção de Veículos</VehicleContainer>
+      <MapContainer>Mapa</MapContainer>
+      <SettingsContainer>Filtros e Configurações</SettingsContainer>
     </MainContainer>
   )
 }
