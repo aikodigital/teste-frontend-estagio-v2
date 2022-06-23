@@ -9,14 +9,19 @@ export const MainContainer = styled.div`
 `
 export const VehicleContainer = styled.div`
   background-color: ${primaryColor};
-  flex-grow: 1.3;
+  flex-grow: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 export const MapContainer = styled.div`
   background-color: ${neutralColor};
     flex-grow: 9;
+    display: flex;
 `
 export const SettingsContainer = styled.div`
   background-color: ${primaryColor};
     flex-grow: 2;
-
+    display: flex;
+    align-items: center;
 `
