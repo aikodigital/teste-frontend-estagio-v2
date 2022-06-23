@@ -2,7 +2,7 @@ import { CSSProperties, HTMLAttributes } from "react";
 import styles from "./styles.module.scss";
 
 export interface EquipmentCardProps {
-  color: string;
+  color: string | undefined;
 }
 
 export function EquipmentCard({ color }: EquipmentCardProps) {
