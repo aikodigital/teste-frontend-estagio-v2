@@ -3,7 +3,7 @@ import L from 'leaflet'
 {/* @ts-ignore */}
 import iconTractor from '../assets/img/iconTractor.png'
 import { Marker, Popup } from 'react-leaflet';
-import { lastPosition, takeEquipmentStateHistory, takeModelEquipment } from '../assets/helpers';
+import { lastPosition, EquipmentStateActual, takeModelEquipment } from '../assets/helpers';
 
 
 const PositionEquipment = () => {
@@ -19,7 +19,7 @@ const PositionEquipment = () => {
         <Marker key={index}  position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} icon = {apoint}>
             <Popup>
                 Nome:  { takeModelEquipment(item.equipmentId) }, id: {index} <br/>
-                Estado Atual:  { takeEquipmentStateHistory(item.equipmentId) }
+                Estado Atual:  { EquipmentStateActual(item.equipmentId) }
             </Popup>
         </Marker>
         ))
