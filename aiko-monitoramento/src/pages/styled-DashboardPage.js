@@ -10,6 +10,7 @@ export const MainContainer = styled.div`
 export const VehicleContainer = styled.div`
   background-color: ${primaryColor};
   flex-grow: 1.6;
+  max-width: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,5 +24,6 @@ export const SettingsContainer = styled.div`
   background-color: ${primaryColor};
     flex-grow: 2;
     display: flex;
+    justify-content: center;
     align-items: center;
 `
