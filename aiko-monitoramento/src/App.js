@@ -1,8 +1,15 @@
 import React from 'react'
 
+import { ThemeProvider } from '@mui/material'
+import theme from './constants/theme'
+
+import Dashboard from './pages/DashboardPage'
+
 const App = () => {
   return (
-    <div>teste</div>
+    <ThemeProvider theme={theme}>
+      <Dashboard/>
+    </ThemeProvider>
   )
 }
 
