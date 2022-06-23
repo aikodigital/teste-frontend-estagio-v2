@@ -8,3 +8,8 @@ export interface StateEquipment{
     date: string; 
     equipmentStateId:string
 }
+
+export interface NameState{
+    date: string,
+    name: string
+}
