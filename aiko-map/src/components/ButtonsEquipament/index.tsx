@@ -8,7 +8,6 @@ interface IButtoEquipament{
     id: string,
 }
 
-
 export default function ButtonsEquipament({name,id}: IButtoEquipament){
     
     const [flecha, setFlecha] = useState(true);
