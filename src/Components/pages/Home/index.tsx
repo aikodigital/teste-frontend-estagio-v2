@@ -1,14 +1,12 @@
-import * as S from './style';
-
 import { Fragment } from "react";
 import NavMenu from "../../NavMenu";
 import Map from "../../Map";
 import TabelState from "../../TabelState";
 import PositionEquipment from "../../PositionEquipment";
-import { Container } from "react-bootstrap";
 import PositionHistory from '../../PositionHistory';
 import InformationEquipment from '../../InformationEquipment';
 import FilterData from '../../FilterData';
+import * as S from './style';
 
 const Home = () => {
   return (

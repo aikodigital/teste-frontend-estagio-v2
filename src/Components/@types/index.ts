@@ -14,3 +14,8 @@ export interface NameState{
     name: string,
     color: string
 }
+
+export interface TypeFilter{
+    nome: string,
+    situation: string,
+}

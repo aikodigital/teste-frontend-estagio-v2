@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux"
 import { filterState, takeModelEquipment } from "../assets/helpers"
+import { RootState } from "../store"
 import * as S from './style'
 
 const InformationEquipment = () => {    
-    {filterState("491b983b-950c-4a88-942d-487e99b92540",'Parado')}
+  const idEquipment = useSelector((state: RootState)=>state.IdSlice.id)
   return (
     <>
       <S.StyledTable striped borderless responsive hover variant='light'>
@@ -16,10 +18,10 @@ const InformationEquipment = () => {
           </thead>
           <tbody>
             <tr>
-                <td>{filterState("491b983b-950c-4a88-942d-487e99b92540",'Parado')}</td>
-                <td>{filterState("491b983b-950c-4a88-942d-487e99b92540",'Manutenção')}</td>
-                <td>{filterState("491b983b-950c-4a88-942d-487e99b92540",'Operando')}</td>
-                <td>{takeModelEquipment("491b983b-950c-4a88-942d-487e99b92540").hourlyEarnings[0].value}</td>
+                <td>{filterState(idEquipment,'Parado')}</td>
+                <td>{filterState(idEquipment,'Manutenção')}</td>
+                <td>{filterState(idEquipment,'Operando')}</td>
+                <td>{takeModelEquipment(idEquipment).hourlyEarnings[0].value}</td>
             </tr>
           </tbody>
       </S.StyledTable>    

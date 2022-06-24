@@ -1,27 +1,41 @@
 import equipmentPositionHistory from '../assets/data/equipmentPositionHistory.json'
 import { Marker, Popup } from 'react-leaflet';
 import { lastPosition, EquipmentStateActual, takeModelEquipment, defineIcon } from '../assets/helpers';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { TypeFilter } from '../@types';
+import { setId } from '../store/equipmentId';
 
 const PositionEquipment = () => {
-    let a = 'Harvester'
-    let todos = true
+
+    const dispatch = useDispatch()
+    let filters: TypeFilter = useSelector((state: RootState)=>state.filterSlice.filter)
     return (
         <>
         {equipmentPositionHistory.map((item, index)=>(
-            a==takeModelEquipment(item.equipmentId).name|| todos ?
-                (
-                    <Marker 
-                        key={index}  
-                        position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} 
-                        icon = {defineIcon(takeModelEquipment(item.equipmentId).name)}
-                    >
+            (filters.nome==takeModelEquipment(item.equipmentId).name || filters.nome == 'todos') &&
+            (filters.situation==EquipmentStateActual(item.equipmentId)  || filters.situation == 'todos')
+            ?
+                (   
+                
+                    <button key={index}  onClick={()=>console.log('oiiiiii')} >
+                        <Marker 
+                            key={index}  
+                            position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} 
+                            icon = {defineIcon(takeModelEquipment(item.equipmentId).name)}
+                            eventHandlers = {{
+                                click : (e) => dispatch(setId(item.equipmentId))
+                            }}
+                        >
 
-                        <Popup>
-                            Nome: {takeModelEquipment(item.equipmentId).name}, id: {index} <br/>
-                            Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
-                        </Popup>
+                            <Popup>
+                                Nome: {takeModelEquipment(item.equipmentId).name}, id: {index} <br/>
+                                Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
+                            </Popup>
 
-                    </Marker>
+                        </Marker>
+                    </button>
+
                 ) : ''
         ))}
         </>
