@@ -1,29 +1,20 @@
 import equipmentPositionHistory from '../assets/data/equipmentPositionHistory.json'
-import L from 'leaflet'
-{/* @ts-ignore */}
-import iconTractor from '../assets/img/iconTractor.png'
 import { Marker, Popup } from 'react-leaflet';
-import { lastPosition, EquipmentStateActual, takeModelEquipment } from '../assets/helpers';
-
+import { lastPosition, EquipmentStateActual, takeModelEquipment, defineIcon } from '../assets/helpers';
 
 const PositionEquipment = () => {
 
-    const apoint = new L.Icon({
-        iconUrl: iconTractor,
-        iconRetinaUrl: iconTractor,
-        iconSize: [40, 50]
-    })
-
     return (
-        equipmentPositionHistory.map((item, index)=>(
-        <Marker key={index}  position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} icon = {apoint}>
+        <>
+        {equipmentPositionHistory.map((item, index)=>(
+        <Marker key={index}  position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} icon = {defineIcon(takeModelEquipment(item.equipmentId).name)}>
             <Popup>
-                Nome:  { takeModelEquipment(item.equipmentId) }, id: {index} <br/>
-                Estado Atual:  { EquipmentStateActual(item.equipmentId) }
+                Nome: {takeModelEquipment(item.equipmentId).name}, id: {index} <br/>
+                Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
             </Popup>
         </Marker>
-        ))
-
+        ))}
+        </>
     )
 }
 

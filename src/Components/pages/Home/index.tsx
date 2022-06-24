@@ -6,17 +6,24 @@ import Map from "../../Map";
 import TabelState from "../../TabelState";
 import PositionEquipment from "../../PositionEquipment";
 import { Container } from "react-bootstrap";
+import PositionHistory from '../../PositionHistory';
+import InformationEquipment from '../../InformationEquipment';
 
-const Home= () => {
+const Home = () => {
   return (
     <Fragment>
         <NavMenu/>
         <S.StyledContainer>
             <Map>
-                {/* @ts-ignore */}
                 <PositionEquipment/>
             </Map>
             <TabelState/>
+        </S.StyledContainer>
+        <InformationEquipment/>
+        <S.StyledContainer>
+            <Map>
+                <PositionHistory/>
+            </Map>
         </S.StyledContainer>
 
     </Fragment>

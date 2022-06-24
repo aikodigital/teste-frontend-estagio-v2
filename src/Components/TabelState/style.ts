@@ -8,7 +8,7 @@ interface props{
 
 export const StyledContainer = styled(Container)`
     width: 42%;
-    height: 70vh;
+    height: 88vh;
     overflow-y: auto;
     margin-top: 2%;
 `
@@ -22,6 +22,6 @@ export const StyledH5 = styled.h5`
 `
 
 export const StyledTd = styled.td<props>`
-    color: ${props => ColorState[props.color]} !important
+    color: ${props => props.color} !important
 `
 

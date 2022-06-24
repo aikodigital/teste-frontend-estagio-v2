@@ -11,5 +11,6 @@ export interface StateEquipment{
 
 export interface NameState{
     date: string,
-    name: string
+    name: string,
+    color: string
 }
