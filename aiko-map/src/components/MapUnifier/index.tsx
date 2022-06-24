@@ -38,11 +38,15 @@ export default function MapUnifier({sidebarOp}:IMapUnifier) {
     <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}> 
       <Map center={center} zoom={zoom} sidebarOp={sidebarOp}>
           {posicoes.map((posicao) => 
-            // eslint-disable-next-line react/jsx-key
-            <Marker position={{ 
-                lat:  posicao.positions[0].lat,
-                lng:  posicao.positions[0].lon
-              }} />   
+            
+            <Marker 
+                position={{ 
+                  lat:  posicao.positions[posicao.positions.length - 1].lat,
+                  lng:  posicao.positions[posicao.positions.length - 1].lon
+                  }} 
+                equipmentId={posicao.equipmentId}
+                key={posicao.equipmentId}  
+              />   
           )}
           
       </Map>

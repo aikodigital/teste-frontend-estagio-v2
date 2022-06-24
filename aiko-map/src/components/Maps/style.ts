@@ -15,4 +15,6 @@ export const Content = styled.div`
             width: calc(100% - 278px)
             `    
     };
+
+    transition: width .2s ease-out;
 `;

@@ -1,20 +1,25 @@
 import React, { useContext, useState } from "react";
-import { Container, Content, ButaoExpand, ButaoSair, UserInfo } from "./style";
+import { Container, Content, ButaoExpand,Titulo } from "./style";
 import { FaUser, FaBookOpen, FaBars, FaConnectdevelop, FaHome, FaPlus, FaBook, FaCog, FaSignInAlt}  from "react-icons/fa";
 import ButtonsEquipament from "../ButtonsEquipament";
 
+interface IEquipament{
+    id: string,
+    equipmentModelId: string,
+    name: string
+  }
 interface ISidebar{
     sidebarOp: boolean,
-    AlterSide():void
+    AlterSide():void,
+    equipamento:IEquipament[]
 }
 
 export default function Sidebar({
     sidebarOp, 
-    AlterSide 
+    AlterSide,
+    equipamento 
 }: ISidebar) : JSX.Element{
     
-   
-
     return(
         <>
          <Container 
@@ -30,15 +35,34 @@ export default function Sidebar({
                 </button>          
             </ButaoExpand>
             <Content>
-              <ul>
-                <ButtonsEquipament name={"OI"} id={"1"}/>
-                <ButtonsEquipament name={"OI"} id={"1"}/>
-                <ButtonsEquipament name={"OI"} id={"1"}/>
-                <ButtonsEquipament name={"OI"} id={"1"}/>
-              </ul>
+            {sidebarOp && (
+              <>
+                <Titulo>Equipamentos</Titulo>
+                <ul>
+                    {equipamento.map(equip => 
+                        <ButtonsEquipament 
+                            key={equip.id} 
+                            name={equip.name} 
+                            id={equip.id}
+                        />
+                    )}
+                </ul>
+              </>
+            )}
             </Content>
          
         </Container>
         </>
     );
 }
+
+
+/*
+{posicoes.map((posicao) => 
+            // eslint-disable-next-line react/jsx-key
+            <Marker position={{ 
+                lat:  posicao.positions[0].lat,
+                lng:  posicao.positions[0].lon
+              }} />   
+          )}
+*/

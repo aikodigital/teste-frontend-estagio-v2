@@ -1,34 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
+import EquiIDSearch from "../../services/equiIDSearch";
+import statusSerach from "../../services/statusSerach";
 import InfoWindowEquipament from "../InfoWindowEquipament";
 
 interface IMarker{
     position: google.maps.LatLngLiteral,
-    map?: google.maps.Map
+    map?: google.maps.Map,
+    equipmentId: string
 }
 
-export default function  Marker({position,map}: IMarker) {
-
+export default function  Marker({position,map,equipmentId}: IMarker) {
+    const equipInfo = EquiIDSearch(equipmentId);
     const [marker, setMarker] = useState<google.maps.Marker>();
     
     useEffect(() => {
         setMarker(new google.maps.Marker({position: position}));
     },[]);
 
-    const render = () =>{
-      return <InfoWindowEquipament conteudo={"olaoaaolao"}/>;
-    };
-    const name ="CA-0001";
-    const id = "a3540227-2f0e-4362-9517-92f41dabbfdf";
-    const status = "Operando";
+   
+    const status = equipInfo.StateHistory.states[equipInfo.StateHistory.states.length -1].equipmentStateId;
+    const statusPronto = statusSerach(status);
+
 
     const contentString =
     "<div id=\"content\">" +
     "<div id=\"siteNotice\">" +
     "</div>" +
-    `<h1 id="firstHeading" class="firstHeading">${name}</h1>` +
+    `<h1 id="firstHeading" class="firstHeading">${equipInfo.Equip.name}</h1>` +
     "<div id=\"bodyContent\">" +
-    `<p>id: ${id}</p>` +
-    `<p>status: ${status}</p>` +
+    `<p><b style="font-size:large">Id:</b> ${equipInfo.Equip.id}</b> </p>` +
+    `<p><b style="font-size:large">Status:</b> ${statusPronto.name}</p>` +
     "</div>" +
     "</div>";
 
@@ -40,13 +41,15 @@ export default function  Marker({position,map}: IMarker) {
         const infowindow = new google.maps.InfoWindow({
             content: contentString
           });
-    
+
+        
         marker.addListener("click", () => {
             infowindow.open({
               anchor: marker,
               map,
               shouldFocus: false,
             });
+
           });
     }
     
