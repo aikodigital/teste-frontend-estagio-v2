@@ -9,19 +9,18 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <h1>Hello</h1>
       {isLoading ? (
         <div className={styles.loadingContainer}>
           <Loader />
         </div>
       ) : (
-        <div className={styles.cardGrid}>
+        <main className={styles.cardGrid}>
           {equipments.map((equipment) => {
             if (equipment) {
               return <EquipmentCard key={equipment.id} equipment={equipment} />;
             }
           })}
-        </div>
+        </main>
       )}
     </div>
   );

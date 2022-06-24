@@ -25,6 +25,7 @@ export default function MapLocation({ equipment }: DetailsProps) {
       ]}
       zoom={13}
       style={{ height: "50vh", width: "50vw" }}
+      scrollWheelZoom={false}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

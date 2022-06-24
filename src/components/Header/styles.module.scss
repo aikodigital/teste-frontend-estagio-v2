@@ -1,0 +1,24 @@
+.header {
+    background-color: white;
+    color: #54A2DE;
+
+    
+    display: flex;
+    justify-content: space-between;
+    
+    padding: .5rem 2rem;
+    
+    a {
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight: 900;
+
+        &:visited {
+            color: #54A2DE;
+
+        }
+    }
+
+    
+}

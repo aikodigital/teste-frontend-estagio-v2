@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 export function Header() {
-  const router = useRouter();
-
   return (
-    <header
-      onClick={() => {
-        router.push("/");
-      }}
-    >
-      <h1>Equipment Checkup</h1>
-      <hr />
+    <header className={styles.header}>
+      <Link href={"/"}>Equipment Checkup</Link>
+
+      <Image src={"/img/aiko.png"} alt="Aiko logo" width={150} height={50} />
     </header>
   );
 }

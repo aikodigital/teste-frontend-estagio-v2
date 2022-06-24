@@ -18,9 +18,26 @@ const MapLocation = dynamic(
 );
 
 export default function EquipmentDetails({ equipment }: DetailsProps) {
+  const { model, name, positionHistory, stateHistory } = equipment;
   return (
     <div className={styles.detailContainer}>
-      <h1>{equipment.name}</h1>
+      <h1>{name}</h1>
+
+      {stateHistory.map((stateData) => {
+        const date = new Date(stateData.date).toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        });
+        return (
+          <>
+            <span>{date} - </span>
+            <span style={{ color: stateData.state?.color }}>
+              {stateData.state?.name}
+            </span>
+          </>
+        );
+      })}
       <div id="map">
         <MapLocation equipment={equipment} />
       </div>
