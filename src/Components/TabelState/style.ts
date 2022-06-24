@@ -8,9 +8,9 @@ interface props{
 
 export const StyledContainer = styled(Container)`
     width: 42%;
-    height: 88vh;
+    height: auto;
     overflow-y: auto;
-    margin-top: 2%;
+    margin-bottom: 2%;
 `
 
 export const StyledTable = styled(Table)`

@@ -8,22 +8,37 @@ import PositionEquipment from "../../PositionEquipment";
 import { Container } from "react-bootstrap";
 import PositionHistory from '../../PositionHistory';
 import InformationEquipment from '../../InformationEquipment';
+import FilterData from '../../FilterData';
 
 const Home = () => {
   return (
     <Fragment>
         <NavMenu/>
         <S.StyledContainer>
-            <Map>
+            <S.StyledContainerMap 
+                marginTop='1%' 
+                marginBottom='0'
+                marginRight='2%'
+            >
+            <FilterData/>
+            <Map height='70vh'>
                 <PositionEquipment/>
             </Map>
-            <TabelState/>
+            </S.StyledContainerMap>
         </S.StyledContainer>
         <InformationEquipment/>
         <S.StyledContainer>
-            <Map>
-                <PositionHistory/>
-            </Map>
+            <S.StyledContainerMap
+                marginTop='0' 
+                marginBottom='2%'
+                marginRight='2%'
+            >
+                <Map height='70vh'>
+                    <PositionHistory/>
+                </Map>
+            </S.StyledContainerMap>
+            <TabelState/>
+
         </S.StyledContainer>
 
     </Fragment>
