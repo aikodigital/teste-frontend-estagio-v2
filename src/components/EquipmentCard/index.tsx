@@ -15,7 +15,7 @@ export function EquipmentCard({ equipment }: EquipmentCardProps) {
   const borderStyle: CSSProperties = {
     borderRightWidth: 0,
     borderTopWidth: 0,
-    borderLeftWidth: 10,
+    borderLeftWidth: 12,
     borderBottomWidth: 0,
     borderColor: stateHistory[0].state?.color,
     borderStyle: "solid",
@@ -44,7 +44,9 @@ export function EquipmentCard({ equipment }: EquipmentCardProps) {
       </div>
       <div>
         <span>Estado atual: </span>
-        <span>{stateHistory[0].state?.name}</span>
+        <span style={{ color: stateHistory[0].state?.color, fontWeight: 500 }}>
+          {stateHistory[0].state?.name}
+        </span>
       </div>
     </div>
   );

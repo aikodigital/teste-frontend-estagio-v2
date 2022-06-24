@@ -1,15 +1,29 @@
 import { GetServerSideProps } from "next";
-import { api } from "../../services/api";
+import dynamic from "next/dynamic";
 import { EquipmentsType } from "../../types/equipments";
+
+import styles from "./styles.module.scss";
 
 interface DetailsProps {
   equipment: EquipmentsType;
 }
 
+const MapLocation = dynamic(
+  () => {
+    return import("../../components/MapLocation/index");
+  },
+  {
+    ssr: false,
+  }
+);
+
 export default function EquipmentDetails({ equipment }: DetailsProps) {
   return (
-    <div>
+    <div className={styles.detailContainer}>
       <h1>{equipment.name}</h1>
+      <div id="map">
+        <MapLocation equipment={equipment} />
+      </div>
     </div>
   );
 }

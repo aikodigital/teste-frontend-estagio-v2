@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "leaflet": "^1.8.0",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-leaflet": "^4.0.0",
     "sass": "^1.53.0"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.11",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
