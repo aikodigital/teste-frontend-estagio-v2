@@ -15,45 +15,68 @@ export const lastPosition = (array:any[]) => {
 }   
 
 export const EquipmentStateActual =  (id:string) => {
-    let equipment = equipmentStateHistory.filter(item=>item.equipmentId == id)
-    let lastState = lastPosition(equipment[0].states) as StateEquipment
-    let actualState = equipmentState.filter(item => item.id == lastState.equipmentStateId)        
-    return actualState[0].name
+    try {
+        let equipment = equipmentStateHistory.filter(item=>item.equipmentId == id)
+        let lastState = lastPosition(equipment[0].states) as StateEquipment
+        let actualState = equipmentState.filter(item => item.id == lastState.equipmentStateId)        
+        return actualState[0].name
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any        
+    }
 }
 
 export const takeModelEquipment = (id:string) => {
-    let typeModel = equipment.filter(item=>item.id == id )
-    let nameEquipment = equipmentModel.filter(item=>item.id == typeModel[0].equipmentModelId)
-    return nameEquipment[0]
+    try {
+        let typeModel = equipment.filter(item=>item.id == id )
+        let nameEquipment = equipmentModel.filter(item=>item.id == typeModel[0].equipmentModelId)
+        return nameEquipment[0]
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any
+    }
 }
 
 export const EquipmentStateHistory = (id:string) => {
-    let equipment = equipmentStateHistory.filter(item=>item.equipmentId == id)[0].states
-    let arrayStateEquipment = [] as NameState[]
-    equipment.map(item=>{
-        equipmentState.forEach(itemState=>{
-            if(item.equipmentStateId==itemState.id){
-                arrayStateEquipment.push({date:item.date, name:itemState.name, color: itemState.color})
-            }
+
+    try {
+        let equipment = equipmentStateHistory.filter(item=>item.equipmentId == id)[0].states
+        let arrayStateEquipment = [] as NameState[]
+        equipment.map(item=>{
+            equipmentState.forEach(itemState=>{
+                if(item.equipmentStateId==itemState.id){
+                    arrayStateEquipment.push({date:item.date, name:itemState.name, color: itemState.color})
+                }
+            })
         })
-    })
-    return arrayStateEquipment.reverse()
+        return arrayStateEquipment.reverse()
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as unknown as NameState[]
+    }
 }
 
 export const takeHistoryPostion = (id:string) => {
-    let historyposition = equipmentPositionHistory.filter(item=>item.equipmentId == id)[0].positions
-    return historyposition
+    try {
+        let historyposition = equipmentPositionHistory.filter(item=>item.equipmentId == id)[0].positions
+        return historyposition
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any
+    }
 }
 
 export const filterState = (id:string, state:string) =>{
+    try {
         let filter = EquipmentStateHistory(id).filter(
             item=> item.name == state
         )
         return filter.length
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any
+    }
 }
 
-export const earnedEquipment = (id:string) =>{
-    let takeState = equipmentState.filter
+export const earnedEquipment = (id:string, hoursWork:number, hoursSupport:number) =>{
+    let hourEquip = equipmentModel.filter(item => item.name == takeModelEquipment(id).name )[0]
+    let yieldEquipment  = hourEquip.hourlyEarnings[0].value * hoursWork + hourEquip.hourlyEarnings[2].value * hoursSupport
+    return yieldEquipment
 }
 
 export var DataConvert = (x:string) =>{

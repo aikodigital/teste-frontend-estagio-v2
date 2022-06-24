@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux"
-import { filterState, takeModelEquipment } from "../assets/helpers"
+import { earnedEquipment, filterState, takeModelEquipment } from "../assets/helpers"
 import { RootState } from "../store"
 import * as S from './style'
 
 const InformationEquipment = () => {    
   const idEquipment = useSelector((state: RootState)=>state.IdSlice.id)
+  let operation = filterState(idEquipment,'Operando')
+  let support = filterState(idEquipment,'Manutenção')
   return (
     <>
       <S.StyledTable striped borderless responsive hover variant='light'>
@@ -19,9 +21,9 @@ const InformationEquipment = () => {
           <tbody>
             <tr>
                 <td>{filterState(idEquipment,'Parado')}</td>
-                <td>{filterState(idEquipment,'Manutenção')}</td>
-                <td>{filterState(idEquipment,'Operando')}</td>
-                <td>{takeModelEquipment(idEquipment).hourlyEarnings[0].value}</td>
+                <td>{support}</td>
+                <td>{operation}</td>
+                <td>R$ {earnedEquipment(idEquipment,operation,support)}</td>
             </tr>
           </tbody>
       </S.StyledTable>    

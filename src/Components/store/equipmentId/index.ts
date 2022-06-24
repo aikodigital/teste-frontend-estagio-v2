@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TypeFilter } from "../../@types";
+import equipmentPositionHistory from '../../assets/data/equipmentPositionHistory.json'
 
-
+let initialId = equipmentPositionHistory[0].equipmentId
 
 const initialState = {
-    id: "491b983b-950c-4a88-942d-487e99b92540"
+    id: initialId
 }
 
 const IdSlice = createSlice({

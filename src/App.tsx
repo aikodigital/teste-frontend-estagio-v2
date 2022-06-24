@@ -9,8 +9,6 @@ function App() {
     <Provider store={store} >
           <Home/>
     </Provider>
-
-
   )
 }
 

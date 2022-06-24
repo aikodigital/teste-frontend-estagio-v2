@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux'
 import { setFilter } from '../store/datafilter';
+import equipmentModel from '../assets/data/equipmentModel.json'
+import equipmentState from '../assets/data/equipmentState.json'
 import * as S from './style'
 
 const FilterData = () => {
@@ -12,27 +14,29 @@ const FilterData = () => {
            nome:'todos',
            situation: 'todos'
         },
-        onSubmit(values, formikHelpers) {},
+        onSubmit() {},
     })
     dispatch(setFilter(formik.values))
     
-  return (
-    <S.StyledContainer>
-        <S.StyledForm name = 'nome'  onChange={formik.handleChange}>
-            <option value='todos'>Selecione nome (todos)</option>
-            <option value='Caminhão de carga'>Caminhão de carga</option>
-            <option value="Garra traçadora">Garra traçadora</option>
-            <option value="Harvester">Harvester</option>
-        </S.StyledForm>
-        <S.StyledForm name = 'situation'  onChange={formik.handleChange}>
-            <option value='todos'>Selecione a situação (todos)</option>
-            <option value="Operando">Operando</option>
-            <option value="Manutenção">Manutenção</option>
-            <option value="Parado">Parado</option>
-        </S.StyledForm>
-    </S.StyledContainer>
+    return (
+        <S.StyledContainer>
+            <S.StyledForm name = 'nome'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione nome do equipamento (todos)</option>
+                {equipmentModel.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
 
-  )
+            </S.StyledForm>
+            <S.StyledForm name = 'situation'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione a situação do equipamento (todos)</option>
+                {equipmentState.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
+                
+            </S.StyledForm>
+        </S.StyledContainer>
+
+    )
 }
 
 export default FilterData;

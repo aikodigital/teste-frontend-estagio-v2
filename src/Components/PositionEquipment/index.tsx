@@ -18,23 +18,21 @@ const PositionEquipment = () => {
             ?
                 (   
                 
-                    <button key={index}  onClick={()=>console.log('oiiiiii')} >
-                        <Marker 
-                            key={index}  
-                            position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} 
-                            icon = {defineIcon(takeModelEquipment(item.equipmentId).name)}
-                            eventHandlers = {{
-                                click : (e) => dispatch(setId(item.equipmentId))
-                            }}
-                        >
+                    <Marker 
+                        key={index}  
+                        position={[lastPosition(item.positions).lat , lastPosition(item.positions).lon ]} 
+                        icon = {defineIcon(takeModelEquipment(item.equipmentId).name)}
+                        eventHandlers = {{
+                            click : (e) => dispatch(setId(item.equipmentId))
+                        }}
+                    >
 
-                            <Popup>
-                                Nome: {takeModelEquipment(item.equipmentId).name}, id: {index} <br/>
-                                Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
-                            </Popup>
+                        <Popup>
+                            Nome: {takeModelEquipment(item.equipmentId).name}<br/>
+                            Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
+                        </Popup>
 
-                        </Marker>
-                    </button>
+                    </Marker>
 
                 ) : ''
         ))}
