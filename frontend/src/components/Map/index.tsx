@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { getEquipmentsPosition } from "../../services/equipment";
+import {
+  getEquipmentModel,
+  getEquipmentPositions,
+  getEquipments,
+  getEquipmentStatesHistory
+} from "../../services/equipment";
 
 import styles from "./index.module.css";
 
 const Map = () => {
   useEffect(() => {
-    getEquipmentsPosition();
+    console.log(getEquipments());
+    console.log(getEquipmentStatesHistory(getEquipments()[0].id));
   }, []);
 
   return (

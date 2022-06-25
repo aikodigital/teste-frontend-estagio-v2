@@ -4,59 +4,24 @@ import equipmentPositionHistory from "../../../data/equipmentPositionHistory.jso
 import equipmentState from "../../../data/equipmentState.json";
 import equipmentStateHistory from "../../../data/equipmentStateHistory.json";
 
-/* TODO:
-  - Get all equipments
-  - Get equipment states. Provide equipmentId as parameter
-  - Get equipment positions. Provide equipmentId as parameter
-*/
-
-/*
-  What information i need to show in the map?
-    - All equipments in their most recent positions.
-      - Each equipment model has a different icon.
-      - The equipments must be presented according with their equipment model icon.
-      - Each equipment icon must have a different color for different states.
-      - When mouse hover the icon, a popup must show the equipment name and his current state.
-      
-      - When the user clicks the icon, a model must appear on the screen and show the 
-        position history of that icon, and, if the user clicks in a position, the map must update,
-        showing a new icon in that position, but with less opacity.:
-*/
-
 interface EquipmentData {
   id: string;
   equipmentModelId: string;
   name: string;
 }
 
-interface EquipmentsModelsData {
+interface EquipmentModelData {
   id: string;
   name: string;
-  hourlyEarnings: EquipmentModelHourlyEarnings[];
+  hourlyEarnings: EquipmentModelHourlyEarning[];
 }
 
-interface EquipmentModelHourlyEarnings {
+interface EquipmentModelHourlyEarning {
   equipmentStateId: string;
   value: number;
 }
 
-interface EquipmentsStatesData {
-  id: string;
-  name: string;
-  color: string;
-}
-
-interface EquipmentsStateHistoryData {
-  equipmentId: string;
-  states: StateHistoryData[];
-}
-
-interface StateHistoryData {
-  date: string;
-  equipmentStateId: string;
-}
-
-interface EquipmentsPositionsData {
+interface EquipmentPositionsData {
   equipmentId: string;
   positions: PositionData[];
 }
@@ -66,56 +31,68 @@ interface PositionData {
   lat: number;
   lon: number;
 }
-const getEquipmentsPosition = () => {
-  // Test
 
-  const equipments = JSON.parse(
-    JSON.stringify(equipment) || "{}"
-  ) as EquipmentData[];
+interface EquipmentStateData {
+  id: string;
+  name: string;
+  color: string;
+}
 
-  const equipmentsModels = JSON.parse(
-    JSON.stringify(equipmentModel) || "{}"
-  ) as EquipmentsModelsData[];
+interface EquipmentStateHistoryData {
+  equipmentId: string;
+  states: StateHistoryData[];
+}
 
-  const equipmentsStates = JSON.parse(
-    JSON.stringify(equipmentState) || "{}"
-  ) as EquipmentsStatesData[];
+interface StateHistoryData {
+  date: string;
+  equipmentStateId: string;
+}
 
-  const equipmentsPositions = JSON.parse(
-    JSON.stringify(equipmentPositionHistory) || "{}"
-  ) as EquipmentsPositionsData[];
-
-  const updatedEquipmentsModels = equipmentsModels.map((model) => ({
-    id: model.id,
-    name: model.name,
-    hourlyEarnings: model.hourlyEarnings.map((earning) => ({
-      equipmentState: equipmentsStates.find(
-        (state) => state.id === earning.equipmentStateId
-      ),
-      value: earning.value
-    }))
-  }));
-
-  const updatedEquipments = equipments.map((equipment) => ({
-    id: equipment.id,
-    name: equipment.name,
-    model: updatedEquipmentsModels.find(
-      (model) => model.id === equipment.equipmentModelId
-    )
-  }));
-
-  // Update equipments with positions ordered by the most recent
-  const updatedEquipmentsPositions = equipmentsPositions.map((equipment) => ({
-    equipment: updatedEquipments.find(
-      (updatedEquipment) => updatedEquipment.id === equipment.equipmentId
-    ),
-    positions: equipment.positions.sort(
-      (posA, posB) =>
-        new Date(posB.date).getTime() - new Date(posA.date).getTime()
-    )
-  }));
-
-  console.log(updatedEquipmentsPositions);
+export const getEquipments = () => {
+  const equipments = JSON.parse(JSON.stringify(equipment)) as EquipmentData[];
+  return equipments;
 };
 
-export { getEquipmentsPosition };
+export const getEquipmentModel = (modelId: string) => {
+  const equipmentsModels = JSON.parse(
+    JSON.stringify(equipmentModel)
+  ) as EquipmentModelData[];
+
+  return equipmentsModels.find((model) => model.id === modelId);
+};
+
+export const getEquipmentPositions = (equipmentId: string) => {
+  const equipmentPositions = JSON.parse(
+    JSON.stringify(equipmentPositionHistory)
+  ) as EquipmentPositionsData[];
+
+  // Get equipment positions history and sort by the most recent
+  return equipmentPositions
+    .find((position) => position.equipmentId === equipmentId)
+    ?.positions.sort(
+      (posA, posB) =>
+        new Date(posB.date).getTime() - new Date(posA.date).getTime()
+    );
+};
+
+export const getEquipmentStatesHistory = (equipmentId: string) => {
+  const equipmentStatesHistory = JSON.parse(
+    JSON.stringify(equipmentStateHistory)
+  ) as EquipmentStateHistoryData[];
+
+  const states = JSON.parse(
+    JSON.stringify(equipmentState)
+  ) as EquipmentStateData[];
+
+  const equipmentStatesByMostRecent = equipmentStatesHistory
+    .find((state) => state.equipmentId === equipmentId)
+    ?.states.sort(
+      (stateA, stateB) =>
+        new Date(stateB.date).getTime() - new Date(stateA.date).getTime()
+    );
+
+  return equipmentStatesByMostRecent?.map((equipment) => ({
+    date: equipment.date,
+    state: states.find((state) => state.id === equipment.equipmentStateId)
+  }));
+};
