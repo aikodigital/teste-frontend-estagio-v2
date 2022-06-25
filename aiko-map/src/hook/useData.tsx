@@ -30,6 +30,7 @@ interface ContextData {
     MapaInicial():void,
     center:ILatLngLiteral,
     setCenter(aux:ILatLngLiteral):void;
+    sideData: TMapData[];
 }
 /*
 lat: -19.171667,
@@ -39,7 +40,8 @@ const DataContext = createContext<ContextData>({} as ContextData);
 
 export function DataProvider({ children }: DataProviderProps): JSX.Element {
     
- const [MapData, setMapData] = useState<TMapData[]>(); 
+ const [MapData, setMapData] = useState<TMapData[]>(DefaultMapSearch); 
+ const [sideData, setSideData] = useState<TMapData[]>(DefaultMapSearch);
  const [center, setCenter] = useState<ILatLngLiteral>({ 
     lat: -19.171667,
     lng: -46.044589
@@ -49,9 +51,11 @@ export function DataProvider({ children }: DataProviderProps): JSX.Element {
     setMapData(DefaultMapSearch);
  }
 
-  return (
+  
+  
+ return (
     <DataContext.Provider
-      value={{MapData, setMapData, MapaInicial,center, setCenter}}
+      value={{MapData, setMapData, MapaInicial,center, setCenter, sideData}}
     >
       {children}
     </DataContext.Provider>

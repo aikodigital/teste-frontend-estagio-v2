@@ -25,7 +25,7 @@ export default function Sidebar({
     CloseInfoEquip
 }: ISidebar) : JSX.Element{
 
-    const {MapData} = useData();
+    const {sideData} = useData();
 
     return(
         <>
@@ -49,7 +49,7 @@ export default function Sidebar({
                 <>
                     <Titulo>Equipamentos</Titulo>
                     <ul>
-                        {MapData?.map(equip => 
+                        {sideData?.map(equip => 
                             <ButtonsEquipament 
                                 key={equip?.id} 
                                 name={equip?.name} 

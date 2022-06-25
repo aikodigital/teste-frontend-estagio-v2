@@ -24,10 +24,6 @@ export default function App() {
   const equipamento: IEquipament[] = Equipamento; 
 
 
-
-  useEffect(() =>{
-      MapaInicial();
-  },[]);
   
   return (
     <>
