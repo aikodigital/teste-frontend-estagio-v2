@@ -31,7 +31,7 @@ export default function Sidebar({
                <button>
                     <FaBars/>
                     {sidebarOp && (<span className="aberto"> Menu</span>)}
-                    {!sidebarOp && (<span className="tooltip" >Menu</span>)}
+
                 </button>          
             </ButaoExpand>
             <Content>

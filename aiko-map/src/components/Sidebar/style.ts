@@ -29,8 +29,18 @@ export const Container = styled.div`
 export const Content = styled.div`  
     ul{
         
-        max-height: 50vh;
-        overflow: auto;    
+        max-height: 35vh;
+        overflow: auto;  
+        ::-webkit-scrollbar{
+            width: 12px;
+	        background-color: #bbb5b5;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+	        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	        background-color: #555;
+        }  
     }
 `;
 

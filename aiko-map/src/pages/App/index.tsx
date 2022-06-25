@@ -18,7 +18,7 @@ interface IEquipament{
 
 export default function App() {
 
-  const [sidebarOp, setSidebarOp] = useState(false);
+  const [sidebarOp, setSidebarOp] = useState(true);
   const equipamento: IEquipament[] = Equipamento; 
 
   return (
@@ -28,7 +28,7 @@ export default function App() {
         AlterSide={() => {setSidebarOp(!sidebarOp);}} 
         equipamento={equipamento}
       />
-      <MapUnifier sidebarOp={sidebarOp}/>
+      <MapUnifier sidebarOp={sidebarOp} AlterSide={() => {setSidebarOp(!sidebarOp);}}/>
     </>
   );
 }

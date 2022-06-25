@@ -8,6 +8,7 @@ import EquipamentPosition from "../../data/equipmentPositionHistory.json";
 
 interface IMapUnifier{
     sidebarOp: boolean,
+    AlterSide():void
 }
 
 interface IEquipamentPosition{
@@ -19,8 +20,8 @@ interface IEquipamentPosition{
   }[]
 }
 
-export default function MapUnifier({sidebarOp}:IMapUnifier) {
-    const zoom = 8;
+export default function MapUnifier({sidebarOp,AlterSide}:IMapUnifier) {
+    const zoom = 10;
 
     const render = (status: Status) => {
       return <h1>{status}</h1>;
@@ -45,6 +46,7 @@ export default function MapUnifier({sidebarOp}:IMapUnifier) {
                   lng:  posicao.positions[posicao.positions.length - 1].lon
                   }} 
                 equipmentId={posicao.equipmentId}
+                AlterSide={AlterSide}
                 key={posicao.equipmentId}  
               />   
           )}

@@ -6,10 +6,11 @@ import InfoWindowEquipament from "../InfoWindowEquipament";
 interface IMarker{
     position: google.maps.LatLngLiteral,
     map?: google.maps.Map,
-    equipmentId: string
+    equipmentId: string,
+    AlterSide():  void
 }
 
-export default function  Marker({position,map,equipmentId}: IMarker) {
+export default function  Marker({position, map, equipmentId, AlterSide}: IMarker) {
     const equipInfo = EquiIDSearch(equipmentId);
     const [marker, setMarker] = useState<google.maps.Marker>();
     
@@ -33,6 +34,9 @@ export default function  Marker({position,map,equipmentId}: IMarker) {
     "</div>" +
     "</div>";
 
+    function Alterar(){
+      AlterSide();
+    }
 
     if(marker){
         marker.setMap(map);
@@ -43,7 +47,7 @@ export default function  Marker({position,map,equipmentId}: IMarker) {
           });
 
         
-        marker.addListener("click", () => {
+        marker.addListener("mouseover", () => {
             infowindow.open({
               anchor: marker,
               map,
@@ -51,6 +55,15 @@ export default function  Marker({position,map,equipmentId}: IMarker) {
             });
 
           });
+
+        marker.addListener("mouseout", () => {
+            infowindow.close();
+          });
+
+        marker.addListener("click",() => {
+          console.log(equipInfo.Equip.name);
+          Alterar();
+        });
     }
     
     return null;
