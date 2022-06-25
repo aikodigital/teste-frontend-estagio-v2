@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
+import { StateHistory } from "../../components/StateHistory";
 import { EquipmentsType } from "../../types/equipments";
 
 import styles from "./styles.module.scss";
@@ -23,7 +24,7 @@ export default function EquipmentDetails({ equipment }: DetailsProps) {
     <div className={styles.detailContainer}>
       <h1>{name}</h1>
 
-      {stateHistory.map((stateData) => {
+      {/* {stateHistory.map((stateData) => {
         const date = new Date(stateData.date).toLocaleDateString("pt-BR", {
           day: "2-digit",
           month: "short",
@@ -37,7 +38,8 @@ export default function EquipmentDetails({ equipment }: DetailsProps) {
             </span>
           </>
         );
-      })}
+      })} */}
+      <StateHistory stateHistory={stateHistory} />
       <div id="map">
         <MapLocation equipment={equipment} />
       </div>

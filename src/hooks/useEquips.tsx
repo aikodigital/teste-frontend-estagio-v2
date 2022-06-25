@@ -27,7 +27,6 @@ export function EquipsProvider({ children }: EquipsProviderProps) {
 
   useEffect(() => {
     api.get<(EquipmentsType | undefined)[]>("/equipments").then((res) => {
-      console.log(res.data);
       setEquipments(res.data);
     });
   }, []);
