@@ -6,12 +6,15 @@ import InfoWindowEquipament from "../InfoWindowEquipament";
 interface IMarker{
     position: google.maps.LatLngLiteral,
     map?: google.maps.Map,
-    equipmentId: string,
-    AlterSide():  void
+   
+    name: string,
+    id: string,
+    statusId: string,
+    AlterSide():  void,
 }
 
-export default function  Marker({position, map, equipmentId, AlterSide}: IMarker) {
-    const equipInfo = EquiIDSearch(equipmentId);
+export default function  Marker({position, map, name, id, statusId, AlterSide}: IMarker) {
+    //const equipInfo = EquiIDSearch(id);
     const [marker, setMarker] = useState<google.maps.Marker>();
     
     useEffect(() => {
@@ -20,16 +23,16 @@ export default function  Marker({position, map, equipmentId, AlterSide}: IMarker
 
    
     //const status = equipInfo.StateHistory.states[equipInfo.StateHistory.states.length -1].equipmentStateId;
-    const statusPronto = statusSerach(equipInfo.statusId);
+    const statusPronto = statusSerach(statusId);
 
 
     const contentString =
     "<div id=\"content\">" +
     "<div id=\"siteNotice\">" +
     "</div>" +
-    `<h1 id="firstHeading" class="firstHeading">${equipInfo.name}</h1>` +
+    `<h1 id="firstHeading" class="firstHeading">${name}</h1>` +
     "<div id=\"bodyContent\">" +
-    `<p><b style="font-size:large">Id:</b> ${equipInfo.id}</b> </p>` +
+    `<p><b style="font-size:large">Id:</b> ${id}</b> </p>` +
     `<p><b style="font-size:large">Status:</b> ${statusPronto.name}</p>` +
     "</div>" +
     "</div>";
@@ -61,7 +64,7 @@ export default function  Marker({position, map, equipmentId, AlterSide}: IMarker
           });
 
         marker.addListener("click",() => {
-          console.log(equipInfo.name);
+          console.log(name);
           Alterar();
         });
     }

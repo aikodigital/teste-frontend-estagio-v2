@@ -3,7 +3,7 @@ import "./style.css";
 import Sidebar from "../../components/Sidebar";
 import MapUnifier from "../../components/MapUnifier";
 import Equipamento from "../../data/equipment.json";
-
+import { useData } from "../../hook/useData";
 
 interface IEquipament{
   id: string,
@@ -13,18 +13,21 @@ interface IEquipament{
 
 
 export default function App() {
+  const {MapaInicial} = useData();
+
   const [dataStart, setDataStart] = useState(true);
   const [defaultData, setDefaultData] = useState<IEquipament[]>();
+  
+  const [infoEquip, setInfoEquip] = useState(false);
+  
   const [sidebarOp, setSidebarOp] = useState(true);
   const equipamento: IEquipament[] = Equipamento; 
 
 
 
   useEffect(() =>{
-    if(dataStart){
-      setDefaultData(Equipamento);
-    }
-  },[dataStart]);
+      MapaInicial();
+  },[]);
   
   return (
     <>
@@ -32,11 +35,13 @@ export default function App() {
         sidebarOp={sidebarOp} 
         AlterSide={() => {setSidebarOp(!sidebarOp);}} 
         equipamento={defaultData}
+        infoEquip={infoEquip}
+        CloseInfoEquip={setInfoEquip}
       />
       <MapUnifier 
           sidebarOp={sidebarOp} 
           AlterSide={() => {
-              setSidebarOp(!sidebarOp);
+              setSidebarOp(true);
               }
             }
             defaultData={defaultData}

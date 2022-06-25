@@ -4,7 +4,7 @@ import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import  Map  from "../../components/Maps";
 import Marker from "../../components/Marker";
 import EquipamentPosition from "../../data/equipmentPositionHistory.json";
-
+import { useData } from "../../hook/useData";
 interface IEquipament{
   id: string,
   equipmentModelId: string,
@@ -26,32 +26,30 @@ interface IEquipamentPosition{
 }
 
 export default function MapUnifier({sidebarOp,AlterSide, defaultData}:IMapUnifier) {
+    const { MapData, center } = useData();
     const zoom = 10;
 
     const render = (status: Status) => {
       return <h1>{status}</h1>;
     };
   
-    const posicoes:IEquipamentPosition[] =  EquipamentPosition;
-    const center = { 
-      lat: -19.171667,
-      lng: -46.044589
-    };
-
     return(
       
       <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}> 
         <Map center={center} zoom={zoom} sidebarOp={sidebarOp}>
-            {posicoes.map((posicao) => 
+            {MapData?.map((posicao) => 
               
               <Marker 
+                  key={posicao.id}
                   position={{ 
-                    lat:  posicao.positions[posicao.positions.length - 1].lat,
-                    lng:  posicao.positions[posicao.positions.length - 1].lon
+                    lat:  posicao.positions.lat,
+                    lng:  posicao.positions.lon
                     }} 
-                  equipmentId={posicao.equipmentId}
+                  id={posicao.id}
                   AlterSide={AlterSide}
-                  key={posicao.equipmentId}  
+                  
+                  name={posicao.name} 
+                  statusId={posicao.statusId}
                 />   
             )}
             

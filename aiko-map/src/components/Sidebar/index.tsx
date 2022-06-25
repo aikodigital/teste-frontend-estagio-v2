@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { Container, Content, ButaoExpand,Titulo } from "./style";
 import {  FaBars }  from "react-icons/fa";
 import ButtonsEquipament from "../ButtonsEquipament";
-
+import StatusInfoUnifier from "../StatusInfoUnifier";
+import { useData } from "../../hook/useData";
 interface IEquipament{
     id: string,
     equipmentModelId: string,
@@ -11,15 +12,21 @@ interface IEquipament{
 interface ISidebar{
     sidebarOp: boolean,
     AlterSide():void,
-    equipamento:IEquipament[]
+    equipamento:IEquipament[],
+    infoEquip,
+    CloseInfoEquip(aux:boolean): void
 }
 
 export default function Sidebar({
     sidebarOp, 
     AlterSide,
-    equipamento 
+    equipamento,
+    infoEquip,
+    CloseInfoEquip
 }: ISidebar) : JSX.Element{
-    
+
+    const {MapData} = useData();
+
     return(
         <>
          <Container 
@@ -34,19 +41,29 @@ export default function Sidebar({
 
                 </button>          
             </ButaoExpand>
+
             <Content>
             {sidebarOp && (
               <>
-                <Titulo>Equipamentos</Titulo>
-                <ul>
-                    {equipamento.map(equip => 
-                        <ButtonsEquipament 
-                            key={equip.id} 
-                            name={equip.name} 
-                            id={equip.id}
-                        />
-                    )}
-                </ul>
+              {!infoEquip ? (
+                <>
+                    <Titulo>Equipamentos</Titulo>
+                    <ul>
+                        {MapData?.map(equip => 
+                            <ButtonsEquipament 
+                                key={equip?.id} 
+                                name={equip?.name} 
+                                id={equip?.id}
+                            />
+                        )}
+                    </ul>
+                </>
+                ) : (
+                    <>
+                        <StatusInfoUnifier CloseInfoEquip={CloseInfoEquip}/>
+                    </>
+                )}
+                
               </>
             )}
             </Content>
@@ -57,12 +74,3 @@ export default function Sidebar({
 }
 
 
-/*
-{posicoes.map((posicao) => 
-            // eslint-disable-next-line react/jsx-key
-            <Marker position={{ 
-                lat:  posicao.positions[0].lat,
-                lng:  posicao.positions[0].lon
-              }} />   
-          )}
-*/
