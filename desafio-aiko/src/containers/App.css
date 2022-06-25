@@ -1,4 +1,8 @@
 .leaflet-container {
-  width: 50vw;
-  height: 25vw;
+  width: 60vw;
+  height: 30vw;
+}
+
+body {
+  background-color: rgb(250, 250, 250);
 }

@@ -1,29 +1,34 @@
+import { useState } from "react";
+import equipmentDataId from "../data/equipment.json";
+import equipmentModel from "../data/equipmentModel.json";
+
 export const Table = () => {
+  const [equipmentId, setEquipamentId] = useState(equipmentDataId);
+  const [model, setModel] = useState(equipmentModel);
   return (
-    <table className="table-fixed w-full d-flex justify-items-center">
+    <table className="table-fixed w-11/12 d-flex justify-items-center">
       <thead>
         <tr className="border-solid border-b-2 border-black">
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Year</th>
+          <th>Equipament</th>
+          <th>Name</th>
+          <th>ID</th>
         </tr>
       </thead>
       <tbody>
-        <tr className=" hover:bg-gray-200 border-solid border-b text-center">
-          <td className="">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
-        </tr>
-        <tr className=" hover:bg-gray-200 border-solid border-b text-center">
-          <td>Witchy Woman</td>
-          <td>The Eagles</td>
-          <td>1972</td>
-        </tr>
-        <tr className=" hover:bg-gray-200 border-solid border-b text-center">
-          <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
-          <td>1975</td>
-        </tr>
+        {equipmentId &&
+          model.map((data, i) => {
+            return (
+              <tr
+                className=" hover:bg-gray-200 border-solid border-b text-center"
+                key={equipmentId[i].id}
+                style={{ width: "200px" }}
+              >
+                <td>{model[i].name}</td>
+                <td className="">{equipmentId[i].name}</td>
+                <td>{equipmentId[i].equipmentModelId}</td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );
