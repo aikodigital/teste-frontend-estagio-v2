@@ -64,9 +64,10 @@ export default function Sidebar({
                 </>
                 ) : (<>
                         <ul>
-                            {sideStateData?.states.map((equip, index) => 
-                                <ButtonsStatus key={index} date={equip.date}/>
-                
+                            {sideStateData?.states.map((equip, index) =>{ 
+                                
+                                return (<ButtonsStatus key={index} date={equip.date}/>);
+                            }
                             )}
                         </ul>
                     <Buttons ClickFunction={() => {CloseInfoEquip(false);}}>
