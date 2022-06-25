@@ -9,6 +9,12 @@ export interface StateEquipment{
     equipmentStateId:string
 }
 
+export interface HistoryPosition{
+    date: string;
+    lat: number;
+    lon: number;
+}[]
+
 export interface NameState{
     date: string,
     name: string,

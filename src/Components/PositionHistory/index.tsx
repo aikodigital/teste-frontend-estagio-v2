@@ -1,6 +1,6 @@
 import equipmentPositionHistory from '../assets/data/equipmentPositionHistory.json'
 import { Marker, Popup } from 'react-leaflet';
-import { EquipmentStateActual, takeModelEquipment, defineIcon, DataConvert, takeHistoryPostion } from '../assets/helpers';
+import { EquipmentStateActual, takeModelEquipment, defineIcon, DataConvert, takeHistoryPostion, takeNameEquipment } from '../assets/helpers';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
@@ -12,7 +12,8 @@ const PositionHistyory = () => {
         {takeHistoryPostion(idEquipment).map((item, index)=>(
         <Marker key={index}  position={[item.lat, item.lon ]} icon = {defineIcon(takeModelEquipment(idEquipment).name)}>
             <Popup>
-                Nome: {takeModelEquipment(idEquipment).name}<br/>
+                Modelo: {takeModelEquipment(idEquipment).name}<br/>
+                Nome: {takeNameEquipment(idEquipment).name}<br/>
                 Ordem no historico: {index}<br/>
                 Estado Atual:  { EquipmentStateActual(idEquipment) }<br/>
                 Data:  {DataConvert(item.date) }<br/>

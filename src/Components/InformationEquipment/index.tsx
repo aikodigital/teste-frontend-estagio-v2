@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { earnedEquipment, filterState, takeModelEquipment } from "../assets/helpers"
+import { earnedEquipment, filterState } from "../assets/helpers"
 import { RootState } from "../store"
 import * as S from './style'
 

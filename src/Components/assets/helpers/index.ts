@@ -3,7 +3,7 @@ import equipmentState from '../data/equipmentState.json'
 import equipment from '../data/equipment.json'
 import equipmentPositionHistory from '../data/equipmentPositionHistory.json'
 import equipmentModel from '../data/equipmentModel.json'
-import { NameState, StateEquipment } from '../../@types'
+import { HistoryPosition, NameState, StateEquipment } from '../../@types'
 import L from 'leaflet'
 import tracto from '../img/iconTractor.png'
 import logo from '../img/aiko.png'
@@ -12,7 +12,12 @@ import garra from '../img/garra.png'
 
 export const lastPosition = (array:any[]) => {
     return array[array.length-1]
-}   
+}
+
+export const takeNameEquipment = (id:string) => {
+    let filterName = equipment.filter(item => item.id === id)
+    return filterName[0]
+}
 
 export const EquipmentStateActual =  (id:string) => {
     try {
@@ -58,7 +63,7 @@ export const takeHistoryPostion = (id:string) => {
         let historyposition = equipmentPositionHistory.filter(item=>item.equipmentId == id)[0].positions
         return historyposition
     } catch (error) {
-        return console.error('Houve algum erro ', error) as any
+        return console.error('Houve algum erro ', error) as any as HistoryPosition[]
     }
 }
 

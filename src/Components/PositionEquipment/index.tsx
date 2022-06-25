@@ -1,6 +1,6 @@
 import equipmentPositionHistory from '../assets/data/equipmentPositionHistory.json'
 import { Marker, Popup } from 'react-leaflet';
-import { lastPosition, EquipmentStateActual, takeModelEquipment, defineIcon } from '../assets/helpers';
+import { lastPosition, EquipmentStateActual, takeModelEquipment, defineIcon, takeNameEquipment } from '../assets/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { TypeFilter } from '../@types';
@@ -28,8 +28,10 @@ const PositionEquipment = () => {
                     >
 
                         <Popup>
-                            Nome: {takeModelEquipment(item.equipmentId).name}<br/>
+                            Nome: {takeNameEquipment(item.equipmentId).name}<br/>
+                            Modelo: {takeModelEquipment(item.equipmentId).name}<br/>
                             Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
+                            id:  { item.equipmentId }<br/>
                         </Popup>
 
                     </Marker>
