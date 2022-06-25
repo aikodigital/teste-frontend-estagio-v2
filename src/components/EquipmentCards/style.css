@@ -1,0 +1,31 @@
+div.card[data-bar-color='red']{
+    --bar-color: #e74c3c;
+}
+div.card[data-bar-color='green']{
+    --bar-color: #2ecc71;
+}
+div.card[data-bar-color='yellow']{
+    --bar-color: #f1c40f;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    text-align: justify;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.card::before{
+    content: '';
+    width: 10px;
+    height: 100%;
+    background-color: var(--bar-color);
+    border-radius: 10px 0 0 10px;
+    margin-right: 10px;
+}
+
+.cards-container{
+    padding: 35px;
+}

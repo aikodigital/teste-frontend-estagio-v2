@@ -1,0 +1,44 @@
+.navbar{
+    background-color: #003380;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+nav a{
+    margin: 0px 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+nav a:hover{
+    color: #A8A8A8;
+}
+
+nav a span{
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+}
+
+nav a:hover span{
+    width: 200px;
+}
+
+.logo{
+    width: 130px;
+    height: 65px;
+   
+}
+
+@media screen and (max-width: 445px) {
+    nav a:hover span{
+        width: 0;
+    }
+}
