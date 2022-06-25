@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Sidebar from "../../components/Sidebar";
 import MapUnifier from "../../components/MapUnifier";
 import Equipamento from "../../data/equipment.json";
 
-/*
-"id": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        "equipmentModelId": "a3540227-2f0e-4362-9517-92f41dabbfdf",
-        "name": "CA-0001"
-*/
+
 interface IEquipament{
   id: string,
   equipmentModelId: string,
@@ -17,18 +13,35 @@ interface IEquipament{
 
 
 export default function App() {
-
+  const [dataStart, setDataStart] = useState(true);
+  const [defaultData, setDefaultData] = useState<IEquipament[]>();
   const [sidebarOp, setSidebarOp] = useState(true);
   const equipamento: IEquipament[] = Equipamento; 
 
+
+
+  useEffect(() =>{
+    if(dataStart){
+      setDefaultData(Equipamento);
+    }
+  },[dataStart]);
+  
   return (
     <>
       <Sidebar 
         sidebarOp={sidebarOp} 
         AlterSide={() => {setSidebarOp(!sidebarOp);}} 
-        equipamento={equipamento}
+        equipamento={defaultData}
       />
-      <MapUnifier sidebarOp={sidebarOp} AlterSide={() => {setSidebarOp(!sidebarOp);}}/>
+      <MapUnifier 
+          sidebarOp={sidebarOp} 
+          AlterSide={() => {
+              setSidebarOp(!sidebarOp);
+              }
+            }
+            defaultData={defaultData}
+          />
+        
     </>
   );
 }

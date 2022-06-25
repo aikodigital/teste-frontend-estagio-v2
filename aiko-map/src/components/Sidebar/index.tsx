@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Container, Content, ButaoExpand,Titulo } from "./style";
-import { FaUser, FaBookOpen, FaBars, FaConnectdevelop, FaHome, FaPlus, FaBook, FaCog, FaSignInAlt}  from "react-icons/fa";
+import {  FaBars }  from "react-icons/fa";
 import ButtonsEquipament from "../ButtonsEquipament";
 
 interface IEquipament{

@@ -9,6 +9,8 @@ export const Container = styled.div`
     z-index:10;
     background: var(--blue);
     padding: 6px 14px;
+    //padding-right: 0;
+
 
     &.aberto{
         width: 278px;
@@ -27,9 +29,12 @@ export const Container = styled.div`
 
 
 export const Content = styled.div`  
+    height: 100%;
+    
+    grid-template-rows: 40%  60%;
+    
     ul{
-        
-        max-height: 35vh;
+        max-height: 60%;
         overflow: auto;  
         ::-webkit-scrollbar{
             width: 12px;
