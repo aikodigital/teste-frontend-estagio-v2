@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Container, Content, ButaoExpand,Titulo } from "./style";
-import {  FaBars }  from "react-icons/fa";
+import {  FaArrowLeft, FaBars }  from "react-icons/fa";
 import ButtonsEquipament from "../ButtonsEquipament";
-import StatusInfoUnifier from "../StatusInfoUnifier";
 import { useData } from "../../hook/useData";
+import Buttons from "../Buttons";
+import ButtonsStatus from "../ButtonsStatus";
 interface IEquipament{
     id: string,
     equipmentModelId: string,
@@ -13,7 +14,7 @@ interface ISidebar{
     sidebarOp: boolean,
     AlterSide():void,
     equipamento:IEquipament[],
-    infoEquip,
+    infoEquip: boolean,
     CloseInfoEquip(aux:boolean): void
 }
 
@@ -25,7 +26,8 @@ export default function Sidebar({
     CloseInfoEquip
 }: ISidebar) : JSX.Element{
 
-    const {sideData} = useData();
+    const {sideData, sideStateData} = useData();
+    
 
     return(
         <>
@@ -60,9 +62,17 @@ export default function Sidebar({
                         )}
                     </ul>
                 </>
-                ) : (
-                    <>
-                        <StatusInfoUnifier CloseInfoEquip={CloseInfoEquip}/>
+                ) : (<>
+                        <ul>
+                            {sideStateData?.states.map((equip, index) => 
+                                <ButtonsStatus key={index} date={equip.date}/>
+                
+                            )}
+                        </ul>
+                    <Buttons ClickFunction={() => {CloseInfoEquip(false);}}>
+                        <FaArrowLeft/>
+                        Voltar
+                    </Buttons>
                     </>
                 )}
                 

@@ -12,7 +12,7 @@ interface IEquipament{
 }
 interface IMapUnifier{
     sidebarOp: boolean,
-    AlterSide():void,
+    AlterSide(id:string):void,
     defaultData:IEquipament[];
 }
 
@@ -25,7 +25,7 @@ interface IEquipamentPosition{
   }[]
 }
 
-export default function MapUnifier({sidebarOp,AlterSide, defaultData}:IMapUnifier) {
+export default function MapUnifier({sidebarOp,AlterSide,defaultData}:IMapUnifier) {
     const { MapData, center, zoom } = useData();
 
     const render = (status: Status) => {

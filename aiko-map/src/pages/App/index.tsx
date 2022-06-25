@@ -13,7 +13,7 @@ interface IEquipament{
 
 
 export default function App() {
-  const {MapaInicial} = useData();
+  const {MapaInicial,MudaSideStateData} = useData();
 
   const [dataStart, setDataStart] = useState(true);
   const [defaultData, setDefaultData] = useState<IEquipament[]>();
@@ -36,11 +36,16 @@ export default function App() {
       />
       <MapUnifier 
           sidebarOp={sidebarOp} 
-          AlterSide={() => {
+          AlterSide={(id:string) => {
+              MudaSideStateData(id);
               setSidebarOp(true);
+              setInfoEquip(true);
+              //MudaSideStateData(id);
               }
             }
-            defaultData={defaultData}
+          
+          defaultData={defaultData}
+          
           />
         
     </>

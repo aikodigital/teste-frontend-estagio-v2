@@ -10,7 +10,8 @@ interface IMarker{
     name: string,
     id: string,
     statusId: string,
-    AlterSide():  void,
+    AlterSide(id:string):  void,
+    
 }
 
 export default function  Marker({position, map, name, id, statusId, AlterSide}: IMarker) {
@@ -37,8 +38,9 @@ export default function  Marker({position, map, name, id, statusId, AlterSide}: 
     "</div>" +
     "</div>";
 
-    function Alterar(){
-      AlterSide();
+    function Alterar(id){
+      AlterSide(id);
+      //CloseInfoEquip(true);
     }
 
     if(marker){
@@ -65,7 +67,7 @@ export default function  Marker({position, map, name, id, statusId, AlterSide}: 
 
         marker.addListener("click",() => {
           console.log(name);
-          Alterar();
+          Alterar(id);
         });
     }
     
