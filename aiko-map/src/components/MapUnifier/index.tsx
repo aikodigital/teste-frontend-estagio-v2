@@ -26,8 +26,7 @@ interface IEquipamentPosition{
 }
 
 export default function MapUnifier({sidebarOp,AlterSide, defaultData}:IMapUnifier) {
-    const { MapData, center } = useData();
-    const zoom = 10;
+    const { MapData, center, zoom } = useData();
 
     const render = (status: Status) => {
       return <h1>{status}</h1>;

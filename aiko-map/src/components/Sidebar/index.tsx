@@ -54,6 +54,8 @@ export default function Sidebar({
                                 key={equip?.id} 
                                 name={equip?.name} 
                                 id={equip?.id}
+                                lat={equip?.positions.lat}
+                                lon={equip?.positions.lon}
                             />
                         )}
                     </ul>

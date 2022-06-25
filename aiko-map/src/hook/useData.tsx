@@ -31,6 +31,8 @@ interface ContextData {
     center:ILatLngLiteral,
     setCenter(aux:ILatLngLiteral):void;
     sideData: TMapData[];
+    zoom: number;
+    setZoom(zoom:number):void;
 }
 /*
 lat: -19.171667,
@@ -46,6 +48,7 @@ export function DataProvider({ children }: DataProviderProps): JSX.Element {
     lat: -19.171667,
     lng: -46.044589
   });
+const [zoom, setZoom] = useState(8);
 
  function MapaInicial(){
     setMapData(DefaultMapSearch);
@@ -55,7 +58,9 @@ export function DataProvider({ children }: DataProviderProps): JSX.Element {
   
  return (
     <DataContext.Provider
-      value={{MapData, setMapData, MapaInicial,center, setCenter, sideData}}
+      value={{MapData, setMapData, MapaInicial,
+              center, setCenter, sideData, 
+              zoom, setZoom}}
     >
       {children}
     </DataContext.Provider>
