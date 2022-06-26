@@ -1,11 +1,11 @@
-import { MapContainer, TileLayer } from 'react-leaflet'
-import "leaflet/dist/leaflet.css"
+import { TileLayer } from 'react-leaflet'
 import { LatLngExpression } from 'leaflet'
+import {ReactNode} from 'react'
+import "leaflet/dist/leaflet.css"
 import * as S from'./style'
-import React from 'react'
 
 interface Props{
-    children: React.ReactNode,
+    children: ReactNode,
     height: string
 }
 

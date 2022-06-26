@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux'
-import Home from './Components/pages/Home'
 import { store } from './Components/store'
+import Home from './Components/pages/Home'
 
 
 function App() {

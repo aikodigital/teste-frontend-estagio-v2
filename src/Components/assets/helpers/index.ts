@@ -7,7 +7,7 @@ import { HistoryPosition, NameState, StateEquipment } from '../../@types'
 import L from 'leaflet'
 import tracto from '../img/iconTractor.png'
 import logo from '../img/aiko.png'
-import harvester from '../img/harvester.jpg'
+import harvester from '../img/harvester.png'
 import garra from '../img/garra.png'
 
 export const lastPosition = (array:any[]) => {

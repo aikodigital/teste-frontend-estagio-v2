@@ -40,7 +40,6 @@ const Home = () => {
 
         </S.StyledContainer>
         <Footer/>
-
     </Fragment>
   )
 }

@@ -1,11 +1,9 @@
-import React from 'react';
-import { Container, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import {  DataConvert, EquipmentStateHistory } from '../assets/helpers';
 import { RootState } from '../store';
 import * as S from './style'
 
-const TabelState: React.FC = () => {
+const TabelState = () => {
 
   const idEquipment = useSelector((state: RootState)=>state.IdSlice.id)
 

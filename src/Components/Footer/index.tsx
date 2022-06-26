@@ -1,6 +1,6 @@
-import * as S from './style'
 import { BsWhatsapp } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
+import * as S from './style'
 
 const Footer = () => {
   return (

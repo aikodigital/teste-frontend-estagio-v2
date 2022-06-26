@@ -5,13 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { TypeFilter } from '../@types';
 import { setId } from '../store/equipmentId';
+import { Fragment } from 'react';
 
 const PositionEquipment = () => {
 
     const dispatch = useDispatch()
     let filters: TypeFilter = useSelector((state: RootState)=>state.filterSlice.filter)
     return (
-        <>
+        <Fragment>
         {equipmentPositionHistory.map((item, index)=>(
             (filters.nome==takeModelEquipment(item.equipmentId).name || filters.nome == 'todos') &&
             (filters.situation==EquipmentStateActual(item.equipmentId)  || filters.situation == 'todos')
@@ -31,14 +32,13 @@ const PositionEquipment = () => {
                             Nome: {takeNameEquipment(item.equipmentId).name}<br/>
                             Modelo: {takeModelEquipment(item.equipmentId).name}<br/>
                             Estado Atual:  { EquipmentStateActual(item.equipmentId) }<br/>
-                            id:  { item.equipmentId }<br/>
                         </Popup>
 
                     </Marker>
 
                 ) : ''
         ))}
-        </>
+        </Fragment>
     )
 }
 
