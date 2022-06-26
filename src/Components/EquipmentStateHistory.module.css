@@ -1,0 +1,39 @@
+.container {
+  width: 350px;
+  height: 100%;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px;
+}
+
+.occultHistory {
+  background: #cfcfcf;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.container h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.statusHistory {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.historyButton {
+  background: #cfcfcf;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 4px;
+}
