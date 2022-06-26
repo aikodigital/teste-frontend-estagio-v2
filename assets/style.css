@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+#map {
+    height: 968px;
+    background-color: #eee;
+}
+
+#textdiv {
+    justify-content: center;
+    display: flex;
+    margin-left: 10%;
+
+}
+
+#modal_pai {
+    margin-top: 50px;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 26.1%;
+    overflow: scroll;
+    background-color: #eee;
+}
+
+#close_icon {
+    position: absolute;
+    margin-left: 95%;
+    color: crimson;
+}
+
+#modal_title {
+    position: absolute;
+    margin-left: 28%;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+
+@media only screen and (min-width: 400px) and (max-width: 1700px) {
+    #modal_pai {
+        width: 498px;
+
+    }
+}
+
+/* @media only screen and (min-width: 700px) and (max-width: 1600px) {
+    #modal_pai {
+        width: 498px;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+
+    #modal_pai {
+        width: 498px;
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+    body {
+        background: rgb(59, 190, 238);
+    }
+
+    #modal_pai {
+        width: 498px;
+    }
+}
+@media only screen and (min-width: 850px) and (max-width: 1000px) {
+    body {
+      background: rgb(59, 190, 238);
+    }
+    #modal_pai{
+        width: 498px;;
+    }
+  } */
