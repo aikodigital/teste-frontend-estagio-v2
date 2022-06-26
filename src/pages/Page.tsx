@@ -2,10 +2,12 @@ import EquipmentPositionTimeline from "../components/EquipmentPositionTimeline"
 import EquipmentInfo from "../components/EquipmentInfo"
 import Header from "../components/Header"
 import Maps from "../components/Maps"
+import equipments from '../../data/equipment.json'
 import { useParams } from "react-router-dom"
 
 function Equipment() {
-    let { equipmentId } = useParams();
+    const { equipmentId } = useParams();
+    const equipment = equipments.filter(equipment => equipment.id == equipmentId)[0]
 
     return (
         <div className="flex h-screen">
@@ -13,10 +15,10 @@ function Equipment() {
 
             <main className="flex flex-col flex-1">
                 <Maps />
-                {equipmentId ? <EquipmentPositionTimeline /> : null}
+                {equipment ? <EquipmentPositionTimeline /> : null}
             </main>
 
-            {equipmentId ? <EquipmentInfo /> : null}
+            {equipment ? <EquipmentInfo /> : null}
         </div>
     )
   }
