@@ -1,0 +1,8 @@
+.boxHistoryEquip{
+    overflow: auto;
+    width: auto;
+}
+#logo{
+    display: flex;
+    justify-content: center;
+}
