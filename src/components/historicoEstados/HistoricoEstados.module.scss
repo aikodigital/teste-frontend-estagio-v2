@@ -1,0 +1,66 @@
+@import "../../styles/breakpoints";
+
+.table {
+
+  &__columnNames {
+    display: flex;
+  }
+
+  &__columnName {
+    margin-top: 1rem;
+    font-size: 22px;
+    width: 20%;
+    text-align: center;
+
+    @media (max-width: $desktop_md) {
+      font-size: 14px;
+    }
+  }
+  &__items {
+    margin-top: 2rem;
+    display: flex;
+
+    @media (max-width: $desktop_md) {
+      margin: 2rem auto;
+    }
+
+  }
+
+  &__itemsList {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: white;
+    margin-top: 2rem;
+    outline: 1px solid #bec1c6;
+    border-radius: 10px;
+
+    @media (max-width: $desktop_md) {
+      justify-content: space-between;
+      padding: 0 .2rem;
+    }
+  }
+
+  &__item {
+    font-size: 22px;
+    width: 20%;
+    text-align: center;
+
+    @media (max-width: $desktop_md) {
+      font-size: 14px;
+    }
+  }
+
+  &__state {
+    font-size: 22px;
+    padding: .2rem;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    @media (max-width: $desktop_md) {
+      font-size: 14px;
+      width: 94%;
+    }
+  }
+}

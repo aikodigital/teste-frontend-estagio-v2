@@ -1,0 +1,18 @@
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0px;
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 300px;
+}
+
+.leaflet-container a {
+  color: white;
+}

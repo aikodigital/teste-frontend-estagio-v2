@@ -1,0 +1,26 @@
+@import "../../styles/breakpoints";
+
+.equipaments {
+
+  @media (max-width: $desktop_md) {
+    margin-top: 2rem;
+  }
+
+  &__list {
+    display: flex;
+
+    @media (max-width: $desktop_md) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    margin: 1rem;
+    font-size: 22px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

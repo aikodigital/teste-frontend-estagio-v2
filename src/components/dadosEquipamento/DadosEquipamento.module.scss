@@ -1,0 +1,81 @@
+@import "../../styles/breakpoints";
+
+.datas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+
+  @media (max-width: $desktop_md) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &__data {
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 25px;
+    height: 200px;
+    padding: 1rem;
+    width: 600px;
+
+    @media (max-width: $desktop_md) {
+      height: auto;
+    }
+  }
+
+  &__results {
+    display: flex;
+    height: 80%;
+
+    @media (max-width: $desktop_md) {
+      flex-direction: column;
+    }
+  }
+
+  
+  &__info {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: $desktop_md) {
+      align-items: center;
+    } 
+  }
+
+  &__production {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: $desktop_md) {
+      align-items: center;
+    }
+  }
+
+  &__map {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+  }
+
+  &__mapInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+}
