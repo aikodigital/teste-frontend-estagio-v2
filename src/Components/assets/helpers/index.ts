@@ -15,8 +15,12 @@ export const lastPosition = (array:any[]) => {
 }
 
 export const takeNameEquipment = (id:string) => {
-    let filterName = equipment.filter(item => item.id === id)
-    return filterName[0]
+    try {
+        let filterName = equipment.filter(item => item.id === id)
+        return filterName[0]
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any  
+    }
 }
 
 export const EquipmentStateActual =  (id:string) => {
@@ -95,12 +99,6 @@ export var DataConvert = (x:string) =>{
     let mes = data.split('-')[1]
     let dia =data.split('-')[2]
     return dia+'/'+mes+'/'+ano+' '+hora;
-}
-
-export const ColorState:{ [key: string]: any }  ={    
-    Manutenção: 'rgba(255,0,0,1)',
-    Parado: 'rgba(0,0,0,1)',
-    Operando: 'rgba(0,255,0,1)'
 }
 
 export const CreateIcon = (icon: any) =>{
