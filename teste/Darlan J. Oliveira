@@ -1,0 +1,172 @@
+!DOCTYPE html>
+<html lang="pt">
+<style>
+div {height: auto; width: auto;}
+</style>
+  <header style="background: darkcyan; color: white; padding: 50px 20px; height: 50px; width: auto">Exibição dos equipamentos da empresa</header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teste Aiko</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap&quot; rel="stylesheet>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css">
+    <integrity= "sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==>
+    <crossorigin="/>
+  </head>
+  <body style = "background-color: snow">
+    <div style="background-color:rgb(0,255,255)"></div>
+<script type="text/javascript">
+  class equipment() {
+    constructor( id, equipmentModelId, name1 ) {
+      [
+    {
+        // Identificador único do equipamento
+        id: "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
+        // Chave estrangeira, utilizada para referenciar de qual modelo é esse equipamento
+        equipmentModelId: "a3540227-2f0e-4362-9517-92f41dabbfdf",
+        // Nome do Equipamento
+        name1: "CA-0001"
+    },
+    // ...
+  ]
+    }
+  }
+
+  class equipmentModel() {
+    constructor( id2, name2, equipmentStateId2, value ) {
+      [
+    {
+        // Identificador único do modelo de equipamento
+        id2: "a3540227-2f0e-4362-9517-92f41dabbfdf",
+        // Nome do modelo de equipamento
+        name2: "Caminhão de carga",
+        // Valor gerado por hora para cada estado
+       hourlyEarnings: [
+            {
+                // Chave estrangeira, utilizada para referenciar de qual valor é esse estado
+                equipmentStateId2: "0808344c-454b-4c36-89e8-d7687e692d57",
+                // Valor gerado por hora nesse estado
+                value: 100
+            },
+            // ...
+        ]
+    },
+    // ...
+  ]
+    }
+  }
+
+  class equipmentPositionHistory() {
+  constructor(equipmentId, date, lat, lon) {
+    [
+      {
+          // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
+          equipmentId: "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
+          // Posições do equipamento
+          positions: [
+              {
+                  // Data em que a posição foi registrada
+                  date: "2021-02-01T03:00:00.000Z",
+                  // Latitude WGS84
+                  lat: -19.126536,
+                  // Longitude WGS84
+                  lon: -45.947756
+              },
+              // ...
+          ]
+      },
+      // ...
+  ]
+  }
+  }
+
+  class equipmentState() {
+  constructor(id3, name3, color3) {
+    [
+    {
+        // Identificador único do estado de equipamento
+        id3: "0808344c-454b-4c36-89e8-d7687e692d57",
+        // Nome do estado
+        name3: "Operando",
+        // Cor utilizada para representar o estado
+        color3: "#2ecc71"
+    },
+    // ...
+  ]
+  }
+  }
+
+  class equipmentStateHistory() {
+  constructor(equipmentId2, date, equipmentStateId2) {
+    [
+    {
+        // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
+        equipmentId2: "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
+        // Histórico de estados do equipamento
+        states:
+        [
+            {
+                // Data em que o equipamento declarou estar nesse estado
+                date: "2021-02-01T03:00:00.000Z",
+                // Chave estrangeira, utilizada para referenciar qual é o estado
+                // que o equipamento estava nesse momento
+                equipmentStateId2: "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f"
+            },
+            // ...
+        ]
+    },
+    // ...
+  ]
+  }
+  }
+</script>
+ <h1 style="color:rgb(106, 90, 205)" style="color:hsl(248, 53%, 58%)">Equipamento:</h1>
+<p style="color: #2F4F4F;">CA-0001</p>
+<p style="color: #2F4F4F;">ID: a7c53eb1-4f5e-4eba-9764-ad205d0891f9</p>
+<p style="color: #2F4F4F;">ID do modelo do equipamento: a3540227-2f0e-4362-9517-92f41dabbfdf</p>
+<h1 style="color:rgb(106, 90, 205)" style="color:hsl(248, 53%, 58%)">Caminhão de carga:</h1>
+<p style="color: #2F4F4F;">Identificador: a3540227-2f0e-4362-9517-92f41dabbfdf</p>
+<h1 style="color:rgb(106, 90, 205)" style="color:hsl(248, 53%, 58%)">estado do Equipamento:</h1>
+<h3 style="color: #2F4F4F;">Ultima posição do equipamento:</h3>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+ integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+ crossorigin=""></script>
+ <div id="map" style="width: 960px; height: 500px"></div>
+ <div #map = "{height:" 180px; }>
+   <script>
+   var map = L.map('map').setView([ -19.126536,  -45.947756], 13);
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+maxZoom: 19,
+attribution: '© OpenStreetMap'
+}).addTo(map);
+map.locate({setView: true, maxZoom: 16});
+let truckMarker = L.marker([ -19.126536,  -45.947756]).addTo(map);
+truckMarker.bindPopup('Caminhão de carga').openPopup();
+</script>
+<date style="background-color: powderblue">2021-02-01T03:00:00.00</date>
+<p>Sua ultima posição fora no estado de Minas Gerais.</p>
+<table>
+    <thead>
+      <colgroup>
+        <col style="background-color:#2ecc71">
+        <col span="2">
+      </colgroup>
+        <tr>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0808344c-454b-4c36-89e8-d7687e692d57</td>
+            <td>Operando</td>
+        </tr>
+    </tbody>
+</table>
+<p style = "color: purple; weight: 70px;">Esse é o fim da página. Com o máximo das minhas habilidades, tentei meu máximo.</p>
+<p style="color: purple; weight: 70px">Agradavelmente estético não está, porém cumpre parcialmente seu objetivo.</p>
+<b>Feito por: Darlan J. Oliveira<b>
+  </body>
