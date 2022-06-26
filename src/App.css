@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #c9d9d0;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.color-dot-operating {
+  background-color: #2ecc71;
+}
+
+.color-dot-stopped {
+    background-color: #f1c40f;
+}
+
+.color-dot-maintenance {
+    background-color: #e74c3c;
+}
+
+.searchInputWrapper {
+  position: relative;
+}
+
+.searchInput {
+  width: 254px;;
+  height: 32px;
+  padding: 0 16px;
+  margin-bottom: 10px;
+  border-radius: 32px;
+  border: 1px solid #00000032;
+  transition: transform 0.1s ease-in-out;
+}
+
+::placeholder {
+  color: #a1a1a1;
+}
+
+.searchInputIcon {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.5rem;
+  color: #a1a1a1;
+  transition: all 0.1s ease-in-out;
+}
+
+.tab-div {
+  width: 72.5%;
+  height: 530px;
+  margin-top: 120px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  padding-left: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.equipment-list {
+  background-color: #F8F9FA;
+  height: 410px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  font-size: 18px;
+}
+
+.map-button {
+  cursor: pointer;
+  margin-top: 10px;
+  width: 255px;
+  z-index: 99;
+  background-color: rgba(170, 201, 241, 0.342);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+::-webkit-scrollbar{
+  height: 8px;
+  width: 8px;
+  background: gray;
+}
+::-webkit-scrollbar-track {
+  background-color: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+}
+::-webkit-scrollbar-thumb:horizontal{
+  width: 8px;
+  background: rgba(5, 220, 202, 0.493);
+  border-radius: 10px;
+}
+
+.logo-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  height: 100px;
+}
+
+.footer {
+  width: 100%;
+  height: 150px;
+  margin-top: 20vh;
+  background-color: rgba(170, 201, 241, 0.342);
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
