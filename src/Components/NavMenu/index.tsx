@@ -16,7 +16,6 @@ const NavMenu: React.FC = () => {
           <S.StyledA href='https://aiko.digital' target='_blank' >
             <S.StyledImg src= {logo} />
           </S.StyledA>
-
         </Container>
     </S.StyledNavBar>
   )

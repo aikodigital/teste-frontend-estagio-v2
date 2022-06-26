@@ -79,9 +79,13 @@ export const filterState = (id:string, state:string) =>{
 }
 
 export const earnedEquipment = (id:string, hoursWork:number, hoursSupport:number) =>{
-    let hourEquip = equipmentModel.filter(item => item.name == takeModelEquipment(id).name )[0]
-    let yieldEquipment  = hourEquip.hourlyEarnings[0].value * hoursWork + hourEquip.hourlyEarnings[2].value * hoursSupport
-    return yieldEquipment
+    try {
+        let hourEquip = equipmentModel.filter(item => item.name == takeModelEquipment(id).name )[0]
+        let yieldEquipment  = hourEquip.hourlyEarnings[0].value * hoursWork + hourEquip.hourlyEarnings[2].value * hoursSupport
+        return yieldEquipment
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any
+    }
 }
 
 export var DataConvert = (x:string) =>{

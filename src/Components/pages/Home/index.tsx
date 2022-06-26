@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import NavMenu from "../../NavMenu";
 import Map from "../../Map";
 import TabelState from "../../TabelState";
+import Footer from "../../Footer";
 import PositionEquipment from "../../PositionEquipment";
 import PositionHistory from '../../PositionHistory';
 import InformationEquipment from '../../InformationEquipment';
@@ -38,6 +39,7 @@ const Home = () => {
             <TabelState/>
 
         </S.StyledContainer>
+        <Footer/>
 
     </Fragment>
   )

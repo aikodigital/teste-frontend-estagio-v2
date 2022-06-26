@@ -17,7 +17,7 @@ export const StyledContainer = styled.div`
 `
 export const StyledContainerMap = styled.div<props>`
     width: 100%;
-    border: 3px solid rgb(81, 81, 222);
+    border: 3px solid #003380;
     border-radius: 20px;
     margin-top: ${props=>props.marginTop}%;
     margin-bottom: ${props=>props.marginBottom}%;
