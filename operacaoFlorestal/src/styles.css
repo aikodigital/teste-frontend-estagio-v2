@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap');
+@import "~leaflet/dist/leaflet.css";
+
+body {
+    font-size: 100%;
+    background-color: #deebdd;
+    background-image: linear-gradient(315deg, #deebdd 0%, #bbdbbe 74%); 
+    background-size: cover;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Ubuntu', cursive;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 4px;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

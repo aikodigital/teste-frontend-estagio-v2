@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewreport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Operacao Floresta">
+</head>
+<body>
+    <header>
+        <mat-toolbar>
+            <mat-toolbar-row>
+                <span class="titulo">Operação Florestal</span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </header>
+    <button mat-button [matMenuTriggerFor]="equipamentos" class="button-menu">Equipamentos</button>
+    <mat-menu #equipamentos="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="posicoes">Posições</button>
+        <button mat-menu-item [matMenuTriggerFor]="estado">Estado</button>
+        <button mat-menu-item [matMenuTriggerFor]="historico">Historico</button>
+        <a href="http://localhost:4200"><button mat-menu-item>Inicio</button></a>
+    </mat-menu>
+    
+    <mat-menu #posicoes="matMenu">
+        <a href="http://localhost:4200/posicao"><button mat-menu-item>Exibir Posições</button></a>
+    </mat-menu>
+
+    <mat-menu #estado="matMenu">
+        <a href="http://localhost:4200/estado"><button mat-menu-item>Estado Atual</button></a>
+    </mat-menu>
+
+    <mat-menu #historico="matMenu">
+        <a href="http://localhost:4200/historico"><button mat-menu-item>Historico de Estados</button></a>
+    </mat-menu> 
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <mat-card class="example-card">
+                <img mat-card-image src="assets/img/floresta1.jpg" alt="Floresta1">
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="example-card">
+                <img mat-card-image src="assets/img/floresta2.jpg" alt="Floresta2">
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile><mat-card class="example-card">
+            <img mat-card-image src="assets/img/floresta-3.jpg" alt="Floresta-3">
+        </mat-card></mat-grid-tile>
+        <mat-grid-tile><mat-card class="example-card">
+            <img mat-card-image src="assets/img/rainforest.jpg" alt="rainforest">
+        </mat-card></mat-grid-tile>
+      </mat-grid-list>
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span class="rodape">&copy; 2020 - 2022 MadsonMendes | All Rights Reserved</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+</body>
+</html>
+    
+    
+    
+    
+    
+    
