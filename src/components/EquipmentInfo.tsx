@@ -153,19 +153,19 @@ function EquipmentInfo() {
 
         <div className="mx-2" style={productivityVisible ? {display: 'block'} : {display: 'none'}}>
           <div>
+            <span className="font-semibold">Percentual:</span> 
+            <div className="mx-2">
+              {equipmentProductivityPercentage.last30Days}  <span className="text-xs text-gray-500">(30 dias)</span>
+              <br />
+              {equipmentProductivityPercentage.allTime}  <span className="text-xs text-gray-500">(total)</span>
+            </div>
+          </div>
+          <div>
             <span className="font-semibold">Ganho:</span> 
             <div className="mx-2">
               R$ {equipmentProfit.last30Days.toLocaleString('pt-br', {minimumFractionDigits: 2})}  <span className="text-xs text-gray-500">(30 dias)</span>
               <br />
               R$ {equipmentProfit.allTime.toLocaleString('pt-br', {minimumFractionDigits: 2})}  <span className="text-xs text-gray-500">(total)</span>
-            </div>
-          </div>
-          <div>
-            <span className="font-semibold">Percentual de Produtividade:</span> 
-            <div className="mx-2">
-              {equipmentProductivityPercentage.last30Days}  <span className="text-xs text-gray-500">(30 dias)</span>
-              <br />
-              {equipmentProductivityPercentage.allTime}  <span className="text-xs text-gray-500">(total)</span>
             </div>
           </div>
         </div>
