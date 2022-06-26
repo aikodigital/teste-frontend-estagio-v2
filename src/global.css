@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.leaflet-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
