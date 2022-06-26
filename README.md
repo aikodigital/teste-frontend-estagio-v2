@@ -7,6 +7,7 @@
       <a href="#fire-prévia-da-aplicação"> :fire: Prévia da Aplicação</a> |
       <a href="#rocket-tecnologias-usadas"> :rocket: Tecnologias Usadas</a> |
       <a href="#zap-executando-o-projeto"> :zap: Executando o Projeto </a> |
+      <a href="#open_book-codigo"> :open_book: Código </a>
     </p>
 
 </div>
@@ -20,3 +21,28 @@ O AIM é o resultado do desáfio proposto pela Aiko Digital de criar uma aplica�
 <div align="center">
 <img src="./src/Components/assets/img/gif.gif" alt="preview"/>
 </div>
+
+### :rocket: Tecnologias Usadas
+
+O projeto foi feito com as seguintes tecnologias:
+
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Vite](https://vitejs.dev)
+- [Styled-Components](https://styled-components.com/)
+- [React-Redux](https://react-redux.js.org)
+- [React-Bootstrap](https://react-bootstrap.github.io)
+- [Leaflet](https://react-leaflet.js.org)
+- {...}
+
+## :zap: Executando o Projeto
+#### Clonando o projeto
+```sh
+$ git clone git@github.com:orloke/teste-frontend-estagio-v2.git
+$ cd teste-frontend-estagio-v2
+```
+
+#### Iniciando o projeto
+```sh
+$ npm install
+$ npm run dev
+```
