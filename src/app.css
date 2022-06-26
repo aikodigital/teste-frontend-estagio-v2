@@ -1,0 +1,44 @@
+
+p{
+    font-size: 13px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.btn{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: #2ecc71;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:  22px;
+    border-bottom: 1px solid gray;
+    margin-top: 0.25rem; 
+}
+
+.container .col{
+    justify-content: flex-start;
+    max-width:130px ;
+    width: 130px;
+    line-height: 10px;
+
+}
+
+.container .equip-status{
+    align-items: flex-end;
+}
+
+
+
+
+

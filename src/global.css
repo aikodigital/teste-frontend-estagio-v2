@@ -1,0 +1,28 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto' sans-serif;
+}
+
+body, input, button{
+    font-family: 'Roboto' sans-serif;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.leaflet-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+ .leaflet-popup-content {
+    max-width: 400px;
+    width: 100%;
+    
+}
