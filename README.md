@@ -214,9 +214,13 @@ Quando comecei o projeto, não conhecia algumas das ferramentas usadas, como o [
 #### Pontos de melhorias
 
 * Por mais que tenha me esforçado ainda não acredito que o código esteja o mais 'clean' possível, em algumas partes sinto que poderia ter escrito de outra forma, já outas podem estar redundantes ou repetitivas. 
-* Não realizei todos os teste na aplicação, ainda estou aprendendo como fazer, mas creio que no próximo projeto já seja possível.
+* Não realizei todos os teste na aplicação, ainda estou aprendendo como fazer, mas creio que no próximo projeto já será possível.
+* A tabela de informação de dias pode ficar melhor na versão mobile, com as linhas se transformando em colunas.
+* Colocar modo escuro na pagina. Caso o usuário deseje é só clicar em um botão e o background fica preto.
+* Ativar a opção de usar localização atual no mapa.
 
-Além desses há outros pontos de melhorias, que irei superar através dos estudos e disciplina. Abaixo deixo meus contatos para feedbacks!
+
+A maior parte dessas melhorias podem ser executadas com mais algumas linhas de código. Além desses há outros pontos de melhorias, que irei superar através dos estudos e disciplina. Abaixo deixo meus contatos para feedbacks e opiniões :grin:!
 
 ## :phone: Contatos
 
