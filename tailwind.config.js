@@ -15,7 +15,7 @@ module.exports = {
         fadeIn: 'fadeIn 1s',
       },
       backgroundImage: {
-        'backgroundlogo': "url('/src/imgs/background.png')",
+        'backgroundLogo': "url('/src/imgs/background.png')",
       },
     },
   },

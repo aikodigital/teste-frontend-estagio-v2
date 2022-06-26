@@ -8,12 +8,12 @@ function EquipmentList() {
       <nav>
         <span className="flex justify-center mt-6 mb-3 text-xl font-bold">Equipamentos</span>
 
-        <ul>
+        <ul className="flex flex-col overflow-x-hidden">
           {equipments.map(equipment => {
-            const classes = equipment.id == equipmentId ? "flex items-center justify-center min-h-[30px] font-bold text-blue-400 scale-110" : "flex items-center justify-center min-h-[30px] transition hover:scale-110"
+            const classes = equipment.id == equipmentId ? "flex-1 flex items-center justify-center min-h-[30px] text-blue-400 font-bold scale-110" : "flex-1 flex items-center justify-center min-h-[30px] transition hover:scale-110"
 
             return <li key={equipment.id} className={classes}>
-              <Link to={"/" + equipment.id}>{equipment.name}</Link>
+              <Link className="flex-1 text-center" to={"/" + equipment.id}>{equipment.name}</Link>
             </li>
           })}
         </ul>

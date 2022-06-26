@@ -38,8 +38,8 @@ function equipmentProfitFunction(equipmentStates: EquipmentStateType[], equipmen
 }
 
 function equipmentLast30DaysProfitFunction(equipmentStates: EquipmentStateType[], equipmentModel: EquipmentModelType) {
-  let date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
-  let firstDate = new Date(equipmentStates[0].date);
+  const date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
+  const firstDate = new Date(equipmentStates[0].date);
   let profit = 0;
 
   if(equipmentStates.length == 1 && firstDate < date30DaysAgo) {
@@ -51,15 +51,42 @@ function equipmentLast30DaysProfitFunction(equipmentStates: EquipmentStateType[]
     return profit;
   }
 
+  return equipmentProfitFunction(equipmentStates, equipmentModel);
+}
+
+function equipmentProductivityPercentageFunction(equipmentStates: EquipmentStateType[]) {
+  let operatingHours = 0;
+  let totalHours = 0;
+
   for(let i = 0; i < equipmentStates.length; i++) {
     const dateAfter = i + 1 < equipmentStates.length ? new Date(equipmentStates[i + 1].date) : new Date();
-    var time = dateAfter.getTime() - new Date(equipmentStates[i].date).getTime();
-    var timeInHours = Math.floor(time / 60 / 60 / 1000);
-    var earningsByState = equipmentModel.hourlyEarnings.filter(earning => earning.equipmentStateId == equipmentStates[i].equipmentStateId)[0];
-    profit += (earningsByState.value * timeInHours);
+    const time = dateAfter.getTime() - new Date(equipmentStates[i].date).getTime();
+    const timeInHours = Math.floor(time / 60 / 60 / 1000);
+
+    operatingHours += (equipmentStates[i].equipmentStateId == '0808344c-454b-4c36-89e8-d7687e692d57' ? timeInHours : 0);
+    totalHours += timeInHours;
   }
 
-  return profit;
+  return (operatingHours / totalHours * 100).toFixed(2) + "%";
+}
+
+function equipmentLast30DaysProductivityPercentageFunction(equipmentStates: EquipmentStateType[]) {
+  const date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
+  const firstDate = new Date(equipmentStates[0].date);
+  let operatingHours = 0;
+  let totalHours = 0;
+
+  if(equipmentStates.length == 1 && firstDate < date30DaysAgo) {
+    var time = new Date().getTime() - date30DaysAgo.getTime();
+    var timeInHours = Math.floor(time / 60 / 60 / 1000);
+
+    operatingHours += (equipmentStates[0].equipmentStateId == '0808344c-454b-4c36-89e8-d7687e692d57' ? timeInHours : 0);
+    totalHours += timeInHours;
+
+    return (operatingHours / totalHours * 100).toFixed(2) + "%";
+  }
+
+  return equipmentProductivityPercentageFunction(equipmentStates);
 }
 
 function EquipmentInfo() {
@@ -88,11 +115,16 @@ function EquipmentInfo() {
     "last30Days": equipmentLast30DaysProfitFunction(last30DaysEquipmentStates.length < 1 ? [equipmentStates[equipmentStates.length - 1]] : last30DaysEquipmentStates, equipmentModel),
   }
 
+  const equipmentProductivityPercentage = {
+    "allTime": equipmentProductivityPercentageFunction(equipmentStates),
+    "last30Days": equipmentLast30DaysProductivityPercentageFunction(last30DaysEquipmentStates.length < 1 ? [equipmentStates[equipmentStates.length - 1]] : last30DaysEquipmentStates),
+  }
+
   return (
-    <aside className="flex flex-col h-screen p-6 border-l border-gray-500 overflow-clip animate-fadeIn">
-        <span className="flex justify-between gap-2 mt-4 text-lg font-bold ">
-          Informações do Equipamento
-          <div>
+    <aside className="flex flex-col min-h-screen p-6 overflow-auto border-l border-gray-500 animate-fadeIn">
+        <span className="flex justify-between gap-1 text-lg font-bold mt ">
+          Informações
+          <div className="flex items-center">
             {equipmentInfoVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setEquipmentInfoVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setEquipmentInfoVisible(true)}} />}
           </div>
         </span>
@@ -112,9 +144,9 @@ function EquipmentInfo() {
           </div>
         </div>
 
-        <span className="flex justify-between gap-2 mt-4 text-lg font-bold ">
+        <span className="flex justify-between gap-1 mt-4 text-lg font-bold ">
           Produtividade
-          <div>
+          <div className="flex items-center">
             {productivityVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setProductivityVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setProductivityVisible(true)}} />}
           </div>
         </span>
@@ -131,22 +163,22 @@ function EquipmentInfo() {
           <div>
             <span className="font-semibold">Percentual de Produtividade:</span> 
             <div className="mx-2">
-              {equipment.name}  <span className="text-xs text-gray-500">(30 dias)</span>
+              {equipmentProductivityPercentage.last30Days}  <span className="text-xs text-gray-500">(30 dias)</span>
               <br />
-              {equipment.name}  <span className="text-xs text-gray-500">(total)</span>
+              {equipmentProductivityPercentage.allTime}  <span className="text-xs text-gray-500">(total)</span>
             </div>
           </div>
         </div>
 
-        <span className="flex justify-between gap-2 mt-4 mb-1 text-lg font-bold ">
+        <span className="flex justify-between gap-1 mt-4 mb-1 text-lg font-bold ">
           Histórico de Estados
-          <div>
+          <div className="flex items-center">
             {stateHistoryVisible ? (order == 'newest' ? <SortAscending weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setOrder('oldest')}} /> : <SortDescending weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setOrder('newest')}} />) : null}
             {stateHistoryVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setStateHistoryVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setStateHistoryVisible(true)}} />}
           </div>
         </span>
 
-        <div className="px-4 overflow-y-scroll" style={stateHistoryVisible ? {display: 'block'} : {display: 'none'}}>
+        <div className="px-4 min-h-[100px] overflow-y-scroll" style={stateHistoryVisible ? {display: 'block'} : {display: 'none'}}>
           {orderedEquipmentStateList.map(state => {
             const { name, color } = equipmentState.filter(state2 => state2.id == state.equipmentStateId)[0];
             return <span key={state.date} className="flex items-end justify-between text-sm">
