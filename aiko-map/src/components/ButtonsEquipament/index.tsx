@@ -28,7 +28,7 @@ export default function ButtonsEquipament({name,id,lat,lon,CloseInfoEquip}: IBut
             </Buttons>
 
             {!flecha &&(
-                <ListaOp id={id} CloseInfoEquip={CloseInfoEquip}/>
+                <ListaOp id={id} name={name} CloseInfoEquip={CloseInfoEquip}/>
             )}
         </li>
     );

@@ -4,10 +4,11 @@ import { Content } from "./style";
 
 interface IListaOP{
     id: string;
+    name: string;
     CloseInfoEquip(aux:boolean): void;
 }
 
-export default function ListaOp({id, CloseInfoEquip}:IListaOP){
+export default function ListaOp({id, name,CloseInfoEquip}:IListaOP){
 
     const {MudaSideStateData} = useData();
     
@@ -15,7 +16,7 @@ export default function ListaOp({id, CloseInfoEquip}:IListaOP){
         <Content>
             <li>
                 <button onClick={() => {
-                        MudaSideStateData(id);
+                        MudaSideStateData(id,name);
                         CloseInfoEquip(true);
                     }}>
                     Informações

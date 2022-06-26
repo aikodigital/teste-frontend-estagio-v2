@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowUp}  from "react-icons/fa";
 import Buttons from "../Buttons";
-import { Container } from "./style";
+import { Container, ListBtn } from "./style";
 import ListStatus from "../ListStatus";
+import statusSerach from "../../services/ServiceEquipmentState";
 
 interface IBTN{
     date: string;
@@ -10,7 +11,8 @@ interface IBTN{
 }
 
 export default function ButtonsStatus({date,equipmentStateId}:IBTN){
-    
+
+    const statusPronto = statusSerach(equipmentStateId);
     const [flecha, setFlecha] = useState(true);
     const date2 = new Date(date);
     const date3 = date2.toLocaleDateString().toString(); 
@@ -37,6 +39,13 @@ export default function ButtonsStatus({date,equipmentStateId}:IBTN){
                 <>{date3+"--"+hora()+":"+minutos()}</>   
                 {flecha ? <FaArrowDown/> : <FaArrowUp/>}
             </Buttons>
+            {!flecha && (
+                <ListBtn>
+                    <li>
+                        <b style={{color:`${statusPronto.color}`}}>.</b>{statusPronto.name}
+                    </li>
+                </ListBtn>
+            )}
         </Container>
     );
 }

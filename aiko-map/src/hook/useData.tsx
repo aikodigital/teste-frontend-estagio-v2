@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import DefaultMapSearch from "../services/defaultMapSearch";
+import LastPositions from "../services/LastPositions";
 import EquipmentStateHistoryById from "../services/ServiceEquipmentStateHistory";
 
 
@@ -25,10 +26,11 @@ interface ILatLngLiteral{
 }
 
 interface ISideState{
-  equipmentId: string;
+  name: string,
+  equipmentId: string,
   states: {
-      date: string;
-      equipmentStateId: string;
+      date: string,
+      equipmentStateId: string
   }[];
 }
 interface ContextData {
@@ -41,7 +43,8 @@ interface ContextData {
     zoom: number;
     setZoom(zoom:number):void;
     sideStateData: ISideState;
-    MudaSideStateData(id:string):void;
+    MudaSideStateData(id:string, name:string):void;
+    MapaEspecifico(id:string,name:string,statusId: string):void;
 }
 
 const DataContext = createContext<ContextData>({} as ContextData);
@@ -61,8 +64,12 @@ export function DataProvider({ children }: DataProviderProps): JSX.Element {
     setMapData(DefaultMapSearch);
   }
 
-  function MudaSideStateData(id: string){
-    setSideStateData(EquipmentStateHistoryById(id));
+  function MapaEspecifico(id,name,statusId){
+    setMapData(LastPositions(id,name,statusId));
+  }
+  
+  function MudaSideStateData(id: string, name:string){
+    setSideStateData(EquipmentStateHistoryById(id,name));
     //console.log(sideStateData);
   }
   
@@ -70,7 +77,8 @@ export function DataProvider({ children }: DataProviderProps): JSX.Element {
     <DataContext.Provider
       value={{MapData, setMapData, MapaInicial,
               center, setCenter, sideData, 
-              zoom, setZoom, sideStateData, MudaSideStateData}}
+              zoom, setZoom, sideStateData, MudaSideStateData,
+              MapaEspecifico}}
     >
       {children}
     </DataContext.Provider>

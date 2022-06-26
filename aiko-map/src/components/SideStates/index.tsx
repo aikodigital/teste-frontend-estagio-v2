@@ -16,7 +16,7 @@ export default function SideStates({CloseInfoEquip}:ISideSta){
 
     return (
         <>
-            <InfoBlock/>
+            <InfoBlock id={sideStateData.equipmentId} name={sideStateData.name}/>
             <div>
                 <Titulo>Historico de Estados</Titulo>
                 <ul style={{marginBottom:"15px"}}>

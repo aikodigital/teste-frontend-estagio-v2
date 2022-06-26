@@ -23,7 +23,7 @@ export default function App() {
   const [sidebarOp, setSidebarOp] = useState(true);
   const equipamento: IEquipament[] = Equipamento; 
 
-
+ 
   
   return (
     <>
@@ -34,10 +34,10 @@ export default function App() {
         infoEquip={infoEquip}
         CloseInfoEquip={setInfoEquip}
       />
-      <MapUnifier 
+     <MapUnifier 
           sidebarOp={sidebarOp} 
-          AlterSide={(id:string) => {
-              MudaSideStateData(id);
+          AlterSide={(id:string,name:string) => {
+              MudaSideStateData(id,name);
               setSidebarOp(true);
               setInfoEquip(true);
               //MudaSideStateData(id);
@@ -47,6 +47,7 @@ export default function App() {
           defaultData={defaultData}
           
           />
+      
         
     </>
   );

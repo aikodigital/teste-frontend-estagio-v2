@@ -11,7 +11,7 @@ export default function EquiIDSearch(equipmentId:string){
     const aux = equipment.find(item => item.id === equipmentId);
     ModelStateId(aux.equipmentModelId);
     const positionHistory = EquipmentPositionHistoryById(aux.id);
-    const stateHistory = EquipmentStateHistoryById(aux.id);
+    const stateHistory = EquipmentStateHistoryById(aux.id,aux.name);
 
     const neededInfoMap = {
         name: aux.name,

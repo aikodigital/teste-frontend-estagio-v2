@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import  Map  from "../../components/Maps";
@@ -12,7 +12,7 @@ interface IEquipament{
 }
 interface IMapUnifier{
     sidebarOp: boolean,
-    AlterSide(id:string):void,
+    AlterSide(id:string,name:string):void,
     defaultData:IEquipament[];
 }
 
@@ -27,16 +27,23 @@ interface IEquipamentPosition{
 
 export default function MapUnifier({sidebarOp,AlterSide,defaultData}:IMapUnifier) {
     const { MapData, center, zoom } = useData();
-
+    const [map2, setMap2] = useState(MapData);
     const render = (status: Status) => {
       return <h1>{status}</h1>;
     };
   
+    const Map2 = MapData;
+    useEffect(() => {
+      setMap2(MapData);
+      console.log("MAP2");
+      console.log(Map2);
+    },[MapData]);
+
     return(
       
       <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}> 
         <Map center={center} zoom={zoom} sidebarOp={sidebarOp}>
-            {MapData?.map((posicao) => 
+            {Map2?.map((posicao) => 
               
               <Marker 
                   key={posicao.id}
