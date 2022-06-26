@@ -122,6 +122,51 @@ export const EquipmentStateHistory = (id:string) => {
 
 Nessa função o objetivo é pegar o histórico de estado do equipamento. Usei um filter para selecionar o equipamento desejado através do id e em seguida um map para poder selecionar o nome do estado (operando, parado, manutenção), data e cor que representa esse estado, todas essas informações são adicionadas em um array. A função retorna esse array só que na ordem inversa, afinal o último estado registrado no banco de dados é o mais recente!
 
+```javascript
+    const dispatch = useDispatch()
+
+    const formik = useFormik({
+        initialValues: {
+           nome:'todos',
+           situation: 'todos'
+        },
+        onSubmit() {},
+    })
+    dispatch(setFilter(formik.values))
+    return (
+        <S.StyledContainer>
+            <S.StyledForm name = 'nome'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione o modelo do equipamento (todos)</option>
+                {equipmentModel.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
+
+            </S.StyledForm>
+            <S.StyledForm name = 'situation'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione a situação do equipamento (todos)</option>
+                {equipmentState.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
+                
+            </S.StyledForm>
+        </S.StyledContainer>
+
+    )
+```
+
+O código acima foi usado para construir a parte do filtro de exibição no mapa. Para isso usei o [Formik](https://formik.org) e o Redux. Fiz um map no equipmentState para garantir que as opções disponiveis sejam apenas aquelas que aparecem no banco de dados e caso seja atualizado o banco não será preciso alterar essa parte da aplicação, afinal ela puxa os dados diretamente de lá. 
+
+```javascript
+{equipmentPositionHistory.map((item, index)=>(
+            (filters.nome==takeModelEquipment(item.equipmentId).name || filters.nome == 'todos') &&
+            (filters.situation==EquipmentStateActual(item.equipmentId)  || filters.situation == 'todos')
+            ?
+                (...) : ''
+        ))}
+```
+
+Para de fato aplicar o filtro nos equipamentos que são mostrados, optei por usar um Iternario: na 2º linha é feito o filtro por modelo na 3º por estado do equipamento. Caso as condições sejam satisfeitas é mostrado o que vai dentro do (...), no contrario não é mostrado nada. Um ponto de melhoria é em vez de exibir nada, exibir uma mensagem dizendo que nenhum equipamento foi encontrado.
+
 #### Responsividade
 
 A Aiko desenvolve funcionalidades para gestão de operações. E essa gestaõ não é feita apenas de dentro de um escritório na frente de um computador. Muitas vezes o funcionario tem que ir a campo se deslogar até onde o problema está ocorrendo. Por essa razão fiz a aplicação para que seja responsiva, podendo ser usada em smartphones e tablets, sem perda de informções, e facilitando a vida do cliente (ninguém quer sair por ai carregando um computador).
