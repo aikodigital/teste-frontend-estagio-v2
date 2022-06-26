@@ -16,8 +16,8 @@
     background-color: white;
     border-radius: 25px;
     height: 200px;
-    padding: 1rem;
-    width: 600px;
+    padding: .5rem;
+    width: 480px;
 
     @media (max-width: $desktop_md) {
       height: auto;
@@ -35,7 +35,7 @@
 
   
   &__info {
-    margin: 1rem;
+    margin: .2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +46,7 @@
   }
 
   &__production {
-    margin: 1rem;
+    margin: .2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,11 +70,11 @@
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   p {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 30px;
   }
 
