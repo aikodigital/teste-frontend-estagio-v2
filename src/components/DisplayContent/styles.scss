@@ -1,0 +1,22 @@
+div.display-content {
+    background-color: white;
+    border: 2px solid #EAEDF2;
+    border-radius: 1rem;
+
+    h1 {
+        padding-inline: 2rem;
+        padding-block: 1rem;
+        color: #262b40;
+        font-size: 2.5rem;
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid #EAEDF2;
+    }
+
+    div.content {
+        padding-inline: 2rem;
+        padding-block: 2rem;
+    }
+}
