@@ -14,9 +14,9 @@ const Home = () => {
         <NavMenu/>
         <S.StyledContainer>
             <S.StyledContainerMap 
-                marginTop='1%' 
-                marginBottom='0'
-                marginRight='2%'
+                marginTop= {6} 
+                marginBottom= {0} 
+                marginRight= {2}
             >
             <FilterData/>
             <Map height='70vh'>
@@ -27,11 +27,11 @@ const Home = () => {
         <InformationEquipment/>
         <S.StyledContainer>
             <S.StyledContainerMap
-                marginTop='0' 
-                marginBottom='2%'
-                marginRight='2%'
+                marginTop= {0} 
+                marginBottom= {2}
+                marginRight= {2}
             >
-                <Map height='70vh'>
+                <Map height='80vh'>
                     <PositionHistory/>
                 </Map>
             </S.StyledContainerMap>

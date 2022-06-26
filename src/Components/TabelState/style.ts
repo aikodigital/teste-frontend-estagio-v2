@@ -11,10 +11,18 @@ export const StyledContainer = styled(Container)`
     height: auto;
     overflow-y: auto;
     margin-bottom: 2%;
+    padding: 0;
+
+    @media screen and (max-width: 768px) {
+        width: 96%;
+        margin-top: 2%;
+}
 `
 
 export const StyledTable = styled(Table)`
     width: 100%;
+    margin: 0;
+    padding: 0;
 `
 
 export const StyledH5 = styled.h5`

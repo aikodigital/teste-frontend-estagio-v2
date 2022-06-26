@@ -6,8 +6,3 @@ export const StyledTable = styled(Table)`
     width: 96%;
     text-align: center;
 `
-
-export const StyledContainer = styled(Container)`
-    background-color: red;
-    width: 100%;
-`

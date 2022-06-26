@@ -21,7 +21,7 @@ const FilterData = () => {
     return (
         <S.StyledContainer>
             <S.StyledForm name = 'nome'  onChange={formik.handleChange}>
-                <option value='todos'>Selecione nome do equipamento (todos)</option>
+                <option value='todos'>Selecione o modelo do equipamento (todos)</option>
                 {equipmentModel.map((item, index)=>(
                     <option key={index} value={item.name}>{item.name}</option>
                 ))}

@@ -8,5 +8,5 @@ interface props{
 export const StyledMap = styled(MapContainer)<props>`
     width: 100%;
     height: ${props=>props.height};
-
+    border-radius: 20px;
 `
