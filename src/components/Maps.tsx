@@ -39,7 +39,6 @@ function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) 
         setMarkIsSelected(true);
         setTimeout(() => {
           map.invalidateSize({pan: false})
-          console.log(e)
           map.panInside([e.popup._latlng.lat, e.popup._latlng.lng], { padding: [130, 130] })
         }, 100);
       }
@@ -53,7 +52,7 @@ function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) 
 }
 
 function Maps() {
-    const { equipmentId, equipmentPositionDate } = useParams()
+    const { equipmentId } = useParams()
     const navigate = useNavigate();
     const [ markIsSelected, setMarkIsSelected ] = useState(false);
     const bounds = allEquipmentPositionHistory.map(eq => {
