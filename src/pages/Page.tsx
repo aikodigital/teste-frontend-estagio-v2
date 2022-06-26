@@ -5,7 +5,7 @@ import Maps from "../components/Maps"
 import { useParams } from "react-router-dom"
 
 function Equipment() {
-    let { equipmentId, equipmentPositionDate } = useParams();
+    let { equipmentId } = useParams();
 
     return (
         <div className="flex h-screen">

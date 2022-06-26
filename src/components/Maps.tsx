@@ -18,7 +18,7 @@ function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) 
   const map = useMap();
 
   useMapEvents({
-    popupclose(e) {
+    popupclose(e: any) {
       let { id } = equipments.filter(eq => eq.name == e.popup.options.children[2])[0];
 
       if(markIsSelected) {
@@ -32,7 +32,7 @@ function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) 
       nav(`/`, { replace: true });
     },
 
-    popupopen(e) {
+    popupopen(e: any) {
       let { id } = equipments.filter(eq => eq.name == e.popup.options.children[2])[0];
 
       if(!markIsSelected) {
@@ -56,10 +56,13 @@ function Maps() {
     const { equipmentId, equipmentPositionDate } = useParams()
     const navigate = useNavigate();
     const [ markIsSelected, setMarkIsSelected ] = useState(false);
-    const bounds = allEquipmentPositionHistory.map(eq => [eq.positions[eq.positions.length - 1].lat, eq.positions[eq.positions.length - 1].lon]);
+    const bounds = allEquipmentPositionHistory.map(eq => {
+      let position = eq.positions[eq.positions.length - 1]
+      return [position.lat, position.lon];
+    });
 
     return (
-      <MapContainer className="flex-1" bounds={bounds} >
+      <MapContainer className="flex-1" bounds={bounds as L.LatLngBoundsExpression} >
         <TileLayer
           /* Google Maps
           url="https://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}"
