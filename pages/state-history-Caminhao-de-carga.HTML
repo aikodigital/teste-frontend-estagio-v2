@@ -22,7 +22,9 @@
 <body>
 
     <nav class="menu">
-        <img src="../assets/Aiko.png" alt="Aiko_Logo_Original_azul">
+        <a href="../index.HTML">
+            <img src="../assets/Aiko.png" alt="Aiko_Logo_Original_azul"></a>
+
         <ul>
             <li> <a href="#">Caminhão de carga</a> 
                 <div class="estado">
@@ -53,8 +55,6 @@
                     
                 </div>
             </li>
-
-            <li><a href="../index.HTML">Voltar</a> </li>
             
         </ul>
     </nav>
@@ -63,13 +63,22 @@
     <!-- input tag -->
     <input id="searchbar" onkeyup="search_maquina()" type="text"
         name="search" placeholder="Pesquise por Data EX:2021-02-04..">
-      <h1>Caminhão de Carga</h1>
+      
+
+      <div class="legenda">
+        <h1>Caminhão de Carga</h1>
+        
+          <div class="leg1"></div><p class="legp">Operando</p>
+          <div class="leg2"></div><P class="legp">Parado</P>
+          <div class="leg3"></div><P class="legp">Manutenção</P>
+        </div>
+  </div>
     <!-- ordered list -->
 <div class="list">
     <ol id="list1">
 
         <li class="maquina">CA-0001: "2021-02-28 - 20:00:00"</li>
-        <li class="maquina">CA-0001: "2021-02-28 - 06:00:00"</li>  
+        <li class="maquina">CA-0001: "2021-02-28 - 06:00:00"</li> 
         <li class="maquina">CA-0001: "2021-02-27 - 01:00:00"</li>
         <li class="maquina">CA-0001: "2021-02-26 - 05:00:00"</li>
         <li class="maquina">CA-0001: "2021-02-25 - 23:00:00"</li>
@@ -321,6 +330,8 @@
         <li class="maquina">CA-0002: "2021-02-28 - 16:00:00"</li> 
     </ol>
 </div>
+
+<hr class="linha" size="5" width="100%"  color="#54a4e4">
 
 <div class="list">
 
