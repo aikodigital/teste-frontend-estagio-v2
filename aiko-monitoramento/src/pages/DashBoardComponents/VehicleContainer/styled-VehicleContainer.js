@@ -38,7 +38,7 @@ export const LogoParagraph = styled.p`
   color: #2596be;
 `
 export const VehiclesBox = styled.div`
-  background-color: ${neutralColor};
+  background-color: white;
   width: 90%;
   height: 90%;
   margin: 5%;

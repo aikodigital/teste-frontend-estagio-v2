@@ -5,8 +5,8 @@ import Logo from "../../../assets/img/logo/aiko.png"
 import VehiclesCard from '../../../components/VehiclesCard/VehiclesCard'
 
 import equipament from "../../../constants/data/equipment.json"
-import equipamentState from "../../../constants/data/equipmentState.json"
-import equipamentModel from "../../../constants/data/equipmentModel.json"
+// import equipamentState from "../../../constants/data/equipmentState.json"
+// import equipamentModel from "../../../constants/data/equipmentModel.json"
 
 import {
   Container,
@@ -28,6 +28,7 @@ const VehicleCongainer = () => {
           key={vehicle.id}
           name={vehicle.name}
           modelId={vehicle.equipmentModelId}
+          id={vehicle.id}
         />
       )
     })

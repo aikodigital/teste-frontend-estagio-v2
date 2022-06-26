@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { neutralColor } from '../../constants/colors'
 
 export const Container = styled.div`
   border: 1px solid black;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   min-width: 190px;
   min-height: 130px;
+  background-color: ${props => props.color};
 `
 export const Img = styled.img`
   width: 190px;
@@ -28,8 +30,17 @@ export const Name = styled.p`
 `
 export const InfoContainerBorder = styled.div`
     border-bottom: 1px solid black;
+    background-color: ${neutralColor};
 `
-export const Status = styled.img`
+export const StatusContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const StatusName = styled.p`
+  font-size: 13px;
+    margin: 3px;
+`
+export const StatusImg = styled.img`
   width: 23px;
   height: 23px;
 `
