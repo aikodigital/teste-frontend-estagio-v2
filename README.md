@@ -16,7 +16,7 @@
 
 ## :barber: O projeto
 
-O AIM é o resultado do desáfio proposto pela Aiko Digital de criar uma aplicação onde é possível localizar no mapa equipamentos e informações importantes como: modelo, nome do equipamento, estado de funcionamento e outros.
+O AIM - Aiko Info Map é o resultado do desáfio proposto pela Aiko Digital de criar uma aplicação onde é possível localizar no mapa equipamentos e informações importantes como: modelo, nome do equipamento, estado de funcionamento e outros.
 
 ## :fire: Prévia da Aplicação
 
