@@ -4,6 +4,8 @@ import Logo from "../../../assets/img/logo/aiko.png"
 
 import VehiclesCard from '../../../components/VehiclesCard/VehiclesCard'
 
+import equipament from "../../../constants/data/equipment.json"
+
 import {
   Container,
   LogoBox,
@@ -14,6 +16,9 @@ import {
 } from "./styled-VehicleContainer"
 
 const VehicleCongainer = () => {
+
+  console.log(equipament);  
+
   return (
     <Container>
       <LogoBox>

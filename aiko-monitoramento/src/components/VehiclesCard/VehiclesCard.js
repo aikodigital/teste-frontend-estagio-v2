@@ -9,13 +9,13 @@ import {
   Img
 } from "./styled-VehiclesCard"
 
-import Cargo from "../../assets/img/vehicles/cargo.png"
-import Craw from "../../assets/img/vehicles/craw.png"
-import Harvester from "../../assets/img/vehicles/harvtester.png"
+  import Cargo from "../../assets/img/vehicles/cargo.png"
+  import Craw from "../../assets/img/vehicles/craw.png"
+  import Harvester from "../../assets/img/vehicles/harvtester.png"
 
-import Operating from "../../assets/img/status/operating.png"
-import Maintenance from "../../assets/img/status/maintenance.png"
-import Paused from "../../assets/img/status/paused.png"
+  import Operating from "../../assets/img/status/operating.png"
+  import Maintenance from "../../assets/img/status/maintenance.png"
+  import Paused from "../../assets/img/status/paused.png"
 
 const VehiclesCard = () => {
   return (
