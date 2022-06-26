@@ -1,0 +1,45 @@
+.section {
+  display: flex;
+  padding: 2rem;
+  align-items: flex-start;
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.content {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.equipmentsList {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.model {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.equipment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.button {
+  cursor: pointer;
+  background: transparent;
+  list-style: none;
+  border: none;
+  text-decoration: underline;
+  margin-bottom: 2px;
+}
