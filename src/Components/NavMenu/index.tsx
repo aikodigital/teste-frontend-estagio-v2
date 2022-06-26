@@ -16,7 +16,7 @@ const NavMenu = () => {
           <S.StyledA href='https://aiko.digital' target='_blank' >
             <S.StyledImg src= {logo} />
           </S.StyledA>
-          <S.StyledA href='https://aiko.digital' target='_blank'> 
+          <S.StyledA href='https://aiko.digital'> 
             <HiOutlineLogout size={25} />
           </S.StyledA>
         </Container>
