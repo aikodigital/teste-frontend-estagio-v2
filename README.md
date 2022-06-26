@@ -154,7 +154,7 @@ Nessa função o objetivo é pegar o histórico de estado do equipamento. Usei u
     )
 ```
 
-O código acima foi usado para construir a parte do filtro de exibição no mapa. Para isso usei o [Formik](https://formik.org) e o Redux. Fiz um map no equipmentState para garantir que as opções disponiveis sejam apenas aquelas que aparecem no banco de dados e caso seja atualizado o banco não será preciso alterar essa parte da aplicação, afinal ela puxa os dados diretamente de lá. 
+O código acima foi usado para construir a parte do filtro de exibição no mapa. Para isso usei o [Formik](https://formik.org) e o Redux. Fiz um map no equipmentState para garantir que as opções disponiveis sejam apenas aquelas que aparecem no banco de dados e caso seja atualizado o banco não será preciso alterar essa parte da aplicação, afinal ela puxa os dados diretamente de lá. Um detalhe importante sobre essa parte é que ela produz um erro no console do navegador, nada que impeça o funcionamento da aplicação. Mas o erro pode ser corrigido transformandoo StyledContainer em um formulário com um button de submit e outras pequenas alterações. Irei trabalhar nelas!
 
 ```javascript
 {equipmentPositionHistory.map((item, index)=>(
@@ -166,6 +166,32 @@ O código acima foi usado para construir a parte do filtro de exibição no mapa
 ```
 
 Para de fato aplicar o filtro nos equipamentos que são mostrados, optei por usar um Iternario: na 2º linha é feito o filtro por modelo na 3º por estado do equipamento. Caso as condições sejam satisfeitas é mostrado o que vai dentro do (...), no contrario não é mostrado nada. Um ponto de melhoria é em vez de exibir nada, exibir uma mensagem dizendo que nenhum equipamento foi encontrado.
+
+```javascript
+  return (
+    <S.StyledContainer>    
+      <S.StyledH5>Historico de Estado</S.StyledH5>
+      <S.StyledTable striped borderless responsive hover variant='light'>
+          <thead>
+              <tr>
+                  <th>DATA</th>
+                  <th>ESTADO</th>
+              </tr>
+          </thead>
+          <tbody>
+            {EquipmentStateHistory(idEquipment).map((item, index)=>(
+              <tr key={index}>
+                <S.StyledTd color= 'black'>{DataConvert(item.date)}</S.StyledTd>
+                <S.StyledTd color={item.color} >{item.name}</S.StyledTd>
+              </tr>
+            ))}
+          </tbody>
+      </S.StyledTable>    
+    </S.StyledContainer>
+  );
+```
+
+Esse foi usado para a construçao da tabela de histórico de estado. Para faze-la usei [Boostrap](https://react-bootstrap.github.io) e [styled-component](https://styled-components.com/docs). O styled-component foi importante para poder alterar a cor do texto exibido na tabela de acordo com a situação do equipamento. As cores usadas já vieram definidas no arquivo json usado, e foram passadas via props dentro do componente S.StyledId.
 
 #### Responsividade
 
