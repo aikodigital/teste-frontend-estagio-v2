@@ -1,0 +1,27 @@
+main.main-content {
+    width: 100%;
+    background-color: #f5f8fb;
+    padding: 4rem;
+
+    div.display-content {
+        background-color: white;
+        border: 2px solid #EAEDF2;
+        border-radius: 1rem;
+
+        h1 {
+            padding-inline: 2rem;
+            padding-block: 1rem;
+            color: #262b40;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #EAEDF2;
+        }
+
+        div.content {
+            padding-inline: 2rem;
+            padding-block: 2rem;
+        }
+    }
+}
