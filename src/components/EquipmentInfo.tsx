@@ -99,7 +99,7 @@ function EquipmentInfo() {
   const equipmentModel = equipmentModels.filter(model => model.id == equipment.equipmentModelId)[0]
   const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == equipmentId)[0].states;
   const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
-  const lastEquipmentStateName = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0].name;
+  const lastEquipmentStateObj = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0];
   const orderFunction = order == 'oldest' ? isAfter : isBefore;
   const orderedEquipmentStateList = equipmentStates.slice(0).sort((a, b) => { return orderFunction(new Date(a.date), new Date(b.date)) ? 1 : -1})
   const equipmentPositions = allEquipmentPositionHistory.filter(eq => eq.equipmentId == equipment.id)[0]
@@ -134,7 +134,7 @@ function EquipmentInfo() {
           <br />
           <span className="font-bold">Modelo:</span> {equipmentModel.name}
           <br />
-          <span className="font-bold">Estado atual:</span> {lastEquipmentStateName}
+          <span className="font-bold">Estado atual:</span> <span style={{color: lastEquipmentStateObj.color}}>{lastEquipmentStateObj.name}</span>
           <br />
           <span className="font-bold">Última alteração:</span>
           <div className="ml-1">

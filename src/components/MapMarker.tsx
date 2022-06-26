@@ -38,12 +38,12 @@ function MapMarker({eq, equipments}: {eq: EquipmentType, equipments: EquipmentTy
   const equipmentModel = equipmentModels.filter(model => model.id == equipment.equipmentModelId)[0]
   const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.equipmentId)[0]?.states;
   const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
-  const lastEquipmentStateName = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0];
+  const lastEquipmentStateObj = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0];
   const equipmentPosition = equipmentId && equipmentPositionDate && eq.equipmentId == equipmentId && eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] ? eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] : eq.positions[eq.positions.length - 1];
   const getIcon = icons[equipmentModel.id as Key]
 
   const svgIcon = L.divIcon({
-    html: getIcon(lastEquipmentStateName.color),
+    html: getIcon(lastEquipmentStateObj.color),
     className: "",
     iconSize: [40, 40],
     iconAnchor: [20, 10],
@@ -59,7 +59,7 @@ function MapMarker({eq, equipments}: {eq: EquipmentType, equipments: EquipmentTy
           <br />
           <span className="font-bold">Modelo:</span> {equipmentModel.name}
           <br />
-          <span className="font-bold">Estado atual:</span> {lastEquipmentStateName.name}
+          <span className="font-bold">Estado atual:</span> <span style={{color: lastEquipmentStateObj.color}}>{lastEquipmentStateObj.name}</span>
           <br />
           <span className="font-bold">Última alteração:</span> 
           <div className="ml-1">
