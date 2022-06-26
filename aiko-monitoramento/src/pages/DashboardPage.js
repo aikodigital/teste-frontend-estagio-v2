@@ -1,6 +1,6 @@
 import React from 'react'
 
-import VehicleCongainer from './DashBoardComponents/VehicleContainer/VehicleContainer'
+import VehicleContainer from './DashBoardComponents/VehicleContainer/VehicleContainer'
 import MapContainer from './DashBoardComponents/MapContainer/MapContainer'
 import SettingsContainer from './DashBoardComponents/SettingsContainer/SettingsContainer'
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <MainContainer>
 
-      <VehicleCongainer />
+      <VehicleContainer />
       <MapContainer />
       <SettingsContainer />
 

@@ -1,6 +1,8 @@
 import React from 'react'
 
-import Logo from "../../../assets/img/aiko.png"
+import Logo from "../../../assets/img/logo/aiko.png"
+
+import VehiclesCard from '../../../components/VehiclesCard/VehiclesCard'
 
 import {
   Container,
@@ -20,7 +22,18 @@ const VehicleCongainer = () => {
           <LogoParagraph>Solução Digital</LogoParagraph>
         </LogoBoxContainer>
       </LogoBox>
-      <VehiclesBox>Vehicle Cards</VehiclesBox>
+      <VehiclesBox>
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+        <VehiclesCard />
+      </VehiclesBox>
     </Container>
   )
 }

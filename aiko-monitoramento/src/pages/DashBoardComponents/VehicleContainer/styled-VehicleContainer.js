@@ -6,6 +6,7 @@ export const Container = styled.div`
   background-color: ${primaryColor};
   flex-grow: 1.6;
   max-width: 15%;
+  min-width: 230px;;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +33,8 @@ export const LogoImg = styled.img`
 `
 export const LogoParagraph = styled.p`
   width: 80%;
-  font-size: 0.9vw;
+  /* font-size: 0.9vw; */
+  font-size: 15px;
   color: #2596be;
 `
 export const VehiclesBox = styled.div`
@@ -40,4 +42,7 @@ export const VehiclesBox = styled.div`
   width: 90%;
   height: 90%;
   margin: 5%;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 `
