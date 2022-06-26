@@ -6,7 +6,7 @@ export const Container = styled.div`
   background-color: ${primaryColor};
   flex-grow: 1.6;
   max-width: 15%;
-  min-width: 230px;;
+  min-width: 250px;;
   display: flex;
   flex-direction: column;
   align-items: center;

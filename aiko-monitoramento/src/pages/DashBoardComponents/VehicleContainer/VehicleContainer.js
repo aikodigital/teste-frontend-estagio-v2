@@ -5,6 +5,8 @@ import Logo from "../../../assets/img/logo/aiko.png"
 import VehiclesCard from '../../../components/VehiclesCard/VehiclesCard'
 
 import equipament from "../../../constants/data/equipment.json"
+import equipamentState from "../../../constants/data/equipmentState.json"
+import equipamentModel from "../../../constants/data/equipmentModel.json"
 
 import {
   Container,
@@ -17,7 +19,20 @@ import {
 
 const VehicleCongainer = () => {
 
-  console.log(equipament);  
+  const displayVehicleList = () => 
+  {
+    const vehicles = equipament.map((vehicle) => 
+    {
+      return (
+        <VehiclesCard 
+          key={vehicle.id}
+          name={vehicle.name}
+          modelId={vehicle.equipmentModelId}
+        />
+      )
+    })
+    return vehicles
+  }
 
   return (
     <Container>
@@ -28,16 +43,7 @@ const VehicleCongainer = () => {
         </LogoBoxContainer>
       </LogoBox>
       <VehiclesBox>
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
-        <VehiclesCard />
+        {displayVehicleList()}
       </VehiclesBox>
     </Container>
   )
