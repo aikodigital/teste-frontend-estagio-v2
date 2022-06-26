@@ -24,6 +24,8 @@ type EquipmentType2 = {
   name: string,
 }
 
+type Key = keyof typeof icons;
+
 const icons = {
   "a3540227-2f0e-4362-9517-92f41dabbfdf": Truck,
   "a4b0c114-acd8-4151-9449-7d12ab9bf40f": Harvester,
@@ -38,9 +40,10 @@ function MapMarker({eq, equipments}: {eq: EquipmentType, equipments: EquipmentTy
   const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
   const lastEquipmentStateName = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0];
   const equipmentPosition = equipmentId && equipmentPositionDate && eq.equipmentId == equipmentId && eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] ? eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] : eq.positions[eq.positions.length - 1];
+  const getIcon = icons[equipmentModel.id as Key]
 
   const svgIcon = L.divIcon({
-    html: icons[equipmentModel.id](lastEquipmentStateName.color),
+    html: getIcon(lastEquipmentStateName.color),
     className: "",
     iconSize: [40, 40],
     iconAnchor: [20, 10],
