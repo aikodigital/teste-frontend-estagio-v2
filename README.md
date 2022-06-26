@@ -31,6 +31,9 @@ npm run dev
 - Filtro para estado atual e modelo do equipamento no mapa.
 - Filtro para o histórico de posições entre datas.
 
+### Pré-visualização:
+[Clique aqui](http://teste-frontend-estagio-v2.vercel.app/)
+
 ### Screenshots:
 <img src="https://i.imgur.com/CyBfTmM.png" width="48%" align="left"/>
 <img src="https://i.imgur.com/yjr7D0Q.png" width="48%"/>
