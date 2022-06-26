@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import { useState } from 'react'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import moment from 'moment'
 
 
 import './app.css'
@@ -12,7 +13,6 @@ import PopUp from './components/Popup'
 
 
 function App() {
-
   const [equipment, setEquipment] = useState(equipments)
   const [equipmentPos, setEquipmentPos] = useState(equipmentsPosition)
   const [equipmentState, setEquipmentState] = useState(equipmentsState)
@@ -30,11 +30,9 @@ function App() {
         let equipPos = equipmentPos[c]
   
         if(equip.id === equipPos.equipmentId){
-          // var positions = equipPos.positions[equipPos.positions.length - 1]
           let obj = equipPos.positions[equipPos.positions.length - 1] 
           obj.equipmentId = equipPos.equipmentId
           equipmentCurrentPos.push(obj)
-          // console.log(obj)
         }
       }
     }
@@ -59,14 +57,12 @@ function App() {
         let obj = equip.states[equip.states.length - 1]
         obj.equipmentId = equip.equipmentId
         equipmentCurrentState.push(obj)
-        // return equip.states.length - 1
-        // console.log(obj)
       }
     }
   }
 
   // retorna nome e status color de cada equipment baseado no último State
-  function getState(equipmentId){
+  function getCurrentState(equipmentId){
     for(let i in equipmentCurrentState){
       for(let c in equipmentState){
         let equip = equipmentCurrentState[i]
@@ -74,52 +70,85 @@ function App() {
   
         if(equip.equipmentId === equipmentId){
           if(equip.equipmentStateId === equipState.id ){
-            // console.log(equipState.name)
             return {name: equipState.name, color: equipState.color}
-            
-            // return equipState.name
           }
         }
       }
     }
   }
 
+  function formatDate(date){
+    return moment.utc(date).format('DD/MM/YYYY   h:mm a')
+  }
 
-   
+  function getEquipmentStateById(equipmentId){
+    return equipmentState.find((state) => state.id === equipmentId)
+  }
+
+  function getEquipmentStateHystoryById(equipmentId){
+    let equip = equipmentStateHistory.find((item) => item.equipmentId === equipmentId)
+    let date = ''
+    let equipmentState = ''
+    let info = []
+
+      if(equip){
+        equip.states.map((item) => {
+          date = formatDate(item.date) 
+          equipmentState = getEquipmentStateById(item.equipmentStateId) 
+          info.push({date,equipmentState})
+        })
+      }
+      return info
+    }
+  
+
   return (
-<>
+
     <MapContainer style={{width: '100vw', height: '100vh'}} center={[-19.151801, -46.007759]} zoom={13} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
       { equipmentCurrentPos.map(items => (
         <Marker key={items.equipmentId} position={[items.lat, items.lon]}>
           <div onBlur={(e)=> setPopupButtom(false)}>
-        <Popup>
-          {getCurrentEquipmentState(items.equipmentId)}
-          <h2>Nome: {equipmentName(items.equipmentId)} </h2>
-          <p>Status: <span style={{color: getState(items.equipmentId).color} }>
-                      {getState(items.equipmentId).name}
-                     </span>
-          </p>
 
-          <button type='buttom' onClick={() => setPopupButtom(true) }>Ver histórioco do equipamento</button>
+          <Popup className='popup-info' >
+            {getCurrentEquipmentState(items.equipmentId)}
+            <p>Nome: {equipmentName(items.equipmentId)} </p>
+            <p>Status: 
+              <span style={{color: getCurrentState(items.equipmentId).color} }>
+                {getCurrentState(items.equipmentId).name}
+              </span>
+            </p>
 
-          
-          <PopUp onBlur={(e)=> setPopupButtom(false)} trigger={popupButtom} closeTrigger={setPopupButtom}>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, eaque. Tempore provident molestias modi commodi nesciunt cumque ratione autem adipisci, perspiciatis nobis debitis eveniet magni, blanditiis est ut expedita perferendis?
-          </PopUp>
-          
-          {/* {equipmentState(items.equipmentId)} */}
-        </Popup>
+            <button className='btn' type='buttom' onClick={() => setPopupButtom(true) }>Histórico do Equipamento</button>   
+            
+            <PopUp  onBlur={(e)=> setPopupButtom(false)} trigger={popupButtom} closeTrigger={setPopupButtom}>
+              
+              {getEquipmentStateHystoryById(items.equipmentId).map((state) => (
+                <div key={state.date} className="container">
+                  <div className="equip-date col">
+                    <p>Data:</p>
+                    <p >{state.date}</p>
+
+                  </div>
+                  <div className="equip-status col">
+                    <p>Status:</p>
+                    <span style={{color: state.equipmentState.color}}>{state.equipmentState.name}</span>
+                  </div>
+                </div>
+              ))}
+              
+            </PopUp>
+          </Popup>
         </div>
       </Marker>
       )) }
       
     </MapContainer> 
-      
-    </>
+
   )
 }
 

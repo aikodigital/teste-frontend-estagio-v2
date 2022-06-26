@@ -1,19 +1,41 @@
-.leaflet-container{
-    width: 100vw;
-    height: 100vh;
+
+p{
+    font-size: 13px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.btn{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: #2ecc71;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 6px;
 }
 
 .container{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:  22px;
+    border-bottom: 1px solid gray;
+    margin-top: 0.25rem; 
 }
 
-.menu-aside{
-    max-width: 430px;
-    width: 100%;
-    height: 100vh;
-    background-color: theme('colors.birdBlue');
+.container .col{
+    justify-content: flex-start;
+    max-width:130px ;
+    width: 130px;
+    line-height: 10px;
+
+}
+
+.container .equip-status{
+    align-items: flex-end;
 }
 
 
