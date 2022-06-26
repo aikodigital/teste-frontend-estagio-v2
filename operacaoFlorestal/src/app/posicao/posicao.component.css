@@ -25,6 +25,10 @@
     letter-spacing: 2px;
   }
 
+  #map {
+    height: 100%;
+  }
+
   .rodape {
     margin: 0 auto;
   }
