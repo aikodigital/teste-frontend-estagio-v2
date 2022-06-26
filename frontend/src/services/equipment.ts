@@ -58,7 +58,7 @@ export const getEquipmentModel = (modelId: string) => {
     JSON.stringify(equipmentModel)
   ) as EquipmentModelData[];
 
-  return equipmentsModels.find((model) => model.id === modelId);
+  return equipmentsModels.find((model) => model.id === modelId)!;
 };
 
 export const getEquipmentPositions = (equipmentId: string) => {
@@ -68,8 +68,8 @@ export const getEquipmentPositions = (equipmentId: string) => {
 
   // Get equipment positions history and sort by the most recent
   return equipmentPositions
-    .find((position) => position.equipmentId === equipmentId)
-    ?.positions.sort(
+    .find((position) => position.equipmentId === equipmentId)!
+    .positions.sort(
       (posA, posB) =>
         new Date(posB.date).getTime() - new Date(posA.date).getTime()
     );
@@ -85,14 +85,14 @@ export const getEquipmentStatesHistory = (equipmentId: string) => {
   ) as EquipmentStateData[];
 
   const equipmentStatesByMostRecent = equipmentStatesHistory
-    .find((state) => state.equipmentId === equipmentId)
-    ?.states.sort(
+    .find((state) => state.equipmentId === equipmentId)!
+    .states.sort(
       (stateA, stateB) =>
         new Date(stateB.date).getTime() - new Date(stateA.date).getTime()
     );
 
   return equipmentStatesByMostRecent?.map((equipment) => ({
     date: equipment.date,
-    state: states.find((state) => state.id === equipment.equipmentStateId)
+    state: states.find((state) => state.id === equipment.equipmentStateId)!
   }));
 };

@@ -1,0 +1,6 @@
+.container main {
+  width: 60em;
+  height: 60em;
+  position: absolute;
+  z-index: 1000;
+}
