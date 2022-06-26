@@ -9,7 +9,7 @@
       <a href="#zap-executando-o-projeto"> :zap: Executando o Projeto </a> |
       <a href="#open_book-código"> :open_book: Código </a> |
       <a href="#grinning-conclusão"> :grinning: Conclusão </a> |
-        <a href="#phone-contatos"> :phone: Contatos </a>
+      <a href="#phone-contatos"> :phone: Contatos </a>
     </p>
 
 </div>
