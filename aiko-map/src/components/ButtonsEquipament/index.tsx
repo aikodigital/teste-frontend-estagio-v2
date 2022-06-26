@@ -8,10 +8,11 @@ interface IButtoEquipament{
     name: string,
     id: string,
     lat:number,
-    lon:number
+    lon:number,
+    CloseInfoEquip(aux:boolean):void
 }
 
-export default function ButtonsEquipament({name,id,lat,lon}: IButtoEquipament){
+export default function ButtonsEquipament({name,id,lat,lon,CloseInfoEquip}: IButtoEquipament){
     const {setCenter, setZoom} = useData();
     const [flecha, setFlecha] = useState(true);
 
@@ -27,7 +28,7 @@ export default function ButtonsEquipament({name,id,lat,lon}: IButtoEquipament){
             </Buttons>
 
             {!flecha &&(
-                <ListaOp/>
+                <ListaOp id={id} CloseInfoEquip={CloseInfoEquip}/>
             )}
         </li>
     );

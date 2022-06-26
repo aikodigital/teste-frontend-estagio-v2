@@ -51,12 +51,12 @@ export const Content = styled.div`
 
 export const Content2 = styled.div`  
     height: 100%;
-    
-    grid-template-rows: 40%  30% 20%;
-    
+    display:grid;
+    grid-template-rows: 35%  35% 10%;
+    grid-gap: 5%;
     ul{
         //margin-bottom: 20px ;
-        max-height: 30%;
+        max-height: 95%;
         overflow: auto;  
         ::-webkit-scrollbar{
             width: 12px;

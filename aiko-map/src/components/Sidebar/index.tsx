@@ -59,6 +59,7 @@ export default function Sidebar({
                                 id={equip?.id}
                                 lat={equip?.positions.lat}
                                 lon={equip?.positions.lon}
+                                CloseInfoEquip={CloseInfoEquip}
                             />
                         )}
                     </ul>

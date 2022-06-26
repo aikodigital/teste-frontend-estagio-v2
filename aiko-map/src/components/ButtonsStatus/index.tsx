@@ -37,10 +37,6 @@ export default function ButtonsStatus({date,equipmentStateId}:IBTN){
                 <>{date3+"--"+hora()+":"+minutos()}</>   
                 {flecha ? <FaArrowDown/> : <FaArrowUp/>}
             </Buttons>
-
-            {!flecha &&(
-                <ListStatus equipmentStateId={equipmentStateId}/>
-            )}
         </Container>
     );
 }

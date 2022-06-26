@@ -9,7 +9,7 @@ interface IButton{
 
 export default function Buttons({ClickFunction, children}: IButton){
     return (
-        <Content onClick={ClickFunction}> 
+        <Content onClick={ClickFunction} > 
             {children}
         </Content>
     );
