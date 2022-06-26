@@ -66,7 +66,7 @@ export default function  Marker({position, map, name, id, statusId, AlterSide}: 
           });
 
         marker.addListener("click",() => {
-          console.log(name);
+          //console.log(name);
           Alterar(id);
         });
     }

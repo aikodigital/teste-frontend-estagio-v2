@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Container, Content, ButaoExpand,Titulo } from "./style";
+import { Container, Content, Content2, ButaoExpand,Titulo } from "./style";
 import {  FaArrowLeft, FaBars }  from "react-icons/fa";
 import ButtonsEquipament from "../ButtonsEquipament";
 import { useData } from "../../hook/useData";
 import Buttons from "../Buttons";
 import ButtonsStatus from "../ButtonsStatus";
+import SideStates from "../SideStates";
 interface IEquipament{
     id: string,
     equipmentModelId: string,
@@ -44,11 +45,11 @@ export default function Sidebar({
                 </button>          
             </ButaoExpand>
 
-            <Content>
+            
             {sidebarOp && (
               <>
               {!infoEquip ? (
-                <>
+                <Content>
                     <Titulo>Equipamentos</Titulo>
                     <ul>
                         {sideData?.map(equip => 
@@ -61,25 +62,16 @@ export default function Sidebar({
                             />
                         )}
                     </ul>
-                </>
-                ) : (<>
-                        <ul>
-                            {sideStateData?.states.map((equip, index) =>{ 
-                                
-                                return (<ButtonsStatus key={index} date={equip.date}/>);
-                            }
-                            )}
-                        </ul>
-                    <Buttons ClickFunction={() => {CloseInfoEquip(false);}}>
-                        <FaArrowLeft/>
-                        Voltar
-                    </Buttons>
-                    </>
+                </Content>
+                ) : (
+                    <Content2>
+                        <SideStates CloseInfoEquip={CloseInfoEquip}/>
+                    </Content2>   
                 )}
                 
               </>
             )}
-            </Content>
+            
          
         </Container>
         </>

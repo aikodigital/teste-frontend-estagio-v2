@@ -49,29 +49,6 @@ export const Content = styled.div`
     }
 `;
 
-export const Content2 = styled.div`  
-    height: 100%;
-    
-    grid-template-rows: 40%  30% 20%;
-    
-    ul{
-        //margin-bottom: 20px ;
-        max-height: 30%;
-        overflow: auto;  
-        ::-webkit-scrollbar{
-            width: 12px;
-	        background-color: #bbb5b5;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-	        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	        background-color: #555;
-        }  
-    }
-`;
-
-
 export const ButaoExpand = styled.div`
     margin-top: 1rem;
     height: 50px;

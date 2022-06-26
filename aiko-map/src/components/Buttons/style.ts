@@ -24,4 +24,8 @@ export const Content = styled.button`
         background-color: #fff;
     }
 
+    &.Btn-volta{
+        margin-top: 20px;
+    }
+
 `;

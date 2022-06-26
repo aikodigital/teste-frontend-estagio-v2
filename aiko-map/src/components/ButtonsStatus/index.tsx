@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowUp}  from "react-icons/fa";
-import ListaOp from "../ListaOp";
 import Buttons from "../Buttons";
 import { Container } from "./style";
-import { useData } from "../../hook/useData";
+import ListStatus from "../ListStatus";
 
 interface IBTN{
     date: string;
+    equipmentStateId: string
 }
 
-export default function ButtonsStatus({date}:IBTN){
+export default function ButtonsStatus({date,equipmentStateId}:IBTN){
     
     const [flecha, setFlecha] = useState(true);
     const date2 = new Date(date);
@@ -30,8 +30,6 @@ export default function ButtonsStatus({date}:IBTN){
         }
     };
     
-    
-    console.log(date2.toLocaleDateString());
 
     return(
         <Container>
@@ -41,7 +39,7 @@ export default function ButtonsStatus({date}:IBTN){
             </Buttons>
 
             {!flecha &&(
-                <ListaOp/>
+                <ListStatus equipmentStateId={equipmentStateId}/>
             )}
         </Container>
     );
