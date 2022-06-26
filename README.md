@@ -1,6 +1,6 @@
 # Teste Frontend estágio V2
 
-![Aiko](img/aiko.png)
+![Aiko](./.github/aiko.png)
 
 Neste teste serão avaliados seus conhecimentos em Javascript, HTML e CSS, a criatividade e metodologia aplicada no desenvolvimento, a usabilidade e design da aplicação final.
 
@@ -41,7 +41,7 @@ Contém todos os equipamentos da aplicação.
     {
         // Identificador único do equipamento
         "id": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Chave estrangeira, utilizada para referenciar de qual modelo é esse equipamento 
+        // Chave estrangeira, utilizada para referenciar de qual modelo é esse equipamento
         "equipmentModelId": "a3540227-2f0e-4362-9517-92f41dabbfdf",
         // Nome do Equipamento
         "name": "CA-0001"
@@ -126,7 +126,7 @@ O histórico de posições dos equipamentos.
         "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
         // Posições do equipamento
         "positions": [
-            {   
+            {
                 // Data em que a posição foi registrada
                 "date": "2021-02-01T03:00:00.000Z",
                 // Latitude WGS84
@@ -199,11 +199,11 @@ Aqui são listados algumas sugestões para você que quer ir além do desafio in
 Para realizar a entrega do teste você deve:
 
 * Relizar o fork e clonar esse repositório para sua máquina.
-  
+
 * Criar uma branch com o nome de `teste/[NOME]`.
   * `[NOME]`: Seu nome.
   * Exemplos: `teste/fulano-da-silva`; `teste/beltrano-primeiro-gomes`.
-  
+
 * Faça um commit da sua branch com a implementação do teste.
-  
+
 * Realize o pull request da sua branch nesse repositório.
