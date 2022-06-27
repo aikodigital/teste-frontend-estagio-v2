@@ -4,10 +4,10 @@
 </div>
 <p align="center">🚀 Aiko Frontend Challenge</p>
 <p align="center">
-  <img alt="NPM" src="https://img.shields.io/github/license/mathmelo/teste-frontend-estagio-v2 ">
-  <img alt="NPM" src="https://img.shields.io/github/issues/mathmelo/teste-frontend-estagio-v2 ">
-  <img alt="NPM" src="https://img.shields.io/github/forks/mathmelo/teste-frontend-estagio-v2 ">
-  <img alt="NPM" src="https://img.shields.io/github/stars/mathmelo/teste-frontend-estagio-v2 ">
+  <img alt="NPM" src="https://img.shields.io/github/license/mathmelo/teste-frontend-estagio-v2">
+  <img alt="NPM" src="https://img.shields.io/github/issues/mathmelo/teste-frontend-estagio-v2">
+  <img alt="NPM" src="https://img.shields.io/github/forks/mathmelo/teste-frontend-estagio-v2">
+  <img alt="NPM" src="https://img.shields.io/github/stars/mathmelo/teste-frontend-estagio-v2">
 </p>
 
 <div align="center">
