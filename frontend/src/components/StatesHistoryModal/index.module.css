@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
+.container main {
+  width: 25em;
+  height: 30em;
+  padding: 1em;
+  background-color: #fff;
+  z-index: 10000;
+}
+
+.titleContainer {
+  text-align: center;
+}
+
+.stateHistoryContainer {
+  height: 20em;
+  margin-top: 2em;
+}
+
+.stateHistoryContainer ul {
+  overflow: auto;
+  height: 100%;
+}
+
+.stateHistoryContainer ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8em;
+  margin: 1em 0;
+  color: #fff;
+  font-weight: 600;
+}

@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container ul {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 10000;
+}
+
+.container ul li {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.container ul li img {
+  width: 2.5em;
+  margin-right: 0.5em;
+}
+
+@media (max-width: 545px) {
+  .container ul {
+    display: block;
+    margin-top: 8em;
+  }
+}
