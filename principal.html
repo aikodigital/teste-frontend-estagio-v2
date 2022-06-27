@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<body>
+
+
+    <!-- Inicio Header -->
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container mt-2">
+                <!-- Logo -->
+                <a href="">
+                    <img class="navbar-brand img-fluid" src="imagens/GS.png" width="60" alt="icon"><span><a class="nome-logo mr-auto" href="">Gustavo Santos</a></span>
+                </a>
+                <!-- Fim Logo -->
+
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+                    <i class="fa-solid fa-bars text-white"></i>
+                </button>
+
+                <!-- Barra de navegacao -->
+                <div class="collapse navbar-collapse" id="nav-principal">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item"><a class="nav-link" href="principal.html">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+                      <li class="nav-item"><a class="nav-link buttom-link" href="#">Fale conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Barra de navegacao fim -->
+        </nav>
+        
+        <!-- section header -->
+        <section>
+            <div class="container">
+                <div class="text-center conteudo-header">
+                    <h1 class="display-4 h1-responsivo">Nós construimos o seu futuro!</h1>
+                    <p class="mt-3">Há mais de 10 anos realizando sonhos.</p>
+                    <p class="mt-5">
+                        <a class="buttom-conteudo" href="#">Faça seu orçamento</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- section header fim -->
+    </header>
+    <!-- Fim Barra de navegacao -->
+    
+    <!-- Section com os equipamentos -->
+    <section>
+        <div class="container">
+            <h2 class="text-center tit-equipamentos">Nossos equipamentos</h2>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row" id="boxTeste">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section com os equipamentos fim -->
+
+    <!-- Modal 1 -->
+        <div class="modal fade bd-example-modal-lg modal-formatacao" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content ml-auto mr-auto" style="width: 500px ;">
+                    <div id='mapDIV' class="ml-auto mr-auto rounded">
+
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    <!-- Modal 1 fim -->
+
+    <!-- Modal 2 -->
+    <div class="modal scroll-hidden fade bd-example-modal-xl container" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal2-formatacao">
+                <div id="test" class="ml-auto mr-auto rounded">
+                
+                </div>
+                <button type="button" class="btn btn-default modal2-btn" data-dismiss="modal">Fechar</button>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Modal 2 fim -->
+
+    <!-- Rodape -->
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <a href="https://aiko.digital/"><img class="img-footer" src="imagens/aiko-logo.png" width="142"></a>
+            </div>
+            <div class="col-md-2">
+              <h4>Sobre</h4>
+              <ul class="navbar-nav">
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="espacamento-footer"><a href="#">Novidades</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <h4>Serviços</h4>
+              <ul class="navbar-nav">
+                <li><a href="#">Lorem</a></li>
+                <li><a href="#">Lorem</a></li>
+                <li class="espacamento-footer"><a href="#">Lorem</a></li>
+            </div>
+            <div class="col-md-4">
+              <ul class="row d-lg-block">
+                <a class="btn btn-icons btn-lg icons-espacamento icons" href="https://www.linkedin.com/in/gustavo-ferreirapng/"><i class="fa-brands fa-linkedin"></i></a>
+                <a class="btn btn-icons btn-lg" href="https://www.instagram.com/guuxts/"><i class="fa-brands fa-instagram"></i></i></a>
+                <a class="btn btn-icons btn-lg" href="https://github.com/gustapng"><i class="fa-brands fa-github"></i></a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Rodape fim -->
+
+
+    <script src="script.js"></script>
+    <!-- Jquery tabela usada no modal -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <!-- Jquery tabela usada no modal fim-->
+    <!-- Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4644a15bdd.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4 fim -->
+</body>
+</html>
