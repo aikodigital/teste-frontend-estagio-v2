@@ -1,6 +1,5 @@
 import { Container, Table } from "react-bootstrap";
 import styled from "styled-components";
-import { ColorState } from "../assets/helpers";
 
 interface props{
     color: string
