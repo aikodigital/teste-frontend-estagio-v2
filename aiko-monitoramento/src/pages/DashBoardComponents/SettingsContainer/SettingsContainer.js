@@ -18,7 +18,10 @@ const SettingsContainer = ({selected}) => {
   {
     const states = stateHistory && stateHistory.map((state, index) => {
       return (
-        <p key={index}>{state.date}</p>
+        <StateHistoryCard 
+          key={index}
+          details={state}
+        />
       )
     })
     return states
@@ -28,14 +31,7 @@ const SettingsContainer = ({selected}) => {
     <Container>
       <SettingsBox>
         <StatesContainer>
-          {/* {stateHistory && displayStateHistory()} */}
-          <StateHistoryCard />
-          <StateHistoryCard />
-          <StateHistoryCard />
-          <StateHistoryCard />
-          <StateHistoryCard />
-          <StateHistoryCard />
-          <StateHistoryCard />
+          {stateHistory && displayStateHistory()}
         </StatesContainer>
       </SettingsBox>
     </Container>

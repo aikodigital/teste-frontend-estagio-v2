@@ -7,11 +7,22 @@ import {
 
 import setStatusImg from '../../services/setImg/setStatusImg'
 
-const StateHistoryCard = () => {
+const StateHistoryCard = ({details}) => {
+
+  const calendar = {
+    dia: details.date.slice(8, 10),
+    mes: details.date.slice(5, 7),
+    ano: details.date.slice(0, 4),
+    hora: details.date.slice(11, 19)
+  }
+  const {dia, mes, ano, hora} = calendar
+  
+  const data = `${dia}/${mes}/${ano}`
+
   return (
     <Container>
-      <Info>Data</Info>
-      <Info>Hora</Info>
+      <Info>{data}</Info>
+      <Info>{hora}</Info>
       <img src={setStatusImg("")} alt="" />
     </Container>
   )
