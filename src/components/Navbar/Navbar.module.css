@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #04724D;
+}
+.navbar a {
+    margin-left: 30px;
+    font-size: 1.75rem;
+}
+
+.navbar a > h3 {
+    padding: 8px 0;
+}

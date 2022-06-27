@@ -1,0 +1,20 @@
+.equipmentDetailsCard {
+    margin-bottom: 16px;
+}
+
+.equipmentDetailsCard div > p{
+    font-weight: bolder;
+}
+
+.equipmentDetailsCard div div> button {
+    margin: auto;
+}
+
+.buttonsWrapper {
+    display: flex;
+}
+
+.stateP {
+    display: flex;
+    font-weight: bolder;
+}

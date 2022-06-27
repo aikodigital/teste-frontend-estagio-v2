@@ -1,0 +1,105 @@
+body {
+    background-color: #D4DFC7;
+    color: white;
+}
+
+main {
+    display: flex;
+    min-height: calc(100vh - 114px);
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    margin: 20px 30px;
+    padding: 25px 40px 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.64);
+}
+
+button {
+    font-size: 1.1rem !important;
+    font-weight: bolder !important;
+}
+
+
+hr {
+    color: black;
+    height: 3px;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+#mapid { 
+    margin: 0 auto 30px;
+    height: 500px;
+    width: 60%;   
+}
+
+.bg-green {
+    background-color: #D1E7DD;
+}
+
+.bg-olive {
+    background-color: #D4DFC7;
+}
+
+.upscaleHover {
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.upscaleHover:hover {
+    transform: scale(1.1);
+}
+
+table {
+    width: 40rem !important;
+    border-radius: 8px;
+    text-align: center;
+}
+
+table tbody > tr {
+    border-bottom: solid 1px #04724D;
+}
+
+table tbody > tr:hover {
+    box-shadow: 0px 9px 22px -1px #000000;
+    font-weight: bolder;
+}
+
+#mapid {
+    box-shadow: 0px 9px 22px -1px #000000;
+
+}
+.leafletLegend {
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.square {
+    padding: 1px 6px;
+    margin-right: 5px;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
