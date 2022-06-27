@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$bg-color: #01c101;
+$text-color: #003380;
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: $text-color;
+}
+
+#mapId {
+  height: 100vh;
+  width: 100%;
+}
+
+.historyContainer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1rem;
+  background-color: $bg-color;
+  height: 50%;
+  width: 60%;
+  align-self: center;
+  z-index: 999;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 7px 0;
+  }
+  .closeBtn {
+    position: absolute;
+    top: -7%;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    margin-left: 3rem;
+    background-color: transparent;
+    font-size: 1rem;
+    text-decoration: underline;
+    color: #000;
+    &:hover {
+      color: $text-color;
+    }
+  }
+  .historyList {
+    background-color: #fff;
+    height: 100%;
+    overflow-y: scroll;
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .historyContainer {
+    .title {
+      text-align: center;
+    }
+  }
+}
