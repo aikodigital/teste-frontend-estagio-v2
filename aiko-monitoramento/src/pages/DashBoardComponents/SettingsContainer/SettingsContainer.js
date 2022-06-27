@@ -2,8 +2,11 @@ import React from 'react'
 
 import {
   Container,
-  SettingsBox
+  SettingsBox,
+  StatesContainer
 } from "./styled-SettingsContainer"
+
+import StateHistoryCard from '../../../components/StateHistoryCard/StateHistoryCard'
 
 import { getStateHistory } from "../../../services/requests/getFunctions"
 
@@ -24,7 +27,16 @@ const SettingsContainer = ({selected}) => {
   return (
     <Container>
       <SettingsBox>
-        {stateHistory && displayStateHistory()}
+        <StatesContainer>
+          {/* {stateHistory && displayStateHistory()} */}
+          <StateHistoryCard />
+          <StateHistoryCard />
+          <StateHistoryCard />
+          <StateHistoryCard />
+          <StateHistoryCard />
+          <StateHistoryCard />
+          <StateHistoryCard />
+        </StatesContainer>
       </SettingsBox>
     </Container>
   )
