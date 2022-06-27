@@ -19,13 +19,13 @@ import {
     findIdStateDetails
   } from "../../services/requests/findFunctions"
 
-const VehiclesCard = ({ name, modelId, id }) => {
+const VehiclesCard = ({ name, modelId, id, getId }) => {
       
   const currentState = findIdStateDetails(findLastState(id))
   const modelName = findModel(modelId)
 
   return (
-    <Container color={currentState.color}>
+    <Container color={currentState.color} onClick={() => getId(id)}>
       <InfoContainerBorder>
         <InfoContainer>
           <Name>{name}</Name>

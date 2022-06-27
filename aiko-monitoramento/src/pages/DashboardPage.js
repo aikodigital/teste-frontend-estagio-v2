@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import VehicleContainer from './DashBoardComponents/VehicleContainer/VehicleContainer'
 import MappingContainer from './DashBoardComponents/MapContainer/MappingContainer'
@@ -7,13 +7,25 @@ import SettingsContainer from './DashBoardComponents/SettingsContainer/SettingsC
 import { MainContainer } from "./styled-DashboardPage"
 
 const Dashboard = () => {
+
+  const [selected, setSelected] = useState("")
+
+  const getSelectedVehicle = (id) => 
+  {
+    setSelected(id)
+  }
+
   return (
     <MainContainer>
-
-      <VehicleContainer />
+      <VehicleContainer 
+        getId={getSelectedVehicle}
+      />
+      
       <MappingContainer />
-      <SettingsContainer />
 
+      <SettingsContainer
+        selected={selected}
+      />
     </MainContainer>
   )
 }

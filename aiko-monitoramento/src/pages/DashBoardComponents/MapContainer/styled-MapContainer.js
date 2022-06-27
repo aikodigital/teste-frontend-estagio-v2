@@ -11,6 +11,6 @@ export const MapBox = styled.div`
   background-color: white;
   width: 100%;
   /* width: 300px; */
-  height: 700px;
+  height: 70%;
   margin: 1.5%;
 `

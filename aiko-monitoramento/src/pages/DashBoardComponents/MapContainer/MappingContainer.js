@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 import { MapContainer, 
   TileLayer, 
-  useMap,
   Marker,
   Popup
 } from 'react-leaflet'

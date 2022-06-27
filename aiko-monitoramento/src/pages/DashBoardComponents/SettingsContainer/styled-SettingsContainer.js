@@ -14,4 +14,7 @@ export const SettingsBox = styled.div`
   width: 93%;
   height: 98%;
   margin: 3%;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 `

@@ -17,7 +17,7 @@ import {
   VehiclesBox
 } from "./styled-VehicleContainer"
 
-const VehicleCongainer = () => {
+const VehicleCongainer = ({getId}) => {
 
   const displayVehicleList = () => 
   {
@@ -29,6 +29,7 @@ const VehicleCongainer = () => {
           name={vehicle.name}
           modelId={vehicle.equipmentModelId}
           id={vehicle.id}
+          getId={getId}
         />
       )
     })

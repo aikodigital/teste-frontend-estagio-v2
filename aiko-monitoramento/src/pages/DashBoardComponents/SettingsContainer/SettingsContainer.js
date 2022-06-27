@@ -5,10 +5,27 @@ import {
   SettingsBox
 } from "./styled-SettingsContainer"
 
-const SettingsContainer = () => {
+import { getStateHistory } from "../../../services/requests/getFunctions"
+
+const SettingsContainer = ({selected}) => {
+
+  const stateHistory = getStateHistory(selected)
+  
+  const displayStateHistory = () => 
+  {
+    const states = stateHistory && stateHistory.map((state, index) => {
+      return (
+        <p key={index}>{state.date}</p>
+      )
+    })
+    return states
+  }
+
   return (
     <Container>
-      <SettingsBox>Settings</SettingsBox>
+      <SettingsBox>
+        {stateHistory && displayStateHistory()}
+      </SettingsBox>
     </Container>
   )
 }
