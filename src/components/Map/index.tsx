@@ -19,8 +19,6 @@ export const Map: React.FC<IMap> = ({ equipments, openEquipmentInfoModal }) => {
     openEquipmentInfoModal();
   }
 
-  console.log(equipments)
-
   return (
     <MapContainer 
       center={[-13.6210239, -48.4196375]} 

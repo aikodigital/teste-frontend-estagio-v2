@@ -25,7 +25,7 @@ const EquipmentInfoModal = ({ isOpen, onRequestClose }: IEquipmentInfoModalProps
       </button>
 
       <h3 style={{ marginBottom: 5 }}>
-          {equipmentModalData.equipmentName} - {equipmentModalData.equipmentModel.name}
+          {equipmentModalData.equipmentName} - {equipmentModalData.equipmentModel?.name}
       </h3>
       <strong style={{ color: '#999' }}>Status: {equipmentModalData.state?.name}</strong>
 
