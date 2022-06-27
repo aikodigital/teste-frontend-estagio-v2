@@ -1,0 +1,13 @@
+.container {
+  margin-top: 4rem;
+  text-align: center;
+  flex: 1;
+}
+
+.container > span {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  display: block;
+  text-transform: uppercase;
+  color: #e1e1e6;
+}

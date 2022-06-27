@@ -1,0 +1,29 @@
+.container {
+  background: #121214;
+  width: 250px;
+  height: 100vh;
+  border-right: 1px solid #29292e;
+}
+
+.container h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.container nav {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container nav ul li a {
+  color: #e1e1e6;
+  display: block;
+  padding: 1rem 8.4rem;
+}
+
+.container nav ul li a:hover {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
