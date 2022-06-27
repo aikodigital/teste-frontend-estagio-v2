@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configurações gerais do site -->
+    <title>Site</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link para os arquivos com os dados -->
+    <script src="./data/equipment.js"></script>
+    <script src="./data/equipmentModel.js"></script>
+    <script src="./data/equipmentPositionHistory.js"></script>
+    <script src="./data/equipmentState.js"></script>
+    <script src="./data/equipmentStateHistory.js"></script>
+
+    <!-- Link para as dependências do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+    <!-- Link para CSS e Javascript -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div><img class="logo" src="./img/aiko.png" alt="aiko"></div>
+            <div class="about">
+                <p>Sobre nós</p>
+                <p>Contate-nos</p>
+                <p>Ajuda</p>
+                <p>Configurações</p>
+            </div>
+        </div>
+    </nav>
+    <main id="home">
+        <div class="cards">
+            <div class="caminhao-de-carga card">
+                <section>
+                    <div class="face">
+                        <div class="front background-for-card-one"></div>
+                        <div class="back">
+                            <h1>Caminhão de Carga</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores voluptatibus autem perspiciatis cupiditate minus doloremque dignissimos veniam delectus, corporis accusantium porro eveniet libero atque neque accusamus reprehenderit necessitatibus recusandae.</p>
+                            <button onclick="render('.equipment-page')" class="caminhao-de-carga-button button">Detalhes</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="harvester card">
+                <section>
+                    <div class="face">
+                        <div class="front background-for-card-two"></div>
+                        <div class="back">
+                            <h1>Harvester</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores voluptatibus autem perspiciatis cupiditate minus doloremque dignissimos veniam delectus, corporis accusantium porro eveniet libero atque neque accusamus reprehenderit necessitatibus recusandae.</p>
+                            <button onclick="render('.equipment-page')" class="harverster-button button">Detalhes</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="garra-traçadora card">
+                <section>
+                    <div class="face">
+                        <div class="front background-for-card-three"></div>
+                        <div class="back">
+                            <h1>Garra Traçadora</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla maiores voluptatibus autem perspiciatis cupiditate minus doloremque dignissimos veniam delectus, corporis accusantium porro eveniet libero atque neque accusamus reprehenderit necessitatibus recusandae.</p>
+                            <button onclick="render('.equipment-page')" class="garra-traçadora-button button">Detalhes</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <div class="equipment-page">
+        <div class="equipment-content">
+            <div class="left-content-items">
+                <div class="left-content-title">
+                    <div class="voltar-button-field">
+                        <img class="voltar-button" src="./img/botao-voltar.png" alt="">
+                    </div>
+                    <h1>Equipamentos Disponíveis</h1>
+                </div>
+                <div class="items-field">
+                    <div class="item parent">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="right-content-infos">
+                <div class="equipamento-infos">
+                    <div class="equipment-infos-title">
+                        <h1>Informações Atuais</h1>
+                    </div>
+                    <div class="equipamento-informacoes-tecnicas">
+                        <div id="equipment-id">ID: ---</div>
+                        <div id="equipment-model">Modelo: ---</div>
+                        <div id="actual-status">Status Atual: ---</div>
+                        <div id="last-analysis">Ultima atualização: ---</div>
+                    </div>
+                </div>
+                <div class="equipamento-posicoes">
+                    <div class="equipment-infos-title specialtitle"><h1>Histórico</h1></div>
+                    <div class="background-equipment-posicoes">
+                        <div class="equipment-dates-area">
+                            <select id="equipment-dates" >
+                                <option value="none">Selecione uma data</option>
+                            </select>
+                        </div>
+                        <div class="equipment-map-and-infos">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Anek Malayalam', sans-serif;
+}
+/* Estilização da Nav bar */
+nav {
+    width: 100%;
+    padding: 10px 15px 10px 10px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 209, 60)   ;
+}
+nav .nav-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.about {
+    display: flex;
+    gap: 30px;
+}
+.about p {
+  padding: 5px;
+}
+.about p:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.logo {
+    width: 120px;
+    border-radius: 15px;
+}
+
+/* Estilização dos CARDS */
+main {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.cards {
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card {
+    margin-top: 100px   ;
+    width: 500px;
+    height: 600px;
+    display: flex;
+}
+section {
+    width: 100%;
+  }
+  
+  .face {
+    width: 100%;
+    height: 100%;
+    perspective: 700px;
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 700ms;
+  }
+  
+  .front {
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .back {
+    background: rgb(255, 209, 60);
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .back h1 {
+    color: black;
+    position: absolute;
+    top: 50px;
+    }
+  
+  .face:hover .front {
+    transform: rotateY(180deg);
+    z-index: 0;
+  }
+  
+  .face:hover .back {
+    transform: rotateY(0);
+    z-index: 1;
+  }
+  .background-for-card-one {
+    background-image: url("./img/caminhao-de-carga.jpg");
+    background-position: 10% 90%;
+  }
+  .background-for-card-two {
+    background-image: url("./img/harverster.jpg");
+    background-position: 60% 40%;
+  }
+  .background-for-card-three {
+    background-image: url("./img/garra-traçadora.jpg");
+    background-position: 60% 40%;
+  }
+
+/* Estilização do texto dos CARDS */
+.back p {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 300px;
+}
+.caminhao-de-carga-button , .harverster-button , .garra-traçadora-button {
+  background-color: #0693cd;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size:16px;
+  font-weight: bold;
+  line-height: 1.4;
+  padding: 10px;
+  width: 180px;
+  position: absolute;
+  bottom: 150px;
+}
+.button:hover {
+  opacity: 0.9;
+}
+/* Estilização das páginas dos modelos */
+
+.equipment-page {
+  display: none;
+  width: 100vw;
+  height: calc(100vh - 70px);
+}
+
+  /* Estilização da página dos modelos específicos */
+  .equipment-content {
+    display: flex;
+    width: 100vw;
+    padding: 10px;
+  }
+  .left-content-items {
+    width: 300px;
+    background-color: #2dbbf3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-start;
+    margin: 0 10px 0 0;
+    border-radius: 10px;
+  }
+  .left-content-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    position: relative;
+  }
+  /* Estilização do botão de voltar */
+  .voltar-button-field {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    width: 34px;
+  }
+  .voltar-button {
+    width: 100%;
+  }
+  .voltar-button-field:hover {
+    cursor: pointer;
+  }
+  .items-field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    width: 100%;
+  }
+  .item {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 10px 0;
+  }
+  .hoveritem:hover {
+    transition: 0.6s;
+    opacity: 0.8;
+    background-color: rgb(255, 209, 60);
+    cursor: pointer;
+  }
+  .right-content-infos {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .equipamento-infos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #BBB;
+    padding-bottom: 20px;
+    gap: 20px;
+    border-radius: 10px;
+  }
+  .equipment-infos-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .specialtitle {
+    background-color: rgb(255, 209, 60);
+    border-radius: 10px 10px 0 0;
+    padding-top: 25px;
+  }
+  .equipamento-informacoes-tecnicas {
+    width: 100%;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .equipamento-posicoes {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .background-equipment-posicoes {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+  .equipment-dates-area {
+    height: 100%;
+    width: 250px;
+    background-color: rgb(255, 209, 60);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    padding: 0 10px 0 10px;
+    border-radius: 0 0 0 10px;
+  }
+  #equipment-dates {
+    width: 100%;
+    padding: 5px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  .equipment-map-and-infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(255, 209, 60);
+    border-radius: 0 0 10px 0;
+    border-right: 3px solid rgb(255, 209, 60);
+    border-bottom: 3px solid rgb(255, 209, 60);
+  }
+  #map { 
+  display: block;
+   height: 100%;
+   width: 100%;
+  }
+
+@media(max-width: 1560px) {
+  .card {
+    width: 450px;
+  }
+}
+@media(max-width: 1440px) {
+  .card {
+    width: 400px;
+  }
+} 
+@media(max-width:1300px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 600px;
+  }
+  .card:last-child {
+    margin-bottom: 50px;
+  }
+}
+@media(max-width:870px) {
+  .equipment-content {
+    flex-direction: column;
+  }
+  .left-content-items {
+    height: 350px;
+    width: 100%;
+  }
+  .equipamento-infos {
+    margin-top: 30px;
+  } 
+  .equipment-page {
+    height: 120%;
+  }
+  .specialtitle {
+    padding-bottom: 19px;
+  }
+}
+@media(max-width: 670px) {
+  .card {
+    width: 500px;
+  }
+}
+@media(max-width: 620px) {
+  .equipment-page {
+    height: 100vh;
+  }
+  .items-field {
+    height: 300px;
+  }
+  .background-equipment-posicoes {
+    flex-direction: column;
+  }
+  .equipment-dates-area {
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(255, 209, 60);
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-radius: 0;
+  }
+  #equipment-dates {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .equipment-map-and-infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(255, 209, 60);
+    border-radius: 0 0 10px 10px;
+    border: 4px solid rgb(255, 209, 60);
+  }
+  #map { 
+  display: block;
+   height: 100%;
+   width: 100%;
+   border-radius: 0 0 10px 10px;
+  }
+  .about p {
+    font-size: 14px;
+  }
+}
+@media(max-width: 555px) {
+  .card {
+    width: 400px;
+    height: 500px;
+  }
+  .back p {
+    top: 120px;
+  }
+  .caminhao-de-carga-button , .harverster-button , .garra-traçadora-button {
+    bottom: 150px;
+  }
+  .about p {
+    font-size: 12px;
+  }
+}
+@media(max-width: 500px) {
+  .about p {
+    font-size: 11px;
+  }
+  .logo {
+    width: 100px;
+  }
+}
+@media(max-width: 464px) {
+  .about {
+    gap: 18px;
+  }
+}
+@media(max-width:424px) {
+  .about {
+    gap: 10px;
+  }
+  .card {
+    width: 350px;
+  }
+}
+@media(max-width: 398px) {
+  .about {
+    gap: 5px;
+  }
+  .about p {
+    padding: 3px;
+  }
+  .card {
+    width: 320px;
+  }
+  .button {
+    bottom: 100px;
+  }
+  .left-content-title h1 {
+    font-size: 25px;
+  }
+  .equipment-infos-title h1 {
+    font-size: 27px;
+  }
+  .items-field {
+    margin-top: 12px;
+  }
+}
+@media(max-width: 370px) {
+  .about {
+    gap: 2px;
+  }
+  .about p {
+    padding: 2px;
+  }
+}
+@media(max-width: 350px) {
+  .card {
+    width: 320px;
+    height: 350px;
+  }
+  .button {
+    bottom: 50px;
+  }
+  .back h1 {
+    top: 20px;
+  }
+  .back p {
+    top: 65px;
+  }
+  .about {
+    gap: 0.5px;
+  }
+  .about p {
+    font-size: 10px;
+  }
+}
+@media(max-width: 339px) {
+  .card {
+    width: 280px;
+    height: 350px;
+    margin-top: 40px;
+  }
+  .back h1 {
+    top: 10px;
+  }
+  .back p {
+    top: 50px;
+  }
+  .button {
+    bottom: 32px;
+  }
+  .about p {
+    font-size: 9.5px;
+  }
+}

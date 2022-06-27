@@ -1,3 +1,4 @@
+const equipmentsPositions =
 [
     {
         "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",

@@ -1,3 +1,4 @@
+const equipmentsStates =
 [
     {
         "id": "0808344c-454b-4c36-89e8-d7687e692d57",
