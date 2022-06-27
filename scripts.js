@@ -6,11 +6,14 @@ import equipmentState    from './data/equipmentState.json' assert {type : 'json'
 import equipmentStateHis from './data/equipmentStateHistory.json' assert {type : 'json'};
 
 //Global variables
-let model, name;
-let lat = 0, lon = 0;
-let state;
-let markerId;
-let equipStateStatus = [];
+let model, 
+    name,
+    lat = 0,
+    lon = 0,
+    state,
+    markerId,
+    equipStateStatus = [],
+    icon;
 
 //Showing equipments and their respective names
 for(var i = 0; i < equipment.length; i++){
@@ -21,6 +24,7 @@ for(var i = 0; i < equipment.length; i++){
       //Displaying name & model
       model = equipmentModel[j].name;
       name = equipment[i].name;
+      newIcon(model);
     }
   }
 
@@ -52,7 +56,8 @@ for(var i = 0; i < equipment.length; i++){
       lon = equipmentPosHis[i].positions[maxPosition].lon;
 
       //Creating marker
-      let marker = L.marker([lat, lon], {alt : equipment[i].id,riseOnHover : true}).addTo(map);
+      let marker = L.marker([lat, lon], {alt : equipment[i].id, riseOnHover : true, icon : icon});
+      marker.addTo(map);
       marker._leaflet_id = model;
 
       //Creating popups
@@ -65,7 +70,6 @@ for(var i = 0; i < equipment.length; i++){
       marker.on("mouseout", (hover) => {
         hover.target.bindPopup(`${hover.target._leaflet_id} : ${name} <br> Status : ${state}`).closePopup();
       })
-
 
       //Checking input
       marker.on("click", (clicked) => {
@@ -106,12 +110,14 @@ for(var i = 0; i < equipment.length; i++){
   }
   
 }
+
 //Reseting the research
 document.addEventListener("keypress", (key) => {
   if(key.code == "Space"){
     document.getElementById("posHisHeader").style.backgroundColor = "#55a1dd";
     document.getElementById("posHisHeaderTxt").innerHTML = "Escolha um equipamento";
     document.getElementById("listOfContent").innerHTML = ""; 
+    map.setView([-19.151801, -46.007759], 10);
   }
 })
 
@@ -157,17 +163,21 @@ function elementInfo(element){
   }
 }
 
-function changeIcon(marker){
-  var icon;
-  if(marker._leaflet_id == "Caminhão de carga"){
-    icon = "./icons/caminhao-de-carga.png";
+function newIcon(model){
+  var iconType, iconSize;
+  switch(model){
+    case "Caminhão de carga":
+      iconType = "./icons/caminhao-de-carga.png"
+      iconSize = [232/3, 90/3];
+      break;
+    case "Harvester":
+      iconType = "./icons/harvester.png"
+      iconSize = [258/3, 105/3];
+      break;
+    case "Garra traçadora":
+      iconType = "./icons/garra-tracadora.png"
+      iconSize = [284/4, 173/4];
+      break;
   }
-
-  return icon;
+  return icon = L.icon({iconUrl : iconType, iconSize : iconSize});
 }
-
-
-
-
-
-
