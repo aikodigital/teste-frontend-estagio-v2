@@ -1,0 +1,83 @@
+body{
+    background-color: #000000d1;
+}
+#mapa{
+    width: 97vw;
+    height: 50.6em;
+    position: absolute;
+    border-radius: 4px 10px 10px 4px;
+    box-shadow: 1px 1px 1px 1px #000;
+    left: 1vw;
+    z-index: 0;
+    
+}
+.estiloPoup{
+    text-align: center;
+    position: relative;
+}
+.exibirMapa{
+    visibility: hidden;
+}
+#carregarMapa{
+    background: #e3ebe859;
+    width: 93em;
+    height: 38em;
+    position: absolute;
+    border-radius: 4px 10px 10px 4px;
+    box-shadow: 1px 1px 1px 1px #000;
+    left: 1vw;
+    z-index: 1;
+    filter: drop-shadow(2px 4px 6px black);
+}
+#carregarMapa>p{
+    position: relative;
+    top: 6em;
+    text-align: center;
+    font-size: 35px;
+}
+
+h1{
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+header{
+    position: relative;
+    top: 3vh;
+}
+#selecionarEquipamento{
+    position: relative;
+    left: 3vw;
+}
+#historico{
+    position: relative;
+    left: 9.5em;
+    background: black;
+    width: 76em;
+    padding: 2em;
+    border-radius: 10px;
+    top: 40em;
+    box-shadow: 1px 1px 1px 1px #000;
+}
+td{
+    position: relative;
+    padding: 10px;
+}
+nav{
+    background-color: #0000008c;
+    position: relative;
+    bottom: 1.5em;
+    width: 99.4vw;
+    right: 1em;
+    height: 4em;
+    border-radius: 4px 10px 10px 4px;
+    box-shadow: 1px 1px 1px 1px #000;
+}
+td{
+    color: #fff;
+}
+table{
+    text-align: center;
+    position: relative;
+    left: 18em;
+}
