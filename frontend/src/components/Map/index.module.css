@@ -2,3 +2,20 @@
   width: 100vw;
   height: 100vh;
 }
+
+.filter {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 10000;
+  right: 2em;
+  top: 5em;
+}
+
+.filter select {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-weight: 600;
+  cursor: pointer;
+}

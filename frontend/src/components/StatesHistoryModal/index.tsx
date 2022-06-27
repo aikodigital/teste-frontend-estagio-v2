@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { getEquipmentStatesHistory } from "../../services/equipment";
+import {
+  getEquipmentPositions,
+  getEquipmentStatesHistory
+} from "../../services/equipment";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./index.module.css";
+import { LatLngExpression } from "leaflet";
 
 interface Equipment {
   id: string;
@@ -63,7 +67,9 @@ const StateHistoryModal = ({
             {states.map((stateData) => (
               <li
                 key={uuidv4()}
-                style={{ backgroundColor: stateData.state.color }}
+                style={{
+                  backgroundColor: stateData.state.color
+                }}
               >
                 <span>{stateData.state.name}</span> -{" "}
                 <span>{formatDate(stateData.date)}</span>

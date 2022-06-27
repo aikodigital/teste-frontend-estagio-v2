@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import L, { LatLngExpression } from "leaflet";
 import {
   MapContainer,
@@ -16,6 +17,8 @@ import {
   getEquipments,
   getEquipmentStatesHistory
 } from "../../services/equipment";
+
+import { FaFilter } from "react-icons/fa";
 
 import Truck from "../../assets/truck.png";
 
@@ -43,11 +46,15 @@ interface EquipmentState {
 
 const Map = () => {
   const [equipmentsData, setEquipmentsData] = useState<Equipment[]>([]);
+  const [filteredEquipmentsData, setFilteredEquipmentsData] = useState<
+    Equipment[]
+  >([]);
   const [center, setCenter] = useState([51.505, -0.09] as LatLngExpression);
   const [isStateHistoryModal, setIsStateHistoryModal] = useState(false);
   const [focusedEquipment, setFocusedEquipment] = useState<Equipment>(
     equipmentsData[0]
   );
+  const [filterSelected, setFilterSelected] = useState("");
 
   useEffect(() => {
     const getData = () => {
@@ -82,9 +89,20 @@ const Map = () => {
       ]);
 
       setEquipmentsData(equipmentsStored);
+      setFilteredEquipmentsData(equipmentsStored);
     };
     getData();
   }, []);
+
+  const filterEquipmentsByModel = (model: string) => {
+    if (model === "Todos") {
+      setFilteredEquipmentsData(equipmentsData);
+    } else {
+      setFilteredEquipmentsData(
+        equipmentsData.filter((equipment) => equipment.model === model)
+      );
+    }
+  };
 
   const ChangeMapView = ({ coords }: { coords: LatLngExpression }) => {
     const map = useMap();
@@ -130,9 +148,25 @@ const Map = () => {
         />
       )}
       <div className={styles.container}>
+        <div className={styles.filter}>
+          <FaFilter fontSize={"1.5rem"} />
+          <select
+            value={filterSelected}
+            onChange={(event) => {
+              setFilterSelected(event.target.value);
+              filterEquipmentsByModel(event.target.value);
+            }}
+          >
+            <option defaultValue="Todos">Todos</option>
+            <option value="Caminhão de carga">Caminhão de carga</option>
+            <option value="Harvester">Harvester</option>
+            <option value="Garra traçadora">Garra traçadora</option>
+          </select>
+        </div>
+
         <MapContainer
           center={center}
-          zoom={13}
+          zoom={11}
           scrollWheelZoom={false}
           style={{ height: "100%", width: "100%" }}
         >
@@ -140,7 +174,7 @@ const Map = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png"
           />
-          {equipmentsData.map((equipment) => {
+          {filteredEquipmentsData.map((equipment) => {
             const customIcon = L.icon({
               iconUrl:
                 checkTruckType(
@@ -169,7 +203,7 @@ const Map = () => {
                     ]);
                   }
                 }}
-                key={equipment.id}
+                key={uuidv4()}
               >
                 <Tooltip>
                   {equipment.name} - {equipment.positions[0].state.name}
