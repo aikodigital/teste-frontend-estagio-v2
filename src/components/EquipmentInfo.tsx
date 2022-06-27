@@ -103,9 +103,7 @@ function EquipmentInfo() {
   const orderFunction = order == 'oldest' ? isAfter : isBefore;
   const orderedEquipmentStateList = equipmentStates.slice(0).sort((a, b) => { return orderFunction(new Date(a.date), new Date(b.date)) ? 1 : -1})
   const equipmentPositions = allEquipmentPositionHistory.filter(eq => eq.equipmentId == equipment.id)[0]
-  const equipmentPosition = equipmentId && equipmentPositionDate && equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0]
-  ? equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0]
-  : equipmentPositions.positions[equipmentPositions.positions.length - 1];
+  const equipmentPosition = equipmentPositions.positions[equipmentPositions.positions.length - 1];
 
   const last30DaysEquipmentStates = equipmentStates.filter(state => {
     let date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
@@ -131,11 +129,13 @@ function EquipmentInfo() {
             ? <EyeSlash
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setEquipmentInfoVisible(false)}}
             />
             : <Eye
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setEquipmentInfoVisible(true)}}
             />}
           </div>
@@ -163,11 +163,13 @@ function EquipmentInfo() {
             ? <EyeSlash
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setProductivityVisible(false)}}
             /> 
             : <Eye
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setProductivityVisible(true)}}
             />}
           </div>
@@ -200,11 +202,13 @@ function EquipmentInfo() {
               ? <SortAscending
                 weight="bold"
                 className="inline ml-2 transition cursor-pointer hover:scale-110"
+                size={18}
                 onClick={() => {setOrder('oldest')}} 
               /> 
               : <SortDescending
                 weight="bold"
                 className="inline ml-2 transition cursor-pointer hover:scale-110"
+                size={18}
                 onClick={() => {setOrder('newest')}} 
               />) 
             : null}
@@ -213,11 +217,13 @@ function EquipmentInfo() {
             ? <EyeSlash
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setStateHistoryVisible(false)}}
             />
             : <Eye
               weight="bold"
               className="inline ml-2 transition cursor-pointer hover:scale-110"
+              size={18}
               onClick={() => {setStateHistoryVisible(true)}}
             />}
           </div>

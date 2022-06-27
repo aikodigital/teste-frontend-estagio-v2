@@ -1,7 +1,7 @@
 import logo from "../imgs/aiko.png";
 import EquipmentList from "./EquipmentList";
 
-function Header() {
+function Header({ filterConfigs, setFilterConfigs }: any) {
 	return (
 		<header 
 			className="flex flex-col min-h-screen min-w-[200px] max-w-[280px] overflow-auto border-r border-gray-500"
@@ -14,7 +14,7 @@ function Header() {
 				/>
 			</a>
 
-			<EquipmentList />
+			<EquipmentList filterConfigs={filterConfigs} setFilterConfigs={setFilterConfigs} />
 		</header>
 	);
 }

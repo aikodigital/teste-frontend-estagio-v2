@@ -65,7 +65,7 @@ function MapMarker({eq, equipments}: {eq: EquipmentType, equipments: EquipmentTy
           <br />
           <span className="font-bold">Última alteração:</span> 
           <div className="ml-1">
-            {format(new Date(equipmentPosition.date), "dd'/'MM'/'yyyy HH':'mm")} <span className="text-xs text-gray-500">(localização)</span>
+            {format(new Date(eq.positions[eq.positions.length - 1].date), "dd'/'MM'/'yyyy HH':'mm")} <span className="text-xs text-gray-500">(localização)</span>
             <br />
             {format(new Date(lastEquipmentState.date), "dd'/'MM'/'yyyy HH':'mm")} <span className="text-xs text-gray-500">(estado)</span>
           </div>

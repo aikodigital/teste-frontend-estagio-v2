@@ -3,8 +3,26 @@ import L from 'leaflet';
 import { useParams, useNavigate } from 'react-router-dom';
 import equipments from '../../data/equipment.json'
 import allEquipmentPositionHistory from '../../data/equipmentPositionHistory.json'
+import allEquipmentStateHistory from '../../data/equipmentStateHistory.json'
 import MapMarker from './MapMarker';
 import { useState } from 'react';
+
+function filteredEquipments(filterConfigs: any) {
+  let newEquipmentsPositions = allEquipmentPositionHistory;
+  let filters = filterConfigs ? Object.keys(filterConfigs).filter((key: string) => filterConfigs[key] == true) : [];
+
+  for(let filter of filters) {
+    newEquipmentsPositions = newEquipmentsPositions.filter(position => {
+      const eq = equipments.filter(eq => eq.id == position.equipmentId)[0]
+      const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.id)[0].states;
+      const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
+
+      return lastEquipmentState.equipmentStateId == filter || eq.equipmentModelId == filter ? true : false;
+    })
+  }
+
+  return newEquipmentsPositions;
+}
 
 function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) {
   const map = useMap();
@@ -43,7 +61,7 @@ function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) 
   return null
 }
 
-function Maps() {
+function Maps({ filterConfigs, setFilterConfigs }: any) {
     const { equipmentId } = useParams()
     const navigate = useNavigate();
     const [ markIsSelected, setMarkIsSelected ] = useState(false);
@@ -66,7 +84,7 @@ function Maps() {
         <MapEventHandler nav={navigate} eqId={equipmentId} markIsSelected={markIsSelected} setMarkIsSelected={setMarkIsSelected} />
 
 
-        {allEquipmentPositionHistory.map(eq => {
+        {filteredEquipments(filterConfigs).map(eq => {
           return <MapMarker key={eq.equipmentId} eq={eq} equipments={equipments}/>
         })}
       </MapContainer>
