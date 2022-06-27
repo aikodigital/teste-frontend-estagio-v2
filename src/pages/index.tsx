@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           </main>
           <h1>Localização atual dos equipamentos</h1>
           <div className={styles.mapContainer}>
-            <MapLocation equipments={equipments!} />
+            <MapLocation equipments={equipments!} zoom={10} />
           </div>
         </div>
       )}

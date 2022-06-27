@@ -1,10 +1,13 @@
 .cardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
+    column-gap: 6rem;
     row-gap: 2rem;
 
-    padding: 0rem 5rem;
+    padding: 0rem 2rem;
+
+    align-self: center;
+
 }
 
 .loadingContainer {

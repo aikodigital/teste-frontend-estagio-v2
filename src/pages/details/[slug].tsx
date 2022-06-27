@@ -22,40 +22,90 @@ const MapLocation = dynamic(
 export default function EquipmentDetails({ equipment }: DetailsProps) {
   const { model, name, positionHistory, stateHistory } = equipment;
 
-  // function totalEarning(equipment: EquipmentsType) {
-  //   const indexWorking = model.hourlyEarnings.findIndex((earning) => {
-  //     earning.equipmentStateId ===
-  //       equipmentState.find((state) => {
-  //         return state.name === "Operando";
-  //       })?.id;
-  //   });
-  //   const indexStoped = model.hourlyEarnings.findIndex((earning) => {
-  //     earning.equipmentStateId ===
-  //       equipmentState.find((state) => {
-  //         return state.name === "Parado";
-  //       })?.id;
-  //   });
-  //   const indexMaintenence = model.hourlyEarnings.findIndex((earning) => {
-  //     earning.equipmentStateId ===
-  //       equipmentState.find((state) => {
-  //         return state.name === "Manutenção";
-  //       })?.id;
-  //   });
-  //   const value = equipment.stateHistory.reduce((acc, state) => {
-  //     if (
-  //       state.state!.id === model.hourlyEarnings[indexWorking].equipmentStateId
-  //     ) {
-  //       return acc + model.hourlyEarnings[indexWorking].value;
-  //     }
-  //     if (
-  //       state.state!.id ===
-  //       model.hourlyEarnings[indexMaintenence].equipmentStateId
-  //     ) {
-  //       return acc + model.hourlyEarnings[indexMaintenence].value;
-  //     }
-  //     return acc + model.hourlyEarnings[indexStoped].value;
-  //   }, 0);
-  // }
+  function calcProductivity() {
+    const totalTime =
+      new Date(stateHistory[0].date).getTime() -
+      new Date(stateHistory[stateHistory.length - 1].date).getTime();
+
+    const operatingTime = stateHistory.reduce((acc, state, index, states) => {
+      if (state.state?.name === "Operando") {
+        return (
+          acc +
+          (new Date(state.date).getTime() -
+            new Date(states[index + 1].date).getTime())
+        );
+      }
+      return acc + 0;
+    }, 0);
+
+    console.log(operatingTime / totalTime);
+    return `${((operatingTime / totalTime) * 100).toFixed(2)}%`;
+  }
+
+  function calcEarning() {
+    const workingId = equipmentState.find((state) => {
+      return state.name === "Operando";
+    })?.id;
+    const stoppedId = equipmentState.find((state) => {
+      return state.name === "Parado";
+    })?.id;
+    const maintenenceId = equipmentState.find((state) => {
+      return state.name === "Manutenção";
+    })?.id;
+
+    const totalEarning = stateHistory.reduce((acc, state, index, states) => {
+      if (index < states.length - 1) {
+        if (state.state?.name === "Operando") {
+          const time =
+            (new Date(state.date).getTime() -
+              new Date(states[index + 1].date).getTime()) /
+            (1000 * 60 * 60); // to hour
+          return (
+            acc +
+            time *
+              model.hourlyEarnings.find((earning) => {
+                return earning.equipmentStateId === workingId;
+              })?.value!
+          );
+        }
+        if (state.state?.name === "Parado") {
+          const time =
+            (new Date(state.date).getTime() -
+              new Date(states[index + 1].date).getTime()) /
+            (1000 * 60 * 60); // to hour
+          return (
+            acc +
+            time *
+              model.hourlyEarnings.find((earning) => {
+                return earning.equipmentStateId === stoppedId;
+              })?.value!
+          );
+        }
+        if (state.state?.name === "Manutenção") {
+          const time =
+            (new Date(state.date).getTime() -
+              new Date(states[index + 1].date).getTime()) /
+            (1000 * 60 * 60); // to hour
+          return (
+            acc +
+            time *
+              model.hourlyEarnings.find((earning) => {
+                return earning.equipmentStateId === maintenenceId;
+              })?.value!
+          );
+        }
+      }
+      return acc + 0;
+    }, 0);
+
+    return totalEarning;
+  }
+
+  const equipmentProductivity = calcProductivity();
+  const equipmentEarning = calcEarning().toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
     <div
@@ -65,15 +115,18 @@ export default function EquipmentDetails({ equipment }: DetailsProps) {
       <div className={styles.currentInfos}>
         <div>
           <h1>{name}</h1>
-          <p>{model.name}</p>
+          <p style={{ fontWeight: 700 }}>{model.name}</p>
           <span>Estado atual: </span>
           <span
             style={{ color: stateHistory[0].state?.color, fontWeight: 500 }}
           >
             {stateHistory[0].state?.name}
           </span>
+          <p>Produtividade total: {equipmentProductivity}</p>
+          <p>Ganho total: {equipmentEarning}</p>
         </div>
         <div id="map" className={styles.mapContainer}>
+          <h2>Localização atual:</h2>
           <MapLocation equipments={[equipment]} />
         </div>
       </div>

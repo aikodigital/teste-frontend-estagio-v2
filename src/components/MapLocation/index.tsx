@@ -8,8 +8,9 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import styles from "./styles.module.scss";
 import { Loader } from "../Loader";
 
-interface DetailsProps {
+interface MapProps {
   equipments: (EquipmentsType | undefined)[];
+  zoom?: number;
 }
 
 const defaultIcon = leaflet.icon({
@@ -17,7 +18,7 @@ const defaultIcon = leaflet.icon({
   shadowUrl: iconShadow.src,
 });
 
-export default function MapLocation({ equipments }: DetailsProps) {
+export default function MapLocation({ equipments, zoom = 14 }: MapProps) {
   if (!equipments) {
     return <Loader />;
   }
@@ -27,7 +28,7 @@ export default function MapLocation({ equipments }: DetailsProps) {
         equipments[0]!.positionHistory[0].lat,
         equipments[0]!.positionHistory[0].lon,
       ]}
-      zoom={13}
+      zoom={zoom}
       scrollWheelZoom={false}
       className={styles.mapContainer}
     >

@@ -37,7 +37,7 @@ export function EquipmentCard({ equipment }: EquipmentCardProps) {
       style={borderStyle}
       onClick={() => handleSeeDetails()}
     >
-      <h1>{name}</h1>
+      <h2>{name}</h2>
       <div>
         <span>Modelo: </span>
         <span>{model.name}</span>
