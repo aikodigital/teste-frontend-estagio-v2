@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiko - Sua inovaçâo digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script type="module" src="app/map.js"></script>
+    <link rel="shortcut icon" href="Imagens/favicon.png" type="image/x-icon">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body id="home">
+    <header>
+        <nav>
+
+            <img src="Imagens/aiko.png" alt="">
+            <img src="Imagens/carinha.png" alt="">
+
+        </nav>
+        <h3>A inovaçâo de toda uma frota florestal na palma da sua mâo </h3>
+    </header>
+
+    <main>
+        <div id="map"></div>
+
+        <section id="visualizarMaisInformacoes">
+            <h3 id="titulo2">Que tal testar seu futuro equipamento?</h3>
+            <div id="imge">
+                <img id="imagemDefault" src="Imagens/tech.png" alt="">
+            </div>
+            <section id="infoBox" class="sumir">
+
+                <h3>Equipamento: <span id="dadosEquip"></span> </h3>
+                <p>Estado atual: <span id="estadoAtual"></span></p>
+                <p>Ultima atualizaçâo de estado: <span id="ultimaAtualizacao"></span></p>
+                <p>Total mudanças de estado: <span id="totalmudancas"></span></p>
+                <p>Histórico de estado: <a href="#titulo">
+                        <button id="butdados" onclick="mostrarDados(a)">Solicitar</button></a> </p>
+            </section>
+        </section>
+    </main>
+
+    <section>
+        <h1 id="somos">Conte com a gente!</h1>
+
+        <div id="estatistica">
+
+            <img id="agricultor" src="Imagens/agriculltor.png" alt="">
+            <div id="textbox">
+                <ul>
+                    <li>Agilidade</li>
+                    <li>Personalização</li>
+                    <li>Economia</li>
+                    <li>Comunicação</li>
+                </ul>
+            </div>
+
+            <div id="piechart" style="width: 700px;height:500px"><div>
+
+        </div>
+
+    </section>
+
+    <section id="historico" class="default sumir">
+        <h1 id="titulo" class="sumir">Histórico do estado do equipamento selecionado (Ultimos 10)</h1>
+        <div id="aki"></div>
+        <div id="center">
+            <a href="index2.html"><button id="historicocompleto">Mostrar histórico completo</button></a>
+        </div>
+    </section>
+
+    <footer>
+        <section id="foot">
+            <h3>Contato</h3>
+            <img class="diminuir" src="Imagens/email.png" alt="">
+            <p>contact@aiko.digital</p>
+            <img class="diminuir" src="Imagens/local.png" alt="">
+            <p>Rua Alvarenga Peixoto, 1581, 12 Andar - BH MG</p>
+            <img class="diminuir" src="Imagens/tel.png" alt="">
+            <p>(31) 3564-0815</p>
+            <a target="_blank" href="https://www.linkedin.com/company/aiko-brasil/">
+                <img id="linkedin" src="Imagens/linkedin.png" alt="linkedin">
+            </a>
+        </section>
+
+        <section id="foot2">
+            <h3>Todos os direitos reservados @2022</h3>
+            <a href="#home" id="botaoUp" onclick="esconderTabela()">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="20" fill="#54A2DE" />
+                    <path d="M20 27V13" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M13 20L20 13L27 20" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        </section>
+    </footer>
+
+</body>
+
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
+
+<script type="module" src="app/maisinfo.js"></script>
+<script type="module" src="app/historicoestado.js"></script>
+<script src="app/botaosubir.js"></script>
+<script type="module" src="app/ultimaatualizacao.js"></script>
+<script type="module" src="app/piechart.js"></script>
+
+
+</html>
