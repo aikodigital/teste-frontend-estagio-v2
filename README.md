@@ -20,6 +20,7 @@ O AIM - Aiko Info Map é o resultado do desáfio proposto pela Aiko Digital de c
 
 ## :fire: Prévia da Aplicação
 
+https://aiko-info-map.herokuapp.com
 <div align="center">
 <img src="./src/Components/assets/img/gif.gif" alt="preview"/>
 </div>
