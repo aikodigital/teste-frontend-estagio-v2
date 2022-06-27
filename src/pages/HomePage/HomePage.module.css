@@ -1,0 +1,17 @@
+.cardsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cardsWrapper > * {
+    margin: 20px 30px;
+}
+
+.cardsWrapper > hr {
+    margin: 0 auto;
+}
+
+.cardsWrapper > a:hover {
+    color: black;
+}

@@ -1,209 +1,114 @@
-# Teste Frontend estágio V2
+<h1 align="center">Teste Frontend estágio V2</h1>
 
-![Aiko](img/aiko.png)
+<h1 align="center">
+  <img style="border-radius: 40px; height: 140px"alt="Aiko" title="Aiko" src="./src/img/aiko.png" />
+</h1>
 
-Neste teste serão avaliados seus conhecimentos em Javascript, HTML e CSS, a criatividade e metodologia aplicada no desenvolvimento, a usabilidade e design da aplicação final.
+<p align="center">
+ <a href="#funcionalidades">Funcionalidades</a> • 
+ <a href="#feito-com">Feito com</a> • 
+ <a href="#desenvolvimento">Desenvolvimento</a> • 
+</p>
 
-## O Desafio
+### Funcionalidades
 
-Você é o desenvolvedor frontend de uma empresa que coleta dados de equipamentos utilizados em uma operação florestal. Dentre esses dados estão o histórico de posições e estados desses equipamentos. O estado de um equipamento é utilizado para saber o que o equipamento estava fazendo em um determinado momento, seja *Operando*, *Parado* ou em *Manutenção*. O estado é alterado de acordo com o uso do equipamento na operação, já a posição do equipamento é coletada através do GPS e é enviada e armazenada de tempo em tempo pela aplicação.
+- [x] Mapa de posição atual dos equipamentos
+- [x] Mapa com histórico de movimentações dos equipamentos
+- [x] Tabela de histórico de estados dos equipamentos
+- [x] Tabela de equipamentos
+    - Barra de pesquisa/filtro
+    - Botão de ordem por atributos
 
-Seu objetivo é, de posse desses dados, desenvolver o frontend de aplicação web que trate e exibida essas informações para os gestores da operação.
-
-## Requisitos
-
-Esses requisitos são obrigatórios e devem ser desenvolvidos para a entrega do teste.
-
-* **Posições dos equipamentos**: Exibir no mapa os equipamentos nas suas posições mais recentes.
-
-* **Estado atual do equipamento**: Visualizar o estado mais recente dos equipamentos. Exemplo: mostrando no mapa, como um pop-up, mouse hover sobre o equipamento, etc.
-
-* **Histórico de estados do equipamento**: Permitir a visualização do histórico de estados de um equipamento específico ao clicar sobre o equipamento.
-
-## Dados
-
-Todos os dados que precisa para desenvolver os requisitos estão na pasta `data/` no formato `json` e são detalhados a seguir.
-
-```sh
-data/
-|- equipment.json
-|- equipmentModel.json
-|- equipmentPositionHistory.json
-|- equipmentState.json
-|- equipmentStateHistory.json
-```
-
-### equipment.json
-Contém todos os equipamentos da aplicação.
-
-```JSONC
-[
-    {
-        // Identificador único do equipamento
-        "id": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Chave estrangeira, utilizada para referenciar de qual modelo é esse equipamento 
-        "equipmentModelId": "a3540227-2f0e-4362-9517-92f41dabbfdf",
-        // Nome do Equipamento
-        "name": "CA-0001"
-    },
-    // ...
-]
-```
-
-### equipmentState.json
-Contém todos os estados dos equipamentos.
-
-```JSONC
-[
-    {
-        // Identificador único do estado de equipamento
-        "id": "0808344c-454b-4c36-89e8-d7687e692d57",
-        // Nome do estado
-        "name": "Operando",
-        // Cor utilizada para representar o estado
-        "color": "#2ecc71"
-    },
-    // ...
-]
-```
-
-### equipmentModel.json
-Contém todos os modelos de equipamento e a informação de qual é o valor por hora do equipamento em cada um dos estados.
-
-```JSONC
-[
-    {
-        // Identificador único do modelo de equipamento
-        "id": "a3540227-2f0e-4362-9517-92f41dabbfdf",
-        // Nome do modelo de equipamento
-        "name": "Caminhão de carga",
-        // Valor gerado por hora para cada estado
-        "hourlyEarnings": [
-            {
-                // Chave estrangeira, utilizada para referenciar de qual valor é esse estado
-                "equipmentStateId": "0808344c-454b-4c36-89e8-d7687e692d57",
-                // Valor gerado por hora nesse estado
-                "value": 100
-            },
-            // ...
-        ]
-    },
-    // ...
-]
-```
-
-### equipmentStateHistory.json
-O histórico de estados por equipamento.
-
-```JSONC
-[
-    {
-        // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
-        "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Histórico de estados do equipamento
-        "states": [
-            {
-                // Data em que o equipamento declarou estar nesse estado
-                "date": "2021-02-01T03:00:00.000Z",
-                // Chave estrangeira, utilizada para referenciar qual é o estado
-                // que o equipamento estava nesse momento
-                "equipmentStateId": "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f"
-            },
-            // ...
-        ]
-    },
-    // ...
-]
-```
-
-### equipmentPositionHistory.json
-O histórico de posições dos equipamentos.
-
-```JSONC
-[
-    {
-        // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
-        "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Posições do equipamento
-        "positions": [
-            {   
-                // Data em que a posição foi registrada
-                "date": "2021-02-01T03:00:00.000Z",
-                // Latitude WGS84
-                "lat": -19.126536,
-                // Longitude WGS84
-                "lon": -45.947756
-            },
-            // ...
-        ]
-    },
-    // ...
-]
-```
+### Feito com
+- [React](https://pt-br.reactjs.org/)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [Bootstrap](https://getbootstrap.com.br/)
+- [Leaflet](https://leafletjs.com/)
 
 
-## O que é permitido
+### Desenvolvimento
 
-* Vue, React e Angular.
+Inicie o desenvolvimento criando os diretórios de assets, components e pages. Após a definição de diretórios, desenvolvi as rotas utilizando o React Router DOM na página App.jsx.
 
-* Typescript.
+<h1 align="center">
+  <img style="height: 320px"alt="Routes" title="Routes" src="./src/img/routes.png" />
+</h1>
 
-* Bibliotecas de componentes (Element-ui, Vuetify, Bootstrap, etc.)
+Optei pelos ```stateless-components``` pela simplicidade para lidar com dados, utilizando ```hooks```, e componentização para reduzir o tamanho dos arquivos e pelo poder de reutilização, assim como o diretório utils que contém funcionalidades dos mapas Leaflet, de ordenação de tabelas, requisições para o arquivo de dados JSON.
 
-* Bibliotecas e APIs de Mapas (Leaflet, Openlayers, Google Maps API, etc).
+<h1 align="center">
+  <img style="height: 320px"alt="Componentes" title="Componentes" src="./src/img/componentsUtils.png" />
+</h1>
 
-* Template engines (Pug, Ejs, etc).
+Para a estilização das páginas, defini o index.css para estilos generalistas e módulos para componentes mais específicos.
 
-* Gerenciamento de estado (Vuex, Redux, etc).
+<h1 align="center">
+  <img style="height: 320px; width: 326px" alt="Arquivos CSS" title="Arquivos CSS" src="./src/img/cssmodulesIndex.png" />
+</h1>
 
-* Frameworks CSS (Tailwind, Bulma, Bootstrap, Materialize, etc).
+<!-- EDITAR E COLOCAR CADA PÁGINA E COMPONENTE DETALHADO E APAGAR RESTO -->
+#### Pages
+#### ```HomePage```
+Renderiza o componente ```Card``` que redireciona para a rota ```/.equipments```
+#### ```EquipmentsPage```
+```Hooks: useEffect, useState```
+```Fake API Fetch: getEquipments, getModels, getStates, getEquipmentsStateHistory, getEquipmentsPositionHistory```
+useEffect roda os fetches com o Promise.all e salva todos em um objeto com o useState e muda o display para ```true```, para renderizar na página.
+Renderiza os componentes ```EquipmentsTable``` e ```LeafletMap```.
+#### ```EquipmentPageDetails```
+```Hooks: useLocation, useParams```
+Recebe o id do equipamento pelo ```useParams``` e os dados gerais pelo ```useLocation```.
+Renderiza os componentes ```BackButton``` e ```EquipmentsDetails```
+#### Components
+#### ```Navbar```
+Renderiza a Navbar com um link para a rota da ```HomePage```.
+#### ```BackButton```
+```Hook: useNavigate```
+```props: to(default: '/')```
+Recebe a props ```to``` que deve ser uma rota. 
+Contém um ```button``` que fará o redirecionamento de rota.
+#### ```Card```
+```props: title, description, link, imgUrl```
+Renderiza o card como um link que redireciona de acordo com a prop ```link```, as prop ```title, description e imgUrl``` é usada para definir o título, a descrição  e a imagem do card.
+#### ```EquipmentDetails```
+```Hook: useEffect, useState```
+```Fake API Fetch: getStates```
+```props: id, equipmentsData```
+Recebe as ```props```,```id``` e ```equipmentsData``` para tratar os dados e renderizar-los.
+A função ```getActualState``` busca o histórico de estados do equipamento de acordo com o id.
+A função ```calculateEarningsAndProd``` calcula os ganhos e a produtividade do equipamento de acordo com os ganhos por hora do modelo e o histórico de estados.
+A função ```goToId``` redireciona de acordo com a id de ancoragem da página.
+O componente renderiza ```LeafletMap``` e ```StateHistoryTable```
 
-* Pré-processadores CSS (SCSS, SASS, LESS, etc).
+ <h1 align="center">
+  <img alt="Detalhes de equipamentos" title="Detalhes de equipamentos" src="./src/img/equipmentsDetails.png" />
+</h1>
 
-* Frameworks baseados em Vue (Nuxt.js, Quasar, etc).
+#### ```EquipmentsTable```
+```Hook: useNavigate```
+```props: data, setData, elementsAsc, setElementsAsc```
+Usa a props ```data``` para criar as linhas de todos equipamentos, pela função ```createTableRow```, na tabela com o nome, modelo e estado atual.
+A função ```handleSort``` ordena a tabela de acordo com o argumento ```orderBy``` e seta os dados ordenados com a prop ```setData``` e o tipo de ordenação, crescente ou decrescente, com o ```setElementAsc```.
+A função ```searchInTable``` é ativada pelo filtro de pesquisa da tabela. A cada inserção de caractere ela busca uma linha que contenha a ```string``` pesquisada e muda o ```display``` para ```none``` as que não incluam.
 
-* Qualquer tecnologia complementar as citadas anteriormente são permitidas desde que seu uso seja justificável.
+<h1 align="center">
+  <img style="height: 320px;" alt="Tabela de equipamentos" title="Tabela de equipamentos" src="./src/img/equipmentsTable.png" />
+</h1>
 
-## O que não é permitido
+#### ```StatesHistoryTable```
+```props: stateHistory, state```
+Renderiza a tabela de histórico do equipamento. Usa as ```props```, ```stateHistory``` e ```state``` pela função ```createTableRow```, que recebe cada elemento do histórico de estados e cria uma linha com a data e o estado do equipamento.
 
-* Utilizar componentes ou códigos de terceiros que implementem algum dos requisitos.
+<h1 align="center">
+  <img style="height: 320px;" alt="Tabela de equipamentos" title="Tabela de equipamentos" src="./src/img/stateHistoryTable.png" />
+</h1>
 
-## Recomendações
+#### ```LeafletMap```
+```Hook: useNavigate```
+```props: models, equipments, positionHistory, getAllActual```
+Renderiza o mapa de acordo com a prop ```getAllActual```, se for ```true```renderizará a posição atual de todos os equipamentos, se ```false``` renderizará os pontos do histórico de posições do equipamento recebido pela prop ```equipments``` e traçará as rotas entre os pontos.
+As funções do mapa são importadas do arquivo ```/utils/map.js```.
 
-* **Linter**: Desenvolva o projeto utilizando algum padrão de formatação de código.
-
-* **Leaflet**: Para a exibição de informações no mapa recomendamos o Leaflet por ser uma biblioteca de código aberto e de fácil uso.
-
-## Extras
-
-Aqui são listados algumas sugestões para você que quer ir além do desafio inicial. Lembrando que você não precisa se limitar a essas sugestões, se tiver pensado em outra funcionalidade que considera relevante ao escopo da aplicação fique à vontade para implementá-la.
-
-* **Filtros**: Filtrar as visualizações por estado atual ou modelo de equipamento.
-
-* **Pesquisa**: Ser possível pesquisar por dados de um equipamento especifico.
-
-* **Percentual de Produtividade do equipamento**: Calcular a produtividade do equipamento, que consiste em uma relação das horas produtivas (em estado "Operando") em relação ao total de horas. Exemplo se um equipamento teve 18 horas operando no dia a formula deve ser `18 / 24 * 100 = 75% de produtividade`.
-
-* **Ganho por equipamento**: Calcular o ganho do equipamento com base no valor recebido por hora informado no Modelo de Equipamento. Exemplo se um modelo de equipamento gera 100 por hora em operando e -20 em manutenção, então se esse equipamento ficou 10 horas em operação e 4 em manutenção ele gerou `10 * 100 + 4 * -20 = 920`.
-
-* **Diferenciar os equipamentos**: Diferenciar visualmente os equipamentos por modelo de equipamento na visualização do mapa.
-
-* **Histórico de posições**: Que seja possível visualizar o histórico de posições de um equipamento, mostrando o trajeto realizado por ele.
-
-* **Testes**: Desenvolva testes que achar necessário para a aplicação, seja testes unitários, testes automatizados, testes de acessibilidade, etc.
-
-* **Documentação**: Gerar uma documentação da aplicação. A documentação pode incluir detalhes sobre as decisões tomadas, especificação dos componentes desenvolvidos, instruções de uso dentre outras informações que achar relevantes.
-
-## Entregas
-
-Para realizar a entrega do teste você deve:
-
-* Relizar o fork e clonar esse repositório para sua máquina.
-  
-* Criar uma branch com o nome de `teste/[NOME]`.
-  * `[NOME]`: Seu nome.
-  * Exemplos: `teste/fulano-da-silva`; `teste/beltrano-primeiro-gomes`.
-  
-* Faça um commit da sua branch com a implementação do teste.
-  
-* Realize o pull request da sua branch nesse repositório.
+<h1 align="center">
+  <img style="height: 320px;" alt="Posição de equipamentos" title="Posição de equipamentos" src="./src/img/equipmentsPosition.png" />
+</h1>
