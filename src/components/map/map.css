@@ -1,0 +1,38 @@
+.leaflet-container{
+    width: 1000px;
+    height: 500px;
+  }
+
+.t{
+  display: flex;
+  justify-content: center;
+}
+
+.t-status{
+  padding-right: 4px;
+}
+
+.p{
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+  padding: 4px;
+}
+
+.p-popup-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.p-popup{
+  display: flex;
+}
+
+.p-status{
+  padding-right: 4px;
+}
+
+.p-hr{
+  margin: 4px
+}
