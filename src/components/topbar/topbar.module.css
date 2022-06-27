@@ -1,0 +1,30 @@
+.topbar{
+    height: 200px;
+    text-align: center;
+    background:linear-gradient(rgba(40, 40, 224, 0.699),rgba(0, 0, 0, 0.815)), url("../../../public/assets/pattern-bg.png");
+    padding: 25px 30px 10px 30px;
+}
+
+img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+select{
+    border: none;
+    padding: 10px;
+    height: 40px;
+    width: 250px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+button{
+    position: relative;
+    top: 6px;
+    height: 42px;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    background-color: black;
+}

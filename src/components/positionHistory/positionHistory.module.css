@@ -1,0 +1,23 @@
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    border: 1px solid rgb(13, 149, 228);
+}
+.title{
+    display: flex;
+    float: left;
+    padding: 10px;
+    padding-left: 50px;
+}
+
+.name{
+    display: flex;
+    float: right;
+    padding: 10px;
+    padding-right: 50px;
+}
