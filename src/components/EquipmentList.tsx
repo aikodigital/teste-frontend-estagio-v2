@@ -39,7 +39,6 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
               className="inline ml-2 transition cursor-pointer hover:scale-110"
               size={18}
               onClick={() => {
-                console.log(setFilterConfigs)
                 setFilterConfigs({});
                 filterIsVisible ? setFilterIsVisible(false) : setFilterIsVisible(true)}
               }
@@ -99,7 +98,6 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
                     }
                     newFilters[state.id as keyof typeof newFilters] = newFilters[state.id as keyof typeof newFilters] ? false : true;
                     setFilterConfigs(newFilters);
-                    console.log(filterConfigs)
                   }}
                   checked={filterConfigs && filterConfigs[state.id as keyof typeof filterConfigs] ? true : false}
                   />
