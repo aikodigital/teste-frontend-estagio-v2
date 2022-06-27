@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const MapBox = styled.div`
   background-color: white;
   width: 100%;
-  height: 80%;
+  /* width: 300px; */
+  height: 700px;
   margin: 1.5%;
 `

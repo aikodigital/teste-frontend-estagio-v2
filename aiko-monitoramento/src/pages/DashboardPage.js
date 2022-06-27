@@ -1,7 +1,7 @@
 import React from 'react'
 
 import VehicleContainer from './DashBoardComponents/VehicleContainer/VehicleContainer'
-import MapContainer from './DashBoardComponents/MapContainer/MapContainer'
+import MappingContainer from './DashBoardComponents/MapContainer/MappingContainer'
 import SettingsContainer from './DashBoardComponents/SettingsContainer/SettingsContainer'
 
 import { MainContainer } from "./styled-DashboardPage"
@@ -11,7 +11,7 @@ const Dashboard = () => {
     <MainContainer>
 
       <VehicleContainer />
-      <MapContainer />
+      <MappingContainer />
       <SettingsContainer />
 
     </MainContainer>
