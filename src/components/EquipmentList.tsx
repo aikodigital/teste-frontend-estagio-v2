@@ -13,10 +13,14 @@ function EquipmentList() {
         <div className="flex justify-between mx-5 my-3">
           <span className="text-xl font-bold ">Equipamentos</span>
 
-          <div className="flex items-center cursor-pointer">
-            <MagnifyingGlass weight="bold" onClick={() => {
-              setSearchInput("");
-              searchIsVisible ? setSearchIsVisible(false) : setSearchIsVisible(true)}}
+          <div className="flex items-center">
+            <MagnifyingGlass
+              weight="bold"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
+              onClick={() => {
+                setSearchInput("");
+                searchIsVisible ? setSearchIsVisible(false) : setSearchIsVisible(true)}
+              }
             />
           </div>
         </div>

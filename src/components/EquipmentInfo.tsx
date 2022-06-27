@@ -130,12 +130,12 @@ function EquipmentInfo() {
             {equipmentInfoVisible
             ? <EyeSlash
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setEquipmentInfoVisible(false)}}
             />
             : <Eye
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setEquipmentInfoVisible(true)}}
             />}
           </div>
@@ -162,12 +162,12 @@ function EquipmentInfo() {
             {productivityVisible
             ? <EyeSlash
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setProductivityVisible(false)}}
             /> 
             : <Eye
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setProductivityVisible(true)}}
             />}
           </div>
@@ -199,12 +199,12 @@ function EquipmentInfo() {
             ? (order == 'newest' 
               ? <SortAscending
                 weight="bold"
-                className="inline ml-2 transition hover:scale-110"
+                className="inline ml-2 transition cursor-pointer hover:scale-110"
                 onClick={() => {setOrder('oldest')}} 
               /> 
               : <SortDescending
                 weight="bold"
-                className="inline ml-2 transition hover:scale-110"
+                className="inline ml-2 transition cursor-pointer hover:scale-110"
                 onClick={() => {setOrder('newest')}} 
               />) 
             : null}
@@ -212,12 +212,12 @@ function EquipmentInfo() {
             {stateHistoryVisible 
             ? <EyeSlash
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setStateHistoryVisible(false)}}
             />
             : <Eye
               weight="bold"
-              className="inline ml-2 transition hover:scale-110"
+              className="inline ml-2 transition cursor-pointer hover:scale-110"
               onClick={() => {setStateHistoryVisible(true)}}
             />}
           </div>
