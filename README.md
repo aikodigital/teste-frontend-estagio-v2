@@ -1,209 +1,232 @@
-# Teste Frontend estágio V2
+<div align="center" style="margin-bottom: 20px;">
+<img alt="demonstração da pagina" src="./src/Components/assets/img/finish.png" width="auto" heigth="auto"/>
+</div>
 
-![Aiko](img/aiko.png)
+<div align="center" style="margin: 20px;">
+    <p align="center" >
+      <a href="#fire-prévia-da-aplicação"> :fire: Prévia da Aplicação</a> |
+      <a href="#rocket-tecnologias-usadas"> :rocket: Tecnologias Usadas</a> |
+      <a href="#zap-executando-o-projeto"> :zap: Executando o Projeto </a> |
+      <a href="#open_book-código"> :open_book: Código </a> |
+      <a href="#grinning-conclusão"> :grinning: Conclusão </a> |
+      <a href="#phone-contatos"> :phone: Contatos </a>
+    </p>
 
-Neste teste serão avaliados seus conhecimentos em Javascript, HTML e CSS, a criatividade e metodologia aplicada no desenvolvimento, a usabilidade e design da aplicação final.
+</div>
 
-## O Desafio
+## :barber: O projeto
 
-Você é o desenvolvedor frontend de uma empresa que coleta dados de equipamentos utilizados em uma operação florestal. Dentre esses dados estão o histórico de posições e estados desses equipamentos. O estado de um equipamento é utilizado para saber o que o equipamento estava fazendo em um determinado momento, seja *Operando*, *Parado* ou em *Manutenção*. O estado é alterado de acordo com o uso do equipamento na operação, já a posição do equipamento é coletada através do GPS e é enviada e armazenada de tempo em tempo pela aplicação.
+O AIM - Aiko Info Map é o resultado do desáfio proposto pela Aiko Digital de criar uma aplicação onde é possível localizar no mapa equipamentos e informações importantes como: modelo, nome do equipamento, estado de funcionamento e outros.
 
-Seu objetivo é, de posse desses dados, desenvolver o frontend de aplicação web que trate e exibida essas informações para os gestores da operação.
+## :fire: Prévia da Aplicação
 
-## Requisitos
+https://aiko-info-map.herokuapp.com
+<div align="center">
+<img src="./src/Components/assets/img/gif.gif" alt="preview"/>
+</div>
 
-Esses requisitos são obrigatórios e devem ser desenvolvidos para a entrega do teste.
+## :rocket: Tecnologias Usadas
 
-* **Posições dos equipamentos**: Exibir no mapa os equipamentos nas suas posições mais recentes.
+O projeto foi feito com as seguintes tecnologias:
 
-* **Estado atual do equipamento**: Visualizar o estado mais recente dos equipamentos. Exemplo: mostrando no mapa, como um pop-up, mouse hover sobre o equipamento, etc.
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Vite](https://vitejs.dev)
+- [Styled-Components](https://styled-components.com/)
+- [React-Redux](https://react-redux.js.org)
+- [React-Bootstrap](https://react-bootstrap.github.io)
+- [Leaflet](https://react-leaflet.js.org)
+- {...}
 
-* **Histórico de estados do equipamento**: Permitir a visualização do histórico de estados de um equipamento específico ao clicar sobre o equipamento.
-
-## Dados
-
-Todos os dados que precisa para desenvolver os requisitos estão na pasta `data/` no formato `json` e são detalhados a seguir.
-
+## :zap: Executando o Projeto
+#### Clonando o projeto
 ```sh
-data/
-|- equipment.json
-|- equipmentModel.json
-|- equipmentPositionHistory.json
-|- equipmentState.json
-|- equipmentStateHistory.json
+$ git clone git@github.com:orloke/teste-frontend-estagio-v2.git
+$ cd teste-frontend-estagio-v2
 ```
 
-### equipment.json
-Contém todos os equipamentos da aplicação.
-
-```JSONC
-[
-    {
-        // Identificador único do equipamento
-        "id": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Chave estrangeira, utilizada para referenciar de qual modelo é esse equipamento 
-        "equipmentModelId": "a3540227-2f0e-4362-9517-92f41dabbfdf",
-        // Nome do Equipamento
-        "name": "CA-0001"
-    },
-    // ...
-]
+#### Iniciando o projeto
+```sh
+$ npm install
+$ npm run dev
 ```
 
-### equipmentState.json
-Contém todos os estados dos equipamentos.
+#### Pagina Inicial
 
-```JSONC
-[
-    {
-        // Identificador único do estado de equipamento
-        "id": "0808344c-454b-4c36-89e8-d7687e692d57",
-        // Nome do estado
-        "name": "Operando",
-        // Cor utilizada para representar o estado
-        "color": "#2ecc71"
-    },
-    // ...
-]
+Na pagina incial do projeto temos as seguintes informações:
+
+* Logo da Aiko
+
+Ao clicar no logo o usuário é redirecionado para a pagina inicial da empresa.
+
+* Botão de Logout
+
+Como a página tem informações que são particulares, acredito que para acessar será necessario fazer algum tipo de login. Logo tem que ter um botão de sair! Nesse caso o botão apenas envia para a pagina inicial da Aiko, já que a função de login ainda não existe.
+
+* Mapa de todos os equipamentos
+
+Nessse é possível filtrar os equipamentos por modelo e por situação atual.
+
+* Tabela de informações
+
+Na tabela logo abaixo do primeiro mapa, estão as informações do equipamento clicado, para ver outro equipamento basta clica-lo.
+
+* Mapa de histórico de posições
+
+Esse mostra todas as posições em que o equipamento selecionado esteve (para selecionar outro, basta clica-lo no mapa acima).
+
+* Tabela de histórico de posições
+
+Na tabela ao lado do segundo mapa, é exibido as informações dos estados do equipamento ao longo do tempo.
+
+## :open_book: Código 
+
+Na construção da aplicação, tentei dividir as responsabilidades entre os arquivos de modo a facilitar o entendimento e manutenção: as funções usadas estão em um arquivo, os tipos em outro arquivo e o mesmo para os hooks. Os componentes também foram feitos em pastas separadas para poderem ser reaproveitados.
+
+Para fazer a leitura do dados, preferi usar o import, mas caso os dados fossem disponibilizados via API teria de lançar mão de outras ferramentas como o Axios. Abaixo tem um exemplo como os dados são chamados e usados.
+
+```javascript
+import equipment from '../data/equipment.json'
+
+export const takeNameEquipment = (id:string) => {
+    try {
+        let filterName = equipment.filter(item => item.id === id)
+        return filterName[0]
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as any  
+    }
+}
 ```
 
-### equipmentModel.json
-Contém todos os modelos de equipamento e a informação de qual é o valor por hora do equipamento em cada um dos estados.
+O nome de algumas variavéis pode parecer extenso, mas é porque tentei usar nomes o mais semântico possível, que expliquem sua utilidade.
 
-```JSONC
-[
-    {
-        // Identificador único do modelo de equipamento
-        "id": "a3540227-2f0e-4362-9517-92f41dabbfdf",
-        // Nome do modelo de equipamento
-        "name": "Caminhão de carga",
-        // Valor gerado por hora para cada estado
-        "hourlyEarnings": [
-            {
-                // Chave estrangeira, utilizada para referenciar de qual valor é esse estado
-                "equipmentStateId": "0808344c-454b-4c36-89e8-d7687e692d57",
-                // Valor gerado por hora nesse estado
-                "value": 100
-            },
-            // ...
-        ]
-    },
-    // ...
-]
+Outro cuidado tomado foi deixar o código o mais limpo possível, nem sempre com sucesso como no caso abaixo. Mas com a prática alcançarei o nível desejado!
+
+```javascript
+export const EquipmentStateHistory = (id:string) => {
+
+    try {
+        let equipment = equipmentStateHistory.filter(item=>item.equipmentId == id)[0].states
+        let arrayStateEquipment = [] as NameState[]
+        equipment.map(item=>{
+            equipmentState.forEach(itemState=>{
+                if(item.equipmentStateId==itemState.id){
+                    arrayStateEquipment.push({date:item.date, name:itemState.name, color: itemState.color})
+                }
+            })
+        })
+        return arrayStateEquipment.reverse()
+    } catch (error) {
+        return console.error('Houve algum erro ', error) as unknown as NameState[]
+    }
+}
 ```
 
-### equipmentStateHistory.json
-O histórico de estados por equipamento.
+Nessa função o objetivo é pegar o histórico de estado do equipamento. Usei um filter para selecionar o equipamento desejado através do id e em seguida um map para poder selecionar o nome do estado (operando, parado, manutenção), data e cor que representa esse estado, todas essas informações são adicionadas em um array. A função retorna esse array só que na ordem inversa, afinal o último estado registrado no banco de dados é o mais recente!
 
-```JSONC
-[
-    {
-        // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
-        "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Histórico de estados do equipamento
-        "states": [
-            {
-                // Data em que o equipamento declarou estar nesse estado
-                "date": "2021-02-01T03:00:00.000Z",
-                // Chave estrangeira, utilizada para referenciar qual é o estado
-                // que o equipamento estava nesse momento
-                "equipmentStateId": "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f"
-            },
-            // ...
-        ]
-    },
-    // ...
-]
+```javascript
+    const dispatch = useDispatch()
+
+    const formik = useFormik({
+        initialValues: {
+           nome:'todos',
+           situation: 'todos'
+        },
+        onSubmit() {},
+    })
+    dispatch(setFilter(formik.values))
+    return (
+        <S.StyledContainer>
+            <S.StyledForm name = 'nome'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione o modelo do equipamento (todos)</option>
+                {equipmentModel.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
+
+            </S.StyledForm>
+            <S.StyledForm name = 'situation'  onChange={formik.handleChange}>
+                <option value='todos'>Selecione a situação do equipamento (todos)</option>
+                {equipmentState.map((item, index)=>(
+                    <option key={index} value={item.name}>{item.name}</option>
+                ))}
+                
+            </S.StyledForm>
+        </S.StyledContainer>
+
+    )
 ```
 
-### equipmentPositionHistory.json
-O histórico de posições dos equipamentos.
+O código acima foi usado para construir a parte do filtro de exibição no mapa. Para isso usei o [Formik](https://formik.org) e o Redux. Fiz um map no equipmentState para garantir que as opções disponiveis sejam apenas aquelas que aparecem no banco de dados e caso seja atualizado o banco não será preciso alterar essa parte da aplicação, afinal ela puxa os dados diretamente de lá. Um detalhe importante sobre essa parte é que ela produz um erro no console do navegador, nada que impeça o funcionamento da aplicação. Mas o erro pode ser corrigido transformandoo StyledContainer em um formulário com um button de submit e outras pequenas alterações. Irei trabalhar nelas!
 
-```JSONC
-[
-    {
-        // Chave estrangeira, utilizada para referenciar de qual equipamento são esses estados
-        "equipmentId": "a7c53eb1-4f5e-4eba-9764-ad205d0891f9",
-        // Posições do equipamento
-        "positions": [
-            {   
-                // Data em que a posição foi registrada
-                "date": "2021-02-01T03:00:00.000Z",
-                // Latitude WGS84
-                "lat": -19.126536,
-                // Longitude WGS84
-                "lon": -45.947756
-            },
-            // ...
-        ]
-    },
-    // ...
-]
+```javascript
+{equipmentPositionHistory.map((item, index)=>(
+            (filters.nome==takeModelEquipment(item.equipmentId).name || filters.nome == 'todos') &&
+            (filters.situation==EquipmentStateActual(item.equipmentId)  || filters.situation == 'todos')
+            ?
+                (...) : ''
+        ))}
 ```
 
+Para de fato aplicar o filtro nos equipamentos que são mostrados, optei por usar um Iternario: na 2º linha é feito o filtro por modelo na 3º por estado do equipamento. Caso as condições sejam satisfeitas é mostrado o que vai dentro do (...), no contrario não é mostrado nada. Um ponto de melhoria é em vez de exibir nada, exibir uma mensagem dizendo que nenhum equipamento foi encontrado.
 
-## O que é permitido
+```javascript
+  return (
+    <S.StyledContainer>    
+      <S.StyledH5>Historico de Estado</S.StyledH5>
+      <S.StyledTable striped borderless responsive hover variant='light'>
+          <thead>
+              <tr>
+                  <th>DATA</th>
+                  <th>ESTADO</th>
+              </tr>
+          </thead>
+          <tbody>
+            {EquipmentStateHistory(idEquipment).map((item, index)=>(
+              <tr key={index}>
+                <S.StyledTd color= 'black'>{DataConvert(item.date)}</S.StyledTd>
+                <S.StyledTd color={item.color} >{item.name}</S.StyledTd>
+              </tr>
+            ))}
+          </tbody>
+      </S.StyledTable>    
+    </S.StyledContainer>
+  );
+```
 
-* Vue, React e Angular.
+Esse foi usado para a construçao da tabela de histórico de estado. Para faze-la usei [Boostrap](https://react-bootstrap.github.io) e [styled-component](https://styled-components.com/docs). O styled-component foi importante para poder alterar a cor do texto exibido na tabela de acordo com a situação do equipamento. As cores usadas já vieram definidas no arquivo json usado, e foram passadas via props dentro do componente S.StyledId.
 
-* Typescript.
+#### Responsividade
 
-* Bibliotecas de componentes (Element-ui, Vuetify, Bootstrap, etc.)
+A Aiko desenvolve funcionalidades para gestão de operações. E essa gestaõ não é feita apenas de dentro de um escritório na frente de um computador. Muitas vezes o funcionario tem que ir a campo se deslogar até onde o problema está ocorrendo. Por essa razão fiz a aplicação para que seja responsiva, podendo ser usada em smartphones e tablets, sem perda de informções, e facilitando a vida do cliente (ninguém quer sair por ai carregando um computador).
 
-* Bibliotecas e APIs de Mapas (Leaflet, Openlayers, Google Maps API, etc).
+Também pensando na responsividade, optei por colocar todas as informções em uma única página, assim o usuário não tem de ficar se deslogando de uma guia para outra, o que é algo cansativo de se fazer em um dispositivo mobile. Mas caso seja necessário a divisão pode ser feita facilmente usando o [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start) e os componentes já criados.
 
-* Template engines (Pug, Ejs, etc).
 
-* Gerenciamento de estado (Vuex, Redux, etc).
+Teste em um Iphone 6/7/8
+<div align="center">
+<img src="./src/Components/assets/img/gifresponsividade.gif" alt="gif responsividade"/>
+</div>
 
-* Frameworks CSS (Tailwind, Bulma, Bootstrap, Materialize, etc).
+## :grinning: Conclusão
 
-* Pré-processadores CSS (SCSS, SASS, LESS, etc).
+#### Dificuldades
 
-* Frameworks baseados em Vue (Nuxt.js, Quasar, etc).
+Quando comecei o projeto, não conhecia algumas das ferramentas usadas, como o [Leaflet](https://react-leaflet.js.org) e tinha uma experiência irrisória em outras, como o [React-Redux](https://react-redux.js.org), mas graças ao bom e velho Google, Youtube, StackOverflow e documentações, consegui aprender e aplicar no código. Uma vez superado o desconhecido, as ideias fluiram mais naturalmente apesar de surgir outros problemas. Realmente quebrei a cabeça para criar algumas das funções usadas, e investi algumas horas do meu tempo para desenvolver a parte dinâmica do site: alteração dos icones dependendo do equipamento, alteração das informações ao clicar no mapa e o filtro de maquinas. Esse último saiu já no final do projeto e por ironia a solução é bem simples, talvez não a mais elegante, mas é simples!
 
-* Qualquer tecnologia complementar as citadas anteriormente são permitidas desde que seu uso seja justificável.
+#### Pontos de melhorias
 
-## O que não é permitido
+* Por mais que tenha me esforçado ainda não acredito que o código esteja o mais 'clean' possível, em algumas partes sinto que poderia ter escrito de outra forma, já outas podem estar redundantes ou repetitivas. 
+* Não realizei todos os teste na aplicação, ainda estou aprendendo como fazer, mas creio que no próximo projeto já será possível.
+* A tabela de informação de dias pode ficar melhor na versão mobile, com as linhas se transformando em colunas.
+* Colocar modo escuro na pagina. Caso o usuário deseje é só clicar em um botão e o background fica preto.
+* Ativar a opção de usar localização atual no mapa.
 
-* Utilizar componentes ou códigos de terceiros que implementem algum dos requisitos.
 
-## Recomendações
+A maior parte dessas melhorias podem ser executadas com mais algumas linhas de código. Além desses há outros pontos de melhorias, que irei superar através dos estudos e disciplina. Abaixo deixo meus contatos para feedbacks e opiniões :grin:!
 
-* **Linter**: Desenvolva o projeto utilizando algum padrão de formatação de código.
+## :phone: Contatos
 
-* **Leaflet**: Para a exibição de informações no mapa recomendamos o Leaflet por ser uma biblioteca de código aberto e de fácil uso.
+Email: [juniordering@hotmail.com](juniordering@hotmail.com)
 
-## Extras
+WhatsApp [(65) 98175-1036](https://wa.me/5565981751036)
 
-Aqui são listados algumas sugestões para você que quer ir além do desafio inicial. Lembrando que você não precisa se limitar a essas sugestões, se tiver pensado em outra funcionalidade que considera relevante ao escopo da aplicação fique à vontade para implementá-la.
 
-* **Filtros**: Filtrar as visualizações por estado atual ou modelo de equipamento.
-
-* **Pesquisa**: Ser possível pesquisar por dados de um equipamento especifico.
-
-* **Percentual de Produtividade do equipamento**: Calcular a produtividade do equipamento, que consiste em uma relação das horas produtivas (em estado "Operando") em relação ao total de horas. Exemplo se um equipamento teve 18 horas operando no dia a formula deve ser `18 / 24 * 100 = 75% de produtividade`.
-
-* **Ganho por equipamento**: Calcular o ganho do equipamento com base no valor recebido por hora informado no Modelo de Equipamento. Exemplo se um modelo de equipamento gera 100 por hora em operando e -20 em manutenção, então se esse equipamento ficou 10 horas em operação e 4 em manutenção ele gerou `10 * 100 + 4 * -20 = 920`.
-
-* **Diferenciar os equipamentos**: Diferenciar visualmente os equipamentos por modelo de equipamento na visualização do mapa.
-
-* **Histórico de posições**: Que seja possível visualizar o histórico de posições de um equipamento, mostrando o trajeto realizado por ele.
-
-* **Testes**: Desenvolva testes que achar necessário para a aplicação, seja testes unitários, testes automatizados, testes de acessibilidade, etc.
-
-* **Documentação**: Gerar uma documentação da aplicação. A documentação pode incluir detalhes sobre as decisões tomadas, especificação dos componentes desenvolvidos, instruções de uso dentre outras informações que achar relevantes.
-
-## Entregas
-
-Para realizar a entrega do teste você deve:
-
-* Relizar o fork e clonar esse repositório para sua máquina.
-  
-* Criar uma branch com o nome de `teste/[NOME]`.
-  * `[NOME]`: Seu nome.
-  * Exemplos: `teste/fulano-da-silva`; `teste/beltrano-primeiro-gomes`.
-  
-* Faça um commit da sua branch com a implementação do teste.
-  
-* Realize o pull request da sua branch nesse repositório.
