@@ -40,7 +40,14 @@ function EquipmentPositionTimeline() {
           </div>
         </div>
 
-        <input className="flex-1 mb-3" type="range" min="0" max={dates.length - 1} value={positionTimeline} onChange={(i) => {setPositionTimeline(Number(i.target.value))}}/>
+        <input
+          className="flex-1 mb-3"
+          type="range"
+          min="0"
+          max={dates.length - 1}
+          value={positionTimeline}
+          onChange={(i) => {setPositionTimeline(Number(i.target.value))}}
+        />
       </div>
     )
   }

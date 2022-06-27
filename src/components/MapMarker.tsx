@@ -39,8 +39,10 @@ function MapMarker({eq, equipments}: {eq: EquipmentType, equipments: EquipmentTy
   const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.equipmentId)[0]?.states;
   const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
   const lastEquipmentStateObj = equipmentState.filter(state => state.id == lastEquipmentState.equipmentStateId)[0];
-  const equipmentPosition = equipmentId && equipmentPositionDate && eq.equipmentId == equipmentId && eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] ? eq.positions.filter(pos => pos.date == equipmentPositionDate)[0] : eq.positions[eq.positions.length - 1];
   const getIcon = icons[equipmentModel.id as Key]
+  const equipmentPosition = equipmentId && equipmentPositionDate && eq.equipmentId == equipmentId && eq.positions.filter(pos => pos.date == equipmentPositionDate)[0]
+  ? eq.positions.filter(pos => pos.date == equipmentPositionDate)[0]
+  : eq.positions[eq.positions.length - 1];
 
   const svgIcon = L.divIcon({
     html: getIcon(lastEquipmentStateObj.color),

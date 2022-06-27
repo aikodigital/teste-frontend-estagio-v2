@@ -103,7 +103,9 @@ function EquipmentInfo() {
   const orderFunction = order == 'oldest' ? isAfter : isBefore;
   const orderedEquipmentStateList = equipmentStates.slice(0).sort((a, b) => { return orderFunction(new Date(a.date), new Date(b.date)) ? 1 : -1})
   const equipmentPositions = allEquipmentPositionHistory.filter(eq => eq.equipmentId == equipment.id)[0]
-  const equipmentPosition = equipmentId && equipmentPositionDate && equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0] ? equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0] : equipmentPositions.positions[equipmentPositions.positions.length - 1];
+  const equipmentPosition = equipmentId && equipmentPositionDate && equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0]
+  ? equipmentPositions.positions.filter(pos => pos.date == equipmentPositionDate)[0]
+  : equipmentPositions.positions[equipmentPositions.positions.length - 1];
 
   const last30DaysEquipmentStates = equipmentStates.filter(state => {
     let date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
@@ -125,7 +127,17 @@ function EquipmentInfo() {
         <span className="flex justify-between gap-1 text-lg font-bold mt ">
           Informações
           <div className="flex items-center">
-            {equipmentInfoVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setEquipmentInfoVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setEquipmentInfoVisible(true)}} />}
+            {equipmentInfoVisible
+            ? <EyeSlash
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setEquipmentInfoVisible(false)}}
+            />
+            : <Eye
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setEquipmentInfoVisible(true)}}
+            />}
           </div>
         </span>
 
@@ -147,7 +159,17 @@ function EquipmentInfo() {
         <span className="flex justify-between gap-1 mt-4 text-lg font-bold ">
           Produtividade
           <div className="flex items-center">
-            {productivityVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setProductivityVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setProductivityVisible(true)}} />}
+            {productivityVisible
+            ? <EyeSlash
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setProductivityVisible(false)}}
+            /> 
+            : <Eye
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setProductivityVisible(true)}}
+            />}
           </div>
         </span>
 
@@ -173,8 +195,31 @@ function EquipmentInfo() {
         <span className="flex justify-between gap-1 mt-4 mb-1 text-lg font-bold ">
           Histórico de Estados
           <div className="flex items-center">
-            {stateHistoryVisible ? (order == 'newest' ? <SortAscending weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setOrder('oldest')}} /> : <SortDescending weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setOrder('newest')}} />) : null}
-            {stateHistoryVisible ? <EyeSlash weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setStateHistoryVisible(false)}} /> : <Eye weight="bold" className="inline ml-2 transition hover:scale-110" onClick={() => {setStateHistoryVisible(true)}} />}
+            {stateHistoryVisible 
+            ? (order == 'newest' 
+              ? <SortAscending
+                weight="bold"
+                className="inline ml-2 transition hover:scale-110"
+                onClick={() => {setOrder('oldest')}} 
+              /> 
+              : <SortDescending
+                weight="bold"
+                className="inline ml-2 transition hover:scale-110"
+                onClick={() => {setOrder('newest')}} 
+              />) 
+            : null}
+
+            {stateHistoryVisible 
+            ? <EyeSlash
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setStateHistoryVisible(false)}}
+            />
+            : <Eye
+              weight="bold"
+              className="inline ml-2 transition hover:scale-110"
+              onClick={() => {setStateHistoryVisible(true)}}
+            />}
           </div>
         </span>
 
