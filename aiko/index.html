@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiko </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+</head>
+<body>
+    <!--DIV DO MAPA-->
+    <div id="map"></div>
+    <fieldset>
+    <h1>Painel de controle</h1>
+    <div id="search">
+        <label name="pesquisa">Fazer pesquisa por:</label>
+        <select name="search" id="selecao" placeholder="Equipamento" onchange="mostraEquipouModelos()">
+            <option for="racas" value="#" selected disabled selected hidden></option>
+            <option for="pesquisa" value="eqp" >Equipamento</option>
+            <option for="pesquisa" value="mdl">Modelo</option>
+        </select>
+    
+    </div>
+    <div id="equipaments" class="hidden">
+        <label for="equip">Selecione um Equipamento:</label>
+        <select name="equips" id="equipamentos"  placeholder="Equipamento" onchange="mostraEquipamentos()">
+            <option for="equip" value="#" selected disabled selected hidden></option>
+            <option for="equip" value="ca0001">CA-0001</option>
+            <option for="equip" value="ca0002">CA-0002</option>
+            <option for="equip" value="ca0003">CA-0003</option>
+            <option for="equip" value="ca0004">CA-0004</option>
+            <option for="equip" value="hv1001">HV-1001</option>
+            <option for="equip" value="hv1002">HV-1002</option>
+            <option for="equip" value="gt2001">GT-2001</option>
+            <option for="equip" value="gt2002">GT-2002</option>
+            <option for="equip" value="gt2003">GT-2003</option>
+        </select>
+    </div>
+    <div id="models" class="hidden">
+        <label for="models">Selecione um Modelo:</label>
+        <select name="models" id="modelos" placeholder="Modelo" onchange="mostraModelos()">
+            <option for="models" value="#" selected disabled selected hidden></option>
+            <option for="models" value="cdc">Caminhão de carga</option>
+            <option for="models" value="hv">Harvester</option>
+            <option for="models" value="gt">Garra traçadora</option>
+        </select>
+    </div>
+    <hr>
+    <br>
+      <div class="divClass" id="ca0001" hidden>
+            <fieldset>
+            <h3><strong>Caminhão de carga</strong></h3>
+            <h4><strong>Equipamento:</strong>CA-0001</h4>
+            <button class="btn" id="ca0001" onclick="criarMarcador('ca0001')"> Última localização</button>
+            <button class="btn" onclick="carregarHistorico('ca0001')">Mostra Histórico</button>
+        </fieldset>
+      </div>
+      
+      <div class="divClass" id="ca0002" hidden>
+        <fieldset>
+        <h3><strong>Caminhão de carga</strong></h3>
+        <h4><strong>Equipamento:</strong>CA-0002</h4>
+        <button class="btn" onclick="criarMarcador('ca0002')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('ca0002')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+    
+    
+      <div class="divClass" id="ca0003" hidden>
+        <fieldset>
+        <h3><strong>Caminhão de carga</strong></h3>
+        <h4><strong>Equipamento:</strong>CA-0003</h4>
+        <button class="btn" onclick="criarMarcador('ca0003')"   >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('ca0003')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="ca0004" hidden>
+        <fieldset>
+        <h3><strong>Caminhão de carga</strong></h3>
+        <h4><strong>Equipamento:</strong>CA-0004</h4>
+        <button class="btn" onclick="criarMarcador('ca0004')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('ca0004')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="hv1001" hidden>
+        <fieldset>
+        <h3><strong>Harvester</strong></h3>
+        <h4><strong>Equipamento:</strong>HV-1001</h4>
+        <button class="btn" onclick="criarMarcador('hv1001')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('hv1001')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="hv1002" hidden>
+        <fieldset>
+        <h3><strong>Harvester</strong></h3>
+        <h4><strong>Equipamento:</strong>HV-1002</h4>
+        <button class="btn" onclick="criarMarcador('hv1002')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('hv1002')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="gt2001" hidden>
+        <fieldset>
+        <h3><strong>Garra Traçadora</strong></h3>
+        <h4><strong>Equipamento:</strong>GT-2001</h4>
+        <button class="btn" onclick="criarMarcador('gt2001')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('gt2001')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="gt2002" hidden>
+        <fieldset>
+        <h3><strong>Garra Traçadora</strong></h3>
+        <h4><strong>Equipamento:</strong>GT-2002</h4>
+        <button class="btn" onclick="criarMarcador('gt2002')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('gt2002')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+      <div class="divClass" id="gt2003" hidden>
+        <fieldset>
+        <h3><strong>Garra Traçadora</strong></h3>
+        <h4><strong>Equipamento:</strong>GT-2003</h4>
+        <button class="btn" onclick="criarMarcador('gt2003')"  >Última localização</button>
+        <button class="btn" onclick="carregarHistorico('gt2003')">Mostra Histórico</button>
+    </fieldset>
+      </div>
+    <div id="historico">
+
+    </div>
+
+    </fieldset>
+    <script src="app.js"></script>
+    <script type="text/javascript" language="javascript" src="equipamentStateHistory.js"></script>
+</body>
+</html>
