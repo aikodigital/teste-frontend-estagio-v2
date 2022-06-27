@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import {
-  getEquipmentPositions,
-  getEquipmentStatesHistory
-} from "../../services/equipment";
+import { getEquipmentStatesHistory } from "../../services/equipment";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./index.module.css";
-import { LatLngExpression } from "leaflet";
 
 interface Equipment {
   id: string;

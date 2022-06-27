@@ -83,6 +83,7 @@ const Map = () => {
 
       const lastEquipmentStored = equipmentsStored[equipmentsStored.length - 1];
 
+      // Adiciona o centro na posição do último equipamento armazenado
       setCenter([
         lastEquipmentStored.positions[0].lat,
         lastEquipmentStored.positions[0].lon
@@ -131,7 +132,6 @@ const Map = () => {
         return "green";
       case "Parado":
         return "yellow";
-
       case "Manutenção":
         return "red";
       default:
@@ -181,10 +181,10 @@ const Map = () => {
                   equipment.model,
                   equipment.positions[0].state.name
                 ) || Truck,
-              iconSize: [50, 50], // size of the icon
-              shadowSize: [50, 64], // size of the shadow
-              iconAnchor: [2, 9], // point of the icon which will correspond to marker's location
-              shadowAnchor: [4, 62] // the same for the shadow
+              iconSize: [50, 50],
+              shadowSize: [50, 64],
+              iconAnchor: [2, 9],
+              shadowAnchor: [4, 62]
             });
             return (
               <Marker

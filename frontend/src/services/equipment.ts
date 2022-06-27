@@ -91,6 +91,7 @@ export const getEquipmentStatesHistory = (equipmentId: string) => {
         new Date(stateB.date).getTime() - new Date(stateA.date).getTime()
     );
 
+  // Retorna os estados, com o estado do equipamento no lugar do id
   return equipmentStatesByMostRecent?.map((equipment) => ({
     date: equipment.date,
     state: states.find((state) => state.id === equipment.equipmentStateId)!
