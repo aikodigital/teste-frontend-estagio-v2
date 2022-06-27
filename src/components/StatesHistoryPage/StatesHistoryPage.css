@@ -1,0 +1,20 @@
+.states-history-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    padding-top: calc(var(--navbar-height) + 60px);
+    padding-bottom: 60px;
+}
+
+.states-history-page .equipment-filter {
+    margin: 0;
+}
+
+.states-history-page .equipment-filter h2, h3 {
+    text-align: center;
+}
+
+.states-history-page .off {
+    display: none;
+}

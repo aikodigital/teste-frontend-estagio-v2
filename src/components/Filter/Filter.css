@@ -1,0 +1,203 @@
+
+.equipment-filter {
+    background: #fff;
+    border: var(--border-01);
+    border-radius: var(--border-radius-01);
+    width: 300px;
+    height: 500px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 20px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-01);
+}
+
+.equipment-filter > h2 {
+    background: var(--aiko-theme-lidark);
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: 0.08rem;
+    padding: 12px 0;
+    width: 100%;
+}
+
+.equipment-filter-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.equipment-filter-wrap > div {
+    box-shadow: var(--box-shadow-01);
+    padding: 12px;
+    width: 90%;
+    border-radius: var(--border-radius-01);
+    border: var(--border-01);
+}
+
+.equipment-filter-wrap h3 {
+    color: var(--aiko-theme-dark);
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+.equipment-filter-wrap ul {
+    text-align: start;
+    list-style: none;
+}
+
+.equipment-filter-wrap li {
+    margin-bottom: 2px;
+}
+
+.equipment-filter-wrap li input {
+    margin-right: 4px;
+}
+
+.search-filter-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-filter-wrap input {
+    border: var(--border-02);
+    border-right: none;
+    height: 24px;
+    width: 86%;
+    padding-left: 6px;
+    outline: none;
+}
+
+.search-filter-button {
+    background: var(--aiko-theme-lidark);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: var(--border-02);
+    border-color: var(--aiko-theme-dark);
+    transition: .3s;
+}
+
+.search-filter-button:hover {
+    background: var(--aiko-theme-dark);
+}
+
+.search-filter-button > img {
+    max-width: 16px;
+}
+
+.filters-clear-button {
+    background: var(--aiko-secondary-dark);
+    color: #fff;
+    border-radius: var(--border-radius-01);
+    font-size: 1rem;
+    padding: 8px 20px;
+    border: none;
+    box-shadow: var(--box-shadow-01);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filters-clear-button:hover {
+    background: var(--aiko-secondary-default);
+}
+
+.filter-mobile-switch {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .equipment-filter {
+        height: 48px;
+        width: 140px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        position: absolute;
+        z-index: 1200;
+        top: 80px;
+        left: 0;
+        transition: .5s;
+    }
+
+    .equipment-filter.active {
+        height: 500px;
+        width: 300px;
+        z-index: 2200;
+    }
+
+    .equipment-filter > h2 {
+        font-size: 1.3rem;
+        padding: 12px 0;
+    }
+
+    .close-filter.active {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        z-index: 2100;
+    }
+
+    .equipment-filter-wrap {
+        display: none;
+    }
+
+    .equipment-filter-wrap.active {
+        display: flex;
+    }
+
+    .filter-mobile-switch {
+        display: block;
+        position: absolute;
+        width: 140px;
+        height: 48px;
+        top: 0;
+        outline: none;
+        background: none;
+        border: none;
+        z-index: 200;
+    }
+
+    .filter-mobile-switch span {
+        display: none;
+    }
+
+    .filter-mobile-switch.active {
+        width: 48px;
+        left: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1200;
+    }
+
+    .filter-mobile-switch.active span {
+        display: block;
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .equipment-filter {
+        margin: 0;
+    }
+
+    .equipment-filter.active {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
