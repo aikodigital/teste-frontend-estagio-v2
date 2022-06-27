@@ -1,0 +1,22 @@
+.container {
+  margin: 2rem auto;
+  flex: 1;
+}
+
+.container table {
+  margin: 2rem auto;
+  width: 90%;
+}
+
+table,
+th,
+td {
+  border: 2px solid #29292e;
+  border-collapse: collapse;
+  padding: 2rem;
+  text-align: left;
+}
+
+th {
+  text-transform: uppercase;
+}

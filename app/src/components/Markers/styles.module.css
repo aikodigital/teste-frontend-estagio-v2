@@ -1,0 +1,9 @@
+.popup {
+  font-size: 1.6rem;
+}
+
+.popup span {
+  font-size: 1.6rem;
+  display: inline;
+  color: #000000;
+}
