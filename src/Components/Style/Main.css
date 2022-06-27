@@ -1,0 +1,54 @@
+.Main{
+  display: flex;
+  justify-content: center;
+  padding: 8vh 0px;
+  background-color: #f3f2f9;
+}
+
+.leaflet-container {
+  width: 80%;
+  height: 600px;
+  border: 1px solid  #708090;
+  border-radius: 10px;
+}
+
+.leaflet-popup-content-wrapper{
+  text-align: center;
+  font-weight: bold;
+  background-color: #f3f2f9;
+  padding: 10px;
+}
+
+
+.Operando {
+  color: #2ecc71;
+  font-size: 1.1rem;
+}
+
+.Parado {
+  color: #f1c40f;
+  font-size: 1.1rem;
+}
+
+.Manutenção {
+  color: #e74c3c;
+  font-size: 1.1rem;
+}
+
+.button:link{
+  text-decoration: none;
+  color: black;
+}
+
+.button{
+  background-color: rgba(176, 176, 176, 0.6);
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.button:hover{
+  cursor: pointer;
+  transform: scale(1.06);
+  background-color: rgba(0, 0, 0, 0.333);
+}
