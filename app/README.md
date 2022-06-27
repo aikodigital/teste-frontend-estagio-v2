@@ -1,7 +1,7 @@
 # AIKO | ECOLETA
 
 <div align="center">
-    <img src="https://github.com/Futila/maratona-explorer/blob/master/.github/app.JPG" width="400px" />
+    <img src="https://github.com/Futila/teste-frontend-estagio-v2/blob/teste/fernando-futila/app/src/.github/home.png" width="400px" />
 </div>
 
 ## 🧪 Tecnologias
@@ -19,6 +19,7 @@ Clone o projeto e acesse a pasta do mesmo.
 ```bash
 $ git clone https://github.com/Futila/teste-frontend-estagio-v2
 $ cd teste-frontend-estagio-v2
+$ cd app
 ```
 
 Para iniciá-lo, siga os passos abaixo:
