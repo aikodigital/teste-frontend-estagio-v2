@@ -20,7 +20,7 @@
 ---
 </br>
 <p align="center">
-  <img src="./.github/screen.jpg" height="500" margin-top="400">
+  <img src="./.github/screens.jpg" height="500" margin-top="400">
 </p>
 
 
