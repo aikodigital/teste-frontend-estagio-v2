@@ -1,7 +1,7 @@
 export const Sidebar = () => {
   return (
-    <aside aria-label="Sidebar" style={{ position: "fixed" }}>
-      <div className="  px-3 bg-black dark:bg-gray-800 min-h-screen min-w-full box-content col-span-full">
+    <div aria-label="Sidebar">
+      <div className="px-3 bg-white dark:bg-gray-800 min-h-screen">
         <ul className="space-y-2">
           <li>
             <a
@@ -101,6 +101,6 @@ export const Sidebar = () => {
           </li>
         </ul>
       </div>
-    </aside>
+    </div>
   );
 };

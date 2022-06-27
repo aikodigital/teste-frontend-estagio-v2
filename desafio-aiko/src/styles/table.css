@@ -1,0 +1,14 @@
+#table {
+  overflow-y: none;
+  height: 280px;
+}
+
+.table::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.table {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
