@@ -33,7 +33,7 @@
 
 - Show equipment on the map
 - Show equipment status information
-- Show device status history
+- Show equipment status history
 
 > [Check Online](https://shiny-melomakarona-de4768.netlify.app/)
 
