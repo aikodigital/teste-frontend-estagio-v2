@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap');
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .titulo {
+    font-size: 44px;
+    font-weight: 400;
+    font-family: 'Ubuntu', cursive;
+    letter-spacing: 4px;
+    margin: 0 auto;
+  }
+
+  .button-menu {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    font-family: 'Ubuntu', cursive;
+    letter-spacing: 2px;
+  }
+  
+  mat-grid-tile {
+    background: #deebdd;
+  }
+
+  .rodape {
+    margin: 0 auto;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+    
