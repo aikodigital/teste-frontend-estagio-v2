@@ -1,3 +1,8 @@
+# Notas do desenvolvedor -- HANI AFIF YEHIA
+Para visualizar a página de forma correta, é necessário utilizar um local web server.  Durante o desenvolvimento, utilizei o Live Server, uma extensão do Visual Studio Code.
+Outra opção é visualizar a página através desse link onde ele foi publicado através de um repositório no github: https://haniafif.github.io/processoAiko/ 
+Não é possivel abrir a página localmente (pelo protocolo file://) com double click no arquivo .html. Isso porque foram utilizados modulos que só funcionam via HTTPs.
+
 # Teste Frontend estágio V2
 
 ![Aiko](img/aiko.png)

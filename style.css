@@ -1,0 +1,454 @@
+/* ---------------------------- CONFIGURACOES GERAIS ----------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+:root {
+    background-color: var(--corfundo);
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    --corfundo:#F2EFE9;
+    --branco: white;
+    --azul01:#00299ac2;
+    --azul02:#50608d;
+    --azul03: #54A2DE;
+}
+
+/* ---------------------------- HEADER ----------------------------------*/
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    animation: 1s ease-out 0s 1 slideInDown;
+    height: 6rem;
+}
+
+header h3 {
+    text-align: center;
+    color: var(--azul01);
+
+    margin-bottom: -.5rem;
+}
+
+/* ---------------------------- MAPA ----------------------------------*/
+
+main {
+    display: flex;
+    width: 99%;
+}
+
+#map {
+    height: 23rem;
+    width: 60vw;
+    
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    border-radius: 2rem;
+    border-right: 4px solid var(--azul02);
+    border-left: 4px solid var(--azul02);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    animation: 1s ease-out 0s 1 slideInLeft;
+}
+
+.butmapa {
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: var(--branco);
+    border: 1px solid grey;
+    height: 2rem;
+    font-weight: 200;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.479);
+}
+
+.butmapa:hover {
+    font-weight: 300;
+    transform: scale(1.1);
+}
+
+.butmapa:active {
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.479);
+}
+
+/* ---------------------------- Mais info ----------------------------------*/
+
+#visualizarMaisInformacoes {
+    display: flex;
+    flex-direction: column;
+
+    height: 23rem;
+    width: 42vw;
+    margin-left: .8rem;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    border-right: 4px solid var(--azul02);
+    border-left: 4px solid var(--azul02);
+
+    animation: 1s ease-out 0s 1 slideInRight;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    text-align: left;
+}
+
+#visualizarMaisInformacoes h3 {
+    text-align: center;
+    color: var(--azul01);
+}
+
+#imge {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+}
+
+#imagemDefault {
+    height: 95%;
+    width: 95%;
+    animation: fadeIn 1s;
+}
+
+#imagem {
+    height: 70%;
+    width: 35%;
+    animation: fadeIn 1s;
+}
+
+#imagem:hover {
+    transform: scale(1.1);
+}
+
+#infoBox {
+    height: 20rem;
+    animation: fadeIn 1s;
+    margin-top: -2rem;
+}
+
+#infoBox button {
+    cursor: pointer;
+    height: 2rem;
+    width: 6rem;
+
+    border: none;
+    background-color: #DCAA2B;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 1px 0px var(--azul01);
+    margin-left: .5rem;
+
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+#infoBox button p {
+    color: var(--azul02);
+
+}
+
+#infoBox button:active {
+    box-shadow: inset 1px 1px 1px 0px black;
+
+}
+
+#infoBox button:hover {
+    transform: scale(1.1);
+}
+
+#infoBox h3 {
+    margin-left: 1rem;
+}
+
+#infoBox p {
+    margin-left: 1rem;
+}
+
+/*  =================================== Conte com a gente! ========================================== */
+
+#somos {
+    color: var(--azul01);
+
+    text-align: left;
+    font-size: 2.2rem;
+    font-weight: 600;
+
+    margin-left: 2rem;
+}
+
+#estatistica {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+#piechart {
+    background-color: var(--corfundo);
+}
+
+#textbox {
+    position: relative;
+    height: 14rem;
+    width: 8.9rem;
+
+    background-color: var(--azul02);
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-right: 4px solid var(--azul02);
+
+    text-align: center;
+
+    transition-duration: 1s;
+}
+
+li {
+    margin-bottom: 1.8rem;
+    color: var(--branco);
+
+    font-weight: 700;
+    list-style: none;
+
+    margin-left: -2rem;
+    margin-right: .2rem;
+}
+
+.slide {
+    animation: 1s ease-out 0s 1 slideInRight;
+}
+
+#agricultor {
+    transition-duration: .3s;
+}
+
+#agricultor:hover {
+    transform: scale(1.07);
+}
+
+/* ---------------------------- TABELA ----------------------------------*/
+
+table,
+th {
+    text-align: center;
+    font-weight: 700;
+
+    margin-left: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+td {
+    padding-left: .5rem;
+
+    color: var(--azul02);
+}
+
+tr:hover {
+    background-color: var(--azul03);
+
+    transform: scale(1.02);
+
+    font-weight: 900;
+}
+
+td:hover {
+    color: var(--azul02);
+
+}
+
+#titulo {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+
+    color: var(--azul02);
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+}
+
+#historico {
+    border: 3px solid #dcaa2b;
+    box-shadow: 1px 1px 3px 3px var(--azul03);
+
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#historicocompleto {
+    cursor: pointer;
+
+    width: 13rem;
+    height: 3rem;
+
+    border: none;
+    border-radius: 1rem;
+
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+
+    box-shadow: 1px 1px 1px 0px var(--azul01);
+    background-color: #DCAA2B;
+
+    font-weight: 500;
+}
+
+#historicocompleto:active {
+    box-shadow: inset 1px 1px 1px 0px black;
+}
+
+#historicocompleto:hover {
+    transform: scale(1.1);
+}
+
+#center {
+    display: flex;
+    justify-content: right;
+}
+
+/* ---------------------------- FOOTER ----------------------------------*/
+
+#foot {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
+
+    height: 6rem;
+    width: 101.2%;
+    margin-bottom: -1.2rem;
+    margin-left: -.5rem;
+
+    background-color: #dcaa2b;
+}
+
+.diminuir {
+    transform: scale(.3);
+    margin-inline: -1.4rem;
+}
+
+#linkedin {
+    margin-top: 1.4rem;
+    margin-left: 2rem;
+}
+
+#linkedin:hover {
+    transform: scale(1.1);
+}
+
+#foot p {
+    margin-top: 2.4rem;
+
+    font-size: .8rem;
+    font-weight: 700;
+
+    color: rgba(0, 0, 0, 0.747);
+}
+
+#foot h3 {
+    margin-left: 1rem;
+    margin-top: 2rem;
+
+    color: rgba(0, 0, 0, 0.747);
+    font-weight: 800;
+}
+
+#foot2 h3 {
+    color: rgba(0, 0, 0, 0.747);
+    font-weight: 800;
+
+    padding-top: .4rem;
+}
+
+#foot2 {
+    height: 2rem;
+    width: 101.2%;
+
+    margin-bottom: -.5rem;
+    margin-left: -.5rem;
+
+    background-color: var(--azul03);
+
+    text-align: center;
+    font-size: .8rem;
+}
+
+/*  =================================== BacktoTop ========================================== */
+
+#botaoUp {
+    position: fixed;
+    bottom: 1rem;
+    right: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+}
+
+#botaoUp.show:hover {
+    transform: scale(1.3);
+}
+
+#botaoUp.show {
+    opacity: 1;
+    visibility: visible;
+    transition-duration: .2s;
+    transform: translateY(0);
+}
+
+
+/*  =================================== Utilidades ========================================== */
+
+.sumir {
+    display: none;
+}
+
+#back {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    transform: scale(.8);
+}
+
+#back:hover {
+    transform: scale(1);
+}
