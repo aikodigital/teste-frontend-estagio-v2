@@ -5,7 +5,8 @@ import { primaryColor, neutralColor } from '../../../constants/colors'
 export const Container = styled.div`
   background-color: ${primaryColor};
     flex-grow: 2;
-    width: 8%;
+    max-width: 250px;
+    min-width: 220px;;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +27,6 @@ export const StatesContainer = styled.div`
   margin: 4px;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
 `

@@ -2,10 +2,13 @@ import React from 'react'
 
 import {
   Container, 
-  Info
+  Info,
+  ImgContainer,
+  StatusImg
 } from "./styled-StateHistoryCard"
 
 import setStatusImg from '../../services/setImg/setStatusImg'
+import { findIdStateDetails } from '../../services/requests/findFunctions'
 
 const StateHistoryCard = ({details}) => {
 
@@ -19,11 +22,16 @@ const StateHistoryCard = ({details}) => {
   
   const data = `${dia}/${mes}/${ano}`
 
+  const {id, name, color} = findIdStateDetails(details.equipmentStateId)
+
+
   return (
-    <Container>
+    <Container color={color}>
       <Info>{data}</Info>
       <Info>{hora}</Info>
-      <img src={setStatusImg("")} alt="" />
+      <ImgContainer>
+        <StatusImg src={setStatusImg(name)} alt={name} title={name} />
+      </ImgContainer>
     </Container>
   )
 }
