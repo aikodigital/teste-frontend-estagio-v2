@@ -24,8 +24,10 @@ const EquipmentInfoModal = ({ isOpen, onRequestClose }: IEquipmentInfoModalProps
           <img src={closeImg} alt="Close Modal" />
       </button>
 
-      <h3>{equipmentModalData.equipmentName}</h3>
-      <strong>Status: {equipmentModalData.state?.name}</strong>
+      <h3 style={{ marginBottom: 5 }}>
+          {equipmentModalData.equipmentName} - {equipmentModalData.equipmentModel.name}
+      </h3>
+      <strong style={{ color: '#999' }}>Status: {equipmentModalData.state?.name}</strong>
 
       <StateList equipmentModalData={equipmentModalData}/>
   

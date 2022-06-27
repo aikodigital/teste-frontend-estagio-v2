@@ -116,6 +116,51 @@ $ yarn start
     }
   }
 ```
+## Hooks
+```javascript
+  equipments: {
+    Info: 'Get equipment data'
+    use: {
+      import { useEquipments } from '[path]'
+
+      function MyFunction() {
+        const { equipments } = useEquipments()
+        // return ...
+      }
+    }
+  }
+```
+```javascript
+  setEquipmentForModalData: {
+    Info: 'Set data for use in modal'
+    use: {
+      import { setEquipmentForModalData } from '[path]'
+
+      function MyFunction() {
+        const { setEquipmentForModalData } = useEquipments();
+
+        // equipment...
+        setEquipmentForModalData(equipment)
+        // return ...
+      }
+    }
+  }
+```
+```javascript
+  equipmentForModalData: {
+    Info: 'Get equipment data for use in the modal'
+    use: {
+      import { equipmentForModalData } from '[path]'
+
+      function MyFunction() {
+        const { equipmentForModalData } = useEquipments();
+
+        const data = equipmentForModalData();
+        // return ...
+      }
+    }
+  }
+```
 
 ## 🤓 Author
 

@@ -3,22 +3,44 @@ import {
   IEquipmentCurrentState,
   IEquipmentByLastPosition,
   IEquipmentStates,
-  IConcatenatedEquipmentAndState
-} from '../interfaces'
+  IConcatenatedEquipmentAndState,
+  IEquipmentModel
+} from '../interfaces';
 
 
 export const fetchEquipmentsByLastPosition = (): IEquipmentByLastPosition[] => {
   const allEquipmentsByLastPosition = 
   data
     .equipmentPositionHistory
-    .map<IEquipmentByLastPosition>(item => ({ 
-      equipmentId: item.equipmentId,
-      equipmentName: data.equipment.find(e => e.id === item.equipmentId)?.name || '',
-      position: {
-        ...item.positions[item.positions.length - 1],
-        date: new Date(item.positions[item.positions.length - 1].date).toLocaleString()
-      }
-      }));
+    .map(item => { 
+        const equipmentId = item.equipmentId;
+
+        const equipmentName = 
+          data.equipment
+          .find(equipm => equipm.id === item.equipmentId)?.name || '';
+
+        const equipmentModelId = 
+          data.equipment
+          .find(equipm => equipm.id === item.equipmentId)
+          ?.equipmentModelId || null;
+
+        const equipmentModel = 
+          data.equipmentModel
+            .find(model => equipmentModelId === model.id) 
+            || {} as IEquipmentModel
+
+        const position = {
+          ...item.positions[item.positions.length - 1],
+          date: new Date(item.positions[item.positions.length - 1].date).toLocaleString()
+        };
+
+        return {
+          position,
+          equipmentModel,
+          equipmentName,
+          equipmentId
+        }
+      });
 
   return allEquipmentsByLastPosition;
 }

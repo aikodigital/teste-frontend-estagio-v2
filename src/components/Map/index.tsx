@@ -1,5 +1,6 @@
 import { Marker, TileLayer } from 'react-leaflet';
 import { useEquipments } from '../../hooks/useEquipments';
+import { getIcon } from './Icons';
 
 import { IConcatenatedEquipmentAndState } from '../../interfaces'
 
@@ -18,6 +19,8 @@ export const Map: React.FC<IMap> = ({ equipments, openEquipmentInfoModal }) => {
     openEquipmentInfoModal();
   }
 
+  console.log(equipments)
+
   return (
     <MapContainer 
       center={[-13.6210239, -48.4196375]} 
@@ -34,10 +37,14 @@ export const Map: React.FC<IMap> = ({ equipments, openEquipmentInfoModal }) => {
             position={[equipment.position.lat, equipment.position.lon]} 
             title={equipment.state.name} 
             key={equipment.equipmentId}
+            icon={getIcon(equipment.state.name)}
           >
             <Popup buttonBackground={equipment.state.color}>
               <strong>{equipment.equipmentName}</strong>
-              <strong>Status: {equipment.state.name}</strong>
+              <div>
+                <span>{equipment.equipmentModel.name}</span>
+                <h5>Status: {equipment.state.name}</h5>
+              </div>
               <span>{equipment.position.date}</span>
               <button 
                 type='button' 

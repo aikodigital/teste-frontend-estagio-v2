@@ -1,6 +1,18 @@
+export interface IHourlyEarnings {
+  equipmentStateId: string;
+  value: number;
+}
+
+export interface IEquipmentModel {
+  id: string;
+  name: string;
+  hourlyEarnings: IHourlyEarnings[]
+}
+
 export interface IEquipmentByLastPosition {
   equipmentId: string,
   equipmentName: string,
+  equipmentModel: IEquipmentModel,
   position: {
     date: string,
     lat: number,

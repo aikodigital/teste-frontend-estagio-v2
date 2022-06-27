@@ -14,12 +14,15 @@ interface IPopupButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Popup = styled(PopupBox)<IPopupButtonProps>`
   strong {
     display: block;
-    margin-bottom: 0.3rem;
   }
 
   span {
     margin-top: 4rem;
     font-size: 0.7rem;
+  }
+
+  h5 {
+    margin-top: 0.3rem;
   }
   
   button {
