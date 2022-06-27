@@ -1,0 +1,56 @@
+#map {
+  height: 400px;
+}
+
+.operando {
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000000;
+  background-color: #2ecc71;
+  margin-left: 10px;
+}
+
+.parado {
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000000;
+  background-color: #f1c40f;
+  margin-left: 10px;
+}
+
+.manutenção {
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000000;
+  background-color: #e74c3c;
+  margin-left: 10px;
+}
+
+.img-aiko {
+  display: flex;
+  justify-content: center;
+}
+
+.im-popup {
+  height: 180px;
+  width: 100%;
+}
+
+.box-button {
+  height: 100px;
+  width: 100%;
+  box-shadow: 0 2px 10px 0 #33333333;
+  border-radius: 15px;
+}
+
+.box-button h4{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 5px;
+}
