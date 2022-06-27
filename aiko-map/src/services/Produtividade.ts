@@ -14,9 +14,7 @@ export default  function Produtividade(obj:ISideState){
     let intervaloConta = 0;
     const tamanho = obj.states.length;
     obj.states.map((analise,index) => {
-        //console.log(analise);
-        
-            //console.log(index);
+     
         if(index + 1 < tamanho){
             const atual = new Date(analise.date).getHours();
             const proximo = new Date(obj.states[index+1].date).getHours();
@@ -34,9 +32,7 @@ export default  function Produtividade(obj:ISideState){
         }
         valorTotal = valorTotal + intervaloConta;
     });
-    console.log(valor);
-    console.log(obj.states.length);
-
+    
     return ((valor/valorTotal)*100).toFixed(2);
     
 }

@@ -5,12 +5,13 @@ import Buttons from "../Buttons";
 import { Texto, Titulo } from "./style";
 
 interface IinfoBlock{
-    id: string;
-    name: string;
-    produto: string;
+    id: string,
+    name: string,
+    produto: string,
+    ganho: string
 }
 
-export default function InfoBlock({id,name, produto}:IinfoBlock){
+export default function InfoBlock({id,name, produto,ganho}:IinfoBlock){
     
     return (
         <div>
@@ -20,7 +21,7 @@ export default function InfoBlock({id,name, produto}:IinfoBlock){
             <Titulo sub={true}>Percentual de Produtividade:</Titulo>
             <Texto>{produto}%</Texto>
             <Titulo sub={true}>Ganho por equipamento:</Titulo>
-            <Texto>{name}</Texto>
+            <Texto>{ganho}</Texto>
             {/*
             <Buttons ClickFunction={() =>{LastPositions(id,name,"ok");}}>
                 Posições Anteriores
