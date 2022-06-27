@@ -2,7 +2,8 @@ import React from 'react'
 
 import {
   Container, 
-  Info,
+  Info, 
+  InfoStatus,
   ImgContainer,
   StatusImg
 } from "./styled-StateHistoryCard"
@@ -27,9 +28,9 @@ const StateHistoryCard = ({details}) => {
 
   return (
     <Container color={color}>
-      <Info>{data}</Info>
-      <Info>{hora}</Info>
-      <ImgContainer>
+      <Info>{data} | {hora}</Info>
+      <InfoStatus>{name}</InfoStatus>
+      <ImgContainer color={color}>
         <StatusImg src={setStatusImg(name)} alt={name} title={name} />
       </ImgContainer>
     </Container>

@@ -5,8 +5,8 @@ import { primaryColor, neutralColor } from '../../../constants/colors'
 export const Container = styled.div`
   background-color: ${primaryColor};
     flex-grow: 2;
-    max-width: 250px;
-    min-width: 220px;;
+    max-width: 330px;
+    min-width: 320px;;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,8 @@ export const SettingsBox = styled.div`
   background-color: ${neutralColor};
   width: 94%;
   height: 98%;
-  margin: 3%;
+  margin: 5%;
+  padding: 1%;
   overflow: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
