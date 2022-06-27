@@ -122,58 +122,65 @@ const Map = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <MapContainer
-        center={center}
-        zoom={13}
-        scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {equipmentsData.map((equipment) => {
-          console.log(equipment);
-          const customIcon = L.icon({
-            iconUrl:
-              checkTruckType(
-                equipment.model,
-                equipment.positions[0].state.name
-              ) || Truck,
-            iconSize: [50, 50], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [2, 9], // point of the icon which will correspond to marker's location
-            shadowAnchor: [4, 62] // the same for the shadow
-          });
-          return (
-            <Marker
-              position={[
-                equipment.positions[0].lat,
-                equipment.positions[0].lon
-              ]}
-              icon={customIcon}
-              eventHandlers={{
-                click: () => {
-                  setIsStateHistoryModal(true);
-                  setFocusedEquipment(equipment);
-                }
-              }}
-              key={equipment.id}
-            >
-              <Tooltip>
-                {equipment.name} - {equipment.positions[0].state.name}
-              </Tooltip>
-            </Marker>
-          );
-        })}
-        <ChangeMapView coords={center} />
-      </MapContainer>
-
+    <>
       {isStateHistoryModal && (
-        <StateHistoryModal equipment={focusedEquipment} />
+        <StateHistoryModal
+          equipment={focusedEquipment}
+          setIsModal={setIsStateHistoryModal}
+        />
       )}
-    </div>
+      <div className={styles.container}>
+        <MapContainer
+          center={center}
+          zoom={13}
+          scrollWheelZoom={false}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {equipmentsData.map((equipment) => {
+            const customIcon = L.icon({
+              iconUrl:
+                checkTruckType(
+                  equipment.model,
+                  equipment.positions[0].state.name
+                ) || Truck,
+              iconSize: [50, 50], // size of the icon
+              shadowSize: [50, 64], // size of the shadow
+              iconAnchor: [2, 9], // point of the icon which will correspond to marker's location
+              shadowAnchor: [4, 62] // the same for the shadow
+            });
+            return (
+              <Marker
+                position={[
+                  equipment.positions[0].lat,
+                  equipment.positions[0].lon
+                ]}
+                icon={customIcon}
+                eventHandlers={{
+                  click: () => {
+                    setIsStateHistoryModal(true);
+                    setFocusedEquipment(equipment);
+                    setCenter([
+                      equipment.positions[0].lat,
+                      equipment.positions[0].lon
+                    ]);
+                  }
+                }}
+                key={equipment.id}
+              >
+                <Tooltip>
+                  {equipment.name} - {equipment.positions[0].state.name}
+                </Tooltip>
+              </Marker>
+            );
+          })}
+          <ChangeMapView coords={center} />
+        </MapContainer>
+      </div>
+    </>
   );
 };
 
