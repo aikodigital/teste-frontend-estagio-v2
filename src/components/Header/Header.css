@@ -1,0 +1,10 @@
+.header {
+    background-color: rgb(61, 66, 66);
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: fixed;
+    z-index: 9998; */
+}
