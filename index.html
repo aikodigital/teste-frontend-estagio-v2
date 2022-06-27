@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/bcd269a2b6.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script defer type="module" src="./scritp.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+ integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+ crossorigin=""></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="https://aiko.digital" target="_blank"><img class="logo" src="./img/aiko.png" alt=""></a>
+    </header>
+    <main>
+        <div class="busca">
+            <h2>Busca</h2>
+            <div class="input">
+            <div>
+                <p id="machine">Máquina</p>
+                <select name="selectMaquinas" id="selectMaquinas">
+                    <option value="CA-0001" selected>CA-0001</option>
+                    <option value="CA-0002">CA-0002</option>
+                    <option value="CA-0003">CA-0003</option>
+                    <option value="CA-0004">CA-0004</option>
+                    <option value="HV-1001">HV-1001</option>
+                    <option value="HV-1002">HV-1002</option>
+                    <option value="GT-2001">GT-2001</option>
+                    <option value="GT-2002">GT-2002</option>
+                    <option value="GT-2003">GT-2003</option>
+                </select>
+            </div>
+            <div>
+                <p id="date" >Data</p>
+                <select name="selectData" id="selectData">
+                    <option value="2021-02-01">01/02/2021</option>
+                    <option value="2021-02-02">02/02/2021</option>
+                    <option value="2021-02-03">03/02/2021</option>
+                    <option value="2021-02-04">04/02/2021</option>
+                    <option value="2021-02-05">05/02/2021</option>
+                    <option value="2021-02-06">06/02/2021</option>
+                    <option value="2021-02-07">07/02/2021</option>
+                    <option value="2021-02-08">08/02/2021</option>
+                    <option value="2021-02-09">09/02/2021</option>
+                    <option value="2021-02-10">10/02/2021</option>
+                    <option value="2021-02-11">11/02/2021</option>
+                    <option value="2021-02-12">12/02/2021</option>
+                    <option value="2021-02-13">13/02/2021</option>
+                    <option value="2021-02-14">14/02/2021</option>
+                    <option value="2021-02-15">15/02/2021</option>
+                    <option value="2021-02-16">16/02/2021</option>
+                    <option value="2021-02-17">17/02/2021</option>
+                    <option value="2021-02-18">18/02/2021</option>
+                    <option value="2021-02-19">19/02/2021</option>
+                    <option value="2021-02-20">20/02/2021</option>
+                    <option value="2021-02-21">21/02/2021</option>
+                    <option value="2021-02-22">22/02/2021</option>
+                    <option value="2021-02-23">23/02/2021</option>
+                    <option value="2021-02-24">24/02/2021</option>
+                    <option value="2021-02-25">25/02/2021</option>
+                    <option value="2021-02-26">26/02/2021</option>
+                    <option value="2021-02-27">27/02/2021</option>
+                    <option value="2021-02-28">28/02/2021</option>
+            </select>
+            </div>
+                <button id="procurar" type="submit">Procurar</button>
+            </div>
+            <h3>Histórico</h3>
+            <div class="historico">
+                <div id="infoBusca">
+                    <h4>Dia</h4>
+                    <p id="historicoData"></p>
+                    <h4>Estado</h4>
+                    <p id="historicoId"></p>
+                    <h4>Dia</h4>
+                    <p id="historicoData1"></p>
+                    <h4>Estado</h4>
+                    <p id="historicoId1"></p>
+                </div>
+                <div>
+                    <h4>Dia</h4>
+                    <p id="historicoData2"></p>
+                    <h4>Estado</h4>
+                    <p id="historicoId2"></p>
+                    <h4>Dia</h4>
+                    <p id="historicoData3"></p>
+                    <h4>Estado</h4>
+                    <p id="historicoId3"></p>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div class="info">
+            <h2>Informações</h2>
+            <h3>Máquina</h3>
+            <p id="maquina"></p>
+            <h3>ID Máquina</h3>
+            <p id="modelo"></p>
+            <h3>Último estado no dia selecionado</h3>
+            <p id="estado"></p>
+        </div>
+    </main>
+    <footer>
+        <a href="https://aiko.digital" target="_blank"><img class="logoFooter" src="./img/aiko.png" alt=""></a>
+        <div class="infoFooter">
+            <strong><p>Brasil</p></strong>
+            <p><i class="fa-solid fa-envelope"></i>contact@aiko.digital</p>
+            <p><i class="fa-solid fa-location-dot"></i>Rua Alvarenga Peixoto, 1581, 12 Andar - Santo Agostinho - BH MG</p>
+            <p><i class="fa-solid fa-phone"></i>(31) 3564-0815</p>
+        </div>
+        <div class="infoFooter">
+            <strong><p>Chile</p></strong>
+            <p><i class="fa-solid fa-envelope"></i>contact@aiko.digital</p>
+            <p><i class="fa-solid fa-location-dot"></i>Santa Beatriz 91, Providencia, RM - Chile</p>
+        </div>
+    </footer>
+</body>
+</html>
