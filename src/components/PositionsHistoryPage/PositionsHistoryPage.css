@@ -1,0 +1,73 @@
+
+.positions-history-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    padding-top: calc(var(--navbar-height) + 60px);
+    padding-bottom: 60px;
+}
+
+.positions-history-page .equipment-filter {
+    margin: 0;
+}
+
+.positions-history-page .equipment-filter h2, h3 {
+    text-align: center;
+}
+
+.positions-history-page .off {
+    display: none;
+}
+
+.equipment-cards-wrap {
+    width: 60%;
+    margin-left: 30px;
+}
+
+.equipment-cards-wrap > a {
+    text-decoration: none;
+}
+
+.equipment-card {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 30px;
+    border: var(--border-01);
+    border-left: 16px solid var(--aiko-theme-lidark);
+    border-radius: var(--border-radius-01);
+    box-shadow: var(--box-shadow-01);
+    transition: .3s;
+}
+
+.equipment-card:hover {
+    background: rgba(57, 118, 215, 0.1);
+}
+
+.equipment-card-inside {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18px;
+    border-left: 8px solid;
+}
+
+.equipment-card-inside img {
+    max-height: 100%;
+}
+
+.equipment-card-inside h2 {
+    color: var(--aiko-theme-dark);
+    margin-left: 16px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 480px) {
+    .equipment-cards-wrap {
+        width: 90%;
+        margin: 0;
+    }
+}

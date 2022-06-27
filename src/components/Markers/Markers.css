@@ -1,0 +1,45 @@
+
+.marker {
+    transition: .3s;
+}
+
+.marker:hover {
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+}
+
+.pop-up-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--aiko-theme-dark);
+}
+
+.pop-up-wrap > div > span {
+    font-weight: bold;
+    color: var(--aiko-theme-dark);
+}
+
+.pop-up-history-btn {
+    background: var(--aiko-secondary-dark);
+    border-radius: 10px;
+    padding: 4px 12px;
+    text-decoration: none;
+    margin: 6px auto 0 auto;
+    transition: .3s;
+    box-shadow: var(--box-shadow-01);
+}
+
+.pop-up-history-btn:hover {
+    background: var(--aiko-secondary-default);
+}
+
+.pop-up-history-btn span {
+    color: #fff;
+    font-size: 14px;
+}
+
+.off {
+    display: none;
+}

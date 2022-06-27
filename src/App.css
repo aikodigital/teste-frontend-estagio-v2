@@ -1,0 +1,34 @@
+
+/* Sizes */
+:root {
+    --navbar-height: 80px;
+
+    --border-01: 1px solid #d6deeb;
+    --border-02: 1px solid #bec7d4;
+
+    --border-radius-01: 12px;
+    --box-shadow-01: 1px 1px 5px rgba(0, 0, 0, 0.13);
+}
+
+/* Colors */
+:root {
+    --aiko-theme-default: #3976D7;
+    --aiko-theme-lidark: #003380;
+    --aiko-theme-dark: #012355;
+
+    --aiko-secondary-default: #02D900;
+    --aiko-secondary-dark: #029200;
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+input[type=radio] {
+    cursor: pointer;
+}

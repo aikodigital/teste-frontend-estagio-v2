@@ -1,0 +1,40 @@
+
+.positions-history {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: calc(var(--navbar-height) + 50px);
+    padding-bottom: 50px;
+}
+
+.positions-history > h1 {
+    color: var(--aiko-theme-dark);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+.positions-history > h1 > span {
+    font-weight: 600;
+}
+
+.positions-history > p {
+    font-size: 1.08rem;
+    margin-top: 6px;
+    color: var(--aiko-theme-dark);
+}
+
+@media screen and (max-width: 768px) {
+    .positions-history h1 {
+        text-align: center;
+        padding: 0 18px;
+        font-size: 2rem;
+    }
+    .positions-history > p {
+        text-align: center;
+    }
+}
