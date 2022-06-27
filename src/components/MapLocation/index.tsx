@@ -6,9 +6,10 @@ import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 import styles from "./styles.module.scss";
+import { Loader } from "../Loader";
 
 interface DetailsProps {
-  equipment: EquipmentsType;
+  equipments: (EquipmentsType | undefined)[];
 }
 
 const defaultIcon = leaflet.icon({
@@ -16,32 +17,40 @@ const defaultIcon = leaflet.icon({
   shadowUrl: iconShadow.src,
 });
 
-export default function MapLocation({ equipment }: DetailsProps) {
+export default function MapLocation({ equipments }: DetailsProps) {
+  if (!equipments) {
+    return <Loader />;
+  }
   return (
     <MapContainer
       center={[
-        equipment.positionHistory[0].lat,
-        equipment.positionHistory[0].lon,
+        equipments[0]!.positionHistory[0].lat,
+        equipments[0]!.positionHistory[0].lon,
       ]}
       zoom={13}
-      style={{ height: "50vh", width: "50vw" }}
       scrollWheelZoom={false}
+      className={styles.mapContainer}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker
-        position={[
-          equipment.positionHistory[0].lat,
-          equipment.positionHistory[0].lon,
-        ]}
-        icon={defaultIcon}
-      >
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {equipments.map((equipment) => {
+        return (
+          <Marker
+            key={equipment!.id}
+            position={[
+              equipment!.positionHistory[0].lat,
+              equipment!.positionHistory[0].lon,
+            ]}
+            icon={defaultIcon}
+          >
+            <Popup>
+              {equipment!.name} | {equipment!.model.name}
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 }

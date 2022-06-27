@@ -40,6 +40,42 @@ export function StateHistory({ stateHistory }: StateHistoryProps) {
 
   const chartOptions: ApexOptions = {
     chart: {
+      defaultLocale: "pt-BR",
+      locales: [
+        {
+          name: "pt-BR",
+          options: {
+            months: [
+              "Janeiro",
+              "Fevereiro",
+              "Março",
+              "Abril",
+              "Maio",
+              "Junho",
+              "Julho",
+              "Agosto",
+              "Setembro",
+              "Outubro",
+              "Novembro",
+              "Dezembro",
+            ],
+            shortMonths: [
+              "Jan",
+              "Fev",
+              "Mar",
+              "Abr",
+              "Mai",
+              "Jun",
+              "Jul",
+              "Ago",
+              "Set",
+              "Out",
+              "Nov",
+              "Dez",
+            ],
+          },
+        },
+      ],
       height: 350,
       type: "rangeBar",
       zoom: {
@@ -68,7 +104,7 @@ export function StateHistory({ stateHistory }: StateHistoryProps) {
     yaxis: {
       show: true,
       labels: {
-        style: { colors: "white" },
+        style: { colors: "white", fontSize: ".75rem", fontWeight: "bold" },
       },
     },
     grid: {

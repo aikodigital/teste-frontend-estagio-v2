@@ -1,0 +1,46 @@
+.searchContainer {
+    display: flex;
+    align-items: center;
+    width: 400px;
+
+    select {
+        border: none;
+        outline: none;
+        
+        height: 2.5rem;
+        width: 100px;
+        background-color: #eee;
+        border-top-left-radius: 1.25rem;
+        border-bottom-left-radius: 1.25rem;
+        
+        color: black;
+
+        padding: 0 0.5rem;
+
+    }
+    input {
+        border: none;
+        outline: none;
+
+        height: 2.5rem;
+        width: 250px;
+        background-color: #eee;
+        
+        color: black;
+
+        padding: 0 0.5rem;
+    }
+
+    svg {
+        height: 2.5rem;
+        padding-right: 0.75rem;
+
+        background-color: #eee;
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+
+        font-size: 2rem;
+        color: black;
+
+    }
+}
