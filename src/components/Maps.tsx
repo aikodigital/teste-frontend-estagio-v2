@@ -1,18 +1,10 @@
 import { MapContainer, TileLayer, useMap, useMapEvents } from 'react-leaflet'
-import L, { latLngBounds } from 'leaflet';
+import L from 'leaflet';
 import { useParams, useNavigate } from 'react-router-dom';
 import equipments from '../../data/equipment.json'
 import allEquipmentPositionHistory from '../../data/equipmentPositionHistory.json'
 import MapMarker from './MapMarker';
-import { useEffect, useState } from 'react';
-
-type MarkerType = {
-  positions: {
-    date: string,
-    lat: number,
-    lon: number,
-  }[];
-};
+import { useState } from 'react';
 
 function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) {
   const map = useMap();
