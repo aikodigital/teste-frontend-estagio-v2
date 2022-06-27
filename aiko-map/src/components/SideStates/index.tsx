@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useData } from "../../hook/useData";
+import Produtividade from "../../services/Produtividade";
 import Buttons from "../Buttons";
 import ButtonsStatus from "../ButtonsStatus";
 import InfoBlock from "../InfoBlock";
@@ -14,9 +15,14 @@ interface ISideSta{
 export default function SideStates({CloseInfoEquip}:ISideSta){
     const {sideData, sideStateData} = useData();
 
+    const [produto, setProduto] = useState("");
+
+    useEffect(() => {
+        setProduto(Produtividade(sideStateData));
+    },[sideData]);
     return (
         <>
-            <InfoBlock id={sideStateData.equipmentId} name={sideStateData.name}/>
+            <InfoBlock id={sideStateData.equipmentId} name={sideStateData.name} produto={produto}/>
             <div>
                 <Titulo>Historico de Estados</Titulo>
                 <ul style={{marginBottom:"15px"}}>

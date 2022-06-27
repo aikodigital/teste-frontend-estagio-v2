@@ -28,22 +28,25 @@ interface IEquipamentPosition{
 export default function MapUnifier({sidebarOp,AlterSide,defaultData}:IMapUnifier) {
     const { MapData, center, zoom } = useData();
     const [map2, setMap2] = useState(MapData);
+    const [refresh, setRefresh] = useState(true);
+
+    useEffect(() => {
+      setMap2(MapData);
+      setRefresh(!refresh);
+      //console.log("MAP2");
+      //console.log(map2);
+    },[MapData]);
+
     const render = (status: Status) => {
       return <h1>{status}</h1>;
     };
   
-    const Map2 = MapData;
-    useEffect(() => {
-      setMap2(MapData);
-      console.log("MAP2");
-      console.log(Map2);
-    },[MapData]);
-
+   
     return(
       
       <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}> 
-        <Map center={center} zoom={zoom} sidebarOp={sidebarOp}>
-            {Map2?.map((posicao) => 
+        <Map center={center} zoom={zoom} sidebarOp={sidebarOp} refresh={refresh}>
+            {map2?.map((posicao) => 
               
               <Marker 
                   key={posicao.id}

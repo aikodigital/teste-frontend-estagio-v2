@@ -41,8 +41,8 @@ export default function ButtonsStatus({date,equipmentStateId}:IBTN){
             </Buttons>
             {!flecha && (
                 <ListBtn>
-                    <li>
-                        <b style={{color:`${statusPronto.color}`}}>.</b>{statusPronto.name}
+                    <li style={{color:`${statusPronto.color}`}}>
+                        <p>{statusPronto.name}</p>
                     </li>
                 </ListBtn>
             )}

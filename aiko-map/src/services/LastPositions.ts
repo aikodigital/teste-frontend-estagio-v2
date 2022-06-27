@@ -37,7 +37,7 @@ export default function LastPositions(id,name,statusId){
     });
     
 
-    console.log(resultado);
+    //console.log(resultado);
 
     return resultado;
 }
