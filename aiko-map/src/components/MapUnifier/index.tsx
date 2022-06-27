@@ -44,7 +44,7 @@ export default function MapUnifier({sidebarOp,AlterSide,defaultData}:IMapUnifier
    
     return(
       
-      <Wrapper apiKey={"AIzaSyADndaJCheZMyBZ3ahaN1ae7uiDMPlzzOs"} render={render}> 
+      <Wrapper apiKey={""} render={render}> 
         <Map center={center} zoom={zoom} sidebarOp={sidebarOp} refresh={refresh}>
             {map2?.map((posicao) => 
               

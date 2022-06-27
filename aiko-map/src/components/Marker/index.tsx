@@ -16,10 +16,31 @@ interface IMarker{
 
 export default function  Marker({position, map, name, id, statusId, AlterSide}: IMarker) {
     //const equipInfo = EquiIDSearch(id);
+    
     const [marker, setMarker] = useState<google.maps.Marker>();
+
+    function IconState(estado){
+    
+      switch(estado){
+          case "0808344c-454b-4c36-89e8-d7687e692d57":
+              return "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+          case "baff9783-84e8-4e01-874b-6fd743b875ad":
+              return "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+          case "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f":
+              return "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+
+          default: 
+            return "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+           
+      }
+
+  }
+  
     
     useEffect(() => {
-        setMarker(new google.maps.Marker({position: position}));
+        setMarker(new google.maps.Marker({position: position,icon: {
+          url: IconState(statusId)
+        }}));
     },[]);
 
    
