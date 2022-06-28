@@ -57,12 +57,14 @@ li:hover {
     height: calc(100vh - 100px);
     flex-direction: column;
 }
+/* container das tabelas */
 .table-container{
     margin: 20px;
     max-height: 30vh;
     min-height: 30vh;
     overflow-y: auto;
 }
+/* tabela de historico */
 .table-second {
     min-height: 400px;
     margin: 20px;
@@ -73,6 +75,7 @@ li:hover {
 #filter {
     margin-top: 15px;
 }
+/* visual das tabelas */
 table {
     width: 60%;
     margin: 0 0 .5em 0px;
@@ -95,15 +98,13 @@ th {
     cursor: pointer;
     background-color: rgb(211, 211, 211);
 }
+/* classes para serem manipuladas via JS */
 .info-id, .hidden{
     display:none;
     visibility: hidden;
 }
 .active {
     background-color: var(--lightBlue2);
-}
-.operando {
-    color: green;
 }
 
 /* Leaflet MAP */
@@ -113,9 +114,6 @@ th {
     width: 70vw;
     margin: 20px 0px;
 }
-
-/* /Leaflet MAP */
-
 
 
 /* Responsive */

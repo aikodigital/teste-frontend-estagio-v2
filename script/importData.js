@@ -1,18 +1,16 @@
-const equipment = JSON.parse(pegarDados("../data/equipment.json")); // Pegar lista de equipamentos
+
+// Coloca todos dados dos JSON dentro das respectivas constantes
+const equipment = JSON.parse(pegarDados("../data/equipment.json"));
 const equipModel = JSON.parse(pegarDados("../data/equipmentModel.json")); // 
 const equipPositionHistory = JSON.parse(pegarDados("../data/equipmentPositionHistory.json")); //
 const equipState = JSON.parse(pegarDados("../data/equipmentState.json")); // 
 const equipStateHistory = JSON.parse(pegarDados("../data/equipmentStateHistory.json")); //
 let infosList = []
 let idEquipHtml;
-
-const btnShowHistory = document.querySelector('#showAllHistory');
-
-
+const btnShowHistory = document.querySelector('#showAllHistory'); // botao de mostrar historico
 getInfos();
-limparTabela();
-
-
+limparTabela(); 
+// Criar objeto com as informações desejadas para trabalhar no front-end, já fazendo o tratamento dos dados e comparação de status
 function getInfos() {
     let infos = {
         name: '',
@@ -25,7 +23,6 @@ function getInfos() {
             date: ''
         }
     }
-
     for (let equip in equipment) {
         infos.name = equipment[equip].name;
         infos.model = getModel(equipment[equip].equipmentModelId);
@@ -37,7 +34,7 @@ function getInfos() {
         infos = {}
     }
 }
-
+// Pega o modelo do equipamento
 function getModel(modelId) {
     for (let i = 0; i <= equipModel.length; i++) {
         if (modelId === equipModel[i].id) {
@@ -45,7 +42,7 @@ function getModel(modelId) {
         }
     }
 }
-
+// Pega o status do equipamento
 function getStatus(equipId) {
     for (let i = 0; i < equipStateHistory.length; i++) {
         if (equipId === equipStateHistory[i].equipmentId) {
@@ -60,7 +57,7 @@ function getStatus(equipId) {
 
     }
 }
-
+// Pega a posição do equipamento
 function getPosition(equipId) {
     for (let i = 0; i < equipPositionHistory.length; i++) {
         if (equipId === equipPositionHistory[i].equipmentId) {
@@ -73,14 +70,14 @@ function getPosition(equipId) {
         }
     }
 }
-
+// Função para simplificar a requisição dos JSON
 function pegarDados(url) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url, false);
     xhr.send();
     return xhr.response;
 }
-
+// Funções para montar a tabela de equipamentos dinamicamente
 function montaTr(name, model, status, id) {
     const equipmentTr = document.createElement('tr');
     equipmentTr.classList.add('equipment')
@@ -93,28 +90,22 @@ function montaTr(name, model, status, id) {
     equipmentTr.appendChild(montaTd('info-id', id))
     return equipmentTr;
 }
-
 function montaTd(classe, dado) {
     const td = document.createElement('td');
     td.classList.add(classe);
     td.textContent = dado;
     return td;
 }
-
 function adicionaEquipmento(equip) {
     const equipmentTr = montaTr(equip.name, equip.model, equip.status, equip.id, equip.position);
     const tabela = document.querySelector('#table-equipment')
     tabela.appendChild(equipmentTr)
 }
-
+// Cria o mapa e chama a função e passa o ID para criação da tabela do histórico
 const loadMap = () => {
-
     const map = L.map('map').setView([0, 0], 1);
-
     const marker = L.marker([0, 0]).addTo(map);
-
     const table = document.querySelector('#table-equipment');
-
     table.addEventListener('click', function (event) {
         const equipTables = document.querySelectorAll('.equipment');
         const idEquipHtml = event.target.parentNode.querySelector(".info-id").textContent;
@@ -129,8 +120,6 @@ const loadMap = () => {
             equipTables[i].classList.remove('active')
         }
         lineEquipHtml.classList.add('active');
-
-
         for (let info of infosList) {
             if (info.id === idEquipHtml) {
                 marker.setLatLng([info.position.lat, info.position.lon]);
@@ -143,27 +132,19 @@ const loadMap = () => {
             }
         }
     });
-
     const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-
     const tiles = L.tileLayer(tileUrl, { attribution });
-
     tiles.addTo(map)
-
     L.tileLayer(attribution, tiles)
-
-    // ========================================================================================================
-
-    // AQUI VAI CRIAR O EVENTO DA LINHA PARA EXIBIR AS INFORMAÇÕES DO EQUIPAMENTO QUE A MESMA SE REFERE
 }
 window.onload = loadMap;
+// Botão para mostrar o histórico
 btnShowHistory.addEventListener('click', function () {
     let tabelaHistory = document.querySelector('#table-second')
     tabelaHistory.classList.remove('hidden')
 })
-
+// Funções para criação dinamica da tabela do histórico
 function montarHistorico(equipId) {
     limparTabela()
     for (let stateHistoryEquip of equipStateHistory) {
@@ -176,7 +157,6 @@ function montarHistorico(equipId) {
                     // console.log(state);
                     if (stateForEachEquip.equipmentStateId === state.id) {
                         // console.log(state.name);
-                        console.log(`${stateForEachEquip.date} - ${state.name}`);
                         montarTableHistory(stateForEachEquip.date, state.name);
                     }
                 }
@@ -184,13 +164,11 @@ function montarHistorico(equipId) {
         }
     }
 }
-
 function montarTableHistory(date, state) {
     const historyTr = montarTrHistorico(date, state);
     const tabela = document.querySelector('#table-history')
     tabela.appendChild(historyTr)
 }
-
 function montarTrHistorico(date, state) {
     const historyTr = document.createElement('tr');
     historyTr.classList.add('history-equip')
@@ -199,7 +177,7 @@ function montarTrHistorico(date, state) {
     historyTr.appendChild(montaTd('states-id', state))
     return historyTr;
 }
-
+// Função para limpar a tabela
 function limparTabela() {
     let tabela = document.querySelector('#table-history')
     let tabelaHistory = document.querySelector('#table-second')

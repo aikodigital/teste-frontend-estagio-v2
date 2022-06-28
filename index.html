@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <!-- Barra de navegação -->
     <nav id="navbar">
         <label for="logo"><a href="https://aiko.digital"><img id="logo" src="./img/aiko.png"
                     alt="logo AIKO"></a></label>
@@ -30,8 +31,9 @@
     </nav>
     <section class="container-flex">
         <div id="filter">
-			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite aqui a sua busca">
+            <input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite aqui a sua busca">
         </div>
+        <!-- TABELA DE EQUIPAMENTOS (GERADA DINAMICAMENTE) -->
         <section class="table-container">
             <table>
                 <thead>
@@ -45,27 +47,28 @@
 
                 </tbody>
             </table>
-    </section>
-    <button id="showAllHistory"class="hidden" >Exibir mais detalhes de Garra CA-2002</button>
-    <div id="map"></div>
+        </section>
+        <button id="showAllHistory" class="hidden"></button>
+        <!-- MAP CRIADO VIA JS COM LEAFLET -->
+        <div id="map"></div>
 
-    <!-- SECOND TABLE -->
-    <section id="table-second" class="table-second">
-        <table>
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="table-history">
-                <tr>
-                    <td class="equip-date-status">Data</td>
-                    <td class="equip-status">Status</td>
-                </tr>
+        <!-- TABELA DE HISTÓRICO (GERADA DINAMICAMENTE) -->
+        <section id="table-second" class="table-second">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table-history">
+                    <tr>
+                        <td class="equip-date-status">Data</td>
+                        <td class="equip-status">Status</td>
+                    </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 </body>
 <script src="./script/menuResponsive.js"></script>
 <script src="./script/importData.js"></script>
