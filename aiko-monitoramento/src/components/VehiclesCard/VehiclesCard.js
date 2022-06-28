@@ -3,8 +3,10 @@ import React from 'react'
 import {
   Container, 
   InfoContainerBorder, 
-  InfoContainer, 
+  InfoContainer,
+  InfoNameContainer, 
   Name,
+  ModelName,
   Img,
   StatusImg,
   StatusContainer,
@@ -19,7 +21,7 @@ import {
     findIdStateDetails
   } from "../../services/requests/findFunctions"
 
-const VehiclesCard = ({ name, modelId, id, getId }) => {
+const VehiclesCard = ({ name, modelId, id, getId, popup }) => {
       
   const currentState = findIdStateDetails(findLastState(id))
   const modelName = findModel(modelId)
@@ -28,14 +30,17 @@ const VehiclesCard = ({ name, modelId, id, getId }) => {
     <Container color={currentState.color} onClick={() => getId(id)}>
       <InfoContainerBorder>
         <InfoContainer>
-          <Name>{name}</Name>
+          <InfoNameContainer>
+            <Name>{name}</Name>
+            <ModelName hidden={popup}>{modelName}</ModelName>
+          </InfoNameContainer>
           <StatusContainer>
             <StatusName>{currentState.name}</StatusName>
-            <StatusImg src={setStatusImg(currentState.name)} alt={currentState.name} title={currentState.name} />
+            <StatusImg src={setStatusImg(currentState.name)} alt={currentState.name} title={currentState.name}/>
           </StatusContainer>
         </InfoContainer>
       </InfoContainerBorder>
-      <Img src={setVehicleImg(modelName)} alt={modelName} title={modelName}/>
+      <Img src={setVehicleImg(modelName)} alt={modelName} title={modelName} />
     </Container>
   )
 }

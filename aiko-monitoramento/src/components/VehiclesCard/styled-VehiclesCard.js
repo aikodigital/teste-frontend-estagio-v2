@@ -22,11 +22,19 @@ export const InfoContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 35px;
-  margin: 0 20px;
+  margin: 4px 20px;
+`
+export const InfoNameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const ModelName = styled.span`
+  font-size: 11px;
 `
 export const Name = styled.p`
   font-size: 20px;
   font-weight: bolder;
+  margin: 0;
 `
 export const InfoContainerBorder = styled.div`
     border-bottom: 1px solid black;

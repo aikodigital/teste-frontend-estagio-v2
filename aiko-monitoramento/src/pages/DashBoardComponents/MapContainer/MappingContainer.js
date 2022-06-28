@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import { 
   TileLayer, 
@@ -16,8 +17,14 @@ import { getPositionHistory } from '../../../services/requests/getFunctions'
 import { findVehicleLastPosition } from '../../../services/requests/findFunctions'
 
 import equipament from "../../../constants/data/equipment.json"
+import VehiclesCard from "../../../components/VehiclesCard/VehiclesCard"
 
-const MappingContainer = ({ selected }) => {
+const CustomPopup = styled(Popup)`
+  height: 280px;
+  width: 300px;
+`
+
+const MappingContainer = ({ selected, getId }) => {
 
   const positions = getPositionHistory(selected)
 
@@ -31,16 +38,23 @@ const MappingContainer = ({ selected }) => {
     )
   })
 
-  const vehiclesList = equipament.map((vehicle) => {
-    return vehicle.id
-  })
+  // const vehiclesList = equipament.map((vehicle) => {
+  //   return vehicle.id
+  // })
 
-  const initialPositions = vehiclesList.map((id) => {
+  const initialPositions = equipament.map((vehicle) => {
     return (
-      <Marker position={findVehicleLastPosition(id)} key={id}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
+      <Marker position={findVehicleLastPosition(vehicle.id)} key={vehicle.id}>
+        <CustomPopup>
+          <VehiclesCard 
+            key={vehicle.id}
+            name={vehicle.name}
+            modelId={vehicle.equipmentModelId}
+            id={vehicle.id}
+            getId={getId}
+            popup={true}
+          />
+        </CustomPopup>
       </Marker>
     )
   })
