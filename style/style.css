@@ -1,0 +1,188 @@
+:root {
+    --blue: #004acf;
+    --darkBlue: #05338a;
+    --lightBlue: #206eff;
+    --lightBlue2: #7ba4f1;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+
+#navbar {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+    background-color: var(--blue);
+    box-shadow: 0px -11px 20px 4px #000000;
+    color: #ffffff;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#logo {
+    width: 7.5em;
+}
+
+#btnMobile {
+    display: none;
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+
+}
+
+li {
+    margin: 0px 10px;
+}
+
+li:hover {
+    color: var(--darkBlue);
+}
+
+.container-flex {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    flex-direction: column;
+}
+.table-container{
+    margin: 20px;
+    max-height: 30vh;
+    min-height: 30vh;
+    overflow-y: auto;
+}
+.table-second {
+    min-height: 400px;
+    margin: 20px;
+}
+#filtrar-tabela{
+    text-align: center;
+}
+#filter {
+    margin-top: 15px;
+}
+table {
+    width: 60%;
+    margin: 0 0 .5em 0px;
+    table-layout: fixed;
+    margin: 0 auto;
+}
+
+td, th {
+    padding: .7em;
+    margin: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+    background-color: #EEE;
+}
+.equipment:hover{
+    cursor: pointer;
+    background-color: rgb(211, 211, 211);
+}
+.info-id, .hidden{
+    display:none;
+    visibility: hidden;
+}
+.active {
+    background-color: var(--lightBlue2);
+}
+.operando {
+    color: green;
+}
+
+/* Leaflet MAP */
+#map {
+    margin: 0 auto;
+    height: 50vh;
+    width: 70vw;
+    margin: 20px 0px;
+}
+
+/* /Leaflet MAP */
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    #map {
+        min-width: 80vw;
+        transition: all .5s ease-in-out;
+    }
+    #showAllHistory {
+        font-size: 8px;
+    }
+    #menu {
+        display: flex;
+        visibility: hidden;
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        height: 0px;
+        z-index: 9999;
+        top: 90px;
+        right: 0px;
+        background: var(--blue);
+        justify-content: center;
+        transition: .9s;
+        overflow-y: auto;
+    }
+
+    #menu li {
+        width: 80%;
+        padding: 1rem;
+        border-bottom: 1px solid var(--lightBlue);
+    }
+
+    #btnMobile {
+        display: flex;
+        background: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        text-transform: uppercase;
+
+    }
+
+    nav.active #menu {
+        height: 20vh;
+        visibility: visible;
+    }
+    #filter{
+        margin: 15px 0px 0px 0px;
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+    }
+    .table-container{
+        font-size: 8px;
+        width: 100vw;
+        margin: 20px;
+        max-height: 30vh;
+        min-height: 30vh;
+        overflow-y: auto;
+    }
+    .table-second {
+        font-size: 8px;
+        width: 100vw;
+        min-height: 400px;
+        margin: 20px;
+    }
+}
