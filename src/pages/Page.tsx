@@ -8,7 +8,7 @@ import { useState } from "react"
 
 function Equipment() {
     const { equipmentId } = useParams();
-    const [ filterConfigs, setFilterConfigs ] = useState({});
+    const [ filterConfigs, setFilterConfigs ] = useState({ model: {}, state: {}, });
     const equipment = equipments.filter(equipment => equipment.id == equipmentId)[0]
 
     return (

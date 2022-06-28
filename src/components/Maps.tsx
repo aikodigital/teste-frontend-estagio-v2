@@ -7,21 +7,63 @@ import allEquipmentStateHistory from '../../data/equipmentStateHistory.json'
 import MapMarker from './MapMarker';
 import { useState } from 'react';
 
-function filteredEquipments(filterConfigs: any) {
-  let newEquipmentsPositions = allEquipmentPositionHistory;
-  let filters = filterConfigs ? Object.keys(filterConfigs).filter((key: string) => filterConfigs[key] == true) : [];
+function filterByModelAndState(filtersModel: any, filtersState: any) {
+  let newEquipments: any = [];
 
-  for(let filter of filters) {
-    newEquipmentsPositions = newEquipmentsPositions.filter(position => {
+  for(let model of filtersModel) {
+    for(let state of filtersState) {
+      newEquipments = newEquipments.concat(allEquipmentPositionHistory.filter(position => {
+        const eq = equipments.filter(eq => eq.id == position.equipmentId)[0]
+        const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.id)[0].states;
+        const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
+
+        return lastEquipmentState.equipmentStateId == state && eq.equipmentModelId == model ? true : false;
+      }))
+    }
+  }
+
+  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+}
+
+function filterByModel(filtersModel: any) {
+  let newEquipments: any = [];
+
+  for(let model of filtersModel) {
+    newEquipments = newEquipments.concat(allEquipmentPositionHistory.filter(position => {
+      const eq = equipments.filter(eq => eq.id == position.equipmentId)[0]
+      return eq.equipmentModelId == model ? true : false;
+    }))
+  }
+
+  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+}
+
+function filterByState(filtersState: any) {
+  let newEquipments: any = [];
+
+  for(let state of filtersState) {
+    newEquipments = newEquipments.concat(allEquipmentPositionHistory.filter(position => {
       const eq = equipments.filter(eq => eq.id == position.equipmentId)[0]
       const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.id)[0].states;
       const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
 
-      return lastEquipmentState.equipmentStateId == filter || eq.equipmentModelId == filter ? true : false;
-    })
+      return lastEquipmentState.equipmentStateId == state ? true : false;
+    }))
   }
 
-  return newEquipmentsPositions;
+  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+}
+
+function filteredEquipments(filterConfigs: any) {
+  let filtersModel = filterConfigs.model && Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true).length > 0 ? Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true) : undefined;
+  let filtersState = filterConfigs.state && Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true).length > 0 ? Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true) : undefined;
+  
+  if(filtersModel && filtersState) return filterByModelAndState(filtersModel, filtersState);
+  if(filtersModel) return filterByModel(filtersModel);
+  if(filtersState) return filterByState(filtersState);
+
+  console.log('a')
+  return allEquipmentPositionHistory;
 }
 
 function MapEventHandler({ nav, eqId, markIsSelected, setMarkIsSelected }: any) {
@@ -84,7 +126,7 @@ function Maps({ filterConfigs, setFilterConfigs }: any) {
         <MapEventHandler nav={navigate} eqId={equipmentId} markIsSelected={markIsSelected} setMarkIsSelected={setMarkIsSelected} />
 
 
-        {filteredEquipments(filterConfigs).map(eq => {
+        {filteredEquipments(filterConfigs).map((eq: any) => {
           return <MapMarker key={eq.equipmentId} eq={eq} equipments={equipments}/>
         })}
       </MapContainer>
