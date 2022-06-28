@@ -1,5 +1,5 @@
 
-## Dependências necessárias para a execução do projeto
+## Dependências necessárias para a execução do projeto em Vue.js
 ```
 npm install
 npm i json-server
