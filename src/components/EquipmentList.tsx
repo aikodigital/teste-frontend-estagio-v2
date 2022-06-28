@@ -84,7 +84,7 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
             />
 
             <MagnifyingGlass
-              weight={filterIsVisible ? "fill" : "bold"}
+              weight={searchIsVisible ? "fill" : "bold"}
               className="inline ml-2 transition cursor-pointer hover:scale-110"
               size={18}
               onClick={() => {
