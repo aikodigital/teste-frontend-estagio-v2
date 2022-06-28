@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { neutralColor } from '../../constants/colors'
+import { neutralColor, primaryColor } from '../../constants/colors'
 
 export const Container = styled.div`
   border: 1px solid black;
@@ -10,6 +10,15 @@ export const Container = styled.div`
   min-width: 190px;
   min-height: 130px;
   background-color: ${props => props.color};
+  cursor: pointer;
+  :hover {
+  color: ${primaryColor};
+  border: ${primaryColor} solid 1px;
+  background:#fff;
+};
+  :active{
+    opacity: 0.9;
+  }
 `
 export const Img = styled.img`
   width: 190px;
