@@ -1,0 +1,31 @@
+.leaflet-container {
+  margin: 0;
+  width: 100%;
+  height: calc(100vh - 119px);
+}
+
+.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaflet-popup-content strong {
+  color: #004acf;
+  font-size: 16px;
+  margin: 0px;
+}
+
+.leaflet-popup-content span {
+  color: #444444;
+  font-size: 14px;
+}
+
+.leaflet-popup-content a {
+  text-decoration: none;
+}
+
+.leaflet-popup-content a:hover {
+  text-decoration: underline;
+}
