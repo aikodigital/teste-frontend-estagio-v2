@@ -7,25 +7,27 @@ import stateHis from "../data/equipmentStateHistory.json";
 import states from "../data/equipmentState.json";
 import position from "../data/equipmentPositionHistory.json";
 
+import { getStateColor } from "../utils/utils";
+
 export function MapComponent() {
   const mapData =
     stateHis &&
     position.map((coord, i) => {
-      const stateColor = states.find(
-        (stateName) =>
-          stateHis[i].states[Array.length - 1].equipmentStateId === stateName.id
-      ).color;
+      const stateArr = stateHis[i].states;
 
-      const equipName = dataId.find(
-        (name) => name.id === coord.equipmentId
-      ).name;
+      const stateColor = getStateColor(
+        stateArr[stateArr.length - 1].equipmentStateId
+      );
+
+      const equipName = dataId.find((name) => name.id === coord.equipmentId)
+        .name;
 
       return (
         <Marker
           key={coord.equipmentId}
           position={[
-            coord.positions[Array.length - 1].lat,
-            coord.positions[Array.length - 1].lon,
+            coord.positions[coord.positions.length - 1].lat,
+            coord.positions[coord.positions.length - 1].lon,
           ]}
         >
           <Popup>
@@ -35,7 +37,7 @@ export function MapComponent() {
                 {
                   states.find(
                     (stateName) =>
-                      stateHis[i].states[Array.length - 1].equipmentStateId ===
+                      stateArr[stateArr.length - 1].equipmentStateId ===
                       stateName.id
                   ).name
                 }
@@ -53,7 +55,7 @@ export function MapComponent() {
         center={[-19.264235, -46.092436]}
         zoom={6}
         scrollWheelZoom={true}
-        className="rounded-xl border-box min-w-full sm:my-2 md:my-2 lg:my-0"
+        className="rounded-xl border-box min-w-full sm:my-2 md:my-2 lg:my-0 min-h-48"
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {mapData}

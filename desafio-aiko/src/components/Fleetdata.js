@@ -28,7 +28,7 @@ export const Fleetdata = () => {
           Profits
         </h5>
         <p className="text-5xl text-green-500 text-base break-normal">
-          $450.00
+          $45000.00
         </p>
       </div>
 
@@ -58,9 +58,7 @@ export const Fleetdata = () => {
         <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
           Productivity
         </h5>
-        <p className="text-5xl text-green-500 text-base break-normal">
-          $450.00
-        </p>
+        <p className="text-5xl text-green-500 text-base break-normal">89%</p>
       </div>
 
       {/* <!--Card 3--> */}
@@ -89,9 +87,7 @@ export const Fleetdata = () => {
         <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
           Fleet maintenance
         </h5>
-        <p className="text-5xl text-green-500 text-base break-normal">
-          $450.00
-        </p>
+        <p className="text-5xl text-green-500 text-base break-normal">9%</p>
       </div>
 
       {/* <!--Card 4--> */}
@@ -125,9 +121,7 @@ export const Fleetdata = () => {
         <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">
           Fleet chart
         </h5>
-        <p className="text-5xl text-green-500 text-base break-normal">
-          $450.00
-        </p>
+        <p className="text-5xl text-green-500 text-base break-normal"></p>
       </div>
     </div>
   );

@@ -1,42 +1,28 @@
 import { useState } from "react";
 
-import "../styles/table.css";
-
 import dataId from "../data/equipment.json";
 import model from "../data/equipmentModel.json";
 import stateHis from "../data/equipmentStateHistory.json";
 import states from "../data/equipmentState.json";
 import position from "../data/equipmentPositionHistory.json";
+import "../styles/table.css";
+
+import { getStateColor, getModelName, getLastState } from "../utils/utils";
 
 export const Table = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(
-    "dataId",
-    dataId,
-    "model ",
-    model,
-    "stateHis",
-    stateHis,
-    "states ",
-    states,
-    "position",
-    position
-  );
 
   const dataManipulator = dataId.map((data, i) => {
-    const modelName = model.find(
-      (modelName) => modelName.id === data.equipmentModelId
-    ).name;
+    const stateArr = stateHis[i].states;
 
-    const lastState = states.find(
-      (stateName) =>
-        stateHis[i].states[Array.length - 1].equipmentStateId === stateName.id
-    ).name;
+    const modelName = getModelName(data.equipmentModelId);
+    const lastState = getLastState(
+      stateArr[stateArr.length - 1].equipmentStateId
+    );
 
-    const stateColor = states.find(
-      (stateName) =>
-        stateHis[i].states[Array.length - 1].equipmentStateId === stateName.id
-    ).color;
+    const stateColor = getStateColor(
+      stateArr[stateArr.length - 1].equipmentStateId
+    );
 
     return (
       <tr
@@ -85,9 +71,7 @@ export const Table = () => {
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none"></span>
                   </button>
                 </div>
                 {/*body*/}
