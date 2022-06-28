@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f2f9;
+  
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+}
+
+.tabela {
+  font-weight: bold;
+  color: white;
+  background-color: #444;
+  border-radius: 5px;
+  padding: 20px 60px;
+}
