@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Teste Frontend estágio V2
 
 ![Aiko](img/aiko.png)
@@ -207,3 +208,24 @@ Para realizar a entrega do teste você deve:
 * Faça um commit da sua branch com a implementação do teste.
   
 * Realize o pull request da sua branch nesse repositório.
+=======
+# teste
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+>>>>>>> 29b6a31 (First Commit)
