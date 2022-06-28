@@ -12,71 +12,71 @@ import styles from "./styles.module.scss";
 import { Loader } from "../Loader";
 
 interface MapProps {
-  equipments: (EquipmentsType | undefined)[];
-  zoom?: number;
+	equipments: (EquipmentsType | undefined)[];
+	zoom?: number;
 }
 
 export default function MapLocation({ equipments, zoom = 14 }: MapProps) {
-  function handleSelectMarker(equipment: EquipmentsType) {
-    let markerIcon = leaflet.icon({
-      iconUrl: icon.src,
-      shadowUrl: iconShadow.src,
-    });
-    switch (equipment?.model.name) {
-      case "Caminhão de carga":
-        markerIcon = leaflet.icon({
-          iconUrl: chargerMarker.src,
-        });
-        break;
-      case "Harvester":
-        markerIcon = leaflet.icon({
-          iconUrl: harvestIcon.src,
-        });
-        break;
-      case "Garra traçadora":
-        markerIcon = leaflet.icon({
-          iconUrl: clawMarker.src,
-        });
-        break;
-    }
+	function handleSelectMarker(equipment: EquipmentsType) {
+		let markerIcon = leaflet.icon({
+			iconUrl: icon.src,
+			shadowUrl: iconShadow.src,
+		});
+		switch (equipment?.model.name) {
+			case "Caminhão de carga":
+				markerIcon = leaflet.icon({
+					iconUrl: chargerMarker.src,
+				});
+				break;
+			case "Harvester":
+				markerIcon = leaflet.icon({
+					iconUrl: harvestIcon.src,
+				});
+				break;
+			case "Garra traçadora":
+				markerIcon = leaflet.icon({
+					iconUrl: clawMarker.src,
+				});
+				break;
+		}
 
-    return markerIcon;
-  }
+		return markerIcon;
+	}
 
-  if (!equipments) {
-    return <Loader />;
-  }
-  return (
-    <MapContainer
-      center={[
-        equipments[0]!.positionHistory[0].lat,
-        equipments[0]!.positionHistory[0].lon,
-      ]}
-      zoom={zoom}
-      scrollWheelZoom={false}
-      className={styles.mapContainer}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {equipments.map((equipment) => {
-        const markerIcon = handleSelectMarker(equipment!);
-        return (
-          <Marker
-            key={equipment!.id}
-            position={[
-              equipment!.positionHistory[0].lat,
-              equipment!.positionHistory[0].lon,
-            ]}
-            icon={markerIcon}
-          >
-            <Popup>
-              {equipment!.name} | {equipment!.model.name}
-            </Popup>
-          </Marker>
-        );
-      })}
-    </MapContainer>
-  );
+	if (!equipments) {
+		return <Loader />;
+	}
+	return (
+		<MapContainer
+			center={[
+				equipments[0]!.positionHistory[0].lat,
+				equipments[0]!.positionHistory[0].lon,
+			]}
+			zoom={zoom}
+			scrollWheelZoom={false}
+			className={styles.mapContainer}
+		>
+			<TileLayer
+				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			/>
+			{equipments.map(equipment => {
+				const markerIcon = handleSelectMarker(equipment!);
+				return (
+					<Marker
+						key={equipment!.id}
+						position={[
+							equipment!.positionHistory[0].lat,
+							equipment!.positionHistory[0].lon,
+						]}
+						icon={markerIcon}
+					>
+						<Popup>
+							{equipment!.name} | {equipment!.model.name}
+						</Popup>
+					</Marker>
+				);
+			})}
+		</MapContainer>
+	);
 }

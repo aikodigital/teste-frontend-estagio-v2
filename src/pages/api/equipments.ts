@@ -8,74 +8,74 @@ import equipmentStateHistory from "../../../data/equipmentStateHistory.json";
 import { EquipmentsType } from "../../types/equipments";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  function flatEquipmentsData() {
-    const items = equipmentsJson.map!((equipmentJson) => {
-      const model = equipmentModels.find!((models) => {
-        return models.id === equipmentJson.equipmentModelId;
-      });
+	function flatEquipmentsData() {
+		const items = equipmentsJson.map!(equipmentJson => {
+			const model = equipmentModels.find!(models => {
+				return models.id === equipmentJson.equipmentModelId;
+			});
 
-      const positionHistory = equipmentPositionHistory.find!((history) => {
-        return history.equipmentId === equipmentJson.id;
-      });
+			const positionHistory = equipmentPositionHistory.find!(history => {
+				return history.equipmentId === equipmentJson.id;
+			});
 
-      const rawStateHistory = equipmentStateHistory.find!((equipState) => {
-        return equipState.equipmentId === equipmentJson.id;
-      });
+			const rawStateHistory = equipmentStateHistory.find!(equipState => {
+				return equipState.equipmentId === equipmentJson.id;
+			});
 
-      const stateHistory = rawStateHistory?.states.map((state) => {
-        const stateInfo = equipmentState.find!((stateData) => {
-          return stateData.id === state.equipmentStateId;
-        });
+			const stateHistory = rawStateHistory?.states.map(state => {
+				const stateInfo = equipmentState.find!(stateData => {
+					return stateData.id === state.equipmentStateId;
+				});
 
-        return {
-          date: state.date,
-          state: stateInfo,
-        };
-      });
+				return {
+					date: state.date,
+					state: stateInfo,
+				};
+			});
 
-      if (model && positionHistory && stateHistory) {
-        stateHistory.sort((prev, next) => {
-          const prevDate = new Date(prev.date);
-          const nextDate = new Date(next.date);
-          return nextDate.getTime() - prevDate.getTime();
-        });
+			if (model && positionHistory && stateHistory) {
+				stateHistory.sort((prev, next) => {
+					const prevDate = new Date(prev.date);
+					const nextDate = new Date(next.date);
+					return nextDate.getTime() - prevDate.getTime();
+				});
 
-        positionHistory.positions.sort((prev, next) => {
-          const prevDate = new Date(prev.date);
-          const nextDate = new Date(next.date);
-          return nextDate.getTime() - prevDate.getTime();
-        });
+				positionHistory.positions.sort((prev, next) => {
+					const prevDate = new Date(prev.date);
+					const nextDate = new Date(next.date);
+					return nextDate.getTime() - prevDate.getTime();
+				});
 
-        const allEquipData: EquipmentsType = {
-          id: equipmentJson.id,
-          name: equipmentJson.name,
-          model,
-          positionHistory: positionHistory?.positions,
-          stateHistory,
-        };
+				const allEquipData: EquipmentsType = {
+					id: equipmentJson.id,
+					name: equipmentJson.name,
+					model,
+					positionHistory: positionHistory?.positions,
+					stateHistory,
+				};
 
-        return allEquipData;
-      }
-    });
+				return allEquipData;
+			}
+		});
 
-    return items;
-  }
+		return items;
+	}
 
-  const equipments = flatEquipmentsData();
+	const equipments = flatEquipmentsData();
 
-  if (req.query.id) {
-    const equipment = equipments.find((equip) => {
-      return equip?.id === req.query.id;
-    });
+	if (req.query.id) {
+		const equipment = equipments.find(equip => {
+			return equip?.id === req.query.id;
+		});
 
-    if (equipment) {
-      res.status(200).json(equipment);
-    } else {
-      res.status(404).json({
-        error: "Id not found",
-      });
-    }
-  } else {
-    res.status(200).json(equipments);
-  }
+		if (equipment) {
+			res.status(200).json(equipment);
+		} else {
+			res.status(404).json({
+				error: "Id not found",
+			});
+		}
+	} else {
+		res.status(200).json(equipments);
+	}
 }
