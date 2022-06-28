@@ -1,0 +1,133 @@
+:root{
+    --primary-color: #00df00;
+    --secundary-color: #004acf;
+    --third-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62,5%;
+}
+
+h3{
+    font-size: 4rem;
+}
+
+h4{
+    font-size: 3.5rem;
+}
+
+.cabecalho{
+    height: 6rem;
+    width: 100%;
+
+    background-color: #0048cf;
+}
+
+.navbar{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-items: center;
+}
+
+.navbar h3{
+    color: var(--third-color);
+}
+
+.container{
+    width: 100%;
+    min-height: calc(100vh-6rem);
+   
+}
+
+
+#map {
+    height: 25rem;
+    width: 100%;
+}
+
+.logo_aiko{
+    justify-self: flex-start;
+    height: 4rem;
+    padding: 1rem;
+
+    margin-left: 2rem;
+    border-radius: 2rem;
+    padding: 0 1rem;
+
+    animation-name: border-animada;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes border-animada{
+    0%{box-shadow: 2px 2px 5px var(--third-color);}
+    25%{box-shadow: -2px 2px 5px var(--third-color);}
+    50%{box-shadow: -2px -2px 5px var(--third-color);}
+    75%{box-shadow: 2px -2px 5px var(--third-color);}
+    100%{box-shadow: 2px 2px 5px var(--third-color);}
+}
+
+.historico{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--secundary-color);
+}
+
+.historico h4{
+    width: 100%;
+    text-align: center;
+    background-color: #0048cf50;
+}
+
+.status {
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.status button{
+    width: 11%;
+    min-height: 2rem;
+    background-color: var(--secundary-color);
+    border: none;
+    color: var(--third-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.status button:hover{
+    background-color: #0048cf69;
+}
+.status button:focus{
+    background-color: #0048cf69;
+}
+
+@media only screen and (max-width: 706px){
+    .navbar h3{
+        font-size: 2rem;
+    }
+
+}
+@media only screen and (max-width: 600px){
+
+    .status button{
+        font-size: 1.0rem;
+    }
+}
