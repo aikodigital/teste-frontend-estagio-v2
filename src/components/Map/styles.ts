@@ -1,13 +1,12 @@
-import { ButtonHTMLAttributes } from 'react'
 import { MapContainer as MapBox, Popup as PopupBox } from 'react-leaflet'
 import styled from 'styled-components'
 
 export const MapContainer = styled(MapBox)`
   height: 100%;
   z-index: 0;
-`
+`;
 
-interface IPopupButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IPopupButtonProps {
   buttonBackground: string
 }
 

@@ -1,45 +1,38 @@
 import { icon } from "leaflet";
 
-import parado from '../../../assets/parado.png'
-import manutencao from '../../../assets/manutencao.png'
-import operacao from '../../../assets/operacao.png'
+import caminhao from '../../../assets/caminhao.svg'
+import harvester from '../../../assets/harvester.svg'
+import tracerclaw from '../../../assets/tracerclaw.svg'
 
-const paradoIcon = icon({
-  iconUrl: parado,
+const caminhaoIcon = icon({
+  iconUrl: caminhao,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
-  shadowUrl: 'my-icon-shadow.png',
-  shadowSize: [68, 95],
-  shadowAnchor: [22, 94]
 });
 
-const manutencaoIcon = icon({
-  iconUrl: manutencao,
+const harvesterIcon = icon({
+  iconUrl: harvester,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
-  popupAnchor: [-3, -76],
-  shadowSize: [68, 95],
-  shadowAnchor: [22, 94]
+  popupAnchor: [-50, -76]
 });
 
-const operandoIcon = icon({
-  iconUrl: operacao,
+const tracerclawIcon = icon({
+  iconUrl: tracerclaw,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
-  popupAnchor: [-3, -76],
-  shadowSize: [68, 95],
-  shadowAnchor: [22, 94]
+  popupAnchor: [-3, -76]
 });
 
 export function getIcon(name: string) {
-  if(name === 'Manutenção') {
-    return manutencaoIcon;
+  if(name === 'Caminhão de carga') {
+    return caminhaoIcon;
   }
-  if(name === 'Parado') {
-    return paradoIcon;
+  if(name === 'Harvester') {
+    return harvesterIcon;
   }
-  if(name === 'Operando') {
-    return operandoIcon;
+  if(name === 'Garra traçadora') {
+    return tracerclawIcon;
   }
 }
