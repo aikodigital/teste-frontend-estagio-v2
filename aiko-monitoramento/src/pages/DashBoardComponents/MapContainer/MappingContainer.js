@@ -1,8 +1,6 @@
 import React from 'react'
 
-import styled from 'styled-components'
-
-import { MapContainer, 
+import { 
   TileLayer, 
   Marker,
   Popup
@@ -10,19 +8,30 @@ import { MapContainer,
 
 import {
   Container,
-  MapBox
+  MapBox,
+  CustomMapContainer
 } from "./styled-MapContainer"
 
+import { getPositionHistory } from '../../../services/requests/getFunctions'
 
-const CustomMapContainer = styled(MapContainer)`
-  width: 100%;
-  height: 100%;
-`
+const MappingContainer = ({ selected }) => {
 
-const MappingContainer = () => {
+  const positions = getPositionHistory(selected)
+
+  const positionsList = positions && positions.map((data) => {
+    return (
+      <Marker position={[data.lat, data.lon]} key={data.date}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+    )
+  })
+
+
 
   const position = [-19.126536, -45.947756]
-
+  
   return (
     <Container>
       <MapBox>
@@ -33,11 +42,7 @@ const MappingContainer = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          {positionsList}
         </CustomMapContainer>
 
 

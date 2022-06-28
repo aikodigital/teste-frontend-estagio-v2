@@ -21,7 +21,9 @@ const Dashboard = () => {
         getId={getSelectedVehicle}
       />
       
-      <MappingContainer />
+      <MappingContainer 
+        selected={selected}
+      />
 
       <SettingsContainer
         selected={selected}

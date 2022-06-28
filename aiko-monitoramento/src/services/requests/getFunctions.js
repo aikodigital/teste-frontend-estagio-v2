@@ -1,4 +1,5 @@
 import equipamentStateHistory from "../../constants/data/equipmentStateHistory.json"
+import equipamentPositionHistory from "../../constants/data/equipmentPositionHistory.json"
 
 export const getStateHistory = (id) => 
 {
@@ -9,4 +10,14 @@ export const getStateHistory = (id) =>
     }
   })  
   return stateHistory === undefined ? "" : stateHistory.states
+}
+
+export const getPositionHistory = (id) => 
+{
+  const positionHistory = equipamentPositionHistory.find((data) => {
+    if(data.equipmentId === id){
+      return data
+    }
+  })
+  return positionHistory === undefined ? "" : positionHistory.positions
 }

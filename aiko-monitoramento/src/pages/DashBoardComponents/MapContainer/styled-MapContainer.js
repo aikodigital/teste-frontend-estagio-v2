@@ -1,5 +1,9 @@
 import styled from "styled-components"
 
+import {
+  MapContainer
+} from 'react-leaflet'
+
 import { neutralColor } from "../../../constants/colors"
 
 export const Container = styled.div`
@@ -13,4 +17,8 @@ export const MapBox = styled.div`
   /* width: 300px; */
   height: 70%;
   margin: 1.5%;
+`
+export const CustomMapContainer = styled(MapContainer)`
+  width: 100%;
+  height: 100%;
 `
