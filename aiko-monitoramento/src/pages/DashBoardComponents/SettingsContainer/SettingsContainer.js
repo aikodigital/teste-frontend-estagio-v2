@@ -7,6 +7,7 @@ import {
 } from "./styled-SettingsContainer"
 
 import StateHistoryCard from '../../../components/StateHistoryCard/StateHistoryCard'
+import StateHistoryCardMock from "../../../components/StateHistoryCard/StateHistoryCardMock"
 
 import { getStateHistory } from "../../../services/requests/getFunctions"
 
@@ -30,6 +31,7 @@ const SettingsContainer = ({selected}) => {
   return (
     <Container>
       <SettingsBox>
+          <StateHistoryCardMock />
         <StatesContainer>
           {stateHistory && displayStateHistory()}
         </StatesContainer>
