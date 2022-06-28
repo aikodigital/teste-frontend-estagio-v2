@@ -17,7 +17,10 @@ function App() {
         <div className="box col-start-1 col-end-8 row-start-1 row-end-1 ">
           <Navbar />
         </div>
-        <div className=" inline-block box col-start-2 col-end-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 xl:grid-cols-2 gap-x-10 p-10">
+        <div
+          className="  col-start-2 col-end-8 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 xl:grid-cols-2 gap-x-10 p-10"
+          style={{ transform: "translate(0px, -18ex)" }}
+        >
           <Table />
           <MapComponent />
         </div>

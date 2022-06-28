@@ -1,12 +1,23 @@
 export const Sidebar = () => {
   return (
-    <div aria-label="Sidebar">
-      <div className="px-3 bg-white dark:bg-gray-800 min-h-screen">
+    <div
+      aria-label="Sidebar"
+      className="h-screen fixed top-0 md:left-0 -left-64 flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-48 z-10 py-4  transition-all duration-300"
+      style={{ position: "fixed", zIndex: 1 }}
+    >
+      <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
         <ul className="space-y-2">
+          <div className="flex justify-center w-auto">
+            <img
+              className="h-8 w-auto sm:h-10 justify-center"
+              src={require("../img/aiko.png")}
+              alt="aiko"
+            />
+          </div>
           <li>
             <a
               href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 t-12"
             >
               <svg
                 className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
