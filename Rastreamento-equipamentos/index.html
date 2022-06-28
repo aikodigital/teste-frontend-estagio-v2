@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <nav class="navbar">
+            <img class="logo_aiko" src="./assets/img/aiko.png" alt="">
+            <h3>Processo Seletivo</h3>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="content-map">
+            <div id="map"></div>
+            <div class="historico">
+                <h4>Histórico</h4>
+                <nav class="status"></nav>
+                <section class="history"></section>
+            </div>
+        </section>
+    </main>
+    <script src="./assets/js/equipment.js"></script>
+    <script src="./assets/js/equipmentModel.js"></script>
+    <script src="./assets/js/equipmentPositionHistory.js"></script>
+    <script src="./assets/js/equipmentState.js"></script>
+    <script src="./assets/js/equipmentStateHistory.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
