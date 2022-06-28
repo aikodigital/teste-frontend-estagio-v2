@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap');
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Public Sans', sans-serif;
+}
+
+main h1 {
+  color: #004acf;
+}
+
+main ul {
+  width: 100vw;
+  max-width: 620px;
+  border: solid 1px;
+  padding: 0;
+}
+
+main li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px;
+  padding: 3px;
+}
+
+.list {
+  width: 180px;
+  padding-left: 50px;
+}
+
+strong {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
