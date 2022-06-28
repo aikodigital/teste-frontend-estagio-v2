@@ -1,0 +1,19 @@
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+.loader {
+    border-radius: 100%;
+    background-color: transparent;
+    border-top-style: solid;
+
+    border: 5px solid transparent;
+
+    animation: rotation 1.5s infinite linear;
+}
