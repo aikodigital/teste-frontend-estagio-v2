@@ -103,22 +103,21 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
               <span className="mb-1 font-bold text-center">Modelos:</span>
               {equipmentModels.map(model => {
                 return <div key={model.id} className="flex items-center h-6 gap-2 text-sm leading-none">
-                  <input 
-                    key={model.id}
-                    type="checkbox"
-                    className="w-4 h-4"
-                    onChange={() => {
-                      let newFilters: any = { 
-                        ...filterConfigs
-                      }
-                      newFilters.model[model.id as keyof typeof newFilters] = newFilters.model[model.id as keyof typeof newFilters] ? false : true;
-                      setFilterConfigs(newFilters);
-                    }}
-                    checked={filterConfigs.model && filterConfigs.model[model.id as keyof typeof filterConfigs] ? true : false}
+                    <input 
+                      type="checkbox"
+                      className="w-4 h-4"
+                      onChange={() => {
+                        let newFilters: any = { 
+                          ...filterConfigs
+                        }
+                        newFilters.model[model.id as keyof typeof newFilters] = newFilters.model[model.id as keyof typeof newFilters] ? false : true;
+                        setFilterConfigs(newFilters);
+                      }}
+                      checked={filterConfigs.model && filterConfigs.model[model.id as keyof typeof filterConfigs] ? true : false}
                     />
-                  <span className="flex-1">
-                    {model.name}
-                  </span>
+                    <span className="flex-1">
+                      {model.name}
+                    </span>
                   </div>
                 })}
             </div>
@@ -127,22 +126,21 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
             <span className="mb-1 font-bold text-center">Estados:</span>
               {equipmentState.map(state => {
                 return <div key={state.id} className="flex items-center h-6 gap-2 text-sm leading-none">
-                <input 
-                  key={state.id}
-                  type="checkbox"
-                  className="w-4 h-4"
-                  onChange={() => {
-                    let newFilters: any = { 
-                      ...filterConfigs
-                    }
-                    newFilters.state[state.id as keyof typeof newFilters.state] = newFilters.state[state.id as keyof typeof newFilters] ? false : true;
-                    setFilterConfigs(newFilters);
-                  }}
-                  checked={filterConfigs.state && filterConfigs.state[state.id as keyof typeof filterConfigs] ? true : false}
+                  <input 
+                    type="checkbox"
+                    className="w-4 h-4"
+                    onChange={() => {
+                      let newFilters: any = { 
+                        ...filterConfigs
+                      }
+                      newFilters.state[state.id as keyof typeof newFilters.state] = newFilters.state[state.id as keyof typeof newFilters] ? false : true;
+                      setFilterConfigs(newFilters);
+                    }}
+                    checked={filterConfigs.state && filterConfigs.state[state.id as keyof typeof filterConfigs] ? true : false}
                   />
-                <span className="flex-1" style={{color: state.color}}>
-                  {state.name}
-                </span>
+                  <span className="flex-1" style={{color: state.color}}>
+                    {state.name}
+                  </span>
                 </div>
               })}
             </div>

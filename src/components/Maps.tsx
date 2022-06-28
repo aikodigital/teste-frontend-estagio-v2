@@ -62,7 +62,6 @@ function filteredEquipments(filterConfigs: any) {
   if(filtersModel) return filterByModel(filtersModel);
   if(filtersState) return filterByState(filtersState);
 
-  console.log('a')
   return allEquipmentPositionHistory;
 }
 
