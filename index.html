@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- IMPORT LEAFLET -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <!-- /IMPORT LEAFLET -->
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav id="navbar">
+        <label for="logo"><a href="https://aiko.digital"><img id="logo" src="./img/aiko.png"
+                    alt="logo AIKO"></a></label>
+        <button id="btnMobile">Menu</button>
+        <ul id="menu">
+            <li><a href="#">INICIO</a></li>
+            <li><a href="https://aiko.digital/contato">CONTATO</a></li>
+        </ul>
+    </nav>
+    <section class="container-flex">
+        <div id="filter">
+            <input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite aqui a sua busca">
+        </div>
+        <!-- TABELA DE EQUIPAMENTOS (GERADA DINAMICAMENTE) -->
+        <section class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipamento</th>
+                        <th>Modelo</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table-equipment">
+
+                </tbody>
+            </table>
+        </section>
+        <button id="showAllHistory" class="hidden"></button>
+        <!-- MAP CRIADO VIA JS COM LEAFLET -->
+        <div id="map"></div>
+
+        <!-- TABELA DE HISTÓRICO (GERADA DINAMICAMENTE) -->
+        <section id="table-second" class="table-second">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table-history">
+                    <tr>
+                        <td class="equip-date-status">Data</td>
+                        <td class="equip-status">Status</td>
+                    </tr>
+
+                </tbody>
+            </table>
+</body>
+<script src="./script/menuResponsive.js"></script>
+<script src="./script/importData.js"></script>
+<script src="./script/filter.js"></script>
+
+</html>
