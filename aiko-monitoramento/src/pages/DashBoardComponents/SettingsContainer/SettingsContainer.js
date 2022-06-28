@@ -3,7 +3,8 @@ import React from 'react'
 import {
   Container,
   SettingsBox,
-  StatesContainer
+  StatesContainer,
+  Alert
 } from "./styled-SettingsContainer"
 
 import StateHistoryCard from '../../../components/StateHistoryCard/StateHistoryCard'
@@ -33,7 +34,9 @@ const SettingsContainer = ({selected}) => {
       <SettingsBox>
           <StateHistoryCardMock />
         <StatesContainer>
-          {stateHistory && displayStateHistory()}
+          {stateHistory ? displayStateHistory() : 
+            <Alert>Selecione um veículo no painel direito para visualizar seu histórico.</Alert>
+          }
         </StatesContainer>
       </SettingsBox>
     </Container>

@@ -15,6 +15,10 @@ const Dashboard = () => {
     setSelected(id)
   }
 
+  const clearSelectedVehicle = () => {
+    setSelected("")
+  }
+
   return (
     <MainContainer>
       <VehicleContainer 
@@ -23,6 +27,7 @@ const Dashboard = () => {
       
       <MappingContainer 
         selected={selected}
+        clear={clearSelectedVehicle}
         getId={getSelectedVehicle}
       />
 

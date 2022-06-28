@@ -1,89 +1,46 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
 
-import { 
-  TileLayer, 
-  Marker,
-  Popup
-} from 'react-leaflet'
+import Checkbox from '@mui/material/Checkbox';
 
 import {
   Container,
-  MapBox,
-  CustomMapContainer
+  CustomFormControlLabel,
+  CustomButton
 } from "./styled-MapContainer"
 
-import { getPositionHistory } from '../../../services/requests/getFunctions'
-import { findVehicleLastPosition } from '../../../services/requests/findFunctions'
+import MapBoxContainer from './MapBox/MapBoxContainer';
 
-import equipament from "../../../constants/data/equipment.json"
-import VehiclesCard from "../../../components/VehiclesCard/VehiclesCard"
+const MappingContainer = ({ selected, getId, clear }) => {
 
-const CustomPopup = styled(Popup)`
-  height: 280px;
-  width: 300px;
-`
+  const [viewTrajetory, setViewTrajetory] = useState(true)
 
-const MappingContainer = ({ selected, getId }) => {
+  const viewTrajetoryToggle = (value) => {
+    setViewTrajetory(!value)
+  }
 
-  const positions = getPositionHistory(selected)
-
-  const positionsList = positions && positions.map((data) => {
-
-    const calendar = {
-      dia: data.date.slice(8, 10),
-      mes: data.date.slice(5, 7),
-      ano: data.date.slice(0, 4),
-      hora: data.date.slice(11, 19)
-    }
-    const { dia, mes, ano, hora } = calendar
-
-    const formatedData = `${dia}/${mes}/${ano} | ${hora}`
-    
-    return (
-      <Marker position={[data.lat, data.lon]} key={data.date}>
-        <Popup>
-          {formatedData}
-        </Popup>
-      </Marker>
-    )
-  })
-
-  // const vehiclesList = equipament.map((vehicle) => {
-  //   return vehicle.id
-  // })
-
-  const initialPositions = equipament.map((vehicle) => {
-    return (
-      <Marker position={findVehicleLastPosition(vehicle.id)} key={vehicle.id}>
-        <CustomPopup>
-          <VehiclesCard 
-            key={vehicle.id}
-            name={vehicle.name}
-            modelId={vehicle.equipmentModelId}
-            id={vehicle.id}
-            getId={getId}
-            popup={true}
-          />
-        </CustomPopup>
-      </Marker>
-    )
-  })
-
-  
   return (
     <Container>
-      <MapBox>
-        
-        <CustomMapContainer center={[-19.126536, -45.947756]} zoom={11} scrollWheelZoom={true}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {selected === "" ? initialPositions : positionsList}
-        </CustomMapContainer>
-
-      </MapBox>
+      <MapBoxContainer 
+        selected={selected}
+        getId={getId}
+        viewTrajetory={viewTrajetory}
+      />
+      <div>
+        <CustomButton 
+          variant="outlined"
+          onClick={clear}
+        >
+          Posições Atuais
+        </CustomButton>
+        <CustomFormControlLabel
+          disabled={selected === "" ? true : false}
+          value={viewTrajetory}
+          onChange={() => viewTrajetoryToggle(viewTrajetory)}
+          control={<Checkbox />}
+          label="Visualizar Trajetória"
+          labelPlacement="end"
+        />
+      </div>
     </Container>
   )
 }
