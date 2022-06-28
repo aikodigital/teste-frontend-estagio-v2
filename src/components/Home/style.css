@@ -1,0 +1,11 @@
+.close-historic-btn{
+    display: flex;
+    flex-direction: row;
+    margin-left: 92%;
+    padding: 8px;
+    border-color: rgb(224, 220, 220);
+    font-size: 22px;
+    cursor: pointer;
+
+}
+

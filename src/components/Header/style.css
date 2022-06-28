@@ -1,0 +1,14 @@
+.title{
+    padding: 20px;
+    color: white;
+    background-color: #1c0265;
+    margin-bottom: 15px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    
+}
