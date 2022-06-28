@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Teste Frontend estágio V2
 
 ![Aiko](img/aiko.png)
@@ -211,21 +211,17 @@ Para realizar a entrega do teste você deve:
 =======
 # teste
 
-## Project setup
+## dependências necessárias para a execução do projeto
 ```
 npm install
+npm i json-server
+npm install -g @vue/cli
 ```
 
-### Compiles and hot-reloads for development
+### comandos necessários para a execução do projeto
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+npm run backend(responsável por executar a API feita com json-server)
+npm run serve(responsável por compilar e executar o projeto)
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> 29b6a31 (First Commit)
+
