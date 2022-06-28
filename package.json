@@ -1,0 +1,42 @@
+{
+  "name": "aiko-location",
+  "author": "Samuel Claudino",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.5",
+    "@mui/x-data-grid": "^5.12.3",
+    "@mui/x-data-grid-generator": "^5.12.3",
+    "@mui/x-data-grid-pro": "^5.12.3",
+    "@mui/x-date-pickers": "^5.0.0-alpha.7",
+    "axios": "^0.27.2",
+    "date-fns": "^2.28.0",
+    "leaflet": "^1.8.0",
+    "next": "12.1.6",
+    "polished": "^4.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-leaflet": "^4.0.0",
+    "sharp": "^0.30.7",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.11",
+    "@types/node": "18.0.0",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@types/styled-components": "^5.1.25",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "typescript": "4.7.4"
+  }
+}
