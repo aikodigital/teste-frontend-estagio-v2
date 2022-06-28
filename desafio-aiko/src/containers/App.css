@@ -1,0 +1,9 @@
+.leaflet-container {
+  width: 40vw;
+  height: 23vw;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(250, 250, 250);
+}
