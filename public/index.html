@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | Aiko Machine Find</title>
+    <link rel="icon" type="image/x-icon" href="../img/icons8-a-16.png" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../src/styles/css/styles.css"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="logo">
+        <img
+          src="https://aiko.digital/wp-content/themes/aiko/assets/img/aiko-logo.png"
+          alt="Logo Aiko"
+        />
+      </div>
+    </header>
+    <nav class="page-nav">
+      <div class="body-nav">
+        <ul>
+          <li>
+            <a href="#">
+              <div class="icon"><i class="bi bi-alarm"></i></div>
+              <div class="text">Status</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon"><i class="bi bi-wrench-adjustable"></i></div>
+              <div class="text">Manutenção</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon"><i class="bi bi-thermometer-high"></i></div>
+              <div class="text">Temperatura</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+              <div class="text">Gráficos</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon"><i class="bi bi-map"></i></div>
+              <div class="text">Mapa</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="page-container container-index">
+      <div id="myMap" class="mainMap"></div>
+      <div class="infobox-map">
+        <ul id="render-info">
+          <li class="item-i title">
+            <p class="title-text">Selecione um pin no mapa</p>
+            <i class="bi bi-speedometer"></i>
+          </li>
+          <li class="item-i state">
+            <p class="state-text">Status</p>
+            <i class="bi bi-gear gear-animation"></i>
+          </li>
+          <li class="item-i codname">
+            <p class="codname-text">XX-XXXX</p>
+          </li>
+        </ul>
+        <div class="history-states">
+          <ul id="history"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../src/js/index.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnLSw1SL-K7zrFYSKj9m3mM4PsEkymG_fXO_wdvHRgkxsLvLusdvY7BETyswufUB"
+      async
+      defer
+    ></script>
+    <!-- <script src="../src/js/maps.js"></script> -->
+  </body>
+</html>

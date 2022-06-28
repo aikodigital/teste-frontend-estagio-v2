@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import './modules/scss/functions';
+@import './modules/scss/variables';
+@import './modules/scss/mixins';
+@import './modules/scss/utilities';
+
+// Layout & components
+@import './modules/scss/root';
+@import './modules/scss/reboot';
+@import './modules/scss/type';
+@import './modules/scss/images';
+@import './modules/scss/containers';
+@import './modules/scss/grid';
+@import './modules/scss/tables';
+@import './modules/scss/forms';
+@import './modules/scss/buttons';
+@import './modules/scss/transitions';
+@import './modules/scss/dropdown';
+@import './modules/scss/button-group';
+@import './modules/scss/nav';
+@import './modules/scss/navbar';
+@import './modules/scss/card';
+@import './modules/scss/accordion';
+@import './modules/scss/breadcrumb';
+@import './modules/scss/pagination';
+@import './modules/scss/badge';
+@import './modules/scss/alert';
+@import './modules/scss/progress';
+@import './modules/scss/list-group';
+@import './modules/scss/close';
+@import './modules/scss/toasts';
+@import './modules/scss/modal';
+@import './modules/scss/tooltip';
+@import './modules/scss/popover';
+@import './modules/scss/carousel';
+@import './modules/scss/spinners';
+@import './modules/scss/offcanvas';
+@import './modules/scss/placeholders';
+
+// Pages
+@import './modules/index';
+@import './home.scss';
