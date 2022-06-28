@@ -7,8 +7,8 @@ import allEquipmentStateHistory from '../../data/equipmentStateHistory.json'
 import MapMarker from './MapMarker';
 import { useState } from 'react';
 
-function filterByModelAndState(filtersModel: any, filtersState: any) {
-  let newEquipments: any = [];
+function filterByModelAndState(filtersModel: string[], filtersState: string[]) {
+  let newEquipments: typeof allEquipmentPositionHistory = [];
 
   for(const model of filtersModel) {
     for(const state of filtersState) {
@@ -22,11 +22,11 @@ function filterByModelAndState(filtersModel: any, filtersState: any) {
     }
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val) == pos);
 }
 
-function filterByModel(filtersModel: any) {
-  let newEquipments: any = [];
+function filterByModel(filtersModel: string[]) {
+  let newEquipments: typeof allEquipmentPositionHistory = [];
 
   for(const model of filtersModel) {
     newEquipments = newEquipments.concat(allEquipmentPositionHistory.filter(position => {
@@ -35,11 +35,11 @@ function filterByModel(filtersModel: any) {
     }))
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val) == pos);
 }
 
-function filterByState(filtersState: any) {
-  let newEquipments: any = [];
+function filterByState(filtersState: string[]) {
+  let newEquipments: typeof allEquipmentPositionHistory = [];
 
   for(const state of filtersState) {
     newEquipments = newEquipments.concat(allEquipmentPositionHistory.filter(position => {
@@ -51,7 +51,7 @@ function filterByState(filtersState: any) {
     }))
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val) == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val) == pos);
 }
 
 function filteredEquipments(filterConfigs: any) {
@@ -125,7 +125,7 @@ function Maps({ filterConfigs, setFilterConfigs }: any) {
         <MapEventHandler nav={navigate} eqId={equipmentId} markIsSelected={markIsSelected} setMarkIsSelected={setMarkIsSelected} />
 
 
-        {filteredEquipments(filterConfigs).map((eq: any) => {
+        {filteredEquipments(filterConfigs).map((eq) => {
           return <MapMarker key={eq.equipmentId} eq={eq} equipments={equipments}/>
         })}
       </MapContainer>

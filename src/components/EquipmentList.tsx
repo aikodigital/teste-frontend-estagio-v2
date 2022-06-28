@@ -6,8 +6,8 @@ import equipmentState from '../../data/equipmentState.json'
 import equipmentModels from '../../data/equipmentModel.json'
 import allEquipmentStateHistory from '../../data/equipmentStateHistory.json'
 
-function filterByModelAndState(filtersModel: any, filtersState: any) {
-  let newEquipments: any = [];
+function filterByModelAndState(filtersModel: string[], filtersState: string[]) {
+  let newEquipments: typeof equipments = [];
 
   for(const model of filtersModel) {
     for(const state of filtersState) {
@@ -20,11 +20,11 @@ function filterByModelAndState(filtersModel: any, filtersState: any) {
     }
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val)  == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val)  == pos);
 }
 
-function filterByModel(filtersModel: any) {
-  let newEquipments: any = [];
+function filterByModel(filtersModel: string[]) {
+  let newEquipments: typeof equipments = [];
 
   for(const model of filtersModel) {
     newEquipments = newEquipments.concat(equipments.filter(eq => {
@@ -32,11 +32,11 @@ function filterByModel(filtersModel: any) {
     }))
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val)  == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val)  == pos);
 }
 
-function filterByState(filtersState: any) {
-  let newEquipments: any = [];
+function filterByState(filtersState: string[]) {
+  let newEquipments: typeof equipments = [];
 
   for(const state of filtersState) {
     newEquipments = newEquipments.concat(equipments.filter(eq => {
@@ -47,7 +47,7 @@ function filterByState(filtersState: any) {
     }))
   }
 
-  return newEquipments.filter((val: any, pos: any, arr: any) => arr.indexOf(val)  == pos);
+  return newEquipments.filter((val, pos, arr) => arr.indexOf(val)  == pos);
 }
 
 function filteredEquipments(filterConfigs: any) {
@@ -107,7 +107,7 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
                       type="checkbox"
                       className="w-4 h-4"
                       onChange={() => {
-                        let newFilters: any = { 
+                        let newFilters = { 
                           ...filterConfigs
                         }
                         newFilters.model[model.id as keyof typeof newFilters] = newFilters.model[model.id as keyof typeof newFilters] ? false : true;
@@ -130,7 +130,7 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
                     type="checkbox"
                     className="w-4 h-4"
                     onChange={() => {
-                      let newFilters: any = { 
+                      let newFilters = { 
                         ...filterConfigs
                       }
                       newFilters.state[state.id as keyof typeof newFilters.state] = newFilters.state[state.id as keyof typeof newFilters] ? false : true;
@@ -162,9 +162,9 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
         </div>
 
         <ul className="flex flex-col flex-1 overflow-x-hidden">
-          {filteredEquipments(filterConfigs).filter((obj: any) => {
+          {filteredEquipments(filterConfigs).filter((obj) => {
             return searchInput ? obj.name.toLowerCase().indexOf(searchInput) != -1 : true;
-          }).map((equipment: any) => {
+          }).map((equipment) => {
             const classes = equipment.id == equipmentId
             ? "flex items-center justify-center min-h-[30px] p-1 text-blue-400 font-bold scale-110"
             : "p-1 flex items-center justify-center min-h-[30px] transition hover:scale-110";
