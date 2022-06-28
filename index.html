@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizando Equipamentos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-secondary">
+    <h1 class="display-3">Teste Front-End</h1>
+    <img src="/img/aiko.png">
+    <div class="form-group">
+        <h2>Localize a sua máquina</h2>
+        <span>
+            <label class="text-light">Digite o <b>modelo</b> da máquina:</label>
+            <input type="text" id="modelo" placeholder="Ex.: CA-0001, HV-1003...">
+        </span><br>
+        <span>
+            <label class="text-light">Digite a <b>latitude</b> da localização desejada:</label>
+            <input type="number" id="latitude">
+        </span>
+        <span><br>
+            <label class="text-light">Digite a <b>longitude</b> da localização desejada:</label>
+            <input type="number" id="longitude">
+        </span><br>
+
+        <button type="button" class="btn btn-lg" onclick="procurar()">Procurar</button>
+    </div>
+
+    <div id="mapa"></div>
+
+    <div class="lista text-light">
+        <h1 class="display-5">Instruções:</h1>
+        <ul>
+            <li>Os modelos das máquinas estão disponíveis no arquivo 'equipment.json', dentro da pasta 'data' deste repositório;</li>
+            <li>As coordenadas (latitude e longitude) estão no 'equipmentPositionHistory.json', na mesma pasta;</li>
+            <li>Para a exibição do mapa, está sendo usada a biblioteca javascript Leaflet.</li>
+        </ul>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
