@@ -3,6 +3,7 @@
     align-items: center;
     width: 400px;
 
+
     select {
         border: none;
         outline: none;
@@ -43,4 +44,26 @@
         color: black;
 
     }
+
+    @media(max-width: 460px) {
+        width: 300px;
+
+        select {
+            width: 100px;
+            
+
+        }
+        
+        input {
+            width: 175px;
+            
+        }
+        
+        svg {
+            font-size: 1rem;
+            width: 25px;
+            
+        }
+    }
+
 }

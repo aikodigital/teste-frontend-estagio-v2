@@ -10,12 +10,19 @@
     }
 
     .mapContainer {
+        width: 60%;
+
         h2 {
             padding: 0;
             margin-bottom: .5rem;
         }
-    }
 
+        @media(max-width: 460px) {
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
+    
 }
 
 .currentInfos {
@@ -24,5 +31,10 @@
 
     width: 100%;
     padding: 2rem 2rem; 
+
+    @media(max-width: 460px) {
+        flex-direction: column;
+    }
+
 
 }
