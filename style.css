@@ -1,0 +1,45 @@
+.bg-secondary{
+    text-align: center;
+}
+
+#mapa{
+    height: 500px;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.btn{
+    margin-top: 20px;
+}
+.btn:hover{
+    background-color: #00BFFF;
+}
+
+.form-group{
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #00BFFF;
+    margin: 20px 480px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #1C1C1C;
+    box-shadow: 0 20px 50px 0 #6bbeda;
+}
+
+.form-group h2{
+    color: #00BFFF;
+    margin-bottom: 20px;
+}
+
+.display-3{
+    margin-top: 20px;
+}
+
+.lista{
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
