@@ -1,41 +1,35 @@
 import { useState } from "react";
-import { data } from "../data/assignedData";
 
 import "../styles/table.css";
 
+import dataId from "../data/equipment.json";
+import model from "../data/equipmentModel.json";
+import stateHis from "../data/equipmentStateHistory.json";
+import states from "../data/equipmentState.json";
+import position from "../data/equipmentPositionHistory.json";
+
 export const Table = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(data, "data");
-
-  const stateIdName = data.filter((equip, i, arr) => {
-    if (
-      equip.stateHis[i].states[Array.length - 1].equipmentStateId ===
-      "0808344c-454b-4c36-89e8-d7687e692d57"
-    ) {
-      return data.states[i].name;
-    }
-    if (
-      equip.stateHis[i].states[Array.length - 1].equipmentStateId ===
-      "baff9783-84e8-4e01-874b-6fd743b875ad"
-    ) {
-      return data.states[i].name;
-    }
-    if (
-      equip.stateHis[i].states[Array.length - 1].equipmentStateId ===
-      "03b2d446-e3ba-4c82-8dc2-a5611fea6e1f"
-    ) {
-      return data.states[i].name;
-    }
-  });
-
+  console.log(
+    "dataId",
+    dataId,
+    "model ",
+    model,
+    "stateHis",
+    stateHis,
+    "states ",
+    states,
+    "position",
+    position
+  );
   return (
     <table
       id="table"
       className="w-full bg-white rounded-xl overflow-hidden shadow-md p-4 undefined overflow-x-auto overflow-y-auto"
-      style={{ overflowY: "scroll" }}
+      style={{ overflowY: "scroll", height: "23vw" }}
     >
       <thead>
-        <tr className="border-solid border-b-1 border-gray">
+        <tr className="border-solid border-b-1 border-gray text-gray-600 py-4">
           <th>NAME</th>
           <th>MODEL</th>
           <th>STATE</th>
@@ -62,11 +56,11 @@ export const Table = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  {data.stateHis.map((state, i) => {
+                  {stateHis.map((state, i) => {
                     return (
                       <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                        Data: {data.stateHis[i].states[i].date} :
-                        {data.stateHis[i].states[i].equipmentStateId}
+                        Data: {stateHis[i].states[i].date} :
+                        {stateHis[i].states[i].equipmentStateId}
                       </p>
                     );
                   })}
@@ -88,22 +82,36 @@ export const Table = () => {
         </>
       ) : null}
       <tbody>
-        {data.dataId &&
-          data.model.map((r, i) => {
-            return (
-              <tr
-                className=" hover:bg-gray-200 border-solid border-b text-center"
-                key={data.dataId[i].id}
-                style={{ width: "100px", cursor: "pointer" }}
-                onClick={() => setShowModal(true)}
-              >
-                <td>{data.dataId[i].name}</td>
-                <td>{data.model[i].name}</td>
-                <td>{stateIdName()}</td>
-                <td>{}</td>
-              </tr>
-            );
-          })}
+        {dataId.map((r, i) => {
+          // console.log(r, "r");
+          // debugger;
+          const modelName = model.find((x) => x.id === r.equipmentModelId).name;
+
+          const lastState = states.find(
+            (x, i) =>
+              stateHis[i].states[Array.length - 1].equipmentStateId === x.id
+          ).name;
+
+          const equipCurrentState = dataId.find(
+            (x, i) => x.id === stateHis[i].equipmentId
+          ).lastState;
+
+          // const tryer = document.getElementById()
+
+          return (
+            <tr
+              className=" hover:bg-gray-200 border-solid border-b text-center text-gray-400"
+              key={dataId[i].id}
+              style={{ width: "100px", cursor: "pointer" }}
+              onClick={() => setShowModal(true)}
+            >
+              <td>{r.name}</td>
+              <td>{modelName}</td>
+              <td>{lastState}</td>
+              <td>{equipCurrentState}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

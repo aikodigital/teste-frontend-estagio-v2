@@ -30,8 +30,7 @@ function App() {
         >
           <Fleetdata />
         </div>
-        {/* <div className="box col-start-2 col-end-6"></div> */}
-        <div className="box col-start-1 col-end-8">
+        <div className="box col-start-1 col-end-8 row-start-4">
           <Footer />
         </div>
       </div>
