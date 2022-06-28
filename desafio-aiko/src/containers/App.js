@@ -26,7 +26,7 @@ function App() {
         </div>
         <div
           className="box row-start-2 row-end-3 col-start-2 col-end-8"
-          style={{ transform: "translate(1rem, -12.5ex)" }}
+          style={{ transform: "translate(0, -12.5ex)" }}
         >
           <Fleetdata />
         </div>
