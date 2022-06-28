@@ -1,0 +1,22 @@
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.stateHistory {
+  width: 200px;
+  height: 400px;
+  background-color: white;
+  color: black;
+  visibility: visible;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  z-index: 100000;
+}
+
+.state {
+  z-index: 1000000000;
+  background-color: black;
+  visibility: visible;
+}
