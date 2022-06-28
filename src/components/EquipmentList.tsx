@@ -74,7 +74,7 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
 
           <div className="flex items-center">
             <Funnel 
-              weight="bold"
+              weight={filterIsVisible ? "fill" : "bold"}
               className="inline ml-2 transition cursor-pointer hover:scale-110"
               size={18}
               onClick={() => {
@@ -84,7 +84,7 @@ function EquipmentList({ filterConfigs, setFilterConfigs }: any) {
             />
 
             <MagnifyingGlass
-              weight="bold"
+              weight={filterIsVisible ? "fill" : "bold"}
               className="inline ml-2 transition cursor-pointer hover:scale-110"
               size={18}
               onClick={() => {
