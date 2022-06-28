@@ -1,0 +1,158 @@
+.container-index {
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  background-color: black;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue-700;
+    border-radius: $border-radius-pill;
+  }
+  .mainMap {
+    min-height: 100%;
+    width: 75%;
+    box-shadow: $box-shadow-user;
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+  .infobox-map {
+    max-width: 100%;
+    width: 30%;
+    min-height: 100%;
+    height: 100%;
+    background-color: $blue-700;
+    padding: 1em;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-user;
+    ul {
+      height: 35%;
+      width: 100%;
+      padding: 0.3em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      list-style-type: none;
+      gap: 0.5em;
+      li {
+        width: 100%;
+        min-height: 2em;
+      }
+      .item-i {
+        background-color: $white;
+        color: $green-700;
+        padding: 0.5em 1em;
+        border-radius: $border-radius-pill;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: $box-shadow-user;
+        p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          font-weight: 600;
+        }
+        i {
+          font-size: 20px;
+          color: $green-500;
+        }
+        .gear-animation {
+          &::before {
+            animation: rotatex 1.2s linear infinite;
+            color: $green-800;
+          }
+        }
+        .maintenence {
+          &::before {
+            animation: tools 1.2s infinite;
+          }
+        }
+        @keyframes rotatex {
+          0% {
+            transform: rotate(-360deg);
+          }
+        }
+        @keyframes tools {
+          0% {
+            color: map-get($theme-colors, 'warning');
+
+            transform: rotate(25deg);
+          }
+          50% {
+            color: map-get($theme-colors, 'danger');
+
+            transform: rotate(-25deg);
+          }
+          100% {
+            color: map-get($theme-colors, 'warning');
+
+            transform: rotate(25deg);
+          }
+        }
+      }
+    }
+    .history-states {
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: $box-shadow-user;
+      border-radius: $border-radius-lg;
+      #history {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+          background-color: white;
+          width: 0.4em;
+          border-radius: $border-radius-lg;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $blue-700;
+          border-radius: $border-radius-pill;
+        }
+        .equipment-state {
+          font-size: 0.8em;
+          color: black;
+          border-radius: $border-radius-lg;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          p {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            color: $white;
+          }
+
+          .state {
+            width: 40%;
+          }
+
+          .date {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  .equipment-table {
+    width: 100%;
+    max-width: 50%;
+    background-color: $green-600;
+  }
+}
