@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.3",
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.2.0-beta1",
+    "bootstrap-icons": "^1.8.3",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.3"
+  }
+}

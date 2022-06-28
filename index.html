@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site de rastreamento Aiko Digital" />
+    <title>Aiko - Gestão de Frota e Controle de Abastecimento</title>
+    <link
+      rel="icon"
+      href="https://aiko.digital/wp-content/uploads/2022/06/cropped-Verde-1-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body class="mainBody bg-dark">
+    <header>
+      <div class="container" id="nav-container">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+          <a class="navbar-brand" href="https://aiko.digital/"
+            ><img id="logo" src="/img/aiko.png" alt="Aiko Digital"
+          /></a>
+
+          </button>
+          <div>
+            <ul class="navbar-nav">
+              <li class="nav-item"></li>
+              <a
+                class="nav-item nav-link"
+                href="https://aiko.digital/home/"
+                id="home-menu"
+                >Página Inicial</a
+              >
+              <a
+                class="nav-item nav-link"
+                href="https://aiko.digital/contato/"
+                id="home-contact"
+                >Contato</a
+              >
+              <a
+                class="nav-item nav-link"
+                href="https://jobs.quickin.io/aiko/jobs"
+                id="home-trabalheconosco"
+                >Trabalhe Conosco</a
+              >
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!--The div element for the map -->
+
+    <div class="barra-central">
+      <p class="p1">RASTREAMENTO DE EQUIPAMENTOS</p>
+      <div id="map"></div>
+    </div>
+    
+
+    <footer>
+      <div class="card-footer">
+        <a href="mailto:contact@aiko.digital">contact@aiko.digital</a>
+        <span>Telefone: (31) 3564-0815</span>
+      </div>
+    </footer>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDiBIcB075EcGoO4j40YhKrBrrPcinKnA&callback=initMap"
+    ></script>
+    <script type="module" src="js/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e32681c187.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
