@@ -1,0 +1,60 @@
+.title {
+    color: #000;
+    font-weight: 700;
+
+    @media (max-width: 730px) {
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 530px) {
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 450px) {
+        font-size: 0.75rem;
+    }
+}
+
+.table {
+    width: 80%;
+    border-spacing: 0 0.5rem;
+    background-color: #F7F8F8;
+
+    @media (max-width: 730px) {
+        font-size: 0.9rem
+    }
+
+    @media (max-width: 640px) {
+        font-size: 0.75rem;
+    }
+
+    @media (max-width: 450px) {
+        font-size: 0.7rem;
+    }
+
+    th {
+        font-weight: 700;
+        padding: 1rem 2rem;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+    tr {
+        font-weight: 400;
+        padding: 2rem 2rem;
+        text-align: center;
+        line-height: 3rem;
+    }
+
+    tr:nth-child(2n){
+        background-color: #FFF;
+    }
+}
+
+.table_head {
+    background-color: #F7F8F8;
+}

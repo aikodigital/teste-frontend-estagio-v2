@@ -1,0 +1,23 @@
+.leaflet {
+    height: 40rem; 
+    width: 100vw; 
+    z-index: 1;
+
+    @media (max-width: 720px) {
+        height: 30rem;
+    }
+}
+
+.popup_button{
+    padding: 0.25rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.popup_button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    text-decoration: underline;
+
+    transition: opacity 0.5s;
+}
