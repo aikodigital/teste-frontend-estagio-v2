@@ -1,0 +1,10 @@
+.App {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://images5.alphacoders.com/967/967362.jpg');
+    background-position: 30% 45%;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
