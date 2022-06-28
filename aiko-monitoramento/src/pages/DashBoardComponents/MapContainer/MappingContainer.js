@@ -29,10 +29,21 @@ const MappingContainer = ({ selected, getId }) => {
   const positions = getPositionHistory(selected)
 
   const positionsList = positions && positions.map((data) => {
+
+    const calendar = {
+      dia: data.date.slice(8, 10),
+      mes: data.date.slice(5, 7),
+      ano: data.date.slice(0, 4),
+      hora: data.date.slice(11, 19)
+    }
+    const { dia, mes, ano, hora } = calendar
+
+    const formatedData = `${dia}/${mes}/${ano} | ${hora}`
+    
     return (
       <Marker position={[data.lat, data.lon]} key={data.date}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          {formatedData}
         </Popup>
       </Marker>
     )
