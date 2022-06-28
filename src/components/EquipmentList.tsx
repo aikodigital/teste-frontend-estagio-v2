@@ -9,8 +9,8 @@ import allEquipmentStateHistory from '../../data/equipmentStateHistory.json'
 function filterByModelAndState(filtersModel: any, filtersState: any) {
   let newEquipments: any = [];
 
-  for(let model of filtersModel) {
-    for(let state of filtersState) {
+  for(const model of filtersModel) {
+    for(const state of filtersState) {
       newEquipments = newEquipments.concat(equipments.filter(eq => {
         const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.id)[0].states;
         const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
@@ -26,7 +26,7 @@ function filterByModelAndState(filtersModel: any, filtersState: any) {
 function filterByModel(filtersModel: any) {
   let newEquipments: any = [];
 
-  for(let model of filtersModel) {
+  for(const model of filtersModel) {
     newEquipments = newEquipments.concat(equipments.filter(eq => {
       return eq.equipmentModelId == model ? true : false;
     }))
@@ -38,7 +38,7 @@ function filterByModel(filtersModel: any) {
 function filterByState(filtersState: any) {
   let newEquipments: any = [];
 
-  for(let state of filtersState) {
+  for(const state of filtersState) {
     newEquipments = newEquipments.concat(equipments.filter(eq => {
       const equipmentStates = allEquipmentStateHistory.filter(state => state.equipmentId == eq.id)[0].states;
       const lastEquipmentState = equipmentStates[equipmentStates.length - 1];
@@ -51,8 +51,8 @@ function filterByState(filtersState: any) {
 }
 
 function filteredEquipments(filterConfigs: any) {
-  let filtersModel = filterConfigs.model && Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true).length > 0 ? Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true) : undefined;
-  let filtersState = filterConfigs.state && Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true).length > 0 ? Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true) : undefined;
+  const filtersModel = filterConfigs.model && Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true).length > 0 ? Object.keys(filterConfigs.model).filter((key: string) => filterConfigs.model[key] == true) : undefined;
+  const filtersState = filterConfigs.state && Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true).length > 0 ? Object.keys(filterConfigs.state).filter((key: string) => filterConfigs.state[key] == true) : undefined;
   
   if(filtersModel && filtersState) return filterByModelAndState(filtersModel, filtersState);
   if(filtersModel) return filterByModel(filtersModel);

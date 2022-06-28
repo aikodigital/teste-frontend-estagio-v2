@@ -106,7 +106,7 @@ function EquipmentInfo() {
   const equipmentPosition = equipmentPositions.positions[equipmentPositions.positions.length - 1];
 
   const last30DaysEquipmentStates = equipmentStates.filter(state => {
-    let date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
+    const date30DaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
     return new Date(state.date).getTime() > date30DaysAgo.getTime() ? true : false
   })
 
