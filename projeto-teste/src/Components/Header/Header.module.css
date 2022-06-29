@@ -1,0 +1,13 @@
+.header {
+    background-color: #003380;
+    color: #fff;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 1;
+}
+
+.h1_header {
+    font-size: 70px;
+    margin: 0;
+    padding: 20px;
+}
