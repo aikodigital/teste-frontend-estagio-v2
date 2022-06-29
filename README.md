@@ -59,7 +59,10 @@ Also it's nice to have an editor to work with the code like [VSCode](https://cod
 $ git clone https://github.com/mathmelo/teste-frontend-estagio-v2 
 
 # Access the project folder in the terminal/cmd
-$cd teste-frontend-estagio-v2
+$ cd teste-frontend-estagio-v2
+
+# Change branch to matheus-melo-da-costa
+$ git checkout matheus-melo-da-costa
 
 # Install dependencies
 $ yarn
