@@ -1,0 +1,21 @@
+.Container {
+  background-color: rgba(9, 9, rgb(1, 1, 126), 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.States {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.StatesData {
+  padding: 15px;
+}
