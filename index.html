@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Aiko</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>
+        <img src="img/aiko.png" alt="Logo-Aiko" id="logo">
+        <h1 id="titulo">Controle de Equipamentos</h1>
+            <h2 id="subtitulo">Operação Florestal</h2>
+    </p>
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+    <div id="modal-inf" class="modal-container">
+        <div class="modal">
+            <button class="botao-fechar">x</button>
+            <h1>Histórico de Estados</h1>
+            <div id="map2"></div>
+        </div>
+    </div>
+    <script type = "module" src="script.js"></script>
+</body>
+</html>
