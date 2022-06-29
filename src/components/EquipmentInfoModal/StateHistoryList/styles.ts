@@ -36,7 +36,7 @@ export const State = styled.div<IState>`
   padding: 20px;
   background-color: #fff;
   border-radius: 4px;
-  border-bottom: solid 1px ${props => props.stateColor};
+  border-bottom: solid 3px ${props => props.stateColor};
 
   span {
     margin-top: 1rem;

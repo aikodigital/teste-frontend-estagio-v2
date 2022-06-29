@@ -8,21 +8,21 @@ const caminhaoIcon = icon({
   iconUrl: caminhao,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
-  popupAnchor: [-3, -76],
+  popupAnchor: [0, -76],
 });
 
 const harvesterIcon = icon({
   iconUrl: harvester,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
-  popupAnchor: [-50, -76]
+  popupAnchor: [0, -76]
 });
 
 const tracerclawIcon = icon({
   iconUrl: tracerclaw,
   iconSize: [50, 50],
   iconAnchor: [22, 94],
-  popupAnchor: [-3, -76]
+  popupAnchor: [0, -76]
 });
 
 export function getIcon(name: string) {
