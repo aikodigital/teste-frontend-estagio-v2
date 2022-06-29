@@ -1,0 +1,11 @@
+{
+	"caminhaodecarga": {
+		"image": "img1.png"
+	},
+	"harvester": {
+		"image": "img2.png"
+	},
+	"garratracadora": {
+		"image": "img4.png"
+	}
+}
