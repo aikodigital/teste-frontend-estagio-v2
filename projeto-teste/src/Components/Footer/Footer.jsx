@@ -1,7 +1,7 @@
 import React from 'react'
 import Style from './Footer.module.css'
 import github from '../../Assets/img/github.png'
-import linkedin from '../../Assets/img/linkedin.png'
+import linkedin from '../../Assets/img/lnkedin.png'
 
 function Footer() {
   return (
